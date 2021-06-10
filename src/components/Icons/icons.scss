@@ -1,0 +1,24 @@
+@import '../../styles/vars';
+
+.icons-container {
+  display: flex;
+  
+  .icon-container {
+    border: solid 1px $darkColor;
+    display: flex;
+    align-items: center;
+    border-radius: 100%;
+    padding: 0.2rem;
+    margin: 0.1rem;
+    background-color: $greyColor;
+
+    .icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .icon-x {
+    background-color: $xColor;
+  }
+}

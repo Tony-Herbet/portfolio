@@ -1,16 +1,38 @@
 import React from 'react';
+import styled from 'styled-components';
 
-// import Taskbar from '../Taskbar';
-// import Terminal from '../Terminal';
-import Browser from '../Browser';
+import background from '../../assets/images/ubuntu-background.png';
+
+import Taskbar from '../../containers/Taskbar';
+import Terminal from '../../containers/Terminal';
+import Browser from '../../containers/Browser';
+import Folder from '../../containers/Folder';
 import './styles.scss';
 
+const AppStyled = styled.div`
+    font-family: sans-serif;
+    margin: 0;
+    background-image: url(${background});
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+
+  .app {
+    ${'' /* padding: 4.5rem 0.8rem 1rem; */}
+  }
+`;
+
 const App = () => (
-  <div className="app">
-    {/* <Taskbar />
-    <Terminal /> */}
-    <Browser />
-  </div>
+  <AppStyled>
+    <div className="app">
+      <Taskbar />
+      <Browser />
+      <Terminal />
+      <Folder />
+    </div>
+  </AppStyled>
 );
 
 export default App;

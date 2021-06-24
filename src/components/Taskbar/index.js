@@ -16,60 +16,20 @@ const Taskbar = ({
   browser,
   folder,
 }) => {
-  const handleTerminal = (event) => {
-    if (event.target.id === 'terminal') {
-      if (terminal.running === false) {
-        focusOn(event.target.id);
-        runningOn(event.target.id);
-        minimizeOff(event.target.id);
-      }
-      if (terminal.running === true) {
-        if (terminal.focus === true) {
-          focusOff(event.target.id);
-          minimizeOn(event.target.id);
-        }
-        if (terminal.focus === false) {
-          focusOn(event.target.id);
-          minimizeOff(event.target.id);
-        }
-      }
+  const handleClick = (app) => (event) => {
+    if (app.running === false) {
+      focusOn(event.target.id);
+      runningOn(event.target.id);
+      minimizeOff(event.target.id);
     }
-  };
-  const handleBrowser = (event) => {
-    if (event.target.id === 'browser') {
-      if (browser.running === false) {
+    if (app.running === true) {
+      if (app.focus === true) {
+        focusOff(event.target.id);
+        minimizeOn(event.target.id);
+      }
+      if (app.focus === false) {
         focusOn(event.target.id);
-        runningOn(event.target.id);
         minimizeOff(event.target.id);
-      }
-      if (browser.running === true) {
-        if (browser.focus === true) {
-          focusOff(event.target.id);
-          minimizeOn(event.target.id);
-        }
-        if (browser.focus === false) {
-          focusOn(event.target.id);
-          minimizeOff(event.target.id);
-        }
-      }
-    }
-  };
-  const handleFolder = (event) => {
-    if (event.target.id === 'folder') {
-      if (folder.running === false) {
-        focusOn(event.target.id);
-        runningOn(event.target.id);
-        minimizeOff(event.target.id);
-      }
-      if (folder.running === true) {
-        if (folder.focus === true) {
-          focusOff(event.target.id);
-          minimizeOn(event.target.id);
-        }
-        if (folder.focus === false) {
-          focusOn(event.target.id);
-          minimizeOff(event.target.id);
-        }
       }
     }
   };
@@ -83,15 +43,15 @@ const Taskbar = ({
     >
       <div className="task task-terminal">
         <span className="task-indicator terminal-indicator" />
-        <img src={TerminalImage} alt="" className="task-icon" id="terminal" onClick={handleTerminal} />
+        <img src={TerminalImage} alt="" className="task-icon" id="terminal" onClick={handleClick(terminal)} />
       </div>
       <div className="task task-folder">
         <span className="task-indicator folder-indicator" />
-        <img src={FolderImage} alt="" className="task-icon" id="folder" onClick={handleFolder} />
+        <img src={FolderImage} alt="" className="task-icon" id="folder" onClick={handleClick(folder)} />
       </div>
       <div className="task task-browser">
         <span className="task-indicator browser-indicator" />
-        <img src={ChromiumImage} alt="" className="task-icon" id="browser" onClick={handleBrowser} />
+        <img src={ChromiumImage} alt="" className="task-icon" id="browser" onClick={handleClick(browser)} />
       </div>
     </TaskbarStyled>
   );

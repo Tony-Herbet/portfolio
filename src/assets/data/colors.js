@@ -8,5 +8,6 @@
 // $cool: #333333;
 // $text: #111111;
 // $ubuntu: #E95420;
+// prefix terminal: #73d216;
 
 // $xColor: red;

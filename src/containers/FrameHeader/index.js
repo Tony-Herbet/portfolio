@@ -7,7 +7,7 @@ import {
   minimizeOn,
   runningOff,
   focusOff,
-} from '../../actions';
+} from '../../actions/utils';
 
 // === mapStateToProps
 const mapStateToProps = () => ({

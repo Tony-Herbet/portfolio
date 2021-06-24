@@ -5,7 +5,7 @@ import {
   MINIMIZE_OFF,
   FOCUS_ON,
   FOCUS_OFF,
-} from '../actions';
+} from '../actions/utils';
 
 const initialState = {
   terminal: {

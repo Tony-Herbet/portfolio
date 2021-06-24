@@ -16,16 +16,8 @@ const BrowserStyled = styled.div`
     justify-content: space-between;
     padding: 0.3rem;
   }
-
-  .browser-window {
-    background-color: #FFFFFF;
-    height: 100%;
-    margin: 0.2rem;
-    display: flex;
-    flex-direction: column;
-  }
   
-  .browser-window_nav {
+  .browser-nav {
     display: flex;
     background-color: #AEA79F;
     border-bottom: solid 1px #000000;

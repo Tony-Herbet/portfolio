@@ -17,3 +17,11 @@ html, body, #root {
   left: 0.8rem;
   right: 0.8rem;
 }
+
+.frame-inside {
+  background-color: #FFFFFF;
+  height: 100%;
+  margin: 0.2rem;
+  display: flex;
+  flex-direction: column;
+}

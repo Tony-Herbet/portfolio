@@ -17,8 +17,8 @@ const Browser = ({
 }) => (
   <BrowserStyled className="frame-container" browser={browser}>
     <FrameHeader identifier="browser" name="Navigateur" />
-    <div className="browser-window">
-      <div className="browser-window_nav">
+    <div className="frame-inside">
+      <div className="browser-nav">
         <div className="nav-icons">
           <ArrowLeft className="nav-arrow icon" />
           <ArrowRight className="nav-arrow icon" />

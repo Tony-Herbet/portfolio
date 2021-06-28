@@ -66,6 +66,18 @@ z-index: ${(props) => props.terminal.zIndex};
   overflow-wrap: break-word;
 }
 
+.help-container {
+  display: flex;
+}
+
+.help-name {
+  min-width: 50px;
+}
+
+.help-description {
+  padding-left: 1rem;
+}
+
 `;
 
 export default TerminalStyled;

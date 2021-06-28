@@ -40,15 +40,19 @@ const Terminal = ({
     if (userCommand !== undefined) {
       // All the commands
 
+      // Help
+      if (inputValue === 'help') {
+        pushHistory(commands.map((cmd) => <div className="help-container" key={cmd.name}><span className="help-name">{cmd.name}</span>|<span className="help-description">{cmd.description}</span></div>));
+      }
+      if (inputValue === 'ls') {
+        // TODO
+      }
+      if (inputValue === 'cd') {
+        // TODO
+      }
       // Clear History
       if (inputValue === 'clear') {
         clearHistory();
-      }
-      if (inputValue === 'help') {
-        // eslint-disable-next-line arrow-body-style
-        pushHistory(commands.map((cmd) => {
-          return <div>{cmd.name} : {cmd.description}</div>;
-        }));
       }
     }
     // Command doesn't exist

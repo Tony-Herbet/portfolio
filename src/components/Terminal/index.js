@@ -11,11 +11,10 @@ const Terminal = ({
   terminalInputUpdate,
   history,
   commands,
-  // pushHistory,
+  pushHistory,
   clearHistory,
   clearInput,
   path,
-  cmdNotFound,
 }) => {
   const inputRef = useRef();
   // Focus on terminal & auto scroll
@@ -45,10 +44,16 @@ const Terminal = ({
       if (inputValue === 'clear') {
         clearHistory();
       }
+      if (inputValue === 'help') {
+        // eslint-disable-next-line arrow-body-style
+        pushHistory(commands.map((cmd) => {
+          return <div>{cmd.name} : {cmd.description}</div>;
+        }));
+      }
     }
     // Command doesn't exist
     else {
-      cmdNotFound();
+      pushHistory(`Command '${inputValue}' not found, type 'help' to see all the commands`);
     }
     // Clear input in state
     clearInput();
@@ -105,8 +110,7 @@ Terminal.propTypes = {
   clearHistory: PropTypes.func.isRequired,
   clearInput: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
-  // pushHistory: PropTypes.func.isRequired,
-  cmdNotFound: PropTypes.func.isRequired,
+  pushHistory: PropTypes.func.isRequired,
 };
 
 export default Terminal;

@@ -7,7 +7,6 @@ import {
   pushHistory,
   clearHistory,
   clearInput,
-  cmdNotFound,
 } from '../../actions/terminal';
 
 // === mapStateToProps
@@ -32,9 +31,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   clearInput: () => {
     dispatch(clearInput());
-  },
-  cmdNotFound: () => {
-    dispatch(cmdNotFound());
   },
 });
 

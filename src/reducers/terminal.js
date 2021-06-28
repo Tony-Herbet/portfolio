@@ -3,7 +3,6 @@ import {
   PUSH_HISTORY,
   CLEAR_HISTORY,
   CLEAR_INPUT,
-  CMD_NOT_FOUND,
 } from '../actions/terminal';
 
 const initialState = {
@@ -13,8 +12,8 @@ const initialState = {
     {
       id: 1,
       cmd: 'test',
-      text: 'fdsfsdfsdfds dsfsdfsd',
       path: '/test/test',
+      text: 'fdsfsdfsdfds dsfsdfsd',
     },
   ],
   path: '/test/base',
@@ -55,20 +54,13 @@ const terminal = (state = initialState, action = {}) => {
     case PUSH_HISTORY:
       return {
         ...state,
-        id: state.id + 1,
-        // TODO
-      };
-
-    case CMD_NOT_FOUND:
-      return {
-        ...state,
         history: [
           ...state.history,
           {
             id: state.id + 1,
             cmd: state.inputValue,
-            text: `Command '${[state.inputValue]}' not found, type 'help' to see all the commands`,
             path: state.path,
+            text: action.value,
           },
         ],
         id: state.id + 1,

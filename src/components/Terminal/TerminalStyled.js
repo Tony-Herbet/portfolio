@@ -78,6 +78,9 @@ z-index: ${(props) => props.terminal.zIndex};
   padding-left: 1rem;
 }
 
+.doc {
+  color: #3465a4;
+}
 `;
 
 export default TerminalStyled;

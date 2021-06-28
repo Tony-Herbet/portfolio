@@ -7,6 +7,7 @@ import Taskbar from '../../containers/Taskbar';
 import Terminal from '../../containers/Terminal';
 import Browser from '../../containers/Browser';
 import Folder from '../../containers/Folder';
+import data from '../../assets/data';
 import './styles.scss';
 
 const AppStyled = styled.div`
@@ -29,7 +30,7 @@ const App = () => (
     <div className="app">
       <Taskbar />
       <Browser />
-      <Terminal />
+      <Terminal data={data} />
       <Folder />
     </div>
   </AppStyled>

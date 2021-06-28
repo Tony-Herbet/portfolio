@@ -8,15 +8,8 @@ import {
 const initialState = {
   inputValue: '',
   id: 1,
-  history: [
-    {
-      id: 1,
-      cmd: 'test',
-      path: '/test/test',
-      text: 'fdsfsdfsdfds dsfsdfsd',
-    },
-  ],
-  path: '/test/base',
+  history: [],
+  path: 'Projets',
   commands: [
     {
       name: 'help',
@@ -27,7 +20,7 @@ const initialState = {
       description: 'List the files and folders in the current directory',
     },
     {
-      name: 'cd',
+      name: 'cd ..',
       description: 'Change directory',
     },
     {

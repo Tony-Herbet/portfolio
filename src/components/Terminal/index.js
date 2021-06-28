@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -15,6 +14,7 @@ const Terminal = ({
   clearHistory,
   clearInput,
   path,
+  data,
 }) => {
   const inputRef = useRef();
   // Focus on terminal & auto scroll
@@ -44,11 +44,25 @@ const Terminal = ({
       if (inputValue === 'help') {
         pushHistory(commands.map((cmd) => <div className="help-container" key={cmd.name}><span className="help-name">{cmd.name}</span>|<span className="help-description">{cmd.description}</span></div>));
       }
+      // LS
       if (inputValue === 'ls') {
-        // TODO
+        // In portfolio directory
+        if (path === '') {
+          pushHistory(data.map((folderContent) => (
+            <div className={folderContent.type} key={folderContent.name}>{folderContent.name}</div>
+          )));
+        }
+        else {
+          const contentData = data.find((content) => content.name === path);
+          pushHistory(contentData.content.map((folderContent) => (
+            <div className={folderContent.type} key={folderContent.name}>{folderContent.name}</div>
+          )));
+        }
       }
-      if (inputValue === 'cd') {
+      // CD
+      if (inputValue === 'cd ..') {
         // TODO
+        pushHistory();
       }
       // Clear History
       if (inputValue === 'clear') {
@@ -115,6 +129,7 @@ Terminal.propTypes = {
   clearInput: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
   pushHistory: PropTypes.func.isRequired,
+  data: PropTypes.array.isRequired,
 };
 
 export default Terminal;

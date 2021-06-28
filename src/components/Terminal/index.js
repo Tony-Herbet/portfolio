@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -9,25 +10,48 @@ const Terminal = ({
   inputValue,
   terminalInputUpdate,
   history,
+  commands,
+  // pushHistory,
+  clearHistory,
+  clearInput,
+  path,
+  cmdNotFound,
 }) => {
   const inputRef = useRef();
+  // Focus on terminal & auto scroll
   useEffect(() => {
     inputRef.current.focus();
+    inputRef.current.scrollIntoView({ behavior: 'smooth' });
   });
-  const handleChange = (event) => {
-    terminalInputUpdate(event.target.value);
-  };
+  // Focus on terminal
   const focusInput = () => {
     inputRef.current.focus();
   };
+
+  // Save input in state
+  const handleChange = (event) => {
+    terminalInputUpdate(event.target.value);
+  };
+  // Handle all the commands
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (inputValue === 'help') {
-      console.log('help cmd');
+    // Search if command exist
+    const userCommand = commands.find((cmd) => cmd.name === inputValue);
+    // Command exist
+    if (userCommand !== undefined) {
+      // All the commands
+
+      // Clear History
+      if (inputValue === 'clear') {
+        clearHistory();
+      }
     }
+    // Command doesn't exist
     else {
-      console.log('not a cmd');
+      cmdNotFound();
     }
+    // Clear input in state
+    clearInput();
   };
 
   return (
@@ -39,28 +63,29 @@ const Terminal = ({
           You can run commands. Type 'help' to see the list.
         </div>
         {history.length > 0 && (
-        <div className="terminal-content">
-          {history.map((elm) => (
-            // TODO when css is done, put html directly in the array ?
-            <>
-              <div className="terminal-prefix">
-                <span className="prefix-name">tony@portfolio</span>
-                :
-                <span className="prefix-path">~/skills</span>
+          <>
+            {history.map((elm) => (
+              <div className="terminal-content" key={elm.id}>
+                <div className="terminal-prefix">
+                  <span className="prefix-name">tony@portfolio</span>
+                  :
+                  <span className="prefix-path">~{elm.path}</span>
+                  <span className="terminal-spacer">$</span>
+                  <span className="command-text">{elm.cmd}</span>
+                </div>
+                <div className="history-text">
+                  {elm.text}
+                </div>
               </div>
-              <div className="history-text">
-                {elm.name}
-              </div>
-            </>
-          ))}
-        </div>
+            ))}
+          </>
         )}
         <div className="terminal-content">
           <div className="terminal-prefix">
             <span className="prefix-name">tony@portfolio</span>
             :
-            <span className="prefix-path">~</span>
-            $
+            <span className="prefix-path">~{path}</span>
+            <span className="terminal-spacer">$</span>
           </div>
           <form onSubmit={handleSubmit}>
             <input type="text" className="terminal-input" ref={inputRef} value={inputValue} onChange={handleChange} />
@@ -76,6 +101,12 @@ Terminal.propTypes = {
   inputValue: PropTypes.string.isRequired,
   terminalInputUpdate: PropTypes.func.isRequired,
   history: PropTypes.array.isRequired,
+  commands: PropTypes.array.isRequired,
+  clearHistory: PropTypes.func.isRequired,
+  clearInput: PropTypes.func.isRequired,
+  path: PropTypes.string.isRequired,
+  // pushHistory: PropTypes.func.isRequired,
+  cmdNotFound: PropTypes.func.isRequired,
 };
 
 export default Terminal;

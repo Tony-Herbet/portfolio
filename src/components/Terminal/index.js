@@ -15,6 +15,7 @@ const Terminal = ({
   clearInput,
   path,
   data,
+  pathUpdate,
 }) => {
   const inputRef = useRef();
   // Focus on terminal & auto scroll
@@ -34,12 +35,14 @@ const Terminal = ({
   // Handle all the commands
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Input Trim & Split
+    const inputTrim = inputValue.trim();
+    const inputSplit = inputTrim.split(' ');
     // Search if command exist
     const userCommand = commands.find((cmd) => cmd.name === inputValue);
     // Command exist
-    if (userCommand !== undefined) {
+    if (userCommand !== undefined || inputSplit[0] === 'cd') {
       // All the commands
-
       // Help
       if (inputValue === 'help') {
         pushHistory(commands.map((cmd) => <div className="help-container" key={cmd.name}><span className="help-name">{cmd.name}</span>|<span className="help-description">{cmd.description}</span></div>));
@@ -52,6 +55,7 @@ const Terminal = ({
             <div className={folderContent.type} key={folderContent.name}>{folderContent.name}</div>
           )));
         }
+        // In another directory
         else {
           const contentData = data.find((content) => content.name === path);
           pushHistory(contentData.content.map((folderContent) => (
@@ -60,9 +64,26 @@ const Terminal = ({
         }
       }
       // CD
-      if (inputValue === 'cd ..') {
-        // TODO
-        pushHistory();
+      if (inputSplit[0] === 'cd') {
+        const cdOption = inputSplit[1];
+        // cd .. && in root directory
+        if (cdOption === '..' && path === '') {
+          pushHistory('You are already in the root directory you can\'t move up');
+        }
+        // cd .. && not in root directory
+        else if (cdOption === '..') {
+          pushHistory();
+          pathUpdate('');
+        }
+        // Directory exist
+        else if (data.find((content) => content.name === cdOption)) {
+          pushHistory();
+          pathUpdate(cdOption);
+        }
+        // Doesn't exist
+        else {
+          pushHistory("Directory doesn't exist, type 'ls' to see all the directories or 'help' to see all the commands");
+        }
       }
       // Clear History
       if (inputValue === 'clear') {
@@ -130,6 +151,7 @@ Terminal.propTypes = {
   path: PropTypes.string.isRequired,
   pushHistory: PropTypes.func.isRequired,
   data: PropTypes.array.isRequired,
+  pathUpdate: PropTypes.func.isRequired,
 };
 
 export default Terminal;

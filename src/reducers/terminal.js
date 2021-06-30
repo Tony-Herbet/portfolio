@@ -3,13 +3,14 @@ import {
   PUSH_HISTORY,
   CLEAR_HISTORY,
   CLEAR_INPUT,
+  PATH_UPDATE,
 } from '../actions/terminal';
 
 const initialState = {
   inputValue: '',
   id: 1,
   history: [],
-  path: 'Projets',
+  path: 'fdfdf',
   commands: [
     {
       name: 'help',
@@ -20,8 +21,8 @@ const initialState = {
       description: 'List the files and folders in the current directory',
     },
     {
-      name: 'cd ..',
-      description: 'Change directory',
+      name: 'cd',
+      description: 'Follow by ".." to move up one directory OR a directory name to move to it',
     },
     {
       name: 'clear',
@@ -63,6 +64,12 @@ const terminal = (state = initialState, action = {}) => {
       return {
         ...state,
         history: [],
+      };
+
+    case PATH_UPDATE:
+      return {
+        ...state,
+        path: action.value,
       };
 
     default: return state;

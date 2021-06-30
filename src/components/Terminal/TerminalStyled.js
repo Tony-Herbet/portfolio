@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 
-import UbuntuFont from '../../assets/fonts/ubuntuMono.woff2';
-
 const TerminalStyled = styled.div`
-
-@font-face {
-  font-family: 'UbuntuFont';
-  src: local('UbuntuFont'),
-  url(${UbuntuFont}) format('woff2');
-}
 
 display: ${(props) => {
     if (props.terminal.running && !props.terminal.minimize) {

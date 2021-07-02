@@ -10,7 +10,7 @@ const initialState = {
   inputValue: '',
   id: 1,
   history: [],
-  path: 'fdfdf',
+  path: '',
   commands: [
     {
       name: 'help',
@@ -22,7 +22,11 @@ const initialState = {
     },
     {
       name: 'cd',
-      description: 'Follow by ".." to move up one directory OR a directory name to move to it',
+      description: 'Followed by ".." to move up one directory OR a directory name to move to it',
+    },
+    {
+      name: 'open',
+      description: 'Followed by a .txt file name will open it',
     },
     {
       name: 'clear',

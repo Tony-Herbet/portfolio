@@ -36,12 +36,14 @@ const Terminal = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     // Input Trim & Split
-    const inputTrim = inputValue.trim();
-    const inputSplit = inputTrim.split(' ');
+    const cmdInput = inputValue.trim().split(' ');
+    console.log(cmdInput);
+    const cmdName = cmdInput[0];
+    const cmdOption = cmdInput[1];
     // Search if command exist
     const userCommand = commands.find((cmd) => cmd.name === inputValue);
     // Command exist
-    if (userCommand !== undefined || inputSplit[0] === 'cd') {
+    if (userCommand !== undefined || cmdName === 'cd' || cmdName === 'open') {
       // All the commands
       // Help
       if (inputValue === 'help') {
@@ -64,26 +66,30 @@ const Terminal = ({
         }
       }
       // CD
-      if (inputSplit[0] === 'cd') {
-        const cdOption = inputSplit[1];
+      if (cmdName === 'cd') {
         // cd .. && in root directory
-        if (cdOption === '..' && path === '') {
+        if (cmdOption === '..' && path === '') {
           pushHistory('You are already in the root directory you can\'t move up');
         }
         // cd .. && not in root directory
-        else if (cdOption === '..') {
+        else if (cmdOption === '..') {
           pushHistory();
           pathUpdate('');
         }
         // Directory exist
-        else if (data.find((content) => content.name === cdOption)) {
+        else if (data.find((content) => content.name === cmdOption)) {
           pushHistory();
-          pathUpdate(cdOption);
+          pathUpdate(cmdOption);
         }
         // Doesn't exist
         else {
           pushHistory("Directory doesn't exist, type 'ls' to see all the directories or 'help' to see all the commands");
         }
+      }
+      // OPEN
+      if (cmdName === 'open') {
+        // TODO
+        console.log('open cmd');
       }
       // Clear History
       if (inputValue === 'clear') {

@@ -29,7 +29,7 @@ const FrameHeader = ({
   return (
     <FrameHeaderStyled className="frameHeader-container">
       <div className="frame-name" onClick={focusApp}>
-        Portfolio - { name }
+        { name }
       </div>
       <div className="icons">
         <div className="icon-container" onClick={minimizeApp}>

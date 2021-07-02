@@ -9,6 +9,7 @@ const Folder = ({
 }) => (
   <FolderStyled className="frame-container" folder={folder}>
     <FrameHeader identifier="folder" name="Folder" />
+    <div className="frame-inside" />
   </FolderStyled>
 );
 

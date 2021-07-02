@@ -45,7 +45,7 @@ z-index: ${(props) => props.terminal.zIndex};
   padding: 0;
   outline: none;
   font-family: 'UbuntuFont';
-  font-size: 1em;
+  font-size: 1rem;
   width: 100%;
 }
 

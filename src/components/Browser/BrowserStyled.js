@@ -11,12 +11,6 @@ const BrowserStyled = styled.div`
 
   z-index: ${(props) => props.browser.zIndex};
 
-  .browser-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.3rem;
-  }
-  
   .browser-nav {
     display: flex;
     background-color: #AEA79F;

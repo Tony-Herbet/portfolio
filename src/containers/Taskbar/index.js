@@ -16,6 +16,7 @@ const mapStateToProps = (state) => ({
   browser: state.utils.browser,
   folder: state.utils.folder,
   txtReader: state.utils.txtReader,
+  settings: state.utils.settings,
 });
 
 // === mapDispatchToProps

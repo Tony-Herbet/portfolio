@@ -54,6 +54,15 @@ const TaskbarStyled = styled.div`
   }};
   }
 
+  .task-settings {
+    background-color: ${(props) => {
+    if (props.settings.focus) {
+      return 'hsl(0, 0%, 100%, 0.2)';
+    }
+    return 'transparent';
+  }};
+  }
+
   .task-indicator {
     height: 0.5rem;
     width: 0.5rem;
@@ -87,10 +96,16 @@ const TaskbarStyled = styled.div`
   )};
   }
 
+  .settings-indicator {
+    visibility: ${(props) => (
+    props.settings.running ? 'visible' : 'hidden'
+  )};
+  }
+
   .task-icon {
     display: flex;
     align-self: center;
-    height: 90%;
+    height: 70%;
     padding-right: 0.5rem;
   }
 `;

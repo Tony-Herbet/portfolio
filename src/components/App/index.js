@@ -8,6 +8,7 @@ import Terminal from '../../containers/Terminal';
 import Browser from '../../containers/Browser';
 import Folder from '../../containers/Folder';
 import TxtReader from '../../containers/TxtReader';
+import Settings from '../../containers/Settings';
 import data from '../../assets/data';
 import './styles.scss';
 
@@ -34,6 +35,7 @@ const App = () => (
       <Terminal data={data} />
       <Folder />
       <TxtReader />
+      <Settings />
     </div>
   </AppStyled>
 );

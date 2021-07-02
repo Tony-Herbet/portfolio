@@ -32,6 +32,12 @@ const initialState = {
     focus: false,
     zIndex: 0,
   },
+  settings: {
+    running: false,
+    minimize: false,
+    focus: false,
+    zIndex: 0,
+  },
   zIndexCounter: 0,
 };
 
@@ -91,6 +97,10 @@ const utils = (state = initialState, action = {}) => {
         },
         txtReader: {
           ...state.txtReader,
+          focus: false,
+        },
+        settings: {
+          ...state.settings,
           focus: false,
         },
         [action.identifier]: {

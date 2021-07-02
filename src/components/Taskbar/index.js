@@ -6,6 +6,7 @@ import TerminalImage from '../../assets/images/terminal.svg';
 import ChromiumImage from '../../assets/images/chromium.svg';
 import FolderImage from '../../assets/images/folder.svg';
 import TxtReaderImage from '../../assets/images/txt.svg';
+import SettingsImage from '../../assets/images/settings.svg';
 
 const Taskbar = ({
   runningOn,
@@ -17,6 +18,7 @@ const Taskbar = ({
   browser,
   folder,
   txtReader,
+  settings,
 }) => {
   const handleClick = (app) => (event) => {
     if (app.running === false) {
@@ -43,6 +45,7 @@ const Taskbar = ({
       browser={browser}
       folder={folder}
       txtReader={txtReader}
+      settings={settings}
     >
       <div className="task task-terminal">
         <span className="task-indicator terminal-indicator" />
@@ -60,6 +63,10 @@ const Taskbar = ({
         <span className="task-indicator txtReader-indicator" />
         <img src={TxtReaderImage} alt="" className="task-icon" id="txtReader" onClick={handleClick(txtReader)} />
       </div>
+      <div className="task task-settings">
+        <span className="task-indicator settings-indicator" />
+        <img src={SettingsImage} alt="" className="task-icon" id="settings" onClick={handleClick(settings)} />
+      </div>
     </TaskbarStyled>
   );
 };
@@ -74,6 +81,7 @@ Taskbar.propTypes = {
   browser: PropTypes.object.isRequired,
   folder: PropTypes.object.isRequired,
   txtReader: PropTypes.object.isRequired,
+  settings: PropTypes.object.isRequired,
 };
 
 export default Taskbar;

@@ -33,8 +33,8 @@ const FolderStyled = styled.div`
     outline: none;
     font-size: 1rem;
     width: 100%;
-    resize: none;
     height: 100%;
+    resize: none;
   }
 
   .textarea:focus {

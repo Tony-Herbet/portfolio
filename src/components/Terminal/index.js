@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -16,6 +17,7 @@ const Terminal = ({
   path,
   data,
   pathUpdate,
+  openTxtFromTerminal,
 }) => {
   const inputRef = useRef();
   // Focus on terminal & auto scroll
@@ -37,7 +39,6 @@ const Terminal = ({
     event.preventDefault();
     // Input Trim & Split
     const cmdInput = inputValue.trim().split(' ');
-    console.log(cmdInput);
     const cmdName = cmdInput[0];
     const cmdOption = cmdInput[1];
     // Search if command exist
@@ -69,7 +70,7 @@ const Terminal = ({
       if (cmdName === 'cd') {
         // cd .. && in root directory
         if (cmdOption === '..' && path === '') {
-          pushHistory('You are already in the root directory you can\'t move up');
+          pushHistory('already in the root directory you can\'t move up');
         }
         // cd .. && not in root directory
         else if (cmdOption === '..') {
@@ -77,19 +78,35 @@ const Terminal = ({
           pathUpdate('');
         }
         // Directory exist
-        else if (data.find((content) => content.name === cmdOption)) {
+        else if (data.find((content) => content.name === cmdOption) || (cmdOption.startsWith('../') && data.find((content) => content.name === cmdOption.replace('../', '')))) {
           pushHistory();
-          pathUpdate(cmdOption);
+          pathUpdate(cmdOption.replace('../', ''));
         }
         // Doesn't exist
         else {
-          pushHistory("Directory doesn't exist, type 'ls' to see all the directories or 'help' to see all the commands");
+          pushHistory(`directory '${cmdOption}' not found, type 'ls' to see all the directories or 'help' to see all the commands`);
         }
       }
       // OPEN
       if (cmdName === 'open') {
-        // TODO
-        console.log('open cmd');
+        const extension = '.txt';
+        const findObj = data.find((obj) => obj.content.find(
+          (file) => file.name === cmdOption || file.name === cmdOption + extension,
+        ));
+        // File exist
+        if (findObj !== undefined) {
+          const objContent = findObj.content.find(
+            (file) => file.name === cmdOption || file.name === cmdOption + extension,
+          );
+          pushHistory();
+          // Send text to TxtReader
+          openTxtFromTerminal(objContent.text);
+        }
+        // File doesn't exist
+        else {
+          pushHistory(`file '${cmdOption}' not found, type 'ls' to see all
+          the files in current directory or 'help' to see all the commands`);
+        }
       }
       // Clear History
       if (inputValue === 'clear') {
@@ -98,7 +115,7 @@ const Terminal = ({
     }
     // Command doesn't exist
     else {
-      pushHistory(`Command '${inputValue}' not found, type 'help' to see all the commands`);
+      pushHistory(`command '${inputValue}' not found, type 'help' to see all the commands`);
     }
     // Clear input in state
     clearInput();
@@ -158,6 +175,7 @@ Terminal.propTypes = {
   pushHistory: PropTypes.func.isRequired,
   data: PropTypes.array.isRequired,
   pathUpdate: PropTypes.func.isRequired,
+  openTxtFromTerminal: PropTypes.func.isRequired,
 };
 
 export default Terminal;

@@ -7,6 +7,10 @@ import {
   FOCUS_OFF,
 } from '../actions/utils';
 
+import {
+  OPEN_TXT_FROM_TERMINAL,
+} from '../actions/terminal';
+
 const initialState = {
   terminal: {
     running: false,
@@ -115,6 +119,34 @@ const utils = (state = initialState, action = {}) => {
         ...state,
         [action.identifier]: {
           ...state.[action.identifier],
+          focus: false,
+        },
+      };
+
+    case OPEN_TXT_FROM_TERMINAL:
+      return {
+        ...state,
+        zIndexCounter: state.zIndexCounter + 1,
+        terminal: {
+          ...state.terminal,
+          focus: false,
+        },
+        folder: {
+          ...state.folder,
+          focus: false,
+        },
+        browser: {
+          ...state.browser,
+          focus: false,
+        },
+        txtReader: {
+          running: true,
+          minimize: false,
+          focus: true,
+          zIndex: state.zIndexCounter + 1,
+        },
+        settings: {
+          ...state.settings,
           focus: false,
         },
       };

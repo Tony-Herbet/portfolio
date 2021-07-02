@@ -4,6 +4,7 @@ export const CLEAR_INPUT = 'CLEAR_INPUT';
 export const PUSH_HISTORY = 'PUSH_HISTORY';
 export const CLEAR_HISTORY = 'CLEAR_HISTORY';
 export const PATH_UPDATE = 'PATH_UPDATE';
+export const OPEN_TXT_FROM_TERMINAL = 'OPEN_TXT_FROM_TERMINAL';
 
 // === action creators
 
@@ -27,5 +28,10 @@ export const clearHistory = () => ({
 
 export const pathUpdate = (value) => ({
   type: PATH_UPDATE,
+  value,
+});
+
+export const openTxtFromTerminal = (value) => ({
+  type: OPEN_TXT_FROM_TERMINAL,
   value,
 });

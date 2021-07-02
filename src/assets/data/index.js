@@ -2,14 +2,29 @@ export default [
   {
     name: 'Presentation.txt',
     type: 'file',
-    text: 'Présentation Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
+    content: [
+      {
+        name: 'Presentation.txt',
+        text: 'Présentation Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
+      },
+    ],
+  },
+  {
+    name: 'Competences.txt',
+    type: 'file',
+    content: [
+      {
+        name: 'Competences.txt',
+        text: 'Competences Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
+      },
+    ],
   },
   {
     name: 'Diplomes',
     type: 'doc',
     content: [
       {
-        name: 'Formation-dwwm.txt',
+        name: 'Formation_dwwm.txt',
         type: 'file',
         text: 'Formation O\'clock DWWM Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
       },
@@ -35,7 +50,7 @@ export default [
         text: 'P3FC Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
       },
       {
-        name: 'O\'ld The Door.txt',
+        name: 'Old_The_Door.txt',
         type: 'file',
         text: 'O\'ld The Door Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
       },

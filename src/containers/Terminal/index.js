@@ -8,6 +8,7 @@ import {
   clearHistory,
   clearInput,
   pathUpdate,
+  openTxtFromTerminal,
 } from '../../actions/terminal';
 
 // === mapStateToProps
@@ -35,6 +36,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   pathUpdate: (value) => {
     dispatch(pathUpdate(value));
+  },
+  openTxtFromTerminal: (value) => {
+    dispatch(openTxtFromTerminal(value));
   },
 });
 

@@ -6,9 +6,10 @@ import FrameHeader from '../../containers/FrameHeader';
 
 const Folder = ({
   txtReader,
+  text,
 }) => (
   <TxtReaderStyled className="frame-container" txtReader={txtReader}>
-    <FrameHeader identifier="txtReader" name="txtReader--" />
+    <FrameHeader identifier="txtReader" name="TxtReader--" />
     <div className="frame-inside">
       <div className="txtReader-header">
         <span className="menu-options">File</span>
@@ -17,7 +18,9 @@ const Folder = ({
         <span className="menu-options">Settings</span>
       </div>
       <div className="txtReader-content">
-        <textarea className="textarea" />
+        {text}
+        {/* TODO textarea ? */}
+        {/* <textarea className="textarea" /> */}
       </div>
     </div>
   </TxtReaderStyled>
@@ -25,6 +28,7 @@ const Folder = ({
 
 Folder.propTypes = {
   txtReader: PropTypes.object.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default Folder;

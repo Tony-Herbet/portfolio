@@ -27,6 +27,31 @@ const FolderStyled = styled.div`
     padding: 0.5rem;
   }
 
+  .txtReader-tabs {
+    display: flex;
+  }
+
+  .txtReader-tab {
+    display: flex;
+    align-items: center;
+  }
+
+  .tab-icon-container {
+    display: flex;
+    align-items: center;
+    height: 15px;
+    width: 15px;
+    padding-left: 0.3rem;
+  }
+
+  .tab-icon {
+    background-color: red;
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    color: white;
+  }
+
   .textarea {
     border: none;
     padding: 0;

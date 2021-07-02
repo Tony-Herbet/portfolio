@@ -3,7 +3,7 @@ import {
 } from '../actions/terminal';
 
 const initialState = {
-  text: '',
+  filesOpen: [],
 };
 
 const txtReader = (state = initialState, action = {}) => {
@@ -11,7 +11,10 @@ const txtReader = (state = initialState, action = {}) => {
     case OPEN_TXT_FROM_TERMINAL:
       return {
         ...state,
-        text: action.value,
+        filesOpen: [
+          ...state.filesOpen,
+          action.value,
+        ],
       };
     default: return state;
   }

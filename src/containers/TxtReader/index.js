@@ -5,7 +5,7 @@ import TxtReader from '../../components/TxtReader';
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   txtReader: state.utils.txtReader,
-  text: state.txtReader.text,
+  filesOpen: state.txtReader.filesOpen,
 });
 
 // === mapDispatchToProps

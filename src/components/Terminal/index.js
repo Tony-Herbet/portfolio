@@ -99,8 +99,8 @@ const Terminal = ({
             (file) => file.name === cmdOption || file.name === cmdOption + extension,
           );
           pushHistory();
-          // Send text to TxtReader
-          openTxtFromTerminal(objContent.text);
+          // Send obj to TxtReader
+          openTxtFromTerminal(objContent);
         }
         // File doesn't exist
         else {

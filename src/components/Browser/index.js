@@ -34,7 +34,7 @@ const Browser = ({
         <MoreVertical className="icon" />
       </div>
       { browser.focus && (
-      <iframe className="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameBorder="0" />
+        <iframe className="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" loading="lazy" />
       )}
     </div>
   </BrowserStyled>

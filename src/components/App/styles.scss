@@ -9,6 +9,10 @@ html, body, #root {
   height: 100%;
 }
 
+iframe {
+  border: none;
+}
+
 .frame-container {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;

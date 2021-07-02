@@ -26,6 +26,12 @@ const initialState = {
     focus: false,
     zIndex: 0,
   },
+  txtReader: {
+    running: false,
+    minimize: false,
+    focus: false,
+    zIndex: 0,
+  },
   zIndexCounter: 0,
 };
 
@@ -81,6 +87,10 @@ const utils = (state = initialState, action = {}) => {
         },
         browser: {
           ...state.browser,
+          focus: false,
+        },
+        txtReader: {
+          ...state.txtReader,
           focus: false,
         },
         [action.identifier]: {

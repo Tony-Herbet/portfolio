@@ -5,6 +5,7 @@ import TaskbarStyled from './TaskbarStyled';
 import TerminalImage from '../../assets/images/terminal.svg';
 import ChromiumImage from '../../assets/images/chromium.svg';
 import FolderImage from '../../assets/images/folder.svg';
+import TxtReaderImage from '../../assets/images/txt.svg';
 
 const Taskbar = ({
   runningOn,
@@ -15,6 +16,7 @@ const Taskbar = ({
   terminal,
   browser,
   folder,
+  txtReader,
 }) => {
   const handleClick = (app) => (event) => {
     if (app.running === false) {
@@ -33,13 +35,14 @@ const Taskbar = ({
       }
     }
   };
-
+  // TODO Mutualize
   return (
     <TaskbarStyled
       className="taskbar-container"
       terminal={terminal}
       browser={browser}
       folder={folder}
+      txtReader={txtReader}
     >
       <div className="task task-terminal">
         <span className="task-indicator terminal-indicator" />
@@ -52,6 +55,10 @@ const Taskbar = ({
       <div className="task task-browser">
         <span className="task-indicator browser-indicator" />
         <img src={ChromiumImage} alt="" className="task-icon" id="browser" onClick={handleClick(browser)} />
+      </div>
+      <div className="task task-txtReader">
+        <span className="task-indicator txtReader-indicator" />
+        <img src={TxtReaderImage} alt="" className="task-icon" id="txtReader" onClick={handleClick(txtReader)} />
       </div>
     </TaskbarStyled>
   );
@@ -66,6 +73,7 @@ Taskbar.propTypes = {
   terminal: PropTypes.object.isRequired,
   browser: PropTypes.object.isRequired,
   folder: PropTypes.object.isRequired,
+  txtReader: PropTypes.object.isRequired,
 };
 
 export default Taskbar;

@@ -44,6 +44,15 @@ const TaskbarStyled = styled.div`
     return 'transparent';
   }};
   }
+  
+  .task-txtReader {
+    background-color: ${(props) => {
+    if (props.txtReader.focus) {
+      return 'hsl(0, 0%, 100%, 0.2)';
+    }
+    return 'transparent';
+  }};
+  }
 
   .task-indicator {
     height: 0.5rem;
@@ -69,6 +78,12 @@ const TaskbarStyled = styled.div`
   .folder-indicator {
     visibility: ${(props) => (
     props.folder.running ? 'visible' : 'hidden'
+  )};
+  }
+
+  .txtReader-indicator {
+    visibility: ${(props) => (
+    props.txtReader.running ? 'visible' : 'hidden'
   )};
   }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FolderStyled = styled.div`
+const TxtReaderStyled = styled.div`
 
   display: ${(props) => {
     if (props.txtReader.running && !props.txtReader.minimize) {
@@ -67,4 +67,4 @@ const FolderStyled = styled.div`
   }
 `;
 
-export default FolderStyled;
+export default TxtReaderStyled;

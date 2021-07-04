@@ -108,6 +108,7 @@ const Terminal = ({
           );
           pushHistory();
           // Send obj to TxtReader
+          // TODO handle opening same file once i've handle txtReader tab focus
           openTxtFromTerminal(objContent);
         }
         // File doesn't exist

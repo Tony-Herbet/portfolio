@@ -29,11 +29,13 @@ const TxtReaderStyled = styled.div`
 
   .txtReader-tabs {
     display: flex;
+    flex-wrap: wrap;
   }
 
   .txtReader-tab {
     display: flex;
     align-items: center;
+    border: solid 1px black;
   }
 
   .tab-icon-container {
@@ -52,7 +54,11 @@ const TxtReaderStyled = styled.div`
     color: white;
   }
 
-  .textarea {
+  .txtReader-content {
+    overflow: scroll;
+  }
+
+  ${'' /* .textarea {
     border: none;
     padding: 0;
     outline: none;
@@ -64,7 +70,7 @@ const TxtReaderStyled = styled.div`
 
   .textarea:focus {
     border: none;
-  }
+  } */}
 `;
 
 export default TxtReaderStyled;

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { closeFileTab } from '../../actions/txtReader';
 
 import TxtReader from '../../components/TxtReader';
 
@@ -9,8 +10,10 @@ const mapStateToProps = (state) => ({
 });
 
 // === mapDispatchToProps
-const mapDispatchToProps = (/* dispatch */) => ({
-
+const mapDispatchToProps = (dispatch) => ({
+  closeFileTab: (newFiles) => {
+    dispatch(closeFileTab(newFiles));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TxtReader);

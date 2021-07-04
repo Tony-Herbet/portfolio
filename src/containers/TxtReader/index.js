@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { closeFileTab } from '../../actions/txtReader';
+import { closeFileTab, focusFileTab } from '../../actions/txtReader';
 
 import TxtReader from '../../components/TxtReader';
 
@@ -7,12 +7,16 @@ import TxtReader from '../../components/TxtReader';
 const mapStateToProps = (state) => ({
   txtReader: state.utils.txtReader,
   filesOpen: state.txtReader.filesOpen,
+  tabFocused: state.txtReader.tabFocused,
 });
 
 // === mapDispatchToProps
 const mapDispatchToProps = (dispatch) => ({
   closeFileTab: (newFiles) => {
     dispatch(closeFileTab(newFiles));
+  },
+  focusFileTab: (name) => {
+    dispatch(focusFileTab(name));
   },
 });
 

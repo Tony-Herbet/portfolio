@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { X } from 'react-feather';
@@ -11,7 +9,12 @@ const Folder = ({
   txtReader,
   filesOpen,
   closeFileTab,
+  tabFocused,
+  focusFileTab,
 }) => {
+  const handleTabFocus = (fileName) => {
+    focusFileTab(fileName);
+  };
   const handleTabClosing = (i) => {
     const newFilesOpen = [];
     filesOpen.forEach((file, index) => {
@@ -33,7 +36,7 @@ const Folder = ({
         </div>
         <div className="txtReader-tabs">
           {filesOpen.map((file, i) => (
-            <div className="txtReader-tab" key={file.name}>
+            <div className={file.name === tabFocused ? 'txtReader-tab txtReader-tab_focused' : 'txtReader-tab'} key={file.name} onClick={() => handleTabFocus(file.name)}>
               {file.name}
               <div className="tab-icon-container">
                 <X className="tab-icon" onClick={() => handleTabClosing(i)} />
@@ -58,6 +61,8 @@ Folder.propTypes = {
   txtReader: PropTypes.object.isRequired,
   filesOpen: PropTypes.array.isRequired,
   closeFileTab: PropTypes.func.isRequired,
+  tabFocused: PropTypes.string.isRequired,
+  focusFileTab: PropTypes.func.isRequired,
 };
 
 export default Folder;

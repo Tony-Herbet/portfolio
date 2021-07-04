@@ -4,22 +4,12 @@ import {
 
 import {
   CLOSE_FILE_TAB,
+  FOCUS_FILE_TAB,
 } from '../actions/txtReader';
 
 const initialState = {
-  filesOpen: [
-    {
-      name: 'Opquast.txt',
-      type: 'file',
-      text: 'Certification Opquast Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
-    },
-    {
-      name: 'DWWM.txt',
-      type: 'file',
-      text: 'Titre pro DWWM ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
-    },
-  ],
-  tabFocus: '',
+  filesOpen: [],
+  tabFocused: '',
 };
 
 const txtReader = (state = initialState, action = {}) => {
@@ -39,6 +29,12 @@ const txtReader = (state = initialState, action = {}) => {
         filesOpen: [
           ...action.newFiles,
         ],
+      };
+
+    case FOCUS_FILE_TAB:
+      return {
+        ...state,
+        tabFocused: action.name,
       };
 
     default: return state;

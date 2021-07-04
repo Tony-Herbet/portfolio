@@ -11,6 +11,10 @@ import {
   openTxtFromTerminal,
 } from '../../actions/terminal';
 
+import {
+  focusFileTab,
+} from '../../actions/txtReader';
+
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   terminal: state.utils.terminal,
@@ -39,6 +43,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   openTxtFromTerminal: (value) => {
     dispatch(openTxtFromTerminal(value));
+  },
+  focusFileTab: (name) => {
+    dispatch(focusFileTab(name));
   },
 });
 

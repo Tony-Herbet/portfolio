@@ -17,6 +17,7 @@ const Terminal = ({
   data,
   pathUpdate,
   openTxtFromTerminal,
+  focusFileTab,
 }) => {
   const inputRef = useRef();
   // Focus on terminal & auto scroll
@@ -110,6 +111,7 @@ const Terminal = ({
           // Send obj to TxtReader
           // TODO handle opening same file once i've handle txtReader tab focus
           openTxtFromTerminal(objContent);
+          focusFileTab(objContent.name);
         }
         // File doesn't exist
         else {
@@ -185,6 +187,7 @@ Terminal.propTypes = {
   data: PropTypes.array.isRequired,
   pathUpdate: PropTypes.func.isRequired,
   openTxtFromTerminal: PropTypes.func.isRequired,
+  focusFileTab: PropTypes.func.isRequired,
 };
 
 export default Terminal;

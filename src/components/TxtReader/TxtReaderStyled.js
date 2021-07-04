@@ -35,7 +35,15 @@ const TxtReaderStyled = styled.div`
   .txtReader-tab {
     display: flex;
     align-items: center;
-    border: solid 1px black;
+    border-top: solid 2px transparent;
+    padding: 0.2rem;
+    margin: 0.2rem 0.2rem 0;
+    background-color: lightgray;
+  }
+
+  .txtReader-tab_focused {
+    border-top: solid 2px orange;
+    background-color: white;
   }
 
   .tab-icon-container {

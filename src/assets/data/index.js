@@ -21,7 +21,7 @@ export default [
   },
   {
     name: 'Diplomes',
-    type: 'doc',
+    type: 'folder',
     content: [
       {
         name: 'Formation_dwwm.txt',
@@ -42,7 +42,7 @@ export default [
   },
   {
     name: 'Projets',
-    type: 'doc',
+    type: 'folder',
     content: [
       {
         name: 'P3FC.txt',

@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -77,6 +76,10 @@ const Terminal = ({
           pushHistory();
           pathUpdate('');
         }
+        // No option given
+        else if (cmdOption === undefined) {
+          pushHistory("cd command need a directory name, type 'ls' to see all the directories or 'help' to see all the commands");
+        }
         // Directory exist
         else if (data.find((content) => content.name === cmdOption) || (cmdOption.startsWith('../') && data.find((content) => content.name === cmdOption.replace('../', '')))) {
           pushHistory();
@@ -93,8 +96,13 @@ const Terminal = ({
         const findObj = data.find((obj) => obj.content.find(
           (file) => file.name === cmdOption || file.name === cmdOption + extension,
         ));
+        // No option given
+        if (cmdOption === undefined) {
+          pushHistory(`open command need a file name, type 'ls' to see all
+          the files in current directory or 'help' to see all the commands`);
+        }
         // File exist
-        if (findObj !== undefined) {
+        else if (findObj !== undefined) {
           const objContent = findObj.content.find(
             (file) => file.name === cmdOption || file.name === cmdOption + extension,
           );

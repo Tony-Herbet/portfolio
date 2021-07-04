@@ -44,10 +44,13 @@ const Folder = ({
             </div>
           ))}
         </div>
-        {filesOpen.map((file) => (
-          <div className="txtReader-content" key={file.name}>
-            {file.text}
-          </div>
+        {filesOpen.map((file) => (file.name === tabFocused
+        // Only show focused file text
+          ? (
+            <div className="txtReader-content" key={file.name}>
+              {file.text}
+            </div>
+          ) : ''
         ))}
       </div>
     </TxtReaderStyled>

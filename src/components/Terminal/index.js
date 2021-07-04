@@ -18,6 +18,8 @@ const Terminal = ({
   pathUpdate,
   openTxtFromTerminal,
   focusFileTab,
+  filesOpen,
+  focusOn,
 }) => {
   const inputRef = useRef();
   // Focus on terminal & auto scroll
@@ -109,9 +111,16 @@ const Terminal = ({
           );
           pushHistory();
           // Send obj to TxtReader
-          // TODO handle opening same file once i've handle txtReader tab focus
-          openTxtFromTerminal(objContent);
-          focusFileTab(objContent.name);
+          // if file already open just focus on TxtReader and tab
+          if (filesOpen.find((file) => file === objContent)) {
+            focusOn('txtReader');
+            focusFileTab(objContent.name);
+          }
+          // else send file to txtReader and focus tab
+          else {
+            openTxtFromTerminal(objContent);
+            focusFileTab(objContent.name);
+          }
         }
         // File doesn't exist
         else {
@@ -188,6 +197,8 @@ Terminal.propTypes = {
   pathUpdate: PropTypes.func.isRequired,
   openTxtFromTerminal: PropTypes.func.isRequired,
   focusFileTab: PropTypes.func.isRequired,
+  filesOpen: PropTypes.array.isRequired,
+  focusOn: PropTypes.func.isRequired,
 };
 
 export default Terminal;

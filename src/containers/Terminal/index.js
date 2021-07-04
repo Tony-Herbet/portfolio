@@ -15,6 +15,10 @@ import {
   focusFileTab,
 } from '../../actions/txtReader';
 
+import {
+  focusOn,
+} from '../../actions/utils';
+
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   terminal: state.utils.terminal,
@@ -22,6 +26,7 @@ const mapStateToProps = (state) => ({
   history: state.terminal.history,
   commands: state.terminal.commands,
   path: state.terminal.path,
+  filesOpen: state.txtReader.filesOpen,
 });
 
 // === mapDispatchToProps
@@ -41,11 +46,14 @@ const mapDispatchToProps = (dispatch) => ({
   pathUpdate: (value) => {
     dispatch(pathUpdate(value));
   },
-  openTxtFromTerminal: (value) => {
-    dispatch(openTxtFromTerminal(value));
+  openTxtFromTerminal: (file) => {
+    dispatch(openTxtFromTerminal(file));
   },
   focusFileTab: (name) => {
     dispatch(focusFileTab(name));
+  },
+  focusOn: (identifier) => {
+    dispatch(focusOn(identifier));
   },
 });
 

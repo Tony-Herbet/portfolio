@@ -5,6 +5,7 @@ export default [
     content: [
       {
         name: 'Presentation.txt',
+        type: 'file',
         text: 'Présentation Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
       },
     ],
@@ -15,6 +16,7 @@ export default [
     content: [
       {
         name: 'Competences.txt',
+        type: 'file',
         text: 'Competences Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
       },
     ],

@@ -66,19 +66,6 @@ const TxtReaderStyled = styled.div`
     overflow: scroll;
   }
 
-  ${'' /* .textarea {
-    border: none;
-    padding: 0;
-    outline: none;
-    font-size: 1rem;
-    width: 100%;
-    height: 100%;
-    resize: none;
-  }
-
-  .textarea:focus {
-    border: none;
-  } */}
 `;
 
 export default TxtReaderStyled;

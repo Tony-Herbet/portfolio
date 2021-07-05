@@ -57,9 +57,6 @@ const Folder = ({
   );
 };
 
-// TODO textarea ?
-// <textarea className="textarea" />
-
 Folder.propTypes = {
   txtReader: PropTypes.object.isRequired,
   filesOpen: PropTypes.array.isRequired,

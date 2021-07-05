@@ -20,6 +20,10 @@ const Terminal = ({
   focusFileTab,
   filesOpen,
   focusOn,
+  pushCmdHistory,
+  inputHistory,
+  arrowCounter,
+  updateArrowCounter,
 }) => {
   const inputRef = useRef();
   // Focus on terminal & auto scroll
@@ -31,7 +35,6 @@ const Terminal = ({
   const focusInput = () => {
     inputRef.current.focus();
   };
-
   // Save input in state
   const handleChange = (event) => {
     terminalInputUpdate(event.target.value);
@@ -39,6 +42,8 @@ const Terminal = ({
   // Handle all the commands
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Push cmd typed
+    pushCmdHistory(inputValue);
     // Input Trim & Split
     const cmdInput = inputValue.trim().split(' ');
     const cmdName = cmdInput[0];
@@ -137,12 +142,31 @@ const Terminal = ({
     else {
       pushHistory(`command '${inputValue}' not found, type 'help' to see all the commands`);
     }
-    // Clear input in state
+    // Clear input in state & arrowCounter
+    updateArrowCounter(0);
     clearInput();
   };
 
+  const handleKeyPress = (event) => {
+    // TODO Not working
+    if (event.code === 'ArrowUp') {
+      if ((inputHistory.length - 1 - arrowCounter) >= 0) {
+        console.log('Up');
+        updateArrowCounter(arrowCounter + 1);
+        terminalInputUpdate(inputHistory[inputHistory.length - arrowCounter - 1]);
+      }
+    }
+    if (event.code === 'ArrowDown') {
+      if (inputHistory.length >= arrowCounter && arrowCounter > 0) {
+        console.log('Down');
+        updateArrowCounter(arrowCounter - 1);
+        terminalInputUpdate(inputHistory[inputHistory.length - arrowCounter - 1]);
+      }
+    }
+  };
+
   return (
-    <TerminalStyled className="frame-container" terminal={terminal} onClick={focusInput}>
+    <TerminalStyled className="frame-container" terminal={terminal} onClick={focusInput} onKeyUp={handleKeyPress}>
       <FrameHeader identifier="terminal" name="Terminal" />
       <div className="frame-inside terminal-inside">
         <div className="terminal-header">
@@ -199,6 +223,10 @@ Terminal.propTypes = {
   focusFileTab: PropTypes.func.isRequired,
   filesOpen: PropTypes.array.isRequired,
   focusOn: PropTypes.func.isRequired,
+  pushCmdHistory: PropTypes.func.isRequired,
+  inputHistory: PropTypes.array.isRequired,
+  arrowCounter: PropTypes.number.isRequired,
+  updateArrowCounter: PropTypes.func.isRequired,
 };
 
 export default Terminal;

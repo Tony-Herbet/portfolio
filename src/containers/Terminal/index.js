@@ -9,6 +9,8 @@ import {
   clearInput,
   pathUpdate,
   openTxtFromTerminal,
+  pushCmdHistory,
+  updateArrowCounter,
 } from '../../actions/terminal';
 
 import {
@@ -27,6 +29,8 @@ const mapStateToProps = (state) => ({
   commands: state.terminal.commands,
   path: state.terminal.path,
   filesOpen: state.txtReader.filesOpen,
+  inputHistory: state.terminal.inputHistory,
+  arrowCounter: state.terminal.arrowCounter,
 });
 
 // === mapDispatchToProps
@@ -54,6 +58,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   focusOn: (identifier) => {
     dispatch(focusOn(identifier));
+  },
+  pushCmdHistory: (value) => {
+    dispatch(pushCmdHistory(value));
+  },
+  updateArrowCounter: (value) => {
+    dispatch(updateArrowCounter(value));
   },
 });
 

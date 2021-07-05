@@ -4,6 +4,8 @@ import {
   CLEAR_HISTORY,
   CLEAR_INPUT,
   PATH_UPDATE,
+  PUSH_CMD_HISTORY,
+  UPDATE_ARROW_COUNTER,
 } from '../actions/terminal';
 
 const initialState = {
@@ -33,6 +35,8 @@ const initialState = {
       description: 'Clear the terminal history',
     },
   ],
+  inputHistory: [],
+  arrowCounter: 0,
 };
 
 const terminal = (state = initialState, action = {}) => {
@@ -74,6 +78,21 @@ const terminal = (state = initialState, action = {}) => {
       return {
         ...state,
         path: action.value,
+      };
+
+    case PUSH_CMD_HISTORY:
+      return {
+        ...state,
+        inputHistory: [
+          ...state.inputHistory,
+          action.value,
+        ],
+      };
+
+    case UPDATE_ARROW_COUNTER:
+      return {
+        ...state,
+        arrowCounter: action.value,
       };
 
     default: return state;

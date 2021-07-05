@@ -5,6 +5,8 @@ export const PUSH_HISTORY = 'PUSH_HISTORY';
 export const CLEAR_HISTORY = 'CLEAR_HISTORY';
 export const PATH_UPDATE = 'PATH_UPDATE';
 export const OPEN_TXT_FROM_TERMINAL = 'OPEN_TXT_FROM_TERMINAL';
+export const PUSH_CMD_HISTORY = 'PUSH_CMD_HISTORY';
+export const UPDATE_ARROW_COUNTER = 'UPDATE_ARROW_COUNTER';
 
 // === action creators
 
@@ -33,5 +35,15 @@ export const pathUpdate = (value) => ({
 
 export const openTxtFromTerminal = (value) => ({
   type: OPEN_TXT_FROM_TERMINAL,
+  value,
+});
+
+export const pushCmdHistory = (value) => ({
+  type: PUSH_CMD_HISTORY,
+  value,
+});
+
+export const updateArrowCounter = (value) => ({
+  type: UPDATE_ARROW_COUNTER,
   value,
 });

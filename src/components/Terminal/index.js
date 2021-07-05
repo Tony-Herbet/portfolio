@@ -147,26 +147,25 @@ const Terminal = ({
     clearInput();
   };
 
-  const handleKeyPress = (event) => {
-    // TODO Not working
+  const handleKeyUp = (event) => {
+    event.preventDefault();
+    // TODO it kinda works but i don't know why! need a rework
     if (event.code === 'ArrowUp') {
-      if ((inputHistory.length - 1 - arrowCounter) >= 0) {
-        console.log('Up');
+      if ((inputHistory.length - arrowCounter) > 0) {
         updateArrowCounter(arrowCounter + 1);
         terminalInputUpdate(inputHistory[inputHistory.length - arrowCounter - 1]);
       }
     }
     if (event.code === 'ArrowDown') {
-      if (inputHistory.length >= arrowCounter && arrowCounter > 0) {
-        console.log('Down');
+      if (arrowCounter > 0) {
         updateArrowCounter(arrowCounter - 1);
-        terminalInputUpdate(inputHistory[inputHistory.length - arrowCounter - 1]);
+        terminalInputUpdate(inputHistory[inputHistory.length - arrowCounter]);
       }
     }
   };
 
   return (
-    <TerminalStyled className="frame-container" terminal={terminal} onClick={focusInput} onKeyUp={handleKeyPress}>
+    <TerminalStyled className="frame-container" terminal={terminal} onClick={focusInput} onKeyUp={handleKeyUp}>
       <FrameHeader identifier="terminal" name="Terminal" />
       <div className="frame-inside terminal-inside">
         <div className="terminal-header">

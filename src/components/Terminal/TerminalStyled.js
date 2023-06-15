@@ -70,7 +70,7 @@ z-index: ${(props) => props.terminal.zIndex};
   padding-left: 1rem;
 }
 
-.doc {
+.folder {
   color: #3465a4;
 }
 `;

@@ -153,12 +153,19 @@ const Terminal = ({
     if (event.code === 'ArrowUp') {
       if ((inputHistory.length - arrowCounter) > 0) {
         updateArrowCounter(arrowCounter + 1);
+        console.log(`counter + ${arrowCounter}`);
+        console.log(`lenght + ${inputHistory.length}`);
+        console.log(`inputHistory + ${inputHistory[inputHistory.length - arrowCounter - 1]}`);
+
         terminalInputUpdate(inputHistory[inputHistory.length - arrowCounter - 1]);
       }
     }
     if (event.code === 'ArrowDown') {
       if (arrowCounter > 0) {
         updateArrowCounter(arrowCounter - 1);
+        console.log(`counter + ${arrowCounter}`);
+        console.log(`lenght + ${inputHistory.length}`);
+        console.log(`inputHistory + ${inputHistory[inputHistory.length - arrowCounter - 1]}`);
         terminalInputUpdate(inputHistory[inputHistory.length - arrowCounter]);
       }
     }

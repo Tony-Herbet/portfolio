@@ -1,11 +1,11 @@
 import {
   OPEN_TXT_FROM_TERMINAL,
-} from '../actions/terminal';
+} from 'actions/terminal';
 
 import {
   CLOSE_FILE_TAB,
   FOCUS_FILE_TAB,
-} from '../actions/txtReader';
+} from 'actions/txtReader';
 
 const initialState = {
   filesOpen: [],

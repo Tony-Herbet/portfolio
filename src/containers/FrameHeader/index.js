@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 
-import FrameHeader from '../../components/FrameHeader';
+import FrameHeader from 'components/FrameHeader';
 
 import {
   focusOn,
   minimizeOn,
   runningOff,
   focusOff,
-} from '../../actions/utils';
+} from 'actions/utils';
 
 // === mapStateToProps
 const mapStateToProps = () => ({

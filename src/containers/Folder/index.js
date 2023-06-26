@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Folder from '../../components/Folder';
+import Folder from 'components/Folder';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({

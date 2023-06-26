@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import background from '../../assets/images/ubuntu-background.png';
+import background from 'assets/images/ubuntu-background.png';
 
-import Taskbar from '../../containers/Taskbar';
-import Terminal from '../../containers/Terminal';
-import Browser from '../../containers/Browser';
-import Folder from '../../containers/Folder';
-import TxtReader from '../../containers/TxtReader';
-import Settings from '../../containers/Settings';
-import data from '../../assets/data';
+import Taskbar from 'containers/Taskbar';
+import Terminal from 'containers/Terminal';
+import Browser from 'containers/Browser';
+import Folder from 'containers/Folder';
+import TxtReader from 'containers/TxtReader';
+import Settings from 'containers/Settings';
+import data from 'assets/data';
 import './styles.scss';
 
 const AppStyled = styled.div`

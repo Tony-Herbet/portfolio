@@ -1,9 +1,13 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable comma-dangle */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable no-confusing-arrow */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { X } from 'react-feather';
 
 import TxtReaderStyled from './TxtReaderStyled';
-import FrameHeader from '../../containers/FrameHeader';
+import FrameHeader from 'containers/FrameHeader';
 
 const Folder = ({
   txtReader,
@@ -36,7 +40,15 @@ const Folder = ({
         </div>
         <div className="txtReader-tabs">
           {filesOpen.map((file, i) => (
-            <div className={file.name === tabFocused ? 'txtReader-tab txtReader-tab_focused' : 'txtReader-tab'} key={file.name} onClick={() => handleTabFocus(file.name)}>
+            <div
+              className={
+                file.name === tabFocused
+                  ? 'txtReader-tab txtReader-tab_focused'
+                  : 'txtReader-tab'
+              }
+              key={file.name}
+              onClick={() => handleTabFocus(file.name)}
+            >
               {file.name}
               <div className="tab-icon-container">
                 <X className="tab-icon" onClick={() => handleTabClosing(i)} />
@@ -44,14 +56,16 @@ const Folder = ({
             </div>
           ))}
         </div>
-        {filesOpen.map((file) => (file.name === tabFocused
-        // Only show focused file text
-          ? (
+        {filesOpen.map((file) =>
+          file.name === tabFocused ? (
+            // Only show focused file text
             <div className="txtReader-content" key={file.name}>
               {file.text}
             </div>
-          ) : ''
-        ))}
+          ) : (
+            ''
+          )
+        )}
       </div>
     </TxtReaderStyled>
   );

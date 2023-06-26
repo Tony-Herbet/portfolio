@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SettingsStyled from './SettingsStyled';
-import FrameHeader from '../../containers/FrameHeader';
+import FrameHeader from 'containers/FrameHeader';
 
 const Settings = ({
   settings,

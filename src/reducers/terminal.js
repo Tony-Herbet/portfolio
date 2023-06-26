@@ -1,17 +1,17 @@
 import {
   TERMINAL_INPUT_UPDATE,
-  PUSH_HISTORY,
-  CLEAR_HISTORY,
+  PUSH_TERMINAL_HISTORY,
+  CLEAR_TERMINAL_HISTORY,
   CLEAR_INPUT,
   PATH_UPDATE,
   PUSH_CMD_HISTORY,
   UPDATE_ARROW_COUNTER,
-} from '../actions/terminal';
+} from 'actions/terminal';
 
 const initialState = {
   inputValue: '',
   id: 1,
-  history: [],
+  terminalHistory: [],
   path: '',
   commands: [
     {
@@ -24,7 +24,8 @@ const initialState = {
     },
     {
       name: 'cd',
-      description: 'Followed by ".." to move up one directory OR a directory name to move to it',
+      description:
+        'Followed by ".." to move up one directory OR a directory name to move to it',
     },
     {
       name: 'open',
@@ -35,7 +36,7 @@ const initialState = {
       description: 'Clear the terminal history',
     },
   ],
-  inputHistory: [],
+  cmdHistory: [],
   arrowCounter: 0,
 };
 
@@ -53,11 +54,11 @@ const terminal = (state = initialState, action = {}) => {
         inputValue: '',
       };
 
-    case PUSH_HISTORY:
+    case PUSH_TERMINAL_HISTORY:
       return {
         ...state,
-        history: [
-          ...state.history,
+        terminalHistory: [
+          ...state.terminalHistory,
           {
             id: state.id + 1,
             cmd: state.inputValue,
@@ -68,10 +69,10 @@ const terminal = (state = initialState, action = {}) => {
         id: state.id + 1,
       };
 
-    case CLEAR_HISTORY:
+    case CLEAR_TERMINAL_HISTORY:
       return {
         ...state,
-        history: [],
+        terminalHistory: [],
       };
 
     case PATH_UPDATE:
@@ -83,10 +84,7 @@ const terminal = (state = initialState, action = {}) => {
     case PUSH_CMD_HISTORY:
       return {
         ...state,
-        inputHistory: [
-          ...state.inputHistory,
-          action.value,
-        ],
+        cmdHistory: [...state.cmdHistory, action.value],
       };
 
     case UPDATE_ARROW_COUNTER:
@@ -95,7 +93,8 @@ const terminal = (state = initialState, action = {}) => {
         arrowCounter: action.value,
       };
 
-    default: return state;
+    default:
+      return state;
   }
 };
 

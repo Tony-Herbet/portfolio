@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 //   fetchAdventureSelected,
 // } from 'action';
 
-import Diploma from '../../components/Page/Pages/Diploma';
+import Diploma from 'components/Page/Pages/Diploma';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({

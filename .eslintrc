@@ -1,6 +1,8 @@
 {
-  "extends": "airbnb",
-  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],  "parser": "babel-eslint",
   "env": {
     "browser": true
   },
@@ -32,16 +34,5 @@
     "react/no-unescaped-entities": "off",
     "react/jsx-props-no-spreading": "off",
     "react/state-in-constructor": "off"
-  },
-  "settings": {
-    "import/resolver": {
-      "alias": {
-        "extensions": [".js"],
-        "map": [
-          ["src", "./src"],
-          ["app", "./src"]
-        ]
-      }
-    }
   }
 }

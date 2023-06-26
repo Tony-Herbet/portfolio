@@ -5,11 +5,11 @@ import {
   MINIMIZE_OFF,
   FOCUS_ON,
   FOCUS_OFF,
-} from '../actions/utils';
+} from 'actions/utils';
 
 import {
   OPEN_TXT_FROM_TERMINAL,
-} from '../actions/terminal';
+} from 'actions/terminal';
 
 const initialState = {
   terminal: {
@@ -51,7 +51,7 @@ const utils = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.identifier]: {
-          ...state.[action.identifier],
+          ...state[action.identifier],
           running: true,
         },
       };
@@ -60,7 +60,7 @@ const utils = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.identifier]: {
-          ...state.[action.identifier],
+          ...state[action.identifier],
           running: false,
         },
       };
@@ -69,7 +69,7 @@ const utils = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.identifier]: {
-          ...state.[action.identifier],
+          ...state[action.identifier],
           minimize: true,
         },
       };
@@ -78,7 +78,7 @@ const utils = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.identifier]: {
-          ...state.[action.identifier],
+          ...state[action.identifier],
           minimize: false,
         },
       };
@@ -108,7 +108,7 @@ const utils = (state = initialState, action = {}) => {
           focus: false,
         },
         [action.identifier]: {
-          ...state.[action.identifier],
+          ...state[action.identifier],
           focus: true,
           zIndex: state.zIndexCounter + 1,
         },
@@ -118,7 +118,7 @@ const utils = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.identifier]: {
-          ...state.[action.identifier],
+          ...state[action.identifier],
           focus: false,
         },
       };

@@ -1,35 +1,31 @@
 import { connect } from 'react-redux';
 
-import Terminal from '../../components/Terminal';
+import Terminal from 'components/Terminal';
 
 import {
   terminalInputUpdate,
-  pushHistory,
-  clearHistory,
+  pushTerminalHistory,
+  clearTerminalHistory,
   clearInput,
   pathUpdate,
   openTxtFromTerminal,
   pushCmdHistory,
   updateArrowCounter,
-} from '../../actions/terminal';
+} from 'actions/terminal';
 
-import {
-  focusFileTab,
-} from '../../actions/txtReader';
+import { focusFileTab } from 'actions/txtReader';
 
-import {
-  focusOn,
-} from '../../actions/utils';
+import { focusOn } from 'actions/utils';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   terminal: state.utils.terminal,
   inputValue: state.terminal.inputValue,
-  history: state.terminal.history,
+  terminalHistory: state.terminal.terminalHistory,
   commands: state.terminal.commands,
   path: state.terminal.path,
   filesOpen: state.txtReader.filesOpen,
-  inputHistory: state.terminal.inputHistory,
+  cmdHistory: state.terminal.cmdHistory,
   arrowCounter: state.terminal.arrowCounter,
 });
 
@@ -38,11 +34,11 @@ const mapDispatchToProps = (dispatch) => ({
   terminalInputUpdate: (value) => {
     dispatch(terminalInputUpdate(value));
   },
-  pushHistory: (value) => {
-    dispatch(pushHistory(value));
+  pushTerminalHistory: (value) => {
+    dispatch(pushTerminalHistory(value));
   },
-  clearHistory: () => {
-    dispatch(clearHistory());
+  clearTerminalHistory: () => {
+    dispatch(clearTerminalHistory());
   },
   clearInput: () => {
     dispatch(clearInput());

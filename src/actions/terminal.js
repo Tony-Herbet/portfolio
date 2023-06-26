@@ -1,8 +1,8 @@
 // === action types
 export const TERMINAL_INPUT_UPDATE = 'TERMINAL_INPUT_UPDATE';
 export const CLEAR_INPUT = 'CLEAR_INPUT';
-export const PUSH_HISTORY = 'PUSH_HISTORY';
-export const CLEAR_HISTORY = 'CLEAR_HISTORY';
+export const PUSH_TERMINAL_HISTORY = 'PUSH_TERMINAL_HISTORY';
+export const CLEAR_TERMINAL_HISTORY = 'CLEAR_TERMINAL_HISTORY';
 export const PATH_UPDATE = 'PATH_UPDATE';
 export const OPEN_TXT_FROM_TERMINAL = 'OPEN_TXT_FROM_TERMINAL';
 export const PUSH_CMD_HISTORY = 'PUSH_CMD_HISTORY';
@@ -19,13 +19,13 @@ export const clearInput = () => ({
   type: CLEAR_INPUT,
 });
 
-export const pushHistory = (value) => ({
-  type: PUSH_HISTORY,
+export const pushTerminalHistory = (value) => ({
+  type: PUSH_TERMINAL_HISTORY,
   value,
 });
 
-export const clearHistory = () => ({
-  type: CLEAR_HISTORY,
+export const clearTerminalHistory = () => ({
+  type: CLEAR_TERMINAL_HISTORY,
 });
 
 export const pathUpdate = (value) => ({

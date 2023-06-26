@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Browser from '../../components/Browser';
+import Browser from 'components/Browser';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({

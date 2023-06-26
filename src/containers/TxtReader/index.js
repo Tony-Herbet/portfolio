@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { closeFileTab, focusFileTab } from '../../actions/txtReader';
+import { closeFileTab, focusFileTab } from 'actions/txtReader';
 
-import TxtReader from '../../components/TxtReader';
+import TxtReader from 'components/TxtReader';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({

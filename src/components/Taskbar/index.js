@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TaskbarStyled from './TaskbarStyled';
-import TerminalImage from '../../assets/images/terminal.svg';
-import ChromiumImage from '../../assets/images/chromium.svg';
-import FolderImage from '../../assets/images/folder.svg';
-import TxtReaderImage from '../../assets/images/txt.svg';
-import SettingsImage from '../../assets/images/settings.svg';
+import TerminalImage from 'assets/images/terminal.svg';
+import ChromiumImage from 'assets/images/chromium.svg';
+import FolderImage from 'assets/images/folder.svg';
+import TxtReaderImage from 'assets/images/txt.svg';
+import SettingsImage from 'assets/images/settings.svg';
 
 const Taskbar = ({
   runningOn,

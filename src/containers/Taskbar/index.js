@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Taskbar from '../../components/Taskbar';
+import Taskbar from 'components/Taskbar';
 
 import {
   runningOn,
@@ -8,7 +8,7 @@ import {
   focusOn,
   minimizeOff,
   focusOff,
-} from '../../actions/utils';
+} from 'actions/utils';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({

@@ -10,7 +10,7 @@ import {
 } from 'react-feather';
 
 import BrowserStyled from './BrowserStyled';
-import FrameHeader from '../../containers/FrameHeader';
+import FrameHeader from 'containers/FrameHeader';
 
 const Browser = ({
   browser,

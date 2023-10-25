@@ -25,6 +25,10 @@ z-index: ${(props) => props.terminal.zIndex};
   width: 100%;
 }
 
+.terminal-prefix {
+  display: flex;
+}
+
 .prefix-name {
   color: #73d216;
 }
@@ -35,7 +39,8 @@ z-index: ${(props) => props.terminal.zIndex};
 }
 
 .terminal-spacer {
-  margin-right: 2px;
+  margin-right: 5px;
+  color: #FFD700
 }
 
 .terminal-input {

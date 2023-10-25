@@ -9,5 +9,6 @@
 // $text: #111111;
 // $ubuntu: #E95420;
 // prefix terminal: #73d216;
+// gold: #FFD700
 
 // $xColor: red;

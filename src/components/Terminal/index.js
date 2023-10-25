@@ -254,16 +254,16 @@ const Terminal = ({
             <span className="prefix-name">tony@portfolio</span>:
             <span className="prefix-path">~{path}</span>
             <span className="terminal-spacer">$</span>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                className="terminal-input"
+                ref={inputRef}
+                value={inputValue}
+                onChange={handleChange}
+              />
+            </form>
           </div>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              className="terminal-input"
-              ref={inputRef}
-              value={inputValue}
-              onChange={handleChange}
-            />
-          </form>
         </div>
       </div>
     </TerminalStyled>

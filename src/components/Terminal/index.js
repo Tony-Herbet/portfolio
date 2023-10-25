@@ -78,8 +78,8 @@ const Terminal = ({
       pushTerminalHistory();
       pathUpdate('');
     }
-    // No option given
-    else if (cmdOption === undefined) {
+    // No option given OR trying to cd into a .txt
+    else if (cmdOption === undefined || cmdOption.endsWith('.txt')) {
       pushTerminalHistory(
         "cd command need a directory name, type 'ls' to see all the directories or 'help' to see all the commands"
       );

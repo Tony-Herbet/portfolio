@@ -10,7 +10,7 @@ import Folder from 'containers/Folder';
 import TxtReader from 'containers/TxtReader';
 import Settings from 'containers/Settings';
 import data from 'assets/data';
-import './styles.scss';
+import './styles.css';
 
 const AppStyled = styled.div`
     font-family: sans-serif;

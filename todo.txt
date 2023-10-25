@@ -1,0 +1,19 @@
+-TxtReader usable
+-Square working
+-movable windows
+-change browser display
+-konami code
+-email
+-Settings?
+
+
+-txtreader 
+
+
+-top right time
+-volume
+
+
+Fix:
+
+-terminal typing not on the same line

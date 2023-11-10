@@ -9,6 +9,7 @@ import Browser from 'containers/Browser';
 import Folder from 'containers/Folder';
 import TxtReader from 'containers/TxtReader';
 import Settings from 'containers/Settings';
+import Pdf from 'containers/Pdf';
 import data from 'assets/data';
 import './styles.css';
 
@@ -36,6 +37,7 @@ const App = () => (
       <Folder />
       <TxtReader />
       <Settings />
+      <Pdf />
     </div>
   </AppStyled>
 );

@@ -9,6 +9,7 @@ import {
 
 import {
   OPEN_TXT_FROM_TERMINAL,
+  OPEN_PDF_FROM_TERMINAL
 } from 'actions/terminal';
 
 const initialState = {
@@ -37,6 +38,12 @@ const initialState = {
     zIndex: 0,
   },
   settings: {
+    running: false,
+    minimize: false,
+    focus: false,
+    zIndex: 0,
+  },
+  pdf: {
     running: false,
     minimize: false,
     focus: false,
@@ -107,6 +114,10 @@ const utils = (state = initialState, action = {}) => {
           ...state.settings,
           focus: false,
         },
+        pdf: {
+          ...state.pdf,
+          focus: false,
+        },
         [action.identifier]: {
           ...state[action.identifier],
           focus: true,
@@ -148,6 +159,42 @@ const utils = (state = initialState, action = {}) => {
         settings: {
           ...state.settings,
           focus: false,
+        },
+        pdf: {
+          ...state.pdf,
+          focus: false,
+        },
+      };
+
+    case OPEN_PDF_FROM_TERMINAL:
+      return {
+        ...state,
+        zIndexCounter: state.zIndexCounter + 1,
+        terminal: {
+          ...state.terminal,
+          focus: false,
+        },
+        folder: {
+          ...state.folder,
+          focus: false,
+        },
+        browser: {
+          ...state.browser,
+          focus: false,
+        },
+        txtReader: {
+          ...state.txtReader,
+          focus: false,
+        },
+        settings: {
+          ...state.settings,
+          focus: false,
+        },
+        pdf: {
+          running: true,
+          minimize: false,
+          focus: true,
+          zIndex: state.zIndexCounter + 1,
         },
       };
 

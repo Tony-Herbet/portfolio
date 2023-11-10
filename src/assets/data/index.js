@@ -22,6 +22,17 @@ export default [
     ],
   },
   {
+    name: 'CV.pdf',
+    type: 'file',
+    content: [
+      {
+        name: 'CV.pdf',
+        type: 'file',
+        text: undefined,
+      },
+    ],
+  },
+  {
     name: 'Diplomes',
     type: 'folder',
     content: [

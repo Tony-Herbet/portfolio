@@ -9,6 +9,7 @@ import {
   clearInput,
   pathUpdate,
   openTxtFromTerminal,
+  openPdfFromTerminal,
   pushCmdHistory,
   updateArrowCounter,
 } from 'actions/terminal';
@@ -48,6 +49,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   openTxtFromTerminal: (file) => {
     dispatch(openTxtFromTerminal(file));
+  },
+  openPdfFromTerminal: () => {
+    dispatch(openPdfFromTerminal());
   },
   focusFileTab: (name) => {
     dispatch(focusFileTab(name));

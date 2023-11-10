@@ -17,6 +17,7 @@ const mapStateToProps = (state) => ({
   folder: state.utils.folder,
   txtReader: state.utils.txtReader,
   settings: state.utils.settings,
+  pdf: state.utils.pdf,
 });
 
 // === mapDispatchToProps

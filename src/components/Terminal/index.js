@@ -17,6 +17,7 @@ const Terminal = ({
   data,
   pathUpdate,
   openTxtFromTerminal,
+  openPdfFromTerminal,
   focusFileTab,
   filesOpen,
   focusOn,
@@ -103,33 +104,41 @@ const Terminal = ({
 
   // Handle Open
   const handleOpenCmd = (cmdOption) => {
-    const extension = '.txt';
+    const extensions = ['.txt', '.pdf'];
+    // Find the object in data file with the right name
     const findObj = data.find((obj) =>
+      // "open" accept the name with or without an extension therefore we need to search if it exist with or without an extension
       obj.content.find(
-        (file) => file.name === cmdOption || file.name === cmdOption + extension
+        (file) => file.name === cmdOption || file.name === cmdOption + extensions[0] || file.name === cmdOption + extensions[1]
       )
     );
     // No option given
     if (cmdOption === undefined) {
-      pushTerminalHistory(`open command need a file name, type 'ls' to see all
-    the files in current directory or 'help' to see all the commands`);
+      pushTerminalHistory(
+        `open command need a file name, type 'ls' to see all the files in current directory or 'help' to see all the commands`
+      );
     }
     // File exist
     else if (findObj !== undefined) {
-      const objContent = findObj.content.find(
-        (file) => file.name === cmdOption || file.name === cmdOption + extension
-      );
       pushTerminalHistory();
-      // Send obj to TxtReader
-      // if file already open just focus on TxtReader and tab
-      if (filesOpen.find((file) => file === objContent)) {
-        focusOn('txtReader');
-        focusFileTab(objContent.name);
-      }
-      // else send file to txtReader and focus tab
+
+      // We open the pdf reader
+      if(findObj.name === 'CV.pdf') {
+        openPdfFromTerminal()
+      } 
+      // We open txt reader
       else {
-        openTxtFromTerminal(objContent);
-        focusFileTab(objContent.name);
+        // Send obj to TxtReader
+        // if file already open just focus on TxtReader and tab
+        if (filesOpen.find((file) => file === findObj.content[0])) {
+          focusOn('txtReader');
+          focusFileTab(findObj.content[0].name);
+        }
+        // else send file to txtReader and focus tab
+        else {
+          openTxtFromTerminal(findObj.content[0]);
+          focusFileTab(findObj.content[0].name);
+        }
       }
     }
     // File doesn't exist
@@ -283,6 +292,7 @@ Terminal.propTypes = {
   data: PropTypes.array.isRequired,
   pathUpdate: PropTypes.func.isRequired,
   openTxtFromTerminal: PropTypes.func.isRequired,
+  openPdfFromTerminal: PropTypes.func.isRequired,
   focusFileTab: PropTypes.func.isRequired,
   filesOpen: PropTypes.array.isRequired,
   focusOn: PropTypes.func.isRequired,

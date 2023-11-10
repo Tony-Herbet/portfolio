@@ -7,6 +7,7 @@ import ChromiumImage from 'assets/images/chromium.svg';
 import FolderImage from 'assets/images/folder.svg';
 import TxtReaderImage from 'assets/images/txt.svg';
 import SettingsImage from 'assets/images/settings.svg';
+import ClayGymnastReaderImage from 'assets/images/pdf.svg'
 
 const Taskbar = ({
   runningOn,
@@ -19,6 +20,7 @@ const Taskbar = ({
   folder,
   txtReader,
   settings,
+  pdf,
 }) => {
   const handleClick = (app) => (event) => {
     if (app.running === false) {
@@ -46,6 +48,7 @@ const Taskbar = ({
       folder={folder}
       txtReader={txtReader}
       settings={settings}
+      pdf={pdf}
     >
       <div className="task task-terminal">
         <span className="task-indicator terminal-indicator" />
@@ -67,6 +70,10 @@ const Taskbar = ({
         <span className="task-indicator settings-indicator" />
         <img src={SettingsImage} alt="" className="task-icon" id="settings" onClick={handleClick(settings)} />
       </div>
+      <div className="task task-pdf">
+        <span className="task-indicator pdf-indicator" />
+        <img src={ClayGymnastReaderImage} alt="" className="task-icon" id="pdf" onClick={handleClick(pdf)} />
+      </div>
     </TaskbarStyled>
   );
 };
@@ -82,6 +89,7 @@ Taskbar.propTypes = {
   folder: PropTypes.object.isRequired,
   txtReader: PropTypes.object.isRequired,
   settings: PropTypes.object.isRequired,
+  pdf: PropTypes.object.isRequired,
 };
 
 export default Taskbar;

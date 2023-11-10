@@ -29,7 +29,7 @@ const initialState = {
     },
     {
       name: 'open',
-      description: 'Followed by a .txt file name will open it',
+      description: 'Open a .txt or .pdf file',
     },
     {
       name: 'clear',

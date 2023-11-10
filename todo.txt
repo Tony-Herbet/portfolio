@@ -1,3 +1,5 @@
+Todo:
+
 -TxtReader usable
 -Square working
 -movable windows
@@ -5,15 +7,14 @@
 -konami code
 -email
 -Settings?
-
-
--txtreader 
-
+-rename navigateur to browser
+-hover on taskbar icon?
 
 -top right time
 -volume
 
 
-Fix:
+Fix/Done:
 
 -terminal typing not on the same line
+-PdfReader

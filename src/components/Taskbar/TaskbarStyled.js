@@ -63,6 +63,15 @@ const TaskbarStyled = styled.div`
   }};
   }
 
+  .task-pdf {
+    background-color: ${(props) => {
+    if (props.pdf.focus) {
+      return 'hsl(0, 0%, 100%, 0.2)';
+    }
+    return 'transparent';
+  }};
+  }
+
   .task-indicator {
     height: 0.5rem;
     width: 0.5rem;
@@ -99,6 +108,12 @@ const TaskbarStyled = styled.div`
   .settings-indicator {
     visibility: ${(props) => (
     props.settings.running ? 'visible' : 'hidden'
+  )};
+  }
+
+  .pdf-indicator {
+    visibility: ${(props) => (
+    props.pdf.running ? 'visible' : 'hidden'
   )};
   }
 

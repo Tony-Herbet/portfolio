@@ -117,6 +117,12 @@ const TaskbarStyled = styled.div`
   )};
   }
 
+  .mail-indicator {
+    visibility: ${(props) => (
+    props.mail.running ? 'visible' : 'hidden'
+  )};
+  }
+
   .task-icon {
     display: flex;
     align-self: center;

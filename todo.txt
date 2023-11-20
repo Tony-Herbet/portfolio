@@ -1,5 +1,6 @@
 Todo:
 
+-Change logos
 -TxtReader usable
 -Square working
 -movable windows

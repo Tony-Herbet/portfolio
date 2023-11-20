@@ -8,6 +8,7 @@ import FolderImage from 'assets/images/folder.svg';
 import TxtReaderImage from 'assets/images/txt.svg';
 import SettingsImage from 'assets/images/settings.svg';
 import ClayGymnastReaderImage from 'assets/images/pdf.svg'
+import MailImage from 'assets/images/mail.svg'
 
 const Taskbar = ({
   runningOn,
@@ -21,6 +22,7 @@ const Taskbar = ({
   txtReader,
   settings,
   pdf,
+  mail
 }) => {
   const handleClick = (app) => (event) => {
     if (app.running === false) {
@@ -49,6 +51,7 @@ const Taskbar = ({
       txtReader={txtReader}
       settings={settings}
       pdf={pdf}
+      mail={mail}
     >
       <div className="task task-terminal">
         <span className="task-indicator terminal-indicator" />
@@ -74,6 +77,10 @@ const Taskbar = ({
         <span className="task-indicator pdf-indicator" />
         <img src={ClayGymnastReaderImage} alt="" className="task-icon" id="pdf" onClick={handleClick(pdf)} />
       </div>
+      <div className="task task-mail">
+        <span className="task-indicator mail-indicator" />
+        <img src={MailImage} alt="" className="task-icon" id="mail" onClick={handleClick(mail)} />
+      </div>
     </TaskbarStyled>
   );
 };
@@ -90,6 +97,7 @@ Taskbar.propTypes = {
   txtReader: PropTypes.object.isRequired,
   settings: PropTypes.object.isRequired,
   pdf: PropTypes.object.isRequired,
+  mail: PropTypes.object.isRequired,
 };
 
 export default Taskbar;

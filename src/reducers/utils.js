@@ -49,6 +49,12 @@ const initialState = {
     focus: false,
     zIndex: 0,
   },
+  mail: {
+    running: false,
+    minimize: false,
+    focus: false,
+    zIndex: 0,
+  },
   zIndexCounter: 0,
 };
 
@@ -118,6 +124,10 @@ const utils = (state = initialState, action = {}) => {
           ...state.pdf,
           focus: false,
         },
+        mail: {
+          ...state.mail,
+          focus: false,
+        },
         [action.identifier]: {
           ...state[action.identifier],
           focus: true,
@@ -164,6 +174,10 @@ const utils = (state = initialState, action = {}) => {
           ...state.pdf,
           focus: false,
         },
+        mail: {
+          ...state.mail,
+          focus: false,
+        },
       };
 
     case OPEN_PDF_FROM_TERMINAL:
@@ -195,6 +209,10 @@ const utils = (state = initialState, action = {}) => {
           minimize: false,
           focus: true,
           zIndex: state.zIndexCounter + 1,
+        },
+        mail: {
+          ...state.mail,
+          focus: false,
         },
       };
 

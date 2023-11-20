@@ -18,6 +18,7 @@ const mapStateToProps = (state) => ({
   txtReader: state.utils.txtReader,
   settings: state.utils.settings,
   pdf: state.utils.pdf,
+  mail: state.utils.mail
 });
 
 // === mapDispatchToProps

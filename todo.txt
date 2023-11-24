@@ -13,6 +13,7 @@ Todo:
 
 -top right time
 -volume
+-better props validation
 
 
 Fix/Done:

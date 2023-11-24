@@ -2,9 +2,19 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended"
-  ],  "parser": "babel-eslint",
+  ], 
+  "parser": "@babel/eslint-parser",
   "env": {
     "browser": true
+  }, 
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": {
+          "@/*": ["src/*"]
+        }
+      }
+    }
   },
   "rules": {
     "brace-style": ["error", "stroustrup"],

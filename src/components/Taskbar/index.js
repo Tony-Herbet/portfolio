@@ -10,6 +10,10 @@ import SettingsImage from 'assets/images/settings.svg';
 import ClayGymnastReaderImage from 'assets/images/pdf.svg'
 import MailImage from 'assets/images/mail.svg'
 
+// For SVG import use https://jakearchibald.github.io/svgomg/
+// To compress the SVG to fix an issue:
+// https://github.com/facebook/create-react-app/issues/11770
+
 const Taskbar = ({
   runningOn,
   minimizeOn,

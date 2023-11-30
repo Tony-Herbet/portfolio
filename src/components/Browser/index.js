@@ -16,7 +16,7 @@ const Browser = ({
   browser,
 }) => (
   <BrowserStyled className="frame-container" browser={browser}>
-    <FrameHeader identifier="browser" name="Navigateur" />
+    <FrameHeader identifier="browser" name="Copium" />
     <div className="frame-inside">
       <div className="browser-nav">
         <div className="nav-icons">
@@ -27,14 +27,14 @@ const Browser = ({
         <div className="adressBar">
           <Lock className="icon" />
           <p className="url">
-            https://portfolio
+            https://tony-herbet.github.io/p3fc/
           </p>
           <Star className="icon icon-star" />
         </div>
         <MoreVertical className="icon" />
       </div>
       { browser.focus && (
-        <iframe className="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" loading="lazy" />
+        <iframe className="video" src="https://tony-herbet.github.io/p3fc/" title="p3fc" loading="lazy" />
       )}
     </div>
   </BrowserStyled>

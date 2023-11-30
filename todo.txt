@@ -4,12 +4,10 @@ Todo:
 -TxtReader usable
 -Square working
 -movable windows
--change browser display
 -konami code
--email
 -Settings?
--rename navigateur to browser
 -hover on taskbar icon?
+-hower on frameHeader icons
 
 -top right time
 -volume
@@ -20,3 +18,8 @@ Fix/Done:
 
 -terminal typing not on the same line
 -PdfReader
+-change browser display
+-rename navigateur to browser
+-email
+
+

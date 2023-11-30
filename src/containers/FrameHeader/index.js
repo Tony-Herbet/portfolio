@@ -5,6 +5,7 @@ import FrameHeader from 'components/FrameHeader';
 import {
   focusOn,
   minimizeOn,
+  maximizeClicked,
   runningOff,
   focusOff,
 } from 'actions/utils';
@@ -20,6 +21,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   minimizeOn: (identifier) => {
     dispatch(minimizeOn(identifier));
+  },
+  maximizeClicked: (identifier) => {
+    dispatch(maximizeClicked(identifier))
   },
   runningOff: (identifier) => {
     dispatch(runningOff(identifier));

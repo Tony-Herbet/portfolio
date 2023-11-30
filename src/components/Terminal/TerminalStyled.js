@@ -2,82 +2,87 @@ import styled from 'styled-components';
 
 const TerminalStyled = styled.div`
 
-display: ${(props) => {
+  display: ${(props) => {
     if (props.terminal.running && !props.terminal.minimize) {
       return 'flex';
     }
     return 'none';
   }};
 
-z-index: ${(props) => props.terminal.zIndex};
+  top: ${props => props.terminal.maximize ? '50px' : '80px' };
+  right: ${props => props.terminal.maximize ? '0' : '0.8rem' };
+  left: ${props => props.terminal.maximize ? '0' : '0.8rem' };
+  height: ${props => props.terminal.maximize ? 'calc(100vh - 50px)' : '450px' };
 
-.terminal-inside {
-  background-color: #2C001E;
-  color: white;
-  padding: 2px;
-  font-family: 'UbuntuFont';
-  overflow: scroll;
-}
+  z-index: ${(props) => props.terminal.zIndex};
 
-.terminal-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
+  .terminal-inside {
+    background-color: #2C001E;
+    color: white;
+    padding: 2px;
+    font-family: 'UbuntuFont';
+    overflow: scroll;
+  }
 
-.terminal-prefix {
-  display: flex;
-}
+  .terminal-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 
-.prefix-name {
-  color: #73d216;
-}
+  .terminal-prefix {
+    display: flex;
+  }
 
-.prefix-path {
-  color: #3465a4;
-  margin-right: 1px;
-}
+  .prefix-name {
+    color: #73d216;
+  }
 
-.terminal-spacer {
-  margin-right: 5px;
-  color: #FFD700
-}
+  .prefix-path {
+    color: #3465a4;
+    margin-right: 1px;
+  }
 
-.terminal-input {
-  border: none;
-  color: white;
-  background-color: #2C001E;
-  padding: 0;
-  outline: none;
-  font-family: 'UbuntuFont';
-  font-size: 1rem;
-  width: 100%;
-}
+  .terminal-spacer {
+    margin-right: 5px;
+    color: #FFD700
+  }
 
-.terminal-input:focus {
-  border: none;
-}
+  .terminal-input {
+    border: none;
+    color: white;
+    background-color: #2C001E;
+    padding: 0;
+    outline: none;
+    font-family: 'UbuntuFont';
+    font-size: 1rem;
+    width: 100%;
+  }
 
-.command-text {
-  display: inline;
-  overflow-wrap: break-word;
-}
+  .terminal-input:focus {
+    border: none;
+  }
 
-.help-container {
-  display: flex;
-}
+  .command-text {
+    display: inline;
+    overflow-wrap: break-word;
+  }
 
-.help-name {
-  min-width: 50px;
-}
+  .help-container {
+    display: flex;
+  }
 
-.help-description {
-  padding-left: 1rem;
-}
+  .help-name {
+    min-width: 50px;
+  }
 
-.folder {
-  color: #3465a4;
-}
+  .help-description {
+    padding-left: 1rem;
+  }
+
+  .folder {
+    color: #3465a4;
+  }
 `;
 
 export default TerminalStyled;

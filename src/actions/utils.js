@@ -3,6 +3,7 @@ export const RUNNING_ON = 'RUNNING_ON';
 export const RUNNING_OFF = 'RUNNING_OFF';
 export const MINIMIZE_ON = 'MINIMIZE_ON';
 export const MINIMIZE_OFF = 'MINIMIZE_OFF';
+export const MAXIMIZE_CLICKED = 'MAXIMIZE_CLICKED';
 export const FOCUS_ON = 'FOCUS_ON';
 export const FOCUS_OFF = 'FOCUS_OFF';
 
@@ -26,6 +27,12 @@ export const minimizeOff = (identifier) => ({
   type: MINIMIZE_OFF,
   identifier,
 });
+
+export const maximizeClicked = (identifier) => ({
+  type: MAXIMIZE_CLICKED,
+  identifier,
+});
+
 
 export const focusOn = (identifier) => ({
   type: FOCUS_ON,

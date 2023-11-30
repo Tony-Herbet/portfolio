@@ -15,14 +15,15 @@ import data from 'assets/data';
 import './styles.css';
 
 const AppStyled = styled.div`
-    font-family: sans-serif;
-    margin: 0;
-    background-image: url(${background});
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-    min-height: 100%;
-    min-width: 100%;
+
+  font-family: sans-serif;
+  margin: 0;
+  background-image: url(${background});
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 100%;
 
   .app {
     ${'' /* padding: 4.5rem 0.8rem 1rem; */}

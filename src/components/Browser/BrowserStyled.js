@@ -9,6 +9,11 @@ const BrowserStyled = styled.div`
     return 'none';
   }};
 
+  top: ${props => props.browser.maximize ? '50px' : '80px' };
+  right: ${props => props.browser.maximize ? '0' : '0.8rem' };
+  left: ${props => props.browser.maximize ? '0' : '0.8rem' };
+  height: ${props => props.browser.maximize ? 'calc(100vh - 50px)' : '450px' };
+
   z-index: ${(props) => props.browser.zIndex};
 
   .browser-nav {
@@ -49,9 +54,10 @@ const BrowserStyled = styled.div`
     align-self: center;
   }
 
-  .video {
+  .iframe {
     width: 100%;
-    height: 100%
+    height: 100%;
+    transform: translateZ(0);
   }
 `;
 

@@ -2,14 +2,15 @@ Todo:
 
 -Change logos
 -TxtReader usable
--Square working
--movable windows
+-movable windows?
 -konami code
 -Settings?
 
 -top right time
 -volume
 -better props validation
+-email css
+-fix browser iframe not showing after another app overlap
 
 
 Fix/Done:
@@ -21,6 +22,7 @@ Fix/Done:
 -email
 -hover on taskbar icon?
 -hower on frameHeader icons
+-Square working
 
 
 

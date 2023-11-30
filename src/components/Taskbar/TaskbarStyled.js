@@ -7,7 +7,6 @@ const TaskbarStyled = styled.div`
   left: 0;
   right: 0;
   top: 0;
-  padding: 0.2rem;
   background-color: rgba(31, 27, 27, 0.3);
   display: flex;
   flex-direction: row;
@@ -26,56 +25,56 @@ const TaskbarStyled = styled.div`
 
   .task-terminal {
     background-color: ${(props) => {
-    if (props.terminal.focus) {
-      return 'hsl(0, 0%, 100%, 0.2)';
-    }
-    return 'transparent';
-  }};
+      if (props.terminal.focus) {
+        return 'hsl(0, 0%, 100%, 0.2)';
+      }
+      return 'transparent';
+    }};
   }
 
   .task-browser {
     background-color: ${(props) => {
-    if (props.browser.focus) {
-      return 'hsl(0, 0%, 100%, 0.2)';
-    }
-    return 'transparent';
-  }};
+      if (props.browser.focus) {
+        return 'hsl(0, 0%, 100%, 0.2)';
+      }
+      return 'transparent';
+    }};
   }
 
   .task-folder {
     background-color: ${(props) => {
-    if (props.folder.focus) {
-      return 'hsl(0, 0%, 100%, 0.2)';
-    }
-    return 'transparent';
-  }};
+      if (props.folder.focus) {
+        return 'hsl(0, 0%, 100%, 0.2)';
+      }
+      return 'transparent';
+    }};
   }
   
   .task-txtReader {
     background-color: ${(props) => {
-    if (props.txtReader.focus) {
-      return 'hsl(0, 0%, 100%, 0.2)';
-    }
-    return 'transparent';
-  }};
+      if (props.txtReader.focus) {
+        return 'hsl(0, 0%, 100%, 0.2)';
+      }
+      return 'transparent';
+    }};
   }
 
   .task-settings {
     background-color: ${(props) => {
-    if (props.settings.focus) {
-      return 'hsl(0, 0%, 100%, 0.2)';
-    }
-    return 'transparent';
-  }};
+      if (props.settings.focus) {
+        return 'hsl(0, 0%, 100%, 0.2)';
+      }
+      return 'transparent';
+    }};
   }
 
   .task-pdf {
     background-color: ${(props) => {
-    if (props.pdf.focus) {
-      return 'hsl(0, 0%, 100%, 0.2)';
-    }
-    return 'transparent';
-  }};
+      if (props.pdf.focus) {
+        return 'hsl(0, 0%, 100%, 0.2)';
+      }
+      return 'transparent';
+    }};
   }
 
   .task-indicator {
@@ -89,44 +88,44 @@ const TaskbarStyled = styled.div`
 
   .terminal-indicator {
     visibility: ${(props) => (
-    props.terminal.running ? 'visible' : 'hidden'
-  )};
+      props.terminal.running ? 'visible' : 'hidden'
+    )};
   }
 
   .browser-indicator {
     visibility: ${(props) => (
-    props.browser.running ? 'visible' : 'hidden'
-  )};
+      props.browser.running ? 'visible' : 'hidden'
+    )};
   }
 
   .folder-indicator {
     visibility: ${(props) => (
-    props.folder.running ? 'visible' : 'hidden'
-  )};
+      props.folder.running ? 'visible' : 'hidden'
+    )};
   }
 
   .txtReader-indicator {
     visibility: ${(props) => (
-    props.txtReader.running ? 'visible' : 'hidden'
-  )};
+      props.txtReader.running ? 'visible' : 'hidden'
+    )};
   }
 
   .settings-indicator {
     visibility: ${(props) => (
-    props.settings.running ? 'visible' : 'hidden'
-  )};
+      props.settings.running ? 'visible' : 'hidden'
+    )};
   }
 
   .pdf-indicator {
     visibility: ${(props) => (
-    props.pdf.running ? 'visible' : 'hidden'
-  )};
+      props.pdf.running ? 'visible' : 'hidden'
+    )};
   }
 
   .mail-indicator {
     visibility: ${(props) => (
-    props.mail.running ? 'visible' : 'hidden'
-  )};
+      props.mail.running ? 'visible' : 'hidden'
+    )};
   }
 
   .task-icon {

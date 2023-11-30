@@ -9,6 +9,11 @@ const FolderStyled = styled.div`
     return 'none';
   }};
 
+  top: ${props => props.folder.maximize ? '50px' : '80px' };
+  right: ${props => props.folder.maximize ? '0' : '0.8rem' };
+  left: ${props => props.folder.maximize ? '0' : '0.8rem' };
+  height: ${props => props.folder.maximize ? 'calc(100vh - 50px)' : '450px' };
+
   z-index: ${(props) => props.folder.zIndex};
 `;
 

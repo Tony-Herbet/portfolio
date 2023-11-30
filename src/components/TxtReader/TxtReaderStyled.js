@@ -9,6 +9,11 @@ const TxtReaderStyled = styled.div`
     return 'none';
   }};
 
+  top: ${props => props.txtReader.maximize ? '50px' : '80px' };
+  right: ${props => props.txtReader.maximize ? '0' : '0.8rem' };
+  left: ${props => props.txtReader.maximize ? '0' : '0.8rem' };
+  height: ${props => props.txtReader.maximize ? 'calc(100vh - 50px)' : '450px' };
+
   z-index: ${(props) => props.txtReader.zIndex};
 
   .txtReader-header {

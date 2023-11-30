@@ -3,6 +3,7 @@ import {
   RUNNING_OFF,
   MINIMIZE_ON,
   MINIMIZE_OFF,
+  MAXIMIZE_CLICKED,
   FOCUS_ON,
   FOCUS_OFF,
 } from 'actions/utils';
@@ -16,42 +17,49 @@ const initialState = {
   terminal: {
     running: false,
     minimize: false,
+    maximize: false,
     focus: false,
     zIndex: 0,
   },
   browser: {
     running: false,
     minimize: false,
+    maximize: false,
     focus: false,
     zIndex: 0,
   },
   folder: {
     running: false,
     minimize: false,
+    maximize: false,
     focus: false,
     zIndex: 0,
   },
   txtReader: {
     running: false,
     minimize: false,
+    maximize: false,
     focus: false,
     zIndex: 0,
   },
   settings: {
     running: false,
     minimize: false,
+    maximize: false,
     focus: false,
     zIndex: 0,
   },
   pdf: {
     running: false,
     minimize: false,
+    maximize: false,
     focus: false,
     zIndex: 0,
   },
   mail: {
     running: false,
     minimize: false,
+    maximize: false,
     focus: false,
     zIndex: 0,
   },
@@ -93,6 +101,15 @@ const utils = (state = initialState, action = {}) => {
         [action.identifier]: {
           ...state[action.identifier],
           minimize: false,
+        },
+      };
+
+    case MAXIMIZE_CLICKED:
+      return {
+        ...state,
+        [action.identifier]: {
+          ...state[action.identifier],
+          maximize: !state[action.identifier].maximize,
         },
       };
 

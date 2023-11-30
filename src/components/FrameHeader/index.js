@@ -9,6 +9,7 @@ const FrameHeader = ({
   focusOn,
   focusOff,
   minimizeOn,
+  maximizeClicked,
   runningOff,
   identifier,
   name,
@@ -17,6 +18,10 @@ const FrameHeader = ({
     minimizeOn(identifier);
     focusOff(identifier);
   };
+  const maximizeApp = () => {
+    console.log('max')
+    maximizeClicked(identifier)
+  }
   const closeApp = () => {
     focusOff(identifier);
     minimizeOn(identifier);
@@ -38,7 +43,7 @@ const FrameHeader = ({
           </div>
         </div>
         <div className='icon-border'>
-          <div className="icon-container">
+          <div className="icon-container" onClick={maximizeApp}>
             <Square className="icon" />
           </div>
         </div>
@@ -55,6 +60,7 @@ const FrameHeader = ({
 FrameHeader.propTypes = {
   focusOn: PropTypes.func.isRequired,
   minimizeOn: PropTypes.func.isRequired,
+  maximizeClicked: PropTypes.func.isRequired,
   runningOff: PropTypes.func.isRequired,
   focusOff: PropTypes.func.isRequired,
   identifier: PropTypes.string.isRequired,

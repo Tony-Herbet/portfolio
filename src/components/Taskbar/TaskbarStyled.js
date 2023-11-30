@@ -16,6 +16,12 @@ const TaskbarStyled = styled.div`
     display: flex;
     margin-left: 0.3rem;
     border-radius: 5px;
+    width: 60px;
+    justify-content: space-evenly;
+  }
+
+  .task:hover {
+    background-color: hsl(0, 0%, 100%, 0.2);
   }
 
   .task-terminal {
@@ -126,7 +132,8 @@ const TaskbarStyled = styled.div`
   .task-icon {
     display: flex;
     align-self: center;
-    height: 70%;
+    width: 35px;
+    height: 35px;
     padding-right: 0.5rem;
   }
 `;

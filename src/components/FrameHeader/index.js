@@ -32,14 +32,20 @@ const FrameHeader = ({
         { name }
       </div>
       <div className="icons">
-        <div className="icon-container" onClick={minimizeApp}>
-          <Minus className="icon" />
+        <div className='icon-border'>
+          <div className="icon-container" onClick={minimizeApp}>
+            <Minus className="icon" />
+          </div>
         </div>
-        <div className="icon-container">
-          <Square className="icon" />
+        <div className='icon-border'>
+          <div className="icon-container">
+            <Square className="icon" />
+          </div>
         </div>
-        <div className="icon-container icon-x" onClick={closeApp}>
-          <X className="icon" />
+        <div className='icon-border'>
+          <div className="icon-container icon-x" onClick={closeApp}>
+            <X className="icon" />
+          </div>
         </div>
       </div>
     </FrameHeaderStyled>

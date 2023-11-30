@@ -7,6 +7,7 @@ const FrameHeaderStyled = styled.div`
   border-top-right-radius: 0.5rem;
   display: flex;
   align-items: center;
+  margin-top: 0.2rem;
 
   .frame-name {
     padding: 0.3rem;
@@ -16,9 +17,22 @@ const FrameHeaderStyled = styled.div`
   .icons {
     display: flex;
     width: 85px;
+    height: 100%;
     display: flex;
     justify-content: space-around;
-    padding: 0.3rem;
+    padding: 0 0.2rem;
+  }
+
+  .icon-border {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon-border:hover {
+    background-color: hsl(0, 0%, 100%, 0.2)
   }
 
   .icon-container {

@@ -6,8 +6,6 @@ Todo:
 -movable windows
 -konami code
 -Settings?
--hover on taskbar icon?
--hower on frameHeader icons
 
 -top right time
 -volume
@@ -21,5 +19,9 @@ Fix/Done:
 -change browser display
 -rename navigateur to browser
 -email
+-hover on taskbar icon?
+-hower on frameHeader icons
+
+
 
 

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const FrameHeaderStyled = styled.div`
 
-  background-color: #333333;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   display: flex;

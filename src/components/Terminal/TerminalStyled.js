@@ -17,7 +17,7 @@ const TerminalStyled = styled.div`
   z-index: ${(props) => props.terminal.zIndex};
 
   .terminal-inside {
-    background-color: #2C001E;
+    background-color: #2C001E !important;
     color: white;
     padding: 2px;
     font-family: 'UbuntuFont';

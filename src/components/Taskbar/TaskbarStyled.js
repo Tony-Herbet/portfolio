@@ -80,7 +80,7 @@ const TaskbarStyled = styled.div`
   .task-indicator {
     height: 0.5rem;
     width: 0.5rem;
-    background-color: red;
+    background-color: ${props => props.theme.colors.accent};
     border-radius: 100%;
     align-self: center;
     margin: 0 1px;

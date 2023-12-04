@@ -4,7 +4,7 @@
 /* eslint-disable no-confusing-arrow */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { X } from 'react-feather';
+import { IoClose  } from "react-icons/io5";
 
 import TxtReaderStyled from './TxtReaderStyled';
 import FrameHeader from 'containers/FrameHeader';
@@ -51,7 +51,7 @@ const Folder = ({
             >
               {file.name}
               <div className="tab-icon-container">
-                <X className="tab-icon" onClick={() => handleTabClosing(i)} />
+                <IoClose className="tab-icon" onClick={() => handleTabClosing(i)} />
               </div>
             </div>
           ))}

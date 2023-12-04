@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import {styled, ThemeProvider} from 'styled-components';
 
 import background from 'assets/images/ubuntu-background.png';
 
@@ -12,7 +13,6 @@ import Settings from 'containers/Settings';
 import Pdf from 'containers/Pdf';
 import Mail from 'containers/Mail';
 import data from 'assets/data';
-import './styles.css';
 
 const AppStyled = styled.div`
 
@@ -25,24 +25,43 @@ const AppStyled = styled.div`
   min-height: 100%;
   min-width: 100%;
 
+  .frame-container {
+  background-color: ${props => props.theme.colors[props.theme.themeStyle].main};
+  box-shadow: 0 0 1rem ${props => props.theme.colors.highlight};
+}
+
+  .frame-inside {
+    background-color: ${props => props.theme.colors[props.theme.themeStyle].secondary};
+    height: 100%;
+    margin: 0.3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
   .app {
-    ${'' /* padding: 4.5rem 0.8rem 1rem; */}
+    color: ${props => props.theme.colors[props.theme.themeStyle].text}
   }
 `;
 
-const App = () => (
-  <AppStyled>
-    <div className="app">
-      <Taskbar />
-      <Browser />
-      <Terminal data={data} />
-      <Folder />
-      <TxtReader />
-      <Settings />
-      <Pdf />
-      <Mail />
-    </div>
-  </AppStyled>
+const App = ({theme}) => (
+  <ThemeProvider theme={theme}>
+    <AppStyled>
+      <div className="app">
+        <Taskbar />
+        <Browser />
+        <Terminal data={data} />
+        <Folder />
+        <TxtReader />
+        <Settings />
+        <Pdf />
+        <Mail />
+      </div>
+    </AppStyled>
+  </ThemeProvider>
 );
+
+App.propTypes = {
+  theme: PropTypes.object.isRequired,
+};
 
 export default App;

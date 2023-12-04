@@ -1,7 +1,9 @@
 /* eslint-disable no-useless-concat */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Square, X, Minus } from 'react-feather';
+import { IoClose  } from "react-icons/io5";
+import { FaRegSquare } from "react-icons/fa6";
+import { VscChromeMinimize } from "react-icons/vsc";
 
 import FrameHeaderStyled from './FrameHeaderStyled';
 
@@ -19,7 +21,6 @@ const FrameHeader = ({
     focusOff(identifier);
   };
   const maximizeApp = () => {
-    console.log('max')
     maximizeClicked(identifier)
   }
   const closeApp = () => {
@@ -39,17 +40,17 @@ const FrameHeader = ({
       <div className="icons">
         <div className='icon-border'>
           <div className="icon-container" onClick={minimizeApp}>
-            <Minus className="icon" />
+            <VscChromeMinimize className="icon" />
           </div>
         </div>
         <div className='icon-border'>
           <div className="icon-container" onClick={maximizeApp}>
-            <Square className="icon" />
+            <FaRegSquare className="icon" />
           </div>
         </div>
         <div className='icon-border'>
           <div className="icon-container icon-x" onClick={closeApp}>
-            <X className="icon" />
+            <IoClose className="icon" />
           </div>
         </div>
       </div>

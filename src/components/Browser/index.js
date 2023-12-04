@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  ArrowLeft,
-  ArrowRight,
-  RotateCw,
-  MoreVertical,
-  Star,
-  Lock,
-} from 'react-feather';
+import { FaArrowRotateRight, FaArrowLeft, FaArrowRight, FaLock } from "react-icons/fa6";
+import { IoStarOutline  } from "react-icons/io5";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 import BrowserStyled from './BrowserStyled';
 import FrameHeader from 'containers/FrameHeader';
@@ -20,18 +15,18 @@ const Browser = ({
     <div className="frame-inside">
       <div className="browser-nav">
         <div className="nav-icons">
-          <ArrowLeft className="nav-arrow icon" />
-          <ArrowRight className="nav-arrow icon" />
-          <RotateCw className="icon" />
+          <FaArrowLeft className="nav-arrow icon" />
+          <FaArrowRight className="nav-arrow icon" />
+          <FaArrowRotateRight className="icon" />
         </div>
         <div className="adressBar">
-          <Lock className="icon" />
+          <FaLock className="icon" />
           <p className="url">
             https://tony-herbet.github.io/p3fc/
           </p>
-          <Star className="icon icon-star" />
+          <IoStarOutline className="icon icon-star" />
         </div>
-        <MoreVertical className="icon" />
+        <BsThreeDotsVertical className="icon" />
       </div>
       { browser.focus && (
         <iframe className="iframe" src="https://tony-herbet.github.io/p3fc/" title="p3fc" />

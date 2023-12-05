@@ -9,16 +9,23 @@ const BrowserStyled = styled.div`
     return 'none';
   }};
 
+
+  z-index: ${(props) => props.browser.zIndex};
+
+  /* Position when maximize */
   top: ${props => props.browser.maximize ? '50px' : '80px' };
   right: ${props => props.browser.maximize ? '0' : '0.8rem' };
   left: ${props => props.browser.maximize ? '0' : '0.8rem' };
   height: ${props => props.browser.maximize ? 'calc(100vh - 50px)' : '450px' };
 
-  z-index: ${(props) => props.browser.zIndex};
+  /* Border when maximize */
+  border: solid 1px ${props =>  props.browser.maximize ? 'transparent': props.theme.accent};
+  border-top-left-radius: ${props =>  props.browser.maximize ? 0 : '0.5rem'};
+  border-top-right-radius: ${props =>  props.browser.maximize ? 0 : '0.5rem'};
 
   .browser-nav {
     display: flex;
-    background-color: #AEA79F;
+    background-color: ${props => props.theme[props.theme.themeStyle].tertiary};
     border-bottom: solid 1px #000000;
     padding: 0.3rem 0.1rem;
   }

@@ -263,7 +263,7 @@ const Terminal = ({
             <span className="prefix-name">tony@portfolio</span>:
             <span className="prefix-path">~{path}</span>
             <span className="terminal-spacer">$</span>
-            <form onSubmit={handleSubmit}>
+            <form className="terminal-form" onSubmit={handleSubmit}>
               <input
                 type="text"
                 className="terminal-input"

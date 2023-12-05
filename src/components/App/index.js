@@ -26,12 +26,12 @@ const AppStyled = styled.div`
   min-width: 100%;
 
   .frame-container {
-  background-color: ${props => props.theme.colors[props.theme.themeStyle].main};
-  box-shadow: 0 0 1rem ${props => props.theme.colors.highlight};
-}
+    background-color: ${props => props.theme[props.theme.themeStyle].main};
+    box-shadow: 0 0 1rem ${props => props.theme.borderAndShadow};
+  }
 
   .frame-inside {
-    background-color: ${props => props.theme.colors[props.theme.themeStyle].secondary};
+    background-color: ${props => props.theme[props.theme.themeStyle].secondary};
     height: 100%;
     margin: 0.3rem;
     display: flex;
@@ -39,7 +39,7 @@ const AppStyled = styled.div`
   }
 
   .app {
-    color: ${props => props.theme.colors[props.theme.themeStyle].text}
+    color: ${props => props.theme[props.theme.themeStyle].text}
   }
 `;
 

@@ -13,13 +13,15 @@ const Settings = ({
   focusCategoryTab,
   changeThemeStyle,
   themeStyle,
+  changeAccentColor,
 }) => {
   const handleThemeSelect = (event) => {
     const themeSelected = event.target.value
     if(themeSelected === 'dark' || themeSelected === 'light') {
       changeThemeStyle(themeSelected)
     }
-  }
+  };
+
   return (
     <SettingsStyled className="frame-container" settings={settings} categoryFocused={categoryFocused}>
       <FrameHeader identifier="settings" name="Settings" />
@@ -43,9 +45,12 @@ const Settings = ({
                 <option value="light">Light</option>
               </select>
               <p>Choose your accent color</p>
-              <GithubPicker />
+              <div>Current color:</div>
+              <div className='accent-square-display' />
+              <GithubPicker onChangeComplete={(color) => changeAccentColor(color.hex)} />
             </>
           )}
+
           {categoryFocused === 'background' && (
             <div className="option option-background">background</div>
           )}
@@ -60,6 +65,7 @@ Settings.propTypes = {
   categoryFocused: PropTypes.string.isRequired,
   focusCategoryTab: PropTypes.func.isRequired,
   changeThemeStyle: PropTypes.func.isRequired,
+  changeAccentColor: PropTypes.func.isRequired,
   themeStyle: PropTypes.string.isRequired,
 };
 

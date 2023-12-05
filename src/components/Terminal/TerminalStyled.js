@@ -9,16 +9,22 @@ const TerminalStyled = styled.div`
     return 'none';
   }};
 
+  z-index: ${(props) => props.terminal.zIndex};
+
+  /* Position when maximize */
   top: ${props => props.terminal.maximize ? '50px' : '80px' };
   right: ${props => props.terminal.maximize ? '0' : '0.8rem' };
   left: ${props => props.terminal.maximize ? '0' : '0.8rem' };
   height: ${props => props.terminal.maximize ? 'calc(100vh - 50px)' : '450px' };
 
-  z-index: ${(props) => props.terminal.zIndex};
+  /* Border when maximize */
+  border: solid 1px ${props =>  props.terminal.maximize ? 'transparent': props.theme.accent};
+  border-top-left-radius: ${props =>  props.terminal.maximize ? 0 : '0.5rem'};
+  border-top-right-radius: ${props =>  props.terminal.maximize ? 0 : '0.5rem'};
 
   .terminal-inside {
-    background-color: #2C001E !important;
-    color: white;
+    background-color: ${props => props.theme.terminal.background} !important;
+    color: ${props => props.theme.terminal.text};
     padding: 2px;
     font-family: 'UbuntuFont';
     overflow: scroll;
@@ -35,23 +41,27 @@ const TerminalStyled = styled.div`
   }
 
   .prefix-name {
-    color: #73d216;
+    color: ${props => props.theme.terminal.prefixName};
   }
 
   .prefix-path {
-    color: #3465a4;
+    color: ${props => props.theme.terminal.prefixPathAndFolder};
     margin-right: 1px;
   }
 
   .terminal-spacer {
     margin-right: 5px;
-    color: #FFD700
+    color: ${props => props.theme.terminal.prefixSpacer};
+  }
+
+  .terminal-form {
+    width: 100%
   }
 
   .terminal-input {
     border: none;
-    color: white;
-    background-color: #2C001E;
+    color: ${props => props.theme.terminal.text};
+    background-color: ${props => props.theme.terminal.background};
     padding: 0;
     outline: none;
     font-family: 'UbuntuFont';
@@ -81,7 +91,7 @@ const TerminalStyled = styled.div`
   }
 
   .folder {
-    color: #3465a4;
+    color: ${props => props.theme.terminal.prefixPathAndFolder};
   }
 `;
 

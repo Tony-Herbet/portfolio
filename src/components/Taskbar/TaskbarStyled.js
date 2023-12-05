@@ -7,7 +7,7 @@ const TaskbarStyled = styled.div`
   left: 0;
   right: 0;
   top: 0;
-  background-color: rgba(31, 27, 27, 0.3);
+  background-color: ${props => props.theme.taskbar.color};
   display: flex;
   flex-direction: row;
   
@@ -20,67 +20,72 @@ const TaskbarStyled = styled.div`
   }
 
   .task:hover {
-    background-color: hsl(0, 0%, 100%, 0.2);
+    background-color: ${props => props.theme.taskbar.hover};
   }
 
   .task-terminal {
-    background-color: ${(props) => {
-      if (props.terminal.focus) {
-        return 'hsl(0, 0%, 100%, 0.2)';
-      }
-      return 'transparent';
-    }};
+    background-color: ${props => props.terminal.focus ? props.theme.taskbar.focus : 'transparent'}
   }
+
+  .task-terminal:hover {
+    background-color: ${props => props.terminal.focus ? props.theme.taskbar.hoverFocus : props.theme.dark.highlight}
+  }
+
 
   .task-browser {
-    background-color: ${(props) => {
-      if (props.browser.focus) {
-        return 'hsl(0, 0%, 100%, 0.2)';
-      }
-      return 'transparent';
-    }};
+    background-color: ${props => props.browser.focus ? props.theme.taskbar.focus : 'transparent'}
   }
 
+  .task-browser:hover {
+    background-color: ${props => props.browser.focus ? props.theme.taskbar.hoverFocus : props.theme.dark.highlight}
+  }
+
+
   .task-folder {
-    background-color: ${(props) => {
-      if (props.folder.focus) {
-        return 'hsl(0, 0%, 100%, 0.2)';
-      }
-      return 'transparent';
-    }};
+    background-color: ${props => props.folder.focus ? props.theme.taskbar.focus : 'transparent'}
+  }
+
+  .task-folder:hover {
+    background-color: ${props => props.folder.focus ? props.theme.taskbar.hoverFocus : props.theme.dark.highlight}
   }
   
   .task-txtReader {
-    background-color: ${(props) => {
-      if (props.txtReader.focus) {
-        return 'hsl(0, 0%, 100%, 0.2)';
-      }
-      return 'transparent';
-    }};
+    background-color: ${props => props.txtReader.focus ? props.theme.taskbar.focus : 'transparent'}
+  }
+
+  .task-txtReader:hover {
+    background-color: ${props => props.txtReader.focus ? props.theme.taskbar.hoverFocus : props.theme.dark.highlight}
   }
 
   .task-settings {
-    background-color: ${(props) => {
-      if (props.settings.focus) {
-        return 'hsl(0, 0%, 100%, 0.2)';
-      }
-      return 'transparent';
-    }};
+    background-color: ${props => props.settings.focus ? props.theme.taskbar.focus : 'transparent'}
+  }
+
+  .task-settings:hover {
+    background-color: ${props => props.settings.focus ? props.theme.taskbar.hoverFocus : props.theme.dark.highlight}
   }
 
   .task-pdf {
-    background-color: ${(props) => {
-      if (props.pdf.focus) {
-        return 'hsl(0, 0%, 100%, 0.2)';
-      }
-      return 'transparent';
-    }};
+    background-color: ${props => props.pdf.focus ? props.theme.taskbar.focus : 'transparent'}
   }
+
+  .task-pdf:hover {
+    background-color: ${props => props.pdf.focus ? props.theme.taskbar.hoverFocus : props.theme.dark.highlight}
+  }
+
+  .task-mail {
+    background-color: ${props => props.mail.focus ? props.theme.taskbar.focus : 'transparent'}
+  }
+
+  .task-mail:hover {
+    background-color: ${props => props.mail.focus ? props.theme.taskbar.hoverFocus : props.theme.dark.highlight}
+  }
+
 
   .task-indicator {
     height: 0.5rem;
     width: 0.5rem;
-    background-color: ${props => props.theme.colors.accent};
+    background-color: ${props => props.theme.accent};
     border-radius: 100%;
     align-self: center;
     margin: 0 1px;

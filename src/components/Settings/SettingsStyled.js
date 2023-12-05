@@ -9,12 +9,18 @@ const SettingsStyled = styled.div`
     return 'none';
   }};
 
+  z-index: ${(props) => props.settings.zIndex};
+
+  /* Position when maximize */
   top: ${props => props.settings.maximize ? '50px' : '80px' };
   right: ${props => props.settings.maximize ? '0' : '0.8rem' };
   left: ${props => props.settings.maximize ? '0' : '0.8rem' };
   height: ${props => props.settings.maximize ? 'calc(100vh - 50px)' : '450px' };
 
-  z-index: ${(props) => props.settings.zIndex};
+  /* Border when maximize */
+  border: solid 1px ${props =>  props.settings.maximize ? 'transparent': props.theme.accent};
+  border-top-left-radius: ${props =>  props.settings.maximize ? 0 : '0.5rem'};
+  border-top-right-radius: ${props =>  props.settings.maximize ? 0 : '0.5rem'};
 
   .settings-frame-inside {
     display: flex;
@@ -23,7 +29,7 @@ const SettingsStyled = styled.div`
 
   .categories {
     width: 200px;
-    background-color: ${props => props.theme.colors[props.theme.themeStyle].tertiary};
+    background-color: ${props => props.theme[props.theme.themeStyle].tertiary};
   }
 
   .categorie {
@@ -33,7 +39,7 @@ const SettingsStyled = styled.div`
   }
 
   .categorie:hover {
-    background-color: hsl(0, 0%, 100%, 0.2);
+    background-color: ${props => props.theme[props.theme.themeStyle].highlight};
   }
 
   .categorie > * {
@@ -41,11 +47,11 @@ const SettingsStyled = styled.div`
   }
 
   .categorie-colors {
-    border-left: ${props => props.categoryFocused === 'colors' ? props.theme.colors.accent : 'transparent'} solid 5px;
+    border-right: ${props => props.categoryFocused === 'colors' ? props.theme.accent : 'transparent'} solid 5px;
   }
 
   .categorie-background {
-    border-left: ${props => props.categoryFocused === 'background' ?  props.theme.colors.accent : 'transparent'} solid 5px;
+    border-right: ${props => props.categoryFocused === 'background' ?  props.theme.accent : 'transparent'} solid 5px;
 
   }
 
@@ -53,7 +59,7 @@ const SettingsStyled = styled.div`
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
-    background-color: ${props => props.theme.colors[props.theme.themeStyle].secondary};
+    background-color: ${props => props.theme[props.theme.themeStyle].secondary};
     width: 100%;
   }
 
@@ -63,6 +69,13 @@ const SettingsStyled = styled.div`
 
   .theme-select {
     width: 100px;
+  }
+
+  .accent-square-display {
+    background-color: ${props => props.theme.accent};
+    height: 25px;
+    width: 25px;
+    border: rgb(255, 255, 255) solid 2px;
   }
 `;
 

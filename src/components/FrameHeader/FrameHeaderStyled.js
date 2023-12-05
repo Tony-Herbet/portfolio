@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 const FrameHeaderStyled = styled.div`
 
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
   display: flex;
   align-items: center;
   margin-top: 0.2rem;
@@ -31,17 +29,17 @@ const FrameHeaderStyled = styled.div`
   }
 
   .icon-border:hover {
-    background-color: hsl(0, 0%, 100%, 0.2)
+    background-color: ${props => props.theme[props.theme.themeStyle].highlight};
   }
 
   .icon-container {
-    border: solid 1px #000000;
+    border: solid 1px ${props => props.theme.borderAndShadow};
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 100%;
-    padding: 0.1rem;
-    background-color: #AEA79F;
+    padding: 0.2rem;
+    background-color: ${props => props.theme[props.theme.themeStyle].secondary};
     height: 15px;
     width: 15px;
   }
@@ -52,8 +50,8 @@ const FrameHeaderStyled = styled.div`
     height: 12px;
   }
   
-  .icon-x {
-    background-color: red;
+  .icon-x:hover {
+    background-color: ${props => props.theme.close};
   }
 `;
 

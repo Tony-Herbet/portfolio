@@ -9,6 +9,10 @@ const Mail = ({
   form,
   updateForm,
   sendEmail,
+  error,
+  success,
+  updateError,
+  updateSuccess,
 }) => {
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -17,9 +21,24 @@ const Mail = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO add validation
-    console.log('sub')
-    sendEmail()
+
+    const {name, email, message } = form;
+
+    if(email === '' || name === '' || message === '') {
+      updateError('All fields must be filled')
+      updateSuccess(false)
+    } 
+    else {
+      sendEmail()
+      updateError('')
+      updateSuccess(true)
+      updateForm('name', '')
+      updateForm('email', '')
+      updateForm('message', '')
+      setTimeout(() => {
+        updateSuccess(false);
+      }, 10000);
+    }
   }
 
   return (
@@ -27,13 +46,23 @@ const Mail = ({
       <FrameHeader identifier="mail" name="Mail" />
       <div className="frame-inside" >
         <form onSubmit={handleSubmit} id="form">
-          <label>Name</label>
-          <input type="text" name="name" value={form.name} onChange={handleChange} />
-          <label>Email</label>
-          <input type="email" name="email" value={form.email} onChange={handleChange} />
-          <label>Message</label>
-          <textarea name="message" value={form.message} onChange={handleChange} />
-          <input type="submit" value="Send" />
+          <div>Contact me</div>
+          <input type="text" name="name" value={form.name} onChange={handleChange} placeholder='Your name' className='name' autoFocus />
+          <input type="email" name="email" value={form.email} onChange={handleChange} placeholder='Your email adress' className='email' autoFocus />
+          <textarea name="message" value={form.message} onChange={handleChange} className='message' placeholder='Your message' autoFocus />
+          <div className='form-end'>
+            <input type="submit" value="Send" className='submit' />
+            {error && (
+              <div className='error'>
+                {error}
+              </div>
+            )}
+            {success && (
+              <div className='success'>
+                Your email should have been sent successfully
+              </div>
+            )}
+          </div>
         </form>
       </div>
     </MailStyled>
@@ -45,6 +74,10 @@ Mail.propTypes = {
   form: PropTypes.object.isRequired,
   updateForm: PropTypes.func.isRequired,
   sendEmail: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
+  success: PropTypes.bool.isRequired,
+  updateError: PropTypes.func.isRequired,
+  updateSuccess: PropTypes.func.isRequired,
 };
 
 export default Mail;

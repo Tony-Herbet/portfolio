@@ -1,11 +1,13 @@
-import { UPDATE_FORM } from '../actions/mail';
+import { UPDATE_FORM, UPDATE_ERROR, UPDATE_SUCCESS } from '../actions/mail';
 
 const initialState = {
   form: {
-    name: 't',
-    email: 'e',
-    message: 'st'
+    name: '',
+    email: '',
+    message: '',
   },
+  error: '',
+  success: false,
 };
 
 const mail = (state = initialState, action = {}) => {
@@ -17,6 +19,18 @@ const mail = (state = initialState, action = {}) => {
           ...state.form,
           [action.name]: action.newValue
         }
+      };
+
+    case UPDATE_ERROR:
+      return {
+        ...state,
+        error: action.newError
+      };
+
+    case UPDATE_SUCCESS:
+      return {
+        ...state,
+        success: action.newSuccess
       };
 
     default: return state;

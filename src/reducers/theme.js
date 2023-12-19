@@ -6,6 +6,8 @@ const initialState = {
   accent: '#b80000',
   borderAndShadow: '#000000',
   close: '#b80000',
+  error: '#c63232',
+  success: '#5cb85c',
   dark: {
     main: '#1A1A1A',
     secondary: '#323232',

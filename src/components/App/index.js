@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {styled, ThemeProvider} from 'styled-components';
 
-import background from 'assets/images/ubuntu-background.png';
-
 import Taskbar from 'containers/Taskbar';
 import Terminal from 'containers/Terminal';
 import Browser from 'containers/Browser';
@@ -14,13 +12,17 @@ import Pdf from 'containers/Pdf';
 import Mail from 'containers/Mail';
 import data from 'assets/data';
 
+import handleCurrentBackground from 'helpers'
+
 const AppStyled = styled.div`
 
   font-family: sans-serif;
   margin: 0;
-  background-image: url(${background});
+  background-image: url(${props =>  
+    handleCurrentBackground(props.theme.background)
+  });
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
   background-size: cover;
   min-height: 100%;
   min-width: 100%;

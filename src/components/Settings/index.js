@@ -7,6 +7,13 @@ import { GithubPicker } from 'react-color';
 import SettingsStyled from './SettingsStyled';
 import FrameHeader from 'containers/FrameHeader';
 
+import background1 from 'assets/images/backgrounds/1.png';
+import background2 from 'assets/images/backgrounds/2.jpg';
+import background3 from 'assets/images/backgrounds/3.jpg';
+import background4 from 'assets/images/backgrounds/4.jpg';
+
+import handleCurrentBackground from 'helpers'
+
 const Settings = ({
   settings,
   categoryFocused,
@@ -14,12 +21,18 @@ const Settings = ({
   changeThemeStyle,
   themeStyle,
   changeAccentColor,
+  changeBackground,
+  background
 }) => {
   const handleThemeSelect = (event) => {
     const themeSelected = event.target.value
     if(themeSelected === 'dark' || themeSelected === 'light') {
       changeThemeStyle(themeSelected)
     }
+  };
+
+  const handleBackgroundClick = (event) => {
+    changeBackground(event.target.name)
   };
 
   return (
@@ -45,14 +58,25 @@ const Settings = ({
                 <option value="light">Light</option>
               </select>
               <p>Choose your accent color</p>
-              <div>Current color:</div>
-              <div className='accent-square-display' />
               <GithubPicker onChangeComplete={(color) => changeAccentColor(color.hex)} />
+              <div>Current color</div>
+              <div className='accent-square-display' />
             </>
           )}
 
           {categoryFocused === 'background' && (
-            <div className="option option-background">background</div>
+            <div className="option option-background">
+              <div>Current background</div>
+              <img className='settings-images' src={handleCurrentBackground(background)} />
+              
+              <p>Choose your background image</p>
+              <div className='settings-images-container'>
+                <img className='settings-images' src={background1} name="background1" onClick={handleBackgroundClick} />
+                <img className='settings-images' src={background2} name="background2" onClick={handleBackgroundClick} />
+                <img className='settings-images' src={background3} name="background3" onClick={handleBackgroundClick} />
+                <img className='settings-images' src={background4} name="background4" onClick={handleBackgroundClick} />
+              </div>
+            </div>
           )}
         </div>
       </div>
@@ -67,6 +91,8 @@ Settings.propTypes = {
   changeThemeStyle: PropTypes.func.isRequired,
   changeAccentColor: PropTypes.func.isRequired,
   themeStyle: PropTypes.string.isRequired,
+  changeBackground: PropTypes.func.isRequired,
+  background: PropTypes.string.isRequired,
 };
 
 export default Settings;

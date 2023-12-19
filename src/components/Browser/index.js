@@ -29,7 +29,7 @@ const Browser = ({
         <BsThreeDotsVertical className="icon" />
       </div>
       { browser.focus && (
-        <iframe className="iframe" src="https://tony-herbet.github.io/p3fc/" title="p3fc" />
+        <iframe className="iframe" src="https://tony-herbet.github.io/p3fc/" title="p3fc" loading="lazy" />
       )}
     </div>
   </BrowserStyled>

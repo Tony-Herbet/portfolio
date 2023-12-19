@@ -1,16 +1,10 @@
-import { CHANGE_THEME_STYLE, CHANGE_ACCENT_COLOR } from '../actions/theme';
+import { CHANGE_THEME_STYLE, CHANGE_ACCENT_COLOR, CHANGE_BACKGROUND } from '../actions/theme';
 
 // https://material-theme.com/docs/reference/color-palette/
 const initialState = {
   themeStyle: 'dark',
   accent: '#b80000',
   borderAndShadow: '#000000',
-  taskbar: {
-    color: "rgba(31, 27, 27, 0.3)",
-    hover: 'hsl(0, 0%, 100%, 0.2)',
-    focus: 'hsl(0, 0%, 100%, 0.3)',
-    hoverFocus: 'hsl(0, 0%, 100%, 0.4)',
-  },
   close: '#b80000',
   dark: {
     main: '#1A1A1A',
@@ -19,6 +13,12 @@ const initialState = {
     quarternary: '#2A2A2A',
     text: '#D1D5DA',
     highlight: 'hsl(0, 0%, 100%, 0.2)',
+    taskbar: {
+      color: '#323232',
+      hover: 'hsl(0, 0%, 100%, 0.2)',
+      focus: 'hsl(0, 0%, 100%, 0.3)',
+      hoverFocus: 'hsl(0, 0%, 100%, 0.4)',
+    },
   },
   light: {
     main: '#FAFAFA',
@@ -27,6 +27,12 @@ const initialState = {
     quarternary: '#EDF1F5',
     text: '#040406',
     highlight: 'hsl(0, 0%, 0%, 0.2)',
+    taskbar: {
+      color: '#E4E5F1',
+      hover: 'hsl(0, 0%, 0%, 0.2)',
+      focus: 'hsl(0, 0%, 0%, 0.3)',
+      hoverFocus: 'hsl(0, 0%, 0%, 0.4)',
+    },
   },
   terminal: {
     background: '#2C001E',
@@ -34,7 +40,8 @@ const initialState = {
     prefixName: '#73D216',
     prefixPathAndFolder: '#3465A4',
     prefixSpacer: '#FFD700',
-  }
+  },
+  background: 'background1'
 };
 
 const theme = (state = initialState, action = {}) => {
@@ -49,6 +56,12 @@ const theme = (state = initialState, action = {}) => {
       return {
         ...state,
         accent: action.newColor
+      };
+
+    case CHANGE_BACKGROUND:
+      return {
+        ...state,
+        background: action.newBackground
       };
 
     default: return state;

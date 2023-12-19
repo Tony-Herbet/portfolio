@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import Settings from 'components/Settings';
 
 import { focusCategoryTab } from 'actions/settings';
-import { changeThemeStyle, changeAccentColor } from 'actions/theme';
+import { changeThemeStyle, changeAccentColor, changeBackground } from 'actions/theme';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   settings: state.utils.settings,
   categoryFocused: state.settings.categoryFocused,
   themeStyle: state.theme.themeStyle,
+  background: state.theme.background,
 });
 
 // === mapDispatchToProps
@@ -22,6 +23,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeAccentColor: (newColor) => {
     dispatch(changeAccentColor(newColor))
+  },
+  changeBackground: (newBackground) => {
+    dispatch(changeBackground(newBackground))
   }
 });
 

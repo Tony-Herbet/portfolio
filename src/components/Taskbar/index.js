@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TaskbarStyled from './TaskbarStyled';
-import TerminalImage from 'assets/images/terminal.svg';
-import ChromiumImage from 'assets/images/chromium.svg';
-import FolderImage from 'assets/images/folder.svg';
-import TxtReaderImage from 'assets/images/txt.svg';
-import SettingsImage from 'assets/images/settings.svg';
-import ClayGymnastReaderImage from 'assets/images/pdf.svg'
-import MailImage from 'assets/images/mail.svg'
+import TerminalImage from 'assets/images/icons/terminal.svg';
+import ChromiumImage from 'assets/images/icons/chromium.svg';
+import FolderImage from 'assets/images/icons/folder.svg';
+import TxtReaderImage from 'assets/images/icons/txt.svg';
+import SettingsImage from 'assets/images/icons/settings.svg';
+import ClayGymnastReaderImage from 'assets/images/icons/pdf.svg'
+import MailImage from 'assets/images/icons/mail.svg'
 
 // For SVG import use https://jakearchibald.github.io/svgomg/
 // To compress the SVG to fix an issue:

@@ -77,6 +77,18 @@ const SettingsStyled = styled.div`
     width: 25px;
     border: rgb(255, 255, 255) solid 2px;
   }
+
+  .settings-images {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Keep aspect ratio */
+    margin-right: 0.5rem;
+    border: solid transparent 2px
+  }
+
+  .settings-images-container >*:hover {
+    background-color: ${props => props.theme.accent}
+  }
 `;
 
 export default SettingsStyled;

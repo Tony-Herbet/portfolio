@@ -5,7 +5,6 @@
 -improve perf
 -fix browser iframe not showing after another app overlap
 -fix eslint error in index.js
--unify frame-inside header (url stuff for browser, file edit for txtreader ...)
 -possibility to click on frame that's behind
 -landing page
 -loader

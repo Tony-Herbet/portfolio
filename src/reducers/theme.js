@@ -43,7 +43,11 @@ const initialState = {
     prefixPathAndFolder: '#3465A4',
     prefixSpacer: '#FFD700',
   },
-  background: 'background1'
+  background: 'background1',
+  frameInsideHeader: {
+    borderBottom: "solid 1px #000000",
+    padding: "0.3rem 0.1rem",
+  }
 };
 
 const theme = (state = initialState, action = {}) => {

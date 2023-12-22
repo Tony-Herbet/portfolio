@@ -10,7 +10,8 @@
     "ecmaVersion": "latest"
   },
   "env": {
-    "node": true
+    "node": true,
+    "browser": true
   }, 
   "settings": {
     "import/resolver": {

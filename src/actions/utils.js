@@ -6,6 +6,8 @@ export const MINIMIZE_OFF = 'MINIMIZE_OFF';
 export const MAXIMIZE_CLICKED = 'MAXIMIZE_CLICKED';
 export const FOCUS_ON = 'FOCUS_ON';
 export const FOCUS_OFF = 'FOCUS_OFF';
+export const OPEN_TXT_WITH_FILE = 'OPEN_TXT_WITH_FILE';
+export const OPEN_PDF_FROM_FILE = 'OPEN_PDF_FROM_FILE';
 
 // === action creators
 export const runningOn = (identifier) => ({
@@ -43,3 +45,13 @@ export const focusOff = (identifier) => ({
   type: FOCUS_OFF,
   identifier,
 });
+
+export const openTxtWithFile = (value) => ({
+  type: OPEN_TXT_WITH_FILE,
+  value,
+});
+
+export const openPdfWithFile = () => ({
+  type: OPEN_PDF_FROM_FILE,
+});
+

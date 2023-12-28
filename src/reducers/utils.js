@@ -6,12 +6,9 @@ import {
   MAXIMIZE_CLICKED,
   FOCUS_ON,
   FOCUS_OFF,
+  OPEN_TXT_WITH_FILE,
+  OPEN_PDF_FROM_FILE
 } from 'actions/utils';
-
-import {
-  OPEN_TXT_FROM_TERMINAL,
-  OPEN_PDF_FROM_TERMINAL
-} from 'actions/terminal';
 
 const initialState = {
   terminal: {
@@ -161,7 +158,7 @@ const utils = (state = initialState, action = {}) => {
         },
       };
 
-    case OPEN_TXT_FROM_TERMINAL:
+    case OPEN_TXT_WITH_FILE:
       return {
         ...state,
         zIndexCounter: state.zIndexCounter + 1,
@@ -197,7 +194,7 @@ const utils = (state = initialState, action = {}) => {
         },
       };
 
-    case OPEN_PDF_FROM_TERMINAL:
+    case OPEN_PDF_FROM_FILE:
       return {
         ...state,
         zIndexCounter: state.zIndexCounter + 1,

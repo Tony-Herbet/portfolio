@@ -5,6 +5,8 @@ import txtReaderReducer from './txtReader';
 import mailReducer from './mail';
 import themeReducer from './theme';
 import settingsReducer from './settings';
+import dataReducer from './data';
+import folderReducer from './folder'
 
 const rootReducer = combineReducers({
   utils: utilsReducer,
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
   mail: mailReducer,
   theme: themeReducer,
   settings: settingsReducer,
+  data: dataReducer,
+  folder: folderReducer,
 });
 
 export default rootReducer;

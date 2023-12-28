@@ -1,6 +1,6 @@
 import {
-  OPEN_TXT_FROM_TERMINAL,
-} from 'actions/terminal';
+  OPEN_TXT_WITH_FILE,
+} from 'actions/utils';
 
 import {
   CLOSE_FILE_TAB,
@@ -14,7 +14,7 @@ const initialState = {
 
 const txtReader = (state = initialState, action = {}) => {
   switch (action.type) {
-    case OPEN_TXT_FROM_TERMINAL:
+    case OPEN_TXT_WITH_FILE:
       return {
         ...state,
         filesOpen: [

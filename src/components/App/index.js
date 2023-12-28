@@ -10,7 +10,6 @@ import TxtReader from 'containers/TxtReader';
 import Settings from 'containers/Settings';
 import Pdf from 'containers/Pdf';
 import Mail from 'containers/Mail';
-import data from 'assets/data';
 
 import handleCurrentBackground from 'helpers'
 
@@ -51,7 +50,7 @@ const App = ({theme}) => (
       <div className="app">
         <Taskbar />
         <Browser />
-        <Terminal data={data} />
+        <Terminal />
         <Folder />
         <TxtReader />
         <Settings />

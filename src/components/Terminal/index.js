@@ -16,8 +16,8 @@ const Terminal = ({
   path,
   data,
   pathUpdate,
-  openTxtFromTerminal,
-  openPdfFromTerminal,
+  openTxtWithFile,
+  openPdfWithFile,
   focusFileTab,
   filesOpen,
   focusOn,
@@ -79,8 +79,8 @@ const Terminal = ({
       pushTerminalHistory();
       pathUpdate('');
     }
-    // No option given OR trying to cd into a .txt
-    else if (cmdOption === undefined || cmdOption.endsWith('.txt')) {
+    // No option given OR trying to cd into a .txt or .pdf
+    else if (cmdOption === undefined || cmdOption.endsWith('.txt') || cmdOption.endsWith('.pdf')) {
       pushTerminalHistory(
         "cd command need a directory name, type 'ls' to see all the directories or 'help' to see all the commands"
       );
@@ -120,11 +120,12 @@ const Terminal = ({
     }
     // File exist
     else if (findObj !== undefined) {
+      console.log('f', findObj)
       pushTerminalHistory();
 
       // We open the pdf reader
       if(findObj.name === 'CV.pdf') {
-        openPdfFromTerminal()
+        openPdfWithFile()
       } 
       // We open txt reader
       else {
@@ -136,7 +137,7 @@ const Terminal = ({
         }
         // else send file to txtReader and focus tab
         else {
-          openTxtFromTerminal(findObj.content[0]);
+          openTxtWithFile(findObj.content[0]);
           focusFileTab(findObj.content[0].name);
         }
       }
@@ -215,7 +216,6 @@ const Terminal = ({
   // When a key is pressed
   const handleKeyUp = (event) => {
     event.preventDefault();
-    // TODO it kinda works but i don't know why! need a rework
     if (event.code === 'ArrowUp') {
       if (cmdHistory.length - arrowCounter > 0) {
         updateArrowCounter(arrowCounter + 1);
@@ -291,8 +291,8 @@ Terminal.propTypes = {
   pushTerminalHistory: PropTypes.func.isRequired,
   data: PropTypes.array.isRequired,
   pathUpdate: PropTypes.func.isRequired,
-  openTxtFromTerminal: PropTypes.func.isRequired,
-  openPdfFromTerminal: PropTypes.func.isRequired,
+  openTxtWithFile: PropTypes.func.isRequired,
+  openPdfWithFile: PropTypes.func.isRequired,
   focusFileTab: PropTypes.func.isRequired,
   filesOpen: PropTypes.array.isRequired,
   focusOn: PropTypes.func.isRequired,

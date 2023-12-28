@@ -8,15 +8,17 @@ import {
   clearTerminalHistory,
   clearInput,
   pathUpdate,
-  openTxtFromTerminal,
-  openPdfFromTerminal,
   pushCmdHistory,
   updateArrowCounter,
 } from 'actions/terminal';
 
 import { focusFileTab } from 'actions/txtReader';
 
-import { focusOn } from 'actions/utils';
+import { 
+  focusOn,
+  openTxtWithFile,
+  openPdfWithFile,
+} from 'actions/utils';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({
@@ -28,6 +30,7 @@ const mapStateToProps = (state) => ({
   filesOpen: state.txtReader.filesOpen,
   cmdHistory: state.terminal.cmdHistory,
   arrowCounter: state.terminal.arrowCounter,
+  data: state.data
 });
 
 // === mapDispatchToProps
@@ -47,11 +50,11 @@ const mapDispatchToProps = (dispatch) => ({
   pathUpdate: (value) => {
     dispatch(pathUpdate(value));
   },
-  openTxtFromTerminal: (file) => {
-    dispatch(openTxtFromTerminal(file));
+  openTxtWithFile: (file) => {
+    dispatch(openTxtWithFile(file));
   },
-  openPdfFromTerminal: () => {
-    dispatch(openPdfFromTerminal());
+  openPdfWithFile: () => {
+    dispatch(openPdfWithFile());
   },
   focusFileTab: (name) => {
     dispatch(focusFileTab(name));

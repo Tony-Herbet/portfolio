@@ -1,6 +1,6 @@
 const initialState = {
   Folders: {
-    Root: {
+    'Root': {
       name: 'Root',
       path: '',
       content: [
@@ -11,7 +11,7 @@ const initialState = {
         'Projets',
       ]
     },
-    Diplomes: {
+    'Diplomes': {
       name: 'Diplomes',
       path: '/Diplomes',
       content: [
@@ -20,7 +20,7 @@ const initialState = {
         'DWWM.txt',
       ]
     },
-    Projets: {
+    'Projets': {
       name: 'Projets',
       path: '/Projets',
       content: [
@@ -29,34 +29,38 @@ const initialState = {
       ]
     }
   },
-  Presentation: {
+  'Presentation.txt': {
     name: 'Presentation.txt',
     text: 'Présentation Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
   },
-  Competences: {
+  'Competences.txt': {
     name: 'Competences.txt',
     text: 'Competences Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
   },
-  Formation_dwwm: {
+  'Formation_dwwm.txt': {
     name: 'Formation_dwwm.txt',
     text: 'Formation_dwwm Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
   },
-  Opquast: {
+  'Opquast.txt': {
     name: 'Opquast.txt',
     text: 'Opquast Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
   },
-  DWWM: {
+  'DWWM.txt': {
     name: 'DWWM.txt',
     text: 'DWWM Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
   },
-  P3FC: {
+  'P3FC.txt': {
     name: 'P3FC.txt',
     text: 'P3FC Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
   },
-  Old_The_Door: {
+  'Old_The_Door.txt': {
     name: 'Old_The_Door.txt',
     text: 'Old_The_Door Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
   },
+  'CV.pdf': {
+    name: 'CV.pdf',
+    text: null,
+  }
 };
 
 const data = (state = initialState, action = {}) => {

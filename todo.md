@@ -1,6 +1,8 @@
 # Todo
 
 -fix TxtReader tab css
+-fix TxtReader tab closing
+-fix terminal path
 -Change logos
 -TxtReader usable
 -improve perf
@@ -21,6 +23,3 @@
 -frame shadow only for focus?
 
 ## Bugs
-
--Can open the same txt twice, once with terminal once with folder
--Terminal doesn't send text of txt when it's a nested txt

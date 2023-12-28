@@ -11,4 +11,16 @@ const handleCurrentBackground = (background) => {
     : background1
 }
 
-export default handleCurrentBackground
+const handleTypeOfFile = (file) => {
+  if(file.endsWith('.txt')) {
+    return 'txt';
+  }
+  else if (file.endsWith('.pdf')) {
+    return 'pdf';
+  }
+  else {
+    return 'folder';
+  }
+}
+
+export { handleCurrentBackground, handleTypeOfFile }

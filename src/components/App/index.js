@@ -11,7 +11,7 @@ import Settings from 'containers/Settings';
 import Pdf from 'containers/Pdf';
 import Mail from 'containers/Mail';
 
-import handleCurrentBackground from 'helpers'
+import { handleCurrentBackground } from 'helpers'
 
 const AppStyled = styled.div`
 

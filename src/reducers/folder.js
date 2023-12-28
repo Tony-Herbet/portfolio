@@ -2,7 +2,7 @@ import { FOLDER_ELEMENT_FOCUSED, UPDATE_FOLDER_OPENED_DATA } from 'actions/folde
 
 const initialState = {
   elementFocused: '',
-  folderOpenedData: []
+  folderOpenedData: {}
 };
 
 const folder = (state = initialState, action = {}) => {

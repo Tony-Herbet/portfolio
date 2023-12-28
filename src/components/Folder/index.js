@@ -28,23 +28,24 @@ const Folder = ({
   }, [data]);
 
   const handleClick = (name) => {
+    console.log(name)
     folderElementFocused(name)
   }
 
   const handleDoubleClick = (elm) => {
     console.log(elm)
     if(elm.endsWith('.txt')) {
-      // TODO could be mutulize with Terminal
+      // TODO could be mutualize with Terminal
       // Send obj to TxtReader
       // if file already open just focus on TxtReader and tab
-      if (filesOpen.find((file) => file === elm.content[0])) {
+      if (filesOpen.find((file) => file === data[elm])) {
         focusOn('txtReader');
-        focusFileTab(elm.content[0].name);
+        focusFileTab(data[elm].name);
       }
       // else send file to txtReader and focus tab
       else {
-        openTxtWithFile(elm.content[0]);
-        focusFileTab(elm.content[0].name);
+        openTxtWithFile(data[elm]);
+        focusFileTab(data[elm].name);
       }
     }
     else if(elm.endsWith('.pdf')) {

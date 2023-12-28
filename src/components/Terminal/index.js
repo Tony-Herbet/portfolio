@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import TerminalStyled from './TerminalStyled';
 import FrameHeader from 'containers/FrameHeader';
 
+import { handleTypeOfFile } from '../../helpers';
+
 const Terminal = ({
   terminal,
   inputValue,
@@ -33,6 +35,11 @@ const Terminal = ({
     inputRef.current.scrollIntoView({ behavior: 'smooth' });
   });
 
+  // Initial path
+  useEffect(() => {
+    pathUpdate('Root')
+  }, [data]);
+
   // Focus on terminal
   const focusInput = () => {
     inputRef.current.focus();
@@ -45,33 +52,28 @@ const Terminal = ({
 
   // Handle LS
   const handleLsCmd = () => {
-    // In portfolio directory
-    if (path === '') {
-      pushTerminalHistory(
-        data.map((folderContent) => (
-          <div className={folderContent.type} key={folderContent.name}>
-            {folderContent.name}
-          </div>
-        ))
-      );
-    }
-    // In another directory
-    else {
-      const contentData = data.find((content) => content.name === path);
-      pushTerminalHistory(
-        contentData.content.map((folderContent) => (
-          <div className={folderContent.type} key={folderContent.name}>
-            {folderContent.name}
-          </div>
-        ))
-      );
-    }
+    // ! path here is for the properties of Folders and not the path inside thoses properties
+    // ! i'm just using path to not have to create a new action
+    pushTerminalHistory(
+      data.Folders[path].content.map((elm) => (
+        <div className={handleTypeOfFile(elm)} key={elm}>
+          {elm}
+        </div>
+      ))
+    )
   };
 
   // handle CD
   const handleCdCmd = (cmdOption) => {
+    // This is use if the directory exist and need to be check to avoid an undefined error
+    let folderNameExist, folderNameWithReplaceExist;
+    if(cmdOption) {
+      folderNameExist = data.Folders[cmdOption]?.name;
+      folderNameWithReplaceExist = data.Folders[cmdOption.replace('../', '')]?.name;
+    }
+
     // cd .. && in root directory
-    if (cmdOption === '..' && path === '') {
+    if (cmdOption === '..' && path === 'Root') {
       pushTerminalHistory("already in the root directory you can't move up");
     }
     // cd .. && not in root directory
@@ -87,9 +89,8 @@ const Terminal = ({
     }
     // Directory exist
     else if (
-      data.find((content) => content.name === cmdOption) ||
-      (cmdOption.startsWith('../') &&
-        data.find((content) => content.name === cmdOption.replace('../', '')))
+      // TODO more realistic "cd ../" behavior
+      folderNameExist || folderNameWithReplaceExist
     ) {
       pushTerminalHistory();
       pathUpdate(cmdOption.replace('../', ''));
@@ -105,13 +106,11 @@ const Terminal = ({
   // Handle Open
   const handleOpenCmd = (cmdOption) => {
     const extensions = ['.txt', '.pdf'];
+
     // Find the object in data file with the right name
-    const findObj = data.find((obj) =>
-      // "open" accept the name with or without an extension therefore we need to search if it exist with or without an extension
-      obj.content.find(
-        (file) => file.name === cmdOption || file.name === cmdOption + extensions[0] || file.name === cmdOption + extensions[1]
-      )
-    );
+    // "open" accept the name with or without an extension therefore we need to search if it exist with or without an extension
+    const findObj = data[cmdOption] ? data[cmdOption] : data[cmdOption+extensions[0]] ? data[cmdOption+extensions[0]] : data[cmdOption+extensions[1]] ? data[cmdOption+extensions[1]] : undefined
+
     // No option given
     if (cmdOption === undefined) {
       pushTerminalHistory(
@@ -120,7 +119,6 @@ const Terminal = ({
     }
     // File exist
     else if (findObj !== undefined) {
-      console.log('f', findObj)
       pushTerminalHistory();
 
       // We open the pdf reader
@@ -131,14 +129,14 @@ const Terminal = ({
       else {
         // Send obj to TxtReader
         // if file already open just focus on TxtReader and tab
-        if (filesOpen.find((file) => file === findObj.content[0])) {
+        if (filesOpen.find((file) => file === findObj)) {
           focusOn('txtReader');
-          focusFileTab(findObj.content[0].name);
+          focusFileTab(findObj.name);
         }
         // else send file to txtReader and focus tab
         else {
-          openTxtWithFile(findObj.content[0]);
-          focusFileTab(findObj.content[0].name);
+          openTxtWithFile(findObj);
+          focusFileTab(findObj.name);
         }
       }
     }
@@ -158,6 +156,7 @@ const Terminal = ({
     const cmdInput = inputValue.trim().split(' ');
     const cmdName = cmdInput[0];
     const cmdOption = cmdInput[1];
+
     // Search if command exist
     const userCommand = commands.find((cmd) => cmd.name === inputValue);
     // Command exist (not undefined therefore in the cmd list
@@ -289,7 +288,7 @@ Terminal.propTypes = {
   clearInput: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
   pushTerminalHistory: PropTypes.func.isRequired,
-  data: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
   pathUpdate: PropTypes.func.isRequired,
   openTxtWithFile: PropTypes.func.isRequired,
   openPdfWithFile: PropTypes.func.isRequired,

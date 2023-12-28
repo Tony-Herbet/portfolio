@@ -19,6 +19,8 @@ const Folder = ({
   const handleTabFocus = (fileName) => {
     focusFileTab(fileName);
   };
+
+  // TODO rework to no show closed tab content
   const handleTabClosing = (i) => {
     const newFilesOpen = [];
     filesOpen.forEach((file, index) => {
@@ -28,6 +30,7 @@ const Folder = ({
     });
     closeFileTab(newFilesOpen);
   };
+
   return (
     <TxtReaderStyled className="frame-container" txtReader={txtReader}>
       <FrameHeader identifier="txtReader" name="TxtReader--" />
@@ -46,7 +49,7 @@ const Folder = ({
                   ? 'txtReader-tab txtReader-tab_focused'
                   : 'txtReader-tab'
               }
-              key={file.name}
+              key={file.name + i}
               onClick={() => handleTabFocus(file.name)}
             >
               {file.name}

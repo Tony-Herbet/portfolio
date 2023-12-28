@@ -12,7 +12,7 @@ import background2 from 'assets/images/backgrounds/2.jpg';
 import background3 from 'assets/images/backgrounds/3.jpg';
 import background4 from 'assets/images/backgrounds/4.jpg';
 
-import handleCurrentBackground from 'helpers'
+import { handleCurrentBackground } from 'helpers'
 
 const Settings = ({
   settings,

@@ -27,6 +27,7 @@ const TxtReaderStyled = styled.div`
     background-color: ${props => props.theme[props.theme.themeStyle].tertiary};
     border-bottom: ${props => props.theme.frameInsideHeader.borderBottom};
     padding: ${props => props.theme.frameInsideHeader.padding};
+  }
 
   .menu-options {
     padding-right: 1rem;

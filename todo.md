@@ -1,7 +1,5 @@
 # Todo
 
--fix TxtReader tab css
--fix TxtReader tab closing
 -Change logos
 -TxtReader usable
 -improve perf

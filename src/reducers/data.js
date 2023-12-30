@@ -2,7 +2,6 @@ const initialState = {
   Folders: {
     'Root': {
       name: 'Root',
-      path: '',
       content: [
         'Presentation.txt',
         'Competences.txt',
@@ -13,7 +12,6 @@ const initialState = {
     },
     'Diplomes': {
       name: 'Diplomes',
-      path: '/Diplomes',
       content: [
         'Formation_dwwm.txt',
         'Opquast.txt',
@@ -22,7 +20,6 @@ const initialState = {
     },
     'Projets': {
       name: 'Projets',
-      path: '/Projets',
       content: [
         'P3FC.txt',
         'Old_The_Door.txt',

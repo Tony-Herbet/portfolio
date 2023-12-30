@@ -2,7 +2,6 @@
 
 -fix TxtReader tab css
 -fix TxtReader tab closing
--fix terminal path
 -Change logos
 -TxtReader usable
 -improve perf

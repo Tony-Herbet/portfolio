@@ -52,8 +52,6 @@ const Terminal = ({
 
   // Handle LS
   const handleLsCmd = () => {
-    // ! path here is for the properties of Folders and not the path inside thoses properties
-    // ! i'm just using path to not have to create a new action
     pushTerminalHistory(
       data.Folders[path].content.map((elm) => (
         <div className={handleTypeOfFile(elm)} key={elm}>
@@ -79,7 +77,7 @@ const Terminal = ({
     // cd .. && not in root directory
     else if (cmdOption === '..') {
       pushTerminalHistory();
-      pathUpdate('');
+      pathUpdate('Root');
     }
     // No option given OR trying to cd into a .txt or .pdf
     else if (cmdOption === undefined || cmdOption.endsWith('.txt') || cmdOption.endsWith('.pdf')) {
@@ -229,6 +227,10 @@ const Terminal = ({
     }
   };
 
+  const handlePath = (path) => {
+    return path === 'Root' ? '' : `/${path}`
+  }
+
   return (
     <TerminalStyled
       className="frame-container"
@@ -248,7 +250,7 @@ const Terminal = ({
               <div className="terminal-content" key={elm.id}>
                 <div className="terminal-prefix">
                   <span className="prefix-name">tony@portfolio</span>:
-                  <span className="prefix-path">~{elm.path}</span>
+                  <span className="prefix-path">~{handlePath(elm.path)}</span>
                   <span className="terminal-spacer">$</span>
                   <span className="command-text">{elm.cmd}</span>
                 </div>
@@ -260,7 +262,7 @@ const Terminal = ({
         <div className="terminal-content">
           <div className="terminal-prefix">
             <span className="prefix-name">tony@portfolio</span>:
-            <span className="prefix-path">~{path}</span>
+            <span className="prefix-path">~{handlePath(path)}</span>
             <span className="terminal-spacer">$</span>
             <form className="terminal-form" onSubmit={handleSubmit}>
               <input

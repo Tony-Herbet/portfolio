@@ -27,10 +27,12 @@ const TxtReaderStyled = styled.div`
     background-color: ${props => props.theme[props.theme.themeStyle].tertiary};
     border-bottom: ${props => props.theme.frameInsideHeader.borderBottom};
     padding: ${props => props.theme.frameInsideHeader.padding};
+    height: ${props => props.theme.frameInsideHeader.height};
+    align-items: center;
   }
 
   .menu-options {
-    padding-right: 1rem;
+    padding: 0.5rem;
   }
 
   .txtReader-content {

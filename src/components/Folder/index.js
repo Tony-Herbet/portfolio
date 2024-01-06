@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { FaArrowRotateRight, FaArrowLeft, FaArrowRight, FaLock } from "react-icons/fa6";
+// import { FaArrowRotateRight, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import FolderImage from 'assets/images/icons/folder.svg';
 import TxtReaderImage from 'assets/images/icons/txt.svg';
 import ClayGymnastReaderImage from 'assets/images/icons/pdf.svg'
 
 import FolderStyled from './FolderStyled';
 import FrameHeader from 'containers/FrameHeader';
+import BrowserAndFolderNav from '../BrowserAndFolderNav';
 
 const Folder = ({
   folder,
@@ -28,12 +29,10 @@ const Folder = ({
   }, [data]);
 
   const handleClick = (name) => {
-    console.log(name)
     folderElementFocused(name)
   }
 
   const handleDoubleClick = (elm) => {
-    console.log(elm)
     if(elm.endsWith('.txt')) {
       // TODO could be mutualize with Terminal
       // Send obj to TxtReader
@@ -53,49 +52,43 @@ const Folder = ({
     }  
     // It's a folder
     else {
-      updateFolderOpenedData(data.Folders[elm])
       // We open the pdf reader
+      updateFolderOpenedData(data.Folders[elm])
+    }
+  }
+
+  const handleBack = () => {
+    if(folderOpenedData.name === 'Projets' || folderOpenedData.name === 'Diplomes') {
+      updateFolderOpenedData(data.Folders['Root']);
+      folderElementFocused('')
     }
   }
   
   return (
     <FolderStyled className="frame-container" folder={folder}>
       <FrameHeader identifier="folder" name="Folder" />
-      <div className="frame-inside">
-        {/* TODO mutualize with browser and remove unused elements */}
-        <div className="folder-nav">
-          <div className="nav-icons">
-            <FaArrowLeft className="nav-arrow icon" />
-            <FaArrowRight className="nav-arrow icon" />
-            <FaArrowRotateRight className="icon" />
-          </div>
-          <div className="adressBar">
-            <FaLock className="icon" />
-            <p className="url">
-              https://tony-herbet.github.io/p3fc/
-            </p>
+        <div className="frame-inside">
+          <BrowserAndFolderNav where='folder' handleBack={handleBack} folderOpenedData={folderOpenedData} />
+          <div className='folders-container'>
+            {folderOpenedData.content && folderOpenedData.content.map(elm => 
+              <div 
+                key={elm}
+                className={elementFocused === elm ? 'folder-idem-focused folder-item' : 'folder-item'}
+                onClick={() => handleClick(elm)}
+                onDoubleClickCapture={() => handleDoubleClick(elm)}
+              >
+                <img 
+                  className='type-icon'
+                  src={
+                    elm.endsWith('.txt') ? TxtReaderImage :
+                    elm.endsWith('.pdf') ? ClayGymnastReaderImage : FolderImage
+                  }
+                />
+                <p>{elm}</p>
+              </div>
+            )}
           </div>
         </div>
-        <div className='folders-container'>
-          {folderOpenedData.content && folderOpenedData.content.map(elm => 
-            <div 
-              key={elm}
-              className={elementFocused === elm ? 'folder-idem-focused folder-item' : 'folder-item'}
-              onClick={() => handleClick(elm)}
-              onDoubleClickCapture={() => handleDoubleClick(elm)}
-            >
-              <img 
-                className='type-icon'
-                src={
-                  elm.endsWith('.txt') ? TxtReaderImage :
-                  elm.endsWith('.pdf') ? ClayGymnastReaderImage : FolderImage
-                }
-              />
-              <p>{elm}</p>
-            </div>
-          )}
-        </div>
-      </div>
     </FolderStyled>
   );
 }

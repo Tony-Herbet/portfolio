@@ -7,6 +7,7 @@
 -possibility to click on frame that's behind
 -landing page
 -loader
+-Browser iframe usable (or modify hover)
 
 ## Ideas
 

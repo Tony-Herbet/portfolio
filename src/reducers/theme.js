@@ -47,7 +47,8 @@ const initialState = {
   frameInsideHeader: {
     borderBottom: "solid 1px #000000",
     padding: "0.3rem 0.1rem",
-  }
+    height: '30px',
+  },
 };
 
 const theme = (state = initialState, action = {}) => {

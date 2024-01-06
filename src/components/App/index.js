@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {styled, ThemeProvider} from 'styled-components';
+import {styled, ThemeProvider, StyleSheetManager } from 'styled-components';
+import isPropValid from '@emotion/is-prop-valid';
 
 import Taskbar from 'containers/Taskbar';
 import Terminal from 'containers/Terminal';
@@ -45,20 +46,22 @@ const AppStyled = styled.div`
 `;
 
 const App = ({theme}) => (
-  <ThemeProvider theme={theme}>
-    <AppStyled>
-      <div className="app">
-        <Taskbar />
-        <Browser />
-        <Terminal />
-        <Folder />
-        <TxtReader />
-        <Settings />
-        <Pdf />
-        <Mail />
-      </div>
-    </AppStyled>
-  </ThemeProvider>
+  <StyleSheetManager shouldForwardProp={isPropValid} >
+    <ThemeProvider theme={theme}>
+      <AppStyled>
+        <div className="app">
+          <Taskbar />
+          <Browser />
+          <Terminal />
+          <Folder />
+          <TxtReader />
+          <Settings />
+          <Pdf />
+          <Mail />
+        </div>
+      </AppStyled>
+    </ThemeProvider>
+  </StyleSheetManager>
 );
 
 App.propTypes = {

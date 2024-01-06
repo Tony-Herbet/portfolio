@@ -3,24 +3,24 @@ import styled from 'styled-components';
 const TxtReaderStyled = styled.div`
 
   display: ${(props) => {
-    if (props.txtReader.running && !props.txtReader.minimize) {
+    if (props.txtreader.running && !props.txtreader.minimize) {
       return 'flex';
     }
     return 'none';
   }};
 
-  z-index: ${(props) => props.txtReader.zIndex};
+  z-index: ${(props) => props.txtreader.zIndex};
 
   /* Position when maximize */
-  top: ${props => props.txtReader.maximize ? '50px' : '80px' };
-  right: ${props => props.txtReader.maximize ? '0' : '0.8rem' };
-  left: ${props => props.txtReader.maximize ? '0' : '0.8rem' };
-  height: ${props => props.txtReader.maximize ? 'calc(100vh - 50px)' : '450px' };
+  top: ${props => props.txtreader.maximize ? '50px' : '80px' };
+  right: ${props => props.txtreader.maximize ? '0' : '0.8rem' };
+  left: ${props => props.txtreader.maximize ? '0' : '0.8rem' };
+  height: ${props => props.txtreader.maximize ? 'calc(100vh - 50px)' : '450px' };
 
   /* Border when maximize */
-  border: solid 1px ${props =>  props.txtReader.maximize ? 'transparent': props.theme.accent};
-  border-top-left-radius: ${props =>  props.txtReader.maximize ? 0 : '0.5rem'};
-  border-top-right-radius: ${props =>  props.txtReader.maximize ? 0 : '0.5rem'};
+  border: solid 1px ${props =>  props.txtreader.maximize ? 'transparent': props.theme.accent};
+  border-top-left-radius: ${props =>  props.txtreader.maximize ? 0 : '0.5rem'};
+  border-top-right-radius: ${props =>  props.txtreader.maximize ? 0 : '0.5rem'};
 
   .txtReader-header {
     display: flex;

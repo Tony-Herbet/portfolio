@@ -46,11 +46,11 @@ const TaskbarStyled = styled.div`
   }
   
   .task-txtReader {
-    background-color: ${props => props.txtReader.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
+    background-color: ${props => props.txtreader.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
   }
 
   .task-txtReader:hover {
-    background-color: ${props => props.txtReader.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${props => props.txtreader.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
   }
 
   .task-settings {
@@ -107,7 +107,7 @@ const TaskbarStyled = styled.div`
 
   .txtReader-indicator {
     visibility: ${(props) => (
-      props.txtReader.running ? 'visible' : 'hidden'
+      props.txtreader.running ? 'visible' : 'hidden'
     )};
   }
 

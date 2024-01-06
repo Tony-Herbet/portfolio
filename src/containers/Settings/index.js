@@ -8,7 +8,7 @@ import { changeThemeStyle, changeAccentColor, changeBackground } from 'actions/t
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   settings: state.utils.settings,
-  categoryFocused: state.settings.categoryFocused,
+  categoryfocused : state.settings.categoryfocused ,
   themeStyle: state.theme.themeStyle,
   background: state.theme.background,
 });

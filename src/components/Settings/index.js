@@ -16,7 +16,7 @@ import { handleCurrentBackground } from 'helpers'
 
 const Settings = ({
   settings,
-  categoryFocused,
+  categoryfocused ,
   focusCategoryTab,
   changeThemeStyle,
   themeStyle,
@@ -36,7 +36,7 @@ const Settings = ({
   };
 
   return (
-    <SettingsStyled className="frame-container" settings={settings} categoryFocused={categoryFocused}>
+    <SettingsStyled className="frame-container" settings={settings} categoryfocused ={categoryfocused }>
       <FrameHeader identifier="settings" name="Settings" />
       <div className="frame-inside settings-frame-inside">
         <div className="categories" >
@@ -50,7 +50,7 @@ const Settings = ({
           </div> 
         </div>
         <div className="options" >
-          {categoryFocused === 'colors' && (
+          {categoryfocused  === 'colors' && (
             <>
               <label htmlFor="theme-select">Choose your theme</label>
               <select className="theme-select" id="theme-select" onChange={handleThemeSelect} value={themeStyle} >
@@ -64,7 +64,7 @@ const Settings = ({
             </>
           )}
 
-          {categoryFocused === 'background' && (
+          {categoryfocused  === 'background' && (
             <div className="option option-background">
               <div>Current background</div>
               <img className='settings-images' src={handleCurrentBackground(background)} />
@@ -86,7 +86,7 @@ const Settings = ({
 
 Settings.propTypes = {
   settings: PropTypes.object.isRequired,
-  categoryFocused: PropTypes.string.isRequired,
+  categoryfocused : PropTypes.string.isRequired,
   focusCategoryTab: PropTypes.func.isRequired,
   changeThemeStyle: PropTypes.func.isRequired,
   changeAccentColor: PropTypes.func.isRequired,

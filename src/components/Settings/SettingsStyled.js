@@ -47,11 +47,11 @@ const SettingsStyled = styled.div`
   }
 
   .categorie-colors {
-    border-right: ${props => props.categoryFocused === 'colors' ? props.theme.accent : 'transparent'} solid 5px;
+    border-right: ${props => props.categoryfocused  === 'colors' ? props.theme.accent : 'transparent'} solid 5px;
   }
 
   .categorie-background {
-    border-right: ${props => props.categoryFocused === 'background' ?  props.theme.accent : 'transparent'} solid 5px;
+    border-right: ${props => props.categoryfocused  === 'background' ?  props.theme.accent : 'transparent'} solid 5px;
 
   }
 

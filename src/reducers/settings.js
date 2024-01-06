@@ -1,7 +1,7 @@
 import { FOCUS_CATEGORY_TAB } from 'actions/settings'
 
 const initialState = {
-  categoryFocused: 'colors',
+  categoryfocused : 'colors',
 };
 
 const settings = (state = initialState, action = {}) => {
@@ -9,7 +9,7 @@ const settings = (state = initialState, action = {}) => {
     case FOCUS_CATEGORY_TAB:
       return {
         ...state,
-        categoryFocused: action.id,
+        categoryfocused : action.id,
       };
 
     default: return state;

@@ -15,7 +15,7 @@ const SettingsStyled = styled.div`
   top: ${props => props.settings.maximize ? '50px' : '80px' };
   right: ${props => props.settings.maximize ? '0' : '0.8rem' };
   left: ${props => props.settings.maximize ? '0' : '0.8rem' };
-  height: ${props => props.settings.maximize ? 'calc(100vh - 50px)' : '450px' };
+  height: ${props => props.settings.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.settings.maximize ? 'transparent': props.theme.accent};

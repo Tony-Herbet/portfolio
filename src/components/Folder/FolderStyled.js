@@ -15,7 +15,7 @@ const FolderStyled = styled.div`
   top: ${props => props.folder.maximize ? '50px' : '80px' };
   right: ${props => props.folder.maximize ? '0' : '0.8rem' };
   left: ${props => props.folder.maximize ? '0' : '0.8rem' };
-  height: ${props => props.folder.maximize ? 'calc(100vh - 50px)' : '450px' };
+  height: ${props => props.folder.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.folder.maximize ? 'transparent': props.theme.accent};

@@ -15,7 +15,7 @@ const TxtReaderStyled = styled.div`
   top: ${props => props.txtreader.maximize ? '50px' : '80px' };
   right: ${props => props.txtreader.maximize ? '0' : '0.8rem' };
   left: ${props => props.txtreader.maximize ? '0' : '0.8rem' };
-  height: ${props => props.txtreader.maximize ? 'calc(100vh - 50px)' : '450px' };
+  height: ${props => props.txtreader.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.txtreader.maximize ? 'transparent': props.theme.accent};

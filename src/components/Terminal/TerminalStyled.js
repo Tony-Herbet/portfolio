@@ -15,7 +15,7 @@ const TerminalStyled = styled.div`
   top: ${props => props.terminal.maximize ? '50px' : '80px' };
   right: ${props => props.terminal.maximize ? '0' : '0.8rem' };
   left: ${props => props.terminal.maximize ? '0' : '0.8rem' };
-  height: ${props => props.terminal.maximize ? 'calc(100vh - 50px)' : '450px' };
+  height: ${props => props.terminal.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */ /* */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.terminal.maximize ? 'transparent': props.theme.accent};
@@ -27,7 +27,8 @@ const TerminalStyled = styled.div`
     color: ${props => props.theme.terminal.text};
     padding: 2px;
     font-family: 'UbuntuFont';
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   .terminal-content {

@@ -1,6 +1,6 @@
 # Todo
 
--Change logos
+-Fix maximize changing taskbar size
 -TxtReader usable
 -improve perf
 -fix browser iframe not showing after another app overlap

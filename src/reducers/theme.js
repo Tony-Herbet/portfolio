@@ -4,7 +4,7 @@ import { CHANGE_THEME_STYLE, CHANGE_ACCENT_COLOR, CHANGE_BACKGROUND } from '../a
 const initialState = {
   themeStyle: 'dark',
   accent: '#b80000',
-  borderAndShadow: '#000000',
+  border: '#000000',
   close: '#b80000',
   error: '#c63232',
   success: '#5cb85c',

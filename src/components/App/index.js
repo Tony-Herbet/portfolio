@@ -29,7 +29,6 @@ const AppStyled = styled.div`
 
   .frame-container {
     background-color: ${props => props.theme[props.theme.themeStyle].main};
-    box-shadow: 0 0 1rem ${props => props.theme.borderAndShadow};
   }
 
   .frame-inside {

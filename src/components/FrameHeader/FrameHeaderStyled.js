@@ -33,7 +33,7 @@ const FrameHeaderStyled = styled.div`
   }
 
   .icon-container {
-    border: solid 1px ${props => props.theme.borderAndShadow};
+    border: solid 1px ${props => props.theme.border};
     display: flex;
     flex-direction: column;
     justify-content: center;

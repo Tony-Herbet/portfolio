@@ -19,5 +19,6 @@
 -better props validation
 -widget spotify like to give it more life
 -frame shadow only for focus?
+-Taskbar can be change to top/left/right/bottom
 
 ## Bugs

@@ -7,7 +7,8 @@ import {
   FOCUS_ON,
   FOCUS_OFF,
   OPEN_TXT_WITH_FILE,
-  OPEN_PDF_FROM_FILE
+  OPEN_PDF_FROM_FILE,
+  CLOSE_LANDING,
 } from 'actions/utils';
 
 const initialState = {
@@ -61,6 +62,7 @@ const initialState = {
     zIndex: 0,
   },
   zIndexCounter: 0,
+  landingIsOpen: true,
 };
 
 const utils = (state = initialState, action = {}) => {
@@ -229,6 +231,12 @@ const utils = (state = initialState, action = {}) => {
           focus: false,
         },
       };
+
+    case CLOSE_LANDING:
+      return {
+        ...state,
+        landingIsOpen: false,
+      }
 
     default: return state;
   }

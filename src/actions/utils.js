@@ -8,6 +8,7 @@ export const FOCUS_ON = 'FOCUS_ON';
 export const FOCUS_OFF = 'FOCUS_OFF';
 export const OPEN_TXT_WITH_FILE = 'OPEN_TXT_WITH_FILE';
 export const OPEN_PDF_FROM_FILE = 'OPEN_PDF_FROM_FILE';
+export const CLOSE_LANDING = 'CLOSE_LANDING';
 
 // === action creators
 export const runningOn = (identifier) => ({
@@ -53,5 +54,9 @@ export const openTxtWithFile = (value) => ({
 
 export const openPdfWithFile = () => ({
   type: OPEN_PDF_FROM_FILE,
+});
+
+export const closeLanding = () => ({
+  type: CLOSE_LANDING,
 });
 

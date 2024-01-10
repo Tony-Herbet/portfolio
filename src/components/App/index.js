@@ -11,6 +11,7 @@ import TxtReader from 'containers/TxtReader';
 import Settings from 'containers/Settings';
 import Pdf from 'containers/Pdf';
 import Mail from 'containers/Mail';
+import Landing from 'components/Landing';
 
 import { handleCurrentBackground } from 'helpers'
 
@@ -44,19 +45,24 @@ const AppStyled = styled.div`
   }
 `;
 
-const App = ({theme}) => (
+const App = ({theme, landingIsOpen, closeLanding}) => (
   <StyleSheetManager shouldForwardProp={isPropValid} >
     <ThemeProvider theme={theme}>
       <AppStyled>
         <div className="app">
-          <Taskbar />
-          <Browser />
-          <Terminal />
-          <Folder />
-          <TxtReader />
-          <Settings />
-          <Pdf />
-          <Mail />
+          {landingIsOpen && <Landing closeLanding={closeLanding} />}
+          {!landingIsOpen && (
+            <>    
+              <Taskbar />
+              <Browser />
+              <Terminal />
+              <Folder />
+              <TxtReader />
+              <Settings />
+              <Pdf />
+              <Mail />
+            </>
+          )}
         </div>
       </AppStyled>
     </ThemeProvider>
@@ -65,6 +71,8 @@ const App = ({theme}) => (
 
 App.propTypes = {
   theme: PropTypes.object.isRequired,
+  landingIsOpen: PropTypes.bool.isRequired,
+  closeLanding: PropTypes.func.isRequired,
 };
 
 export default App;

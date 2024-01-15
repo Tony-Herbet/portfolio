@@ -80,7 +80,8 @@ const TxtReaderStyled = styled.div`
   }
 
   .txtReader-content {
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden; 
   }
 
 `;

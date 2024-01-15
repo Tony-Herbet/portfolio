@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 
 import LandingStyled from './LandingStyled';
 
-const Landing = ({closeLanding}) => {
+const Landing = ({closeLanding, switchLoading}) => {
   const handleClick = () => {
-    closeLanding()
+    switchLoading();
+    closeLanding();
   }
 
   return (
@@ -19,11 +20,13 @@ const Landing = ({closeLanding}) => {
           <p>
             Le concept est d'émuler un système d'exploitation et de naviguer dessus comme tel.
           </p>
-            Pour voir directement mes informations, vous pouvez cliquer sur l'icone contenant l'inscription "pdf" ce qui ouvrira mon curriculum vitae.
           <p>
+            Pour voir directement mes informations, vous pouvez cliquer sur l'icone contenant l'inscription "pdf" ce qui ouvrira mon curriculum vitae.
+          </p>
           <p>
             Pour me contacter par mail, cliquer sur l'icone en forme de "M".
           </p>
+          <p>
             Je vous laisse découvrir le reste des fonctionnalités.
           </p>
           <p>
@@ -38,6 +41,7 @@ const Landing = ({closeLanding}) => {
 
 Landing.propTypes = {
   closeLanding: PropTypes.func.isRequired,
+  switchLoading: PropTypes.func.isRequired,
 };
 
 export default Landing;

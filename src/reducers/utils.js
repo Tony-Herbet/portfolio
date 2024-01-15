@@ -9,6 +9,7 @@ import {
   OPEN_TXT_WITH_FILE,
   OPEN_PDF_FROM_FILE,
   CLOSE_LANDING,
+  SWITCH_LOADING,
 } from 'actions/utils';
 
 const initialState = {
@@ -63,6 +64,7 @@ const initialState = {
   },
   zIndexCounter: 0,
   landingIsOpen: true,
+  loading: false,
 };
 
 const utils = (state = initialState, action = {}) => {
@@ -236,6 +238,12 @@ const utils = (state = initialState, action = {}) => {
       return {
         ...state,
         landingIsOpen: false,
+      }
+
+    case SWITCH_LOADING:
+      return {
+        ...state,
+        loading: !state.loading,
       }
 
     default: return state;

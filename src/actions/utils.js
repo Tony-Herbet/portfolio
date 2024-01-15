@@ -9,6 +9,7 @@ export const FOCUS_OFF = 'FOCUS_OFF';
 export const OPEN_TXT_WITH_FILE = 'OPEN_TXT_WITH_FILE';
 export const OPEN_PDF_FROM_FILE = 'OPEN_PDF_FROM_FILE';
 export const CLOSE_LANDING = 'CLOSE_LANDING';
+export const SWITCH_LOADING = 'SWITCH_LOADING';
 
 // === action creators
 export const runningOn = (identifier) => ({
@@ -58,5 +59,9 @@ export const openPdfWithFile = () => ({
 
 export const closeLanding = () => ({
   type: CLOSE_LANDING,
+});
+
+export const switchLoading = () => ({
+  type: SWITCH_LOADING,
 });
 

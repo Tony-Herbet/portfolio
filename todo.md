@@ -7,6 +7,7 @@
 -landing page
 -loader
 -Browser iframe usable (or modify hover)
+-Fix overflow txtreader
 
 ## Ideas
 

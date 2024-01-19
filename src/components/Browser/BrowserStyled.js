@@ -26,7 +26,15 @@ const BrowserStyled = styled.div`
   .iframe {
     width: 100%;
     height: calc(100% - 30px - 0.3rem /* we remove frameInsideHeader.height and padding */);
-    transform: translateZ(0);
+  }
+
+  .overlay {
+    display: ${props =>  props.browser.focus ? 'none': 'block'}; /* enable/disable the onClick on the iframe */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
   }
 `;
 

@@ -1,10 +1,9 @@
 # Todo
 
--improve perf
--fix browser iframe not showing after another app overlap
 -Browser iframe usable (or modify hover)
 -i18n
 -fix cursor change when on an uneditable text
+-animation when maximize
 
 ## Ideas
 

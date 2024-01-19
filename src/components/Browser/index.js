@@ -10,17 +10,21 @@ const Browser = ({
   focusOn
 }) => {
   const handleFocus = () => {
-    focusOn('browser')
-  }
+    focusOn('browser');
+  };
 
   return (
-    <BrowserStyled className="frame-container" browser={browser} onClick={handleFocus}>
+    <BrowserStyled className="frame-container" browser={browser} onClick={handleFocus} >
       <FrameHeader identifier="browser" name="Copium" icon="browser" />
       <div className="frame-inside">
         <BrowserAndFolderNav where='browser' />
-        { browser.focus && (
-          <iframe className="iframe" src="https://tony-herbet.github.io/p3fc/" title="p3fc" loading="lazy" />
-        )}
+        <iframe className="iframe" src="https://tony-herbet.github.io/p3fc/" title="p3fc" loading="lazy" />
+        <div className="overlay">
+          {/* 
+            This overlay enable the onClick in the iframe when it's not focus.
+            On the other hand when it's focus we can't interact with the iframe (scrolling for exemple) so we are changing the css to not display this overlay when it's focus.
+          */}
+        </div>
       </div>
     </BrowserStyled>
   );

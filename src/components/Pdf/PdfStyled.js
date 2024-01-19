@@ -22,11 +22,6 @@ const PdfStyled = styled.div`
   border-top-left-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
   border-top-right-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
 
-  .frame-inside {
-    position: relative;
-    float: left;
-  }
-
   .overlay {
     display: ${props =>  props.pdf.focus ? 'none': 'block'}; /* enable/disable the onClick on the iframe */
     position: absolute;

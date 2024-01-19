@@ -9,7 +9,7 @@ const Pdf = ({
   pdf,
 }) => (
   <PdfStyled className="frame-container" pdf={pdf}>
-    <FrameHeader identifier="pdf" name="Clay Gymnast Reader" />
+    <FrameHeader identifier="pdf" name="Clay Gymnast Reader" icon="pdf" />
     <div className="frame-inside">
       <object className="CV" data={CV}>
         <p className='pdf-text'>

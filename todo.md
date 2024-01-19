@@ -7,7 +7,6 @@
 -i18n
 -fix hover red X only when in the circle
 -fix cursor change when on an uneditable text
--add icon on the frameheader
 
 ## Ideas
 

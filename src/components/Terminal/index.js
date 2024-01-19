@@ -238,7 +238,7 @@ const Terminal = ({
       onClick={focusInput}
       onKeyUp={handleKeyUp}
     >
-      <FrameHeader identifier="terminal" name="Terminal" />
+      <FrameHeader identifier="terminal" name="Terminal" icon="terminal" />
       <div className="frame-inside terminal-inside">
         <div className="terminal-header">
           PowerBash, version -8000.0.0 alpha You can run commands. Type 'help'

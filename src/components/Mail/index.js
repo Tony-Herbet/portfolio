@@ -43,7 +43,7 @@ const Mail = ({
 
   return (
     <MailStyled className="frame-container" mail={mail}>
-      <FrameHeader identifier="mail" name="Mail" />
+      <FrameHeader identifier="mail" name="Mail" icon="mail" />
       <div className="frame-inside" >
         <form onSubmit={handleSubmit} id="form">
           <div>Contact me</div>

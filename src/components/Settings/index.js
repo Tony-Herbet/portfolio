@@ -37,7 +37,7 @@ const Settings = ({
 
   return (
     <SettingsStyled className="frame-container" settings={settings} categoryfocused ={categoryfocused }>
-      <FrameHeader identifier="settings" name="Settings" />
+      <FrameHeader identifier="settings" name="Settings" icon="settings" />
       <div className="frame-inside settings-frame-inside">
         <div className="categories" >
           <div className="categorie categorie-colors" id="colors" onClick={() => focusCategoryTab('colors')}>

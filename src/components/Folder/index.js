@@ -66,7 +66,7 @@ const Folder = ({
   
   return (
     <FolderStyled className="frame-container" folder={folder}>
-      <FrameHeader identifier="folder" name="Folder" />
+      <FrameHeader identifier="folder" name="Folder" icon="folder" />
         <div className="frame-inside">
           <BrowserAndFolderNav where='folder' handleBack={handleBack} folderOpenedData={folderOpenedData} />
           <div className='folders-container'>

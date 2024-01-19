@@ -9,7 +9,7 @@ const Browser = ({
   browser,
 }) => (
   <BrowserStyled className="frame-container" browser={browser}>
-    <FrameHeader identifier="browser" name="Copium" />
+    <FrameHeader identifier="browser" name="Copium" icon="browser" />
     <div className="frame-inside">
       <BrowserAndFolderNav where='browser' />
       { browser.focus && (

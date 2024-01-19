@@ -42,7 +42,7 @@ const Folder = ({
 
   return (
     <TxtReaderStyled className="frame-container" txtreader={txtReader}>
-      <FrameHeader identifier="txtReader" name="TxtReader--" />
+      <FrameHeader identifier="txtReader" name="TxtReader--" icon="txtreader" />
       <div className="frame-inside">
         <div className="txtReader-header">
           <span className="menu-options">File</span>

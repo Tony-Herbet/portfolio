@@ -6,9 +6,17 @@ const FrameHeaderStyled = styled.div`
   align-items: center;
   margin-top: 0.2rem;
 
-  .frame-name {
+  .frameHeader-header {
     padding: 0.3rem;
     flex-grow: 2;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
   }
 
   .icons {

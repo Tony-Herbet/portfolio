@@ -89,7 +89,7 @@ const FrameHeader = ({
             <FaRegSquare className="icon" />
           </div>
         </div>
-        <div className='icon-border'>
+        <div className='icon-border icon-border-x'>
           <div className="icon-container icon-x" onClick={closeApp}>
             <IoClose className="icon" />
           </div>

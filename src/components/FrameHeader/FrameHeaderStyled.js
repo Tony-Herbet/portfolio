@@ -58,7 +58,7 @@ const FrameHeaderStyled = styled.div`
     height: 12px;
   }
   
-  .icon-x:hover {
+  .icon-border-x:hover > .icon-x {
     background-color: ${props => props.theme.close};
   }
 `;

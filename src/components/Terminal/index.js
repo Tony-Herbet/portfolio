@@ -29,8 +29,10 @@ const Terminal = ({
   updateArrowCounter,
 }) => {
   const inputRef = useRef();
+
   // Focus on terminal & auto scroll
   useEffect(() => {
+    if(terminal.focus === true && terminal.running === true)
     inputRef.current.focus();
     inputRef.current.scrollIntoView({ behavior: 'smooth' });
   });
@@ -40,10 +42,15 @@ const Terminal = ({
     pathUpdate('Root')
   }, [data]);
 
-  // Focus on terminal his input
+  // Focus on terminal input
   const handleFocus = () => {
     focusOn("terminal")
     inputRef.current.focus();
+  };
+
+  // Remove focus on terminal input
+  const handleBlur = () => {
+    inputRef.current.blur();
   };
 
   // Save input in state
@@ -238,6 +245,7 @@ const Terminal = ({
       terminal={terminal}
       onClick={handleFocus}
       onKeyUp={handleKeyUp}
+      onBlurCapture={handleBlur}
     >
       <FrameHeader identifier="terminal" name="Terminal" icon="terminal" />
       <div className="frame-inside terminal-inside">

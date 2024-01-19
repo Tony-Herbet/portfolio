@@ -20,21 +20,28 @@ const FrameHeader = ({
     minimizeOn(identifier);
     focusOff(identifier);
   };
+
   const maximizeApp = () => {
     maximizeClicked(identifier)
-  }
+  };
+
   const closeApp = () => {
     focusOff(identifier);
     minimizeOn(identifier);
     runningOff(identifier);
   };
+
   const focusApp = () => {
     focusOn(identifier);
   };
 
+  const doubleClickMaximize = () => {
+    maximizeClicked(identifier)
+  };
+
   return (
-    <FrameHeaderStyled className="frameHeader-container">
-      <div className="frame-name" onClick={focusApp}>
+    <FrameHeaderStyled className="frameHeader-container" onClick={focusApp} onDoubleClickCapture={doubleClickMaximize}>
+      <div className="frame-name">
         { name }
       </div>
       <div className="icons">

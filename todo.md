@@ -5,7 +5,6 @@
 -possibility to click on frame that's behind
 -Browser iframe usable (or modify hover)
 -i18n
--double click to maximize
 -fix hover red X only when in the circle
 -fix cursor change when on an uneditable text
 -add icon on the frameheader

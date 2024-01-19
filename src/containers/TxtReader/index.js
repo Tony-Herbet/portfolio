@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { closeFileTab, focusFileTab } from 'actions/txtReader';
+import { focusOn } from 'actions/utils'
 
 import TxtReader from 'components/TxtReader';
 
@@ -17,6 +18,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   focusFileTab: (name) => {
     dispatch(focusFileTab(name));
+  },
+  focusOn: (identifier) => {
+    dispatch(focusOn(identifier));
   },
 });
 

@@ -22,12 +22,23 @@ const PdfStyled = styled.div`
   border-top-left-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
   border-top-right-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
 
-  .CV {
-    height: 100%
+  .frame-inside {
+    position: relative;
+    float: left;
   }
 
-  .pdf-text {
-    text-align: center
+  .overlay {
+    display: ${props =>  props.pdf.focus ? 'none': 'block'}; /* enable/disable the onClick on the iframe */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+  }
+
+  .iframe {
+    height: 100%;
+    width: 100%
   }
 `;
 

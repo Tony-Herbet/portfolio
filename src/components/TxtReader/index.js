@@ -11,6 +11,7 @@ const Folder = ({
   closeFileTab,
   tabFocused,
   focusFileTab,
+  focusOn
 }) => {
   const handleTabFocus = (fileName) => {
     focusFileTab(fileName);
@@ -40,8 +41,12 @@ const Folder = ({
     closeFileTab(newFilesOpen);
   };
 
+  const handleFocus = () => {
+    focusOn('txtReader')
+  }
+
   return (
-    <TxtReaderStyled className="frame-container" txtreader={txtReader}>
+    <TxtReaderStyled className="frame-container" txtreader={txtReader} onClick={handleFocus}>
       <FrameHeader identifier="txtReader" name="TxtReader--" icon="txtreader" />
       <div className="frame-inside">
         <div className="txtReader-header">
@@ -89,6 +94,7 @@ Folder.propTypes = {
   closeFileTab: PropTypes.func.isRequired,
   tabFocused: PropTypes.string.isRequired,
   focusFileTab: PropTypes.func.isRequired,
+  focusOn: PropTypes.func.isRequired,
 };
 
 export default Folder;

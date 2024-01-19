@@ -13,11 +13,12 @@ const Mail = ({
   success,
   updateError,
   updateSuccess,
+  focusOn
 }) => {
   const handleChange = (event) => {
     const { value, name } = event.target;
     updateForm(name, value)
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,10 +40,14 @@ const Mail = ({
         updateSuccess(false);
       }, 10000);
     }
+  };
+
+  const handleFocus = () => {
+    focusOn('mail');
   }
 
   return (
-    <MailStyled className="frame-container" mail={mail}>
+    <MailStyled className="frame-container" mail={mail} onClick={handleFocus}>
       <FrameHeader identifier="mail" name="Mail" icon="mail" />
       <div className="frame-inside" >
         <form onSubmit={handleSubmit} id="form">
@@ -78,6 +83,7 @@ Mail.propTypes = {
   success: PropTypes.bool.isRequired,
   updateError: PropTypes.func.isRequired,
   updateSuccess: PropTypes.func.isRequired,
+  focusOn: PropTypes.func.isRequired,
 };
 
 export default Mail;

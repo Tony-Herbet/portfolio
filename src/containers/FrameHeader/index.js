@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import FrameHeader from 'components/FrameHeader';
 
 import {
-  focusOn,
   minimizeOn,
   maximizeClicked,
   runningOff,
@@ -16,9 +15,6 @@ const mapStateToProps = () => ({
 
 // === mapDispatchToProps
 const mapDispatchToProps = (dispatch) => ({
-  focusOn: (identifier) => {
-    dispatch(focusOn(identifier));
-  },
   minimizeOn: (identifier) => {
     dispatch(minimizeOn(identifier));
   },

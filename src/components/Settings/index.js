@@ -22,7 +22,8 @@ const Settings = ({
   themeStyle,
   changeAccentColor,
   changeBackground,
-  background
+  background,
+  focusOn
 }) => {
   const handleThemeSelect = (event) => {
     const themeSelected = event.target.value
@@ -35,8 +36,12 @@ const Settings = ({
     changeBackground(event.target.name)
   };
 
+  const handleFocus = () => {
+    focusOn('settings');
+  };
+
   return (
-    <SettingsStyled className="frame-container" settings={settings} categoryfocused ={categoryfocused }>
+    <SettingsStyled className="frame-container" settings={settings} categoryfocused={categoryfocused} onClick={handleFocus}>
       <FrameHeader identifier="settings" name="Settings" icon="settings" />
       <div className="frame-inside settings-frame-inside">
         <div className="categories" >
@@ -93,6 +98,7 @@ Settings.propTypes = {
   themeStyle: PropTypes.string.isRequired,
   changeBackground: PropTypes.func.isRequired,
   background: PropTypes.string.isRequired,
+  focusOn: PropTypes.func.isRequired,
 };
 
 export default Settings;

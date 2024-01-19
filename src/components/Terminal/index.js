@@ -40,8 +40,9 @@ const Terminal = ({
     pathUpdate('Root')
   }, [data]);
 
-  // Focus on terminal
-  const focusInput = () => {
+  // Focus on terminal his input
+  const handleFocus = () => {
+    focusOn("terminal")
     inputRef.current.focus();
   };
 
@@ -235,7 +236,7 @@ const Terminal = ({
     <TerminalStyled
       className="frame-container"
       terminal={terminal}
-      onClick={focusInput}
+      onClick={handleFocus}
       onKeyUp={handleKeyUp}
     >
       <FrameHeader identifier="terminal" name="Terminal" icon="terminal" />

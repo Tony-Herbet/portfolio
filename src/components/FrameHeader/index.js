@@ -15,7 +15,6 @@ import ClayGymnastReaderImage from '../../assets/images/icons/pdf.svg'
 import MailImage from '../../assets/images/icons/mail.svg'
 
 const FrameHeader = ({
-  focusOn,
   focusOff,
   minimizeOn,
   maximizeClicked,
@@ -37,10 +36,6 @@ const FrameHeader = ({
     focusOff(identifier);
     minimizeOn(identifier);
     runningOff(identifier);
-  };
-
-  const focusApp = () => {
-    focusOn(identifier);
   };
 
   const doubleClickMaximize = () => {
@@ -72,7 +67,7 @@ const FrameHeader = ({
   }
 
   return (
-    <FrameHeaderStyled className="frameHeader-container" onClick={focusApp} onDoubleClickCapture={doubleClickMaximize}>
+    <FrameHeaderStyled className="frameHeader-container" onDoubleClickCapture={doubleClickMaximize}>
       <div className="frameHeader-header">
         <img src={defineIcon()} alt="" className="header-icon" />
 
@@ -100,7 +95,6 @@ const FrameHeader = ({
 };
 
 FrameHeader.propTypes = {
-  focusOn: PropTypes.func.isRequired,
   minimizeOn: PropTypes.func.isRequired,
   maximizeClicked: PropTypes.func.isRequired,
   runningOff: PropTypes.func.isRequired,

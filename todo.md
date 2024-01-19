@@ -2,10 +2,8 @@
 
 -improve perf
 -fix browser iframe not showing after another app overlap
--possibility to click on frame that's behind
 -Browser iframe usable (or modify hover)
 -i18n
--fix hover red X only when in the circle
 -fix cursor change when on an uneditable text
 
 ## Ideas

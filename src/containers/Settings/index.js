@@ -4,6 +4,7 @@ import Settings from 'components/Settings';
 
 import { focusCategoryTab } from 'actions/settings';
 import { changeThemeStyle, changeAccentColor, changeBackground } from 'actions/theme';
+import { focusOn } from 'actions/utils';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({
@@ -26,7 +27,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeBackground: (newBackground) => {
     dispatch(changeBackground(newBackground))
-  }
+  },
+  focusOn: (identifier) => {
+    dispatch(focusOn(identifier));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

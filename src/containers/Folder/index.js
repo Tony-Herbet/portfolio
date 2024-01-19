@@ -41,7 +41,6 @@ const mapDispatchToProps = (dispatch) => ({
   updateFolderOpenedData: (name) => {
     dispatch(updateFolderOpenedData(name));
   }
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Folder);

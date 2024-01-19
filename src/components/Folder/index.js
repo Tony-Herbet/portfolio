@@ -30,7 +30,7 @@ const Folder = ({
 
   const handleClick = (name) => {
     folderElementFocused(name)
-  }
+  };
 
   const handleDoubleClick = (elm) => {
     if(elm.endsWith('.txt')) {
@@ -55,17 +55,21 @@ const Folder = ({
       // We open the pdf reader
       updateFolderOpenedData(data.Folders[elm])
     }
-  }
+  };
 
   const handleBack = () => {
     if(folderOpenedData.name === 'Projets' || folderOpenedData.name === 'Diplomes') {
       updateFolderOpenedData(data.Folders['Root']);
       folderElementFocused('')
     }
-  }
+  };
+
+  const handleFocus = () => {
+    focusOn('folder');
+  };
   
   return (
-    <FolderStyled className="frame-container" folder={folder}>
+    <FolderStyled className="frame-container" folder={folder} onClick={handleFocus}>
       <FrameHeader identifier="folder" name="Folder" icon="folder" />
         <div className="frame-inside">
           <BrowserAndFolderNav where='folder' handleBack={handleBack} folderOpenedData={folderOpenedData} />

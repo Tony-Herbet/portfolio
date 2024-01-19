@@ -13,8 +13,8 @@ const TerminalStyled = styled.div`
 
   /* Position when maximize */
   top: ${props => props.terminal.maximize ? '50px' : '80px' };
-  right: ${props => props.terminal.maximize ? '0' : '0.8rem' };
-  left: ${props => props.terminal.maximize ? '0' : '0.8rem' };
+  left: ${props => props.terminal.maximize ? '0' : '0.8rem' }; /* width should be vw - (right + left )*/
+  right: ${props => props.terminal.maximize ? '0' : '50vw' };
   height: ${props => props.terminal.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */ /* */
 
   /* Border when maximize */

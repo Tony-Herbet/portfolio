@@ -12,10 +12,10 @@ const FolderStyled = styled.div`
   z-index: ${(props) => props.folder.zIndex};
 
   /* Position when maximize */
-  top: ${props => props.folder.maximize ? '50px' : '80px' };
-  right: ${props => props.folder.maximize ? '0' : '0.8rem' };
-  left: ${props => props.folder.maximize ? '0' : '0.8rem' };
-  height: ${props => props.folder.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
+  top: ${props => props.folder.maximize ? '50px' : 'calc(40vh - 52px)' };
+  left: ${props => props.folder.maximize ? '0' : '45vw' }; /* width should be vw - (right + left )*/
+  right: ${props => props.folder.maximize ? '0' : '5vw' };
+  height: ${props => props.folder.maximize ? 'calc(100vh - 52px)' : '60vh' }; /* Screen size - taskbar + frames borders */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.folder.maximize ? 'transparent': props.theme.accent};

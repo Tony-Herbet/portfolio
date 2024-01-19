@@ -12,9 +12,9 @@ const SettingsStyled = styled.div`
   z-index: ${(props) => props.settings.zIndex};
 
   /* Position when maximize */
-  top: ${props => props.settings.maximize ? '50px' : '80px' };
-  right: ${props => props.settings.maximize ? '0' : '0.8rem' };
-  left: ${props => props.settings.maximize ? '0' : '0.8rem' };
+  top: ${props => props.settings.maximize ? '50px' : '30vh' };
+  left: ${props => props.settings.maximize ? '0' : '25vw' }; /* width should be vw - (right + left )*/
+  right: ${props => props.settings.maximize ? '0' : '25vw' };
   height: ${props => props.settings.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
 
   /* Border when maximize */

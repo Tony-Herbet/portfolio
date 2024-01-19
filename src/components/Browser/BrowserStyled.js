@@ -13,10 +13,10 @@ const BrowserStyled = styled.div`
   z-index: ${(props) => props.browser.zIndex};
 
   /* Position when maximize */
-  top: ${props => props.browser.maximize ? '50px' : '80px' };
-  right: ${props => props.browser.maximize ? '0' : '0.8rem' };
-  left: ${props => props.browser.maximize ? '0' : '0.8rem' };
-  height: ${props => props.browser.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
+  top: ${props => props.browser.maximize ? '50px' : 'calc(20vh - 52px)' };
+  left: ${props => props.browser.maximize ? '0' : '10vw' }; /* width should be vw - (right + left )*/
+  right: ${props => props.browser.maximize ? '0' : '10vw' }; 
+  height: ${props => props.browser.maximize ? 'calc(100vh - 52px)' : '70vh' }; /* Screen size - taskbar + frames borders */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.browser.maximize ? 'transparent': props.theme.accent};

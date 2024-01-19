@@ -12,10 +12,10 @@ const PdfStyled = styled.div`
   z-index: ${(props) => props.pdf.zIndex};
 
   /* Position when maximize */
-  top: ${props => props.pdf.maximize ? '50px' : '80px' };
+  top: ${props => props.pdf.maximize ? '50px' : '110px' };
+  left: ${props => props.pdf.maximize ? '0' : '35vw' }; /* width should be vw - (right + left )*/
   right: ${props => props.pdf.maximize ? '0' : '0.8rem' };
-  left: ${props => props.pdf.maximize ? '0' : '0.8rem' };
-  height: ${props => props.pdf.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
+  height: ${props => props.pdf.maximize ? 'calc(100vh - 52px)' : 'calc(90vh - 150px)' }; /* Screen size - taskbar + frames borders */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.pdf.maximize ? 'transparent': props.theme.accent};

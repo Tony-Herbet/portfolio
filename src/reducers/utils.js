@@ -10,6 +10,8 @@ import {
   OPEN_PDF_FROM_FILE,
   CLOSE_LANDING,
   SWITCH_LOADING,
+  HANDLE_LANGUAGE_MENU_STATE,
+  CHANGE_LANGUAGE,
 } from 'actions/utils';
 
 const initialState = {
@@ -65,6 +67,8 @@ const initialState = {
   zIndexCounter: 0,
   landingIsOpen: true,
   loading: false,
+  languageMenuOpen: false,
+  language: 'FRA',
 };
 
 const utils = (state = initialState, action = {}) => {
@@ -238,13 +242,25 @@ const utils = (state = initialState, action = {}) => {
       return {
         ...state,
         landingIsOpen: false,
-      }
+      };
 
     case SWITCH_LOADING:
       return {
         ...state,
         loading: !state.loading,
-      }
+      };
+
+    case HANDLE_LANGUAGE_MENU_STATE:
+      return {
+        ...state,
+        languageMenuOpen: action.value,
+      };
+
+    case CHANGE_LANGUAGE:
+      return {
+        ...state,
+        language: action.language,
+      };
 
     default: return state;
   }

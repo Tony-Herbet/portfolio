@@ -10,6 +10,8 @@ export const OPEN_TXT_WITH_FILE = 'OPEN_TXT_WITH_FILE';
 export const OPEN_PDF_FROM_FILE = 'OPEN_PDF_FROM_FILE';
 export const CLOSE_LANDING = 'CLOSE_LANDING';
 export const SWITCH_LOADING = 'SWITCH_LOADING';
+export const HANDLE_LANGUAGE_MENU_STATE = 'HANDLE_LANGUAGE_MENU_STATE';
+export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
 
 // === action creators
 export const runningOn = (identifier) => ({
@@ -65,3 +67,12 @@ export const switchLoading = () => ({
   type: SWITCH_LOADING,
 });
 
+export const handleLanguageMenuState = (value) => ({
+  type: HANDLE_LANGUAGE_MENU_STATE,
+  value
+});
+
+export const changeLanguage = (language) => ({
+  type: CHANGE_LANGUAGE,
+  language
+});

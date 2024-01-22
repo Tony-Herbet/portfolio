@@ -9,6 +9,7 @@ import TxtReaderImage from 'assets/images/icons/txt.svg';
 import SettingsImage from 'assets/images/icons/settings.svg';
 import ClayGymnastReaderImage from 'assets/images/icons/pdf.svg'
 import MailImage from 'assets/images/icons/mail.svg'
+import LanguageMenu from 'containers/LanguageMenu';
 
 // For SVG import use https://jakearchibald.github.io/svgomg/
 // To compress the SVG to fix an issue:
@@ -57,34 +58,37 @@ const Taskbar = ({
       pdf={pdf}
       mail={mail}
     >
-      <div className="task task-terminal">
-        <span className="task-indicator terminal-indicator" />
-        <img src={TerminalImage} alt="" className="task-icon" id="terminal" onClick={handleClick(terminal)} />
+      <div className='taskbar-icons'>
+        <div className="task task-terminal">
+          <span className="task-indicator terminal-indicator" />
+          <img src={TerminalImage} alt="" className="task-icon" id="terminal" onClick={handleClick(terminal)} />
+        </div>
+        <div className="task task-folder">
+          <span className="task-indicator folder-indicator" />
+          <img src={FolderImage} alt="" className="task-icon" id="folder" onClick={handleClick(folder)} />
+        </div>
+        <div className="task task-browser">
+          <span className="task-indicator browser-indicator" />
+          <img src={ChromiumImage} alt="" className="task-icon" id="browser" onClick={handleClick(browser)} />
+        </div>
+        <div className="task task-txtReader">
+          <span className="task-indicator txtReader-indicator" />
+          <img src={TxtReaderImage} alt="" className="task-icon" id="txtReader" onClick={handleClick(txtReader)} />
+        </div>
+        <div className="task task-settings">
+          <span className="task-indicator settings-indicator" />
+          <img src={SettingsImage} alt="" className="task-icon" id="settings" onClick={handleClick(settings)} />
+        </div>
+        <div className="task task-pdf">
+          <span className="task-indicator pdf-indicator" />
+          <img src={ClayGymnastReaderImage} alt="" className="task-icon" id="pdf" onClick={handleClick(pdf)} />
+        </div>
+        <div className="task task-mail">
+          <span className="task-indicator mail-indicator" />
+          <img src={MailImage} alt="" className="task-icon" id="mail" onClick={handleClick(mail)} />
+        </div>
       </div>
-      <div className="task task-folder">
-        <span className="task-indicator folder-indicator" />
-        <img src={FolderImage} alt="" className="task-icon" id="folder" onClick={handleClick(folder)} />
-      </div>
-      <div className="task task-browser">
-        <span className="task-indicator browser-indicator" />
-        <img src={ChromiumImage} alt="" className="task-icon" id="browser" onClick={handleClick(browser)} />
-      </div>
-      <div className="task task-txtReader">
-        <span className="task-indicator txtReader-indicator" />
-        <img src={TxtReaderImage} alt="" className="task-icon" id="txtReader" onClick={handleClick(txtReader)} />
-      </div>
-      <div className="task task-settings">
-        <span className="task-indicator settings-indicator" />
-        <img src={SettingsImage} alt="" className="task-icon" id="settings" onClick={handleClick(settings)} />
-      </div>
-      <div className="task task-pdf">
-        <span className="task-indicator pdf-indicator" />
-        <img src={ClayGymnastReaderImage} alt="" className="task-icon" id="pdf" onClick={handleClick(pdf)} />
-      </div>
-      <div className="task task-mail">
-        <span className="task-indicator mail-indicator" />
-        <img src={MailImage} alt="" className="task-icon" id="mail" onClick={handleClick(mail)} />
-      </div>
+      <LanguageMenu />
     </TaskbarStyled>
   );
 };

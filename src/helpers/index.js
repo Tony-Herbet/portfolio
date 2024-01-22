@@ -3,6 +3,8 @@ import background2 from 'assets/images/backgrounds/2.jpg';
 import background3 from 'assets/images/backgrounds/3.jpg';
 import background4 from 'assets/images/backgrounds/4.jpg';
 
+import WORDING  from '../wording/index';
+
 const handleCurrentBackground = (background) => {
   return background === 'background1' ? background1 
     : background === 'background2' ? background2 
@@ -23,4 +25,10 @@ const handleTypeOfFile = (file) => {
   }
 }
 
-export { handleCurrentBackground, handleTypeOfFile }
+// Short for traduction, since i'll be using it a lot
+const t = (key, language) => {
+  console.log('key', key, 'lang', language)
+  return WORDING[language][key];
+}
+
+export { handleCurrentBackground, handleTypeOfFile, t }

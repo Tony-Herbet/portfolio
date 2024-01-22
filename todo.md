@@ -1,5 +1,6 @@
 # Todo
 
+-Settings css
 -Browser iframe usable (or modify hover)
 -i18n
 -animation when maximize
@@ -7,6 +8,7 @@
 
 ## Ideas
 
+-countries flag for i18n
 -movable software windows
 -custom color picker in settings
 -change bg color on click on buttons

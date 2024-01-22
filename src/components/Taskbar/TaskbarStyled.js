@@ -10,6 +10,11 @@ const TaskbarStyled = styled.div`
   background-color: ${props => props.theme[props.theme.themeStyle].taskbar.color};
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+
+  .taskbar-icons {
+    display: flex;
+  }
   
   .task {
     display: flex;

@@ -2,11 +2,8 @@
 
 -Browser iframe usable (or modify hover)
 -i18n
--fix cursor change when on an uneditable text
 -animation when maximize
 -pre load background image
--focus & hover background color change on frameHeader -ox
--fix focus making settings theme choice impossible
 
 ## Ideas
 
@@ -18,7 +15,7 @@
 -konami code/secret
 -top right time
 -volume
--better props validation
+-better props validation (switch to TS?)
 -widget spotify like to give it more life
 -Taskbar can be change to top/left/right/bottom
 

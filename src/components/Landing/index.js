@@ -12,7 +12,7 @@ const Landing = ({closeLanding, switchLoading}) => {
   return (
     <LandingStyled className="landing">
       <div className='landing-content'>
-        <h1>Bienvenue sur le portfolio de Herbet Le Faucheur Tony</h1>
+        <h1 className='landing-title'>Bienvenue sur le portfolio de Herbet Le Faucheur Tony</h1>
         <div className='landing-text'>
           <p>
             Ce site a été pensé et réalisé pour une utilisation sur ordinateur, je vous invite donc à le faire si ce n'est pas le cas.

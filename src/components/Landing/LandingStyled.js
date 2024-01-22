@@ -12,6 +12,13 @@ const LandingStyled = styled.div`
   justify-content: center;
   align-items: center;
 
+  .landing-title {
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    font-weight: bold;
+  }
+
   .landing-content {
     display: flex;
     flex-direction: column;
@@ -24,6 +31,11 @@ const LandingStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .landing-text > p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
   }
 
   .landing-content > button {

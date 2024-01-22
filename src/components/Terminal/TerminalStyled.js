@@ -68,6 +68,7 @@ const TerminalStyled = styled.div`
     font-family: 'UbuntuFont';
     font-size: 1rem;
     width: 100%;
+    cursor: default;
   }
 
   .terminal-input:focus {

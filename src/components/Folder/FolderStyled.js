@@ -37,16 +37,19 @@ const FolderStyled = styled.div`
   .folders-container {
     display: flex;
     padding: 1rem 0.3rem;
+    height: 100%;
+    flex-wrap: wrap;
+    align-content: flex-start;
   }
 
   .folder-item {
-    margin-right: 0.3rem;
-    padding-top: 0.5rem;
+    margin: 0.15rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 150px;
-    height: 75px;
+    justify-content: space-evenly;
+    width: 170px;
+    height: 95px;
   }
 
   .folder-item:hover {

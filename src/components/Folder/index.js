@@ -81,15 +81,13 @@ const Folder = ({
                 onClick={() => handleClick(elm)}
                 onDoubleClickCapture={() => handleDoubleClick(elm)}
               >
-                <div>
-                  <img 
-                    className='type-icon'
-                    src={
-                      elm.endsWith('.txt') ? TxtReaderImage :
-                      elm.endsWith('.pdf') ? ClayGymnastReaderImage : FolderImage
-                    }
-                  />
-                </div>
+                <img 
+                  className='type-icon'
+                  src={
+                    elm.endsWith('.txt') ? TxtReaderImage :
+                    elm.endsWith('.pdf') ? ClayGymnastReaderImage : FolderImage
+                  }
+                />
                 <p>{elm}</p>
               </div>
             )}

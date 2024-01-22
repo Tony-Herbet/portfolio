@@ -17,7 +17,7 @@ const Pdf = ({
     <PdfStyled className="frame-container" pdf={pdf} onClick={handleFocus}>
       <FrameHeader identifier="pdf" name="Clay Gymnast Reader" icon="pdf" />
       <div className="frame-inside" onClick={handleFocus}>
-        <iframe className="iframe" src={CV} title="CV" loading="lazy" />
+        <iframe className="iframe" src={`${CV}#view=fitH`} title="CV" loading="lazy" />
         <div className="overlay">
           {/* 
             This overlay enable the onClick in the iframe when it's not focus.

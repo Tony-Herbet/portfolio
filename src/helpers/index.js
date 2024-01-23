@@ -27,7 +27,6 @@ const handleTypeOfFile = (file) => {
 
 // Short for traduction, since i'll be using it a lot
 const t = (key, language) => {
-  console.log('key', key, 'lang', language)
   return WORDING[language][key];
 }
 

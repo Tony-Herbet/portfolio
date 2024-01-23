@@ -1,9 +1,7 @@
 # Todo
 
--pre open presentation in txtreader
 -Settings css
 -Browser iframe usable (or modify hover)
--i18n
 -animation when maximize
 -pre load background image
 

@@ -8,8 +8,14 @@ import {
 } from 'actions/txtReader';
 
 const initialState = {
-  filesOpen: [],
-  tabFocused: '',
+  // Initial filesOpen and tabFocus come from data.js, take the new version if there is a change
+  filesOpen: [  
+    {
+      name: 'Presentation.txt',
+      text: 'Présentation Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
+    }
+  ],
+  tabFocused: 'Presentation.txt',
 };
 
 const txtReader = (state = initialState, action = {}) => {

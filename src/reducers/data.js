@@ -26,7 +26,7 @@ const initialState = {
       ]
     }
   },
-  'Presentation.txt': {
+  'Presentation.txt': { // Use in txtReader initialState, copy any change there too
     name: 'Presentation.txt',
     text: 'Présentation Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
   },

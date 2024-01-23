@@ -76,9 +76,7 @@ const App = ({theme, landingIsOpen, loading}) => (
 App.propTypes = {
   theme: PropTypes.object.isRequired,
   landingIsOpen: PropTypes.bool.isRequired,
-  closeLanding: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  switchLoading: PropTypes.func.isRequired,
 };
 
 export default App;

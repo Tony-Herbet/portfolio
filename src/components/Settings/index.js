@@ -12,7 +12,7 @@ import background2 from 'assets/images/backgrounds/2.jpg';
 import background3 from 'assets/images/backgrounds/3.jpg';
 import background4 from 'assets/images/backgrounds/4.jpg';
 
-import { handleCurrentBackground } from 'helpers'
+import { handleCurrentBackground, t } from 'helpers'
 
 const Settings = ({
   settings,
@@ -23,7 +23,8 @@ const Settings = ({
   changeAccentColor,
   changeBackground,
   background,
-  focusOn
+  focusOn,
+  language,
 }) => {
   const handleThemeSelect = (event) => {
     const themeSelected = event.target.value
@@ -42,39 +43,39 @@ const Settings = ({
 
   return (
     <SettingsStyled className="frame-container" settings={settings} categoryfocused={categoryfocused} onClick={handleFocus}>
-      <FrameHeader identifier="settings" name="Settings" icon="settings" />
+      <FrameHeader identifier="settings" name={t('settings_frameHeader_name', language)} icon="settings" />
       <div className="frame-inside settings-frame-inside">
         <div className="categories" >
           <div className="categorie categorie-colors" id="colors" onClick={() => focusCategoryTab('colors')}>
             <FaPalette />
-            <p> Colors </p>
+            <p>{t('settings_tab_colors', language)}</p>
           </div> 
           <div className="categorie categorie-background" id="background" onClick={() => focusCategoryTab('background')}>
             <FaImage  />
-            <p> Background </p>
+            <p>{t('settings_tab_background', language)}</p>
           </div> 
         </div>
         <div className="options" >
           {categoryfocused  === 'colors' && (
             <>
-              <label htmlFor="theme-select">Choose your theme</label>
+              <label htmlFor="theme-select">{t('settings_theme_label', language)}</label>
               <select className="theme-select" id="theme-select" onChange={handleThemeSelect} value={themeStyle} >
-                <option value="dark">Dark</option>
-                <option value="light">Light</option>
+                <option value="dark">{t('settings_theme_dark', language)}</option>
+                <option value="light">{t('settings_theme_light', language)}</option>
               </select>
-              <p>Choose your accent color</p>
+              <p>{t('settings_theme_accent_choice', language)}</p>
               <GithubPicker onChangeComplete={(color) => changeAccentColor(color.hex)} />
-              <div>Current color</div>
+              <div>{t('settings_theme_accent_current', language)}</div>
               <div className='accent-square-display' />
             </>
           )}
 
           {categoryfocused  === 'background' && (
             <div className="option option-background">
-              <div>Current background</div>
+              <div>{t('settings_theme_background_current', language)}</div>
               <img className='settings-images' src={handleCurrentBackground(background)} />
               
-              <p>Choose your background image</p>
+              <p>{t('settings_theme_background_choice', language)}</p>
               <div className='settings-images-container'>
                 <img className='settings-images' src={background1} name="background1" onClick={handleBackgroundClick} />
                 <img className='settings-images' src={background2} name="background2" onClick={handleBackgroundClick} />
@@ -99,6 +100,7 @@ Settings.propTypes = {
   changeBackground: PropTypes.func.isRequired,
   background: PropTypes.string.isRequired,
   focusOn: PropTypes.func.isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 export default Settings;

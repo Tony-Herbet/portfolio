@@ -11,8 +11,8 @@ import TxtReader from 'containers/TxtReader';
 import Settings from 'containers/Settings';
 import Pdf from 'containers/Pdf';
 import Mail from 'containers/Mail';
-import Landing from 'components/Landing';
-import Loader from 'components/Loader';
+import Landing from 'containers/Landing';
+import Loader from 'containers/Loader';
 
 import { handleCurrentBackground } from 'helpers'
 
@@ -46,14 +46,14 @@ const AppStyled = styled.div`
   }
 `;
 
-const App = ({theme, landingIsOpen, closeLanding, loading, switchLoading}) => (
+const App = ({theme, landingIsOpen, loading}) => (
   <StyleSheetManager shouldForwardProp={isPropValid} >
     <ThemeProvider theme={theme}>
       <AppStyled>
         <div className="app">
-          {landingIsOpen && <Landing closeLanding={closeLanding} switchLoading={switchLoading} />}
+          {landingIsOpen && <Landing />}
           {!landingIsOpen && loading && (
-            <Loader switchLoading={switchLoading} />
+            <Loader />
           )}
           {!landingIsOpen && !loading && (
             <>    

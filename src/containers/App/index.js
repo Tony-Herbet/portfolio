@@ -2,8 +2,6 @@ import { connect } from 'react-redux';
 
 import App from 'components/App';
 
-import { closeLanding, switchLoading } from 'actions/utils';
-
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   theme: state.theme,
@@ -12,13 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 // === mapDispatchToProps
-const mapDispatchToProps = (dispatch) => ({
-  closeLanding: () => {
-    dispatch(closeLanding());
-  },
-  switchLoading: () => {
-    dispatch(switchLoading())
-  }
+const mapDispatchToProps = () => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -5,13 +5,16 @@ import { IoClose  } from "react-icons/io5";
 import TxtReaderStyled from './TxtReaderStyled';
 import FrameHeader from 'containers/FrameHeader';
 
+import { t } from '../../helpers';
+
 const Folder = ({
   txtReader,
   filesOpen,
   closeFileTab,
   tabFocused,
   focusFileTab,
-  focusOn
+  focusOn,
+  language,
 }) => {
   const handleTabFocus = (fileName) => {
     focusFileTab(fileName);
@@ -50,10 +53,10 @@ const Folder = ({
       <FrameHeader identifier="txtReader" name="TxtReader--" icon="txtreader" />
       <div className="frame-inside">
         <div className="txtReader-header">
-          <span className="menu-options">File</span>
-          <span className="menu-options">Edit</span>
-          <span className="menu-options">View</span>
-          <span className="menu-options">Settings</span>
+          <span className="menu-options">{t('TxtReader_file', language)}</span>
+          <span className="menu-options">{t('TxtReader_edit', language)}</span>
+          <span className="menu-options">{t('TxtReader_view', language)}</span>
+          <span className="menu-options">{t('TxtReader_settings', language)}</span>
         </div>
         <div className="txtReader-tabs">
           {filesOpen && filesOpen.map((file, i) => (
@@ -95,6 +98,7 @@ Folder.propTypes = {
   tabFocused: PropTypes.string.isRequired,
   focusFileTab: PropTypes.func.isRequired,
   focusOn: PropTypes.func.isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 export default Folder;

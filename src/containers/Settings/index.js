@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
   categoryfocused : state.settings.categoryfocused ,
   themeStyle: state.theme.themeStyle,
   background: state.theme.background,
+  language: state.utils.language,
 });
 
 // === mapDispatchToProps

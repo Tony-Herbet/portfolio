@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
   form: state.mail.form,
   error: state.mail.error,
   success: state.mail.success,
+  language: state.utils.language,
 });
 
 // === mapDispatchToProps

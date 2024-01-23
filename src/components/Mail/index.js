@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import MailStyled from './MailStyled';
 import FrameHeader from 'containers/FrameHeader';
 
+import { t } from '../../helpers';
+
 const Mail = ({
   mail,
   form,
@@ -13,7 +15,8 @@ const Mail = ({
   success,
   updateError,
   updateSuccess,
-  focusOn
+  focusOn,
+  language
 }) => {
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -51,12 +54,12 @@ const Mail = ({
       <FrameHeader identifier="mail" name="Mail" icon="mail" />
       <div className="frame-inside" >
         <form onSubmit={handleSubmit} id="form">
-          <div>Contact me</div>
-          <input type="text" name="name" value={form.name} onChange={handleChange} placeholder='Your name' className='name' autoFocus />
-          <input type="email" name="email" value={form.email} onChange={handleChange} placeholder='Your email adress' className='email' autoFocus />
-          <textarea name="message" value={form.message} onChange={handleChange} className='message' placeholder='Your message' autoFocus />
+          <h1>{t('mail_title', language)}</h1>
+          <input type="text" name="name" value={form.name} onChange={handleChange} placeholder={t('mail_name', language)} className='name' autoFocus />
+          <input type="email" name="email" value={form.email} onChange={handleChange} placeholder={t('mail_email', language)} className='email' autoFocus />
+          <textarea name="message" value={form.message} onChange={handleChange} className='message' placeholder={t('mail_message', language)} autoFocus />
           <div className='form-end'>
-            <input type="submit" value="Send" className='submit' />
+            <input type="submit" value={t('mail_send_button', language)} className='submit' />
             {error && (
               <div className='error'>
                 {error}
@@ -64,7 +67,7 @@ const Mail = ({
             )}
             {success && (
               <div className='success'>
-                Your email should have been sent successfully
+                {t('mail_success', language)}
               </div>
             )}
           </div>
@@ -84,6 +87,7 @@ Mail.propTypes = {
   updateError: PropTypes.func.isRequired,
   updateSuccess: PropTypes.func.isRequired,
   focusOn: PropTypes.func.isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 export default Mail;

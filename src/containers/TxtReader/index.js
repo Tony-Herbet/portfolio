@@ -9,6 +9,7 @@ const mapStateToProps = (state) => ({
   txtReader: state.utils.txtReader,
   filesOpen: state.txtReader.filesOpen,
   tabFocused: state.txtReader.tabFocused,
+  language: state.utils.language,
 });
 
 // === mapDispatchToProps

@@ -18,7 +18,8 @@ const mapStateToProps = (state) => ({
   data: state.data,
   filesOpen: state.txtReader.filesOpen,
   elementFocused: state.folder.elementFocused,
-  folderOpenedData: state.folder.folderOpenedData
+  folderOpenedData: state.folder.folderOpenedData,
+  language: state.utils.language,
 });
 
 // === mapDispatchToProps

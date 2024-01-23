@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-// import { FaArrowRotateRight, FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import FolderImage from 'assets/images/icons/folder.svg';
 import TxtReaderImage from 'assets/images/icons/txt.svg';
 import ClayGymnastReaderImage from 'assets/images/icons/pdf.svg'
@@ -9,6 +8,8 @@ import ClayGymnastReaderImage from 'assets/images/icons/pdf.svg'
 import FolderStyled from './FolderStyled';
 import FrameHeader from 'containers/FrameHeader';
 import BrowserAndFolderNav from '../BrowserAndFolderNav';
+
+import { t } from 'helpers';
 
 const Folder = ({
   folder,
@@ -21,7 +22,8 @@ const Folder = ({
   folderElementFocused,
   elementFocused,
   updateFolderOpenedData,
-  folderOpenedData
+  folderOpenedData,
+  language,
 }) => {
   useEffect(() => {
     // Initial data
@@ -70,7 +72,7 @@ const Folder = ({
   
   return (
     <FolderStyled className="frame-container" folder={folder} onClick={handleFocus}>
-      <FrameHeader identifier="folder" name="Folder" icon="folder" />
+      <FrameHeader identifier="folder" name={t('folder_frameHeader_name', language)} icon="folder" />
         <div className="frame-inside">
           <BrowserAndFolderNav where='folder' handleBack={handleBack} folderOpenedData={folderOpenedData} />
           <div className='folders-container'>
@@ -109,6 +111,7 @@ Folder.propTypes = {
   elementFocused: PropTypes.string.isRequired,
   updateFolderOpenedData: PropTypes.func.isRequired,
   folderOpenedData: PropTypes.object.isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 export default Folder;

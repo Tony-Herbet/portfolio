@@ -3,7 +3,9 @@ import React, { useEffect } from 'react';
 
 import LoaderStyled from './LoaderStyled';
 
-const Loader = ({ switchLoading }) => {
+import { t } from '../../helpers'
+
+const Loader = ({ switchLoading, language }) => {
   // Loader is display an arbitraty number of seconds to mimic an operating system booting
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,7 +19,7 @@ const Loader = ({ switchLoading }) => {
     <LoaderStyled>
       <div className='loader-container'>
         <span className="loader" />
-        <p className='text'>Le système d'exploitation est en cours de démarrage...</p>
+        <p className='text'>{t('loader_text', language)}</p>
       </div>
     </LoaderStyled>
   );
@@ -25,6 +27,7 @@ const Loader = ({ switchLoading }) => {
 
 Loader.propTypes = {
   switchLoading: PropTypes.func.isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 export default Loader;

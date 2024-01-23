@@ -31,6 +31,7 @@ const LanguageMenuStyled = styled.div`
     flex-direction: column;
     height: 75px;
     justify-content: space-around;
+    z-index: 2147483647;
   }
 
   .languageMenu-option {

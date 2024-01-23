@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import FolderImage from 'assets/images/icons/folder.svg';
 import TxtReaderImage from 'assets/images/icons/txt.svg';
-import ClayGymnastReaderImage from 'assets/images/icons/pdf.svg'
+import PdfImage from 'assets/images/icons/pdf.svg'
 
 import FolderStyled from './FolderStyled';
 import FrameHeader from 'containers/FrameHeader';
@@ -87,7 +87,7 @@ const Folder = ({
                   className='type-icon'
                   src={
                     elm.endsWith('.txt') ? TxtReaderImage :
-                    elm.endsWith('.pdf') ? ClayGymnastReaderImage : FolderImage
+                    elm.endsWith('.pdf') ? PdfImage : FolderImage
                   }
                 />
                 <p>{elm}</p>

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import TaskbarStyled from './TaskbarStyled';
 import TerminalImage from 'assets/images/icons/terminal.svg';
-import ChromiumImage from 'assets/images/icons/chromium.svg';
+import BrowserImage from 'assets/images/icons/browser.svg';
 import FolderImage from 'assets/images/icons/folder.svg';
 import TxtReaderImage from 'assets/images/icons/txt.svg';
 import SettingsImage from 'assets/images/icons/settings.svg';
-import ClayGymnastReaderImage from 'assets/images/icons/pdf.svg'
+import PdfImage from 'assets/images/icons/pdf.svg'
 import MailImage from 'assets/images/icons/mail.svg'
 import LanguageMenu from 'containers/LanguageMenu';
 
@@ -69,7 +69,7 @@ const Taskbar = ({
         </div>
         <div className="task task-browser">
           <span className="task-indicator browser-indicator" />
-          <img src={ChromiumImage} alt="" className="task-icon" id="browser" onClick={handleClick(browser)} />
+          <img src={BrowserImage} alt="" className="task-icon" id="browser" onClick={handleClick(browser)} />
         </div>
         <div className="task task-txtReader">
           <span className="task-indicator txtReader-indicator" />
@@ -81,7 +81,7 @@ const Taskbar = ({
         </div>
         <div className="task task-pdf">
           <span className="task-indicator pdf-indicator" />
-          <img src={ClayGymnastReaderImage} alt="" className="task-icon" id="pdf" onClick={handleClick(pdf)} />
+          <img src={PdfImage} alt="" className="task-icon" id="pdf" onClick={handleClick(pdf)} />
         </div>
         <div className="task task-mail">
           <span className="task-indicator mail-indicator" />

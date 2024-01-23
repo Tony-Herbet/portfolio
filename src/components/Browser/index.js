@@ -15,7 +15,7 @@ const Browser = ({
 
   return (
     <BrowserStyled className="frame-container" browser={browser} onClick={handleFocus} >
-      <FrameHeader identifier="browser" name="Copium" icon="browser" />
+      <FrameHeader identifier="browser" name="Bronze" icon="browser" />
       <div className="frame-inside">
         <BrowserAndFolderNav where='browser' />
         <iframe className="iframe" src="https://tony-herbet.github.io/p3fc/" title="p3fc" loading="lazy" />

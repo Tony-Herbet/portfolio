@@ -51,7 +51,7 @@ const Mail = ({
 
   return (
     <MailStyled className="frame-container" mail={mail} onClick={handleFocus}>
-      <FrameHeader identifier="mail" name="Mail" icon="mail" />
+      <FrameHeader identifier="mail" name="Fmail" icon="mail" />
       <div className="frame-inside" >
         <form onSubmit={handleSubmit} id="form">
           <h1>{t('mail_title', language)}</h1>

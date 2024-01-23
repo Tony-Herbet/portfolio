@@ -1,7 +1,6 @@
 # Todo
 
 -pre open presentation in txtreader
--rename chrome and stuff
 -Settings css
 -Browser iframe usable (or modify hover)
 -i18n

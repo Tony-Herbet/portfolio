@@ -7,11 +7,11 @@ import { VscChromeMinimize } from "react-icons/vsc";
 
 import FrameHeaderStyled from './FrameHeaderStyled';
 import TerminalImage from '../../assets/images/icons/terminal.svg';
-import ChromiumImage from '../../assets/images/icons/chromium.svg';
+import BrowserImage from '../../assets/images/icons/browser.svg';
 import FolderImage from '../../assets/images/icons/folder.svg';
 import TxtReaderImage from '../../assets/images/icons/txt.svg';
 import SettingsImage from '../../assets/images/icons/settings.svg';
-import ClayGymnastReaderImage from '../../assets/images/icons/pdf.svg'
+import PdfImage from '../../assets/images/icons/pdf.svg'
 import MailImage from '../../assets/images/icons/mail.svg'
 
 const FrameHeader = ({
@@ -47,7 +47,7 @@ const FrameHeader = ({
       return TerminalImage
     }
     if(icon === "browser") {
-      return ChromiumImage
+      return BrowserImage
     }
     if(icon === "folder") {
       return FolderImage
@@ -59,7 +59,7 @@ const FrameHeader = ({
       return SettingsImage
     }   
     if(icon === "pdf") {
-      return ClayGymnastReaderImage
+      return PdfImage
     }
     if(icon === "mail") {
       return MailImage

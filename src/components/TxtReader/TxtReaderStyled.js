@@ -33,6 +33,7 @@ const TxtReaderStyled = styled.div`
 
   .menu-options {
     padding: 0.5rem;
+    cursor: default;
   }
 
   .txtReader-content {

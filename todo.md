@@ -2,8 +2,6 @@
 
 -pre open presentation in txtreader
 -rename chrome and stuff
--fix cursor on txtreader header
--fix     z-index: 2147483647; in language menu
 -Settings css
 -Browser iframe usable (or modify hover)
 -i18n

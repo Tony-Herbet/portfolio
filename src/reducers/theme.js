@@ -12,9 +12,8 @@ const initialState = {
     main: '#1A1A1A',
     secondary: '#323232',
     tertiary: '#4D4D4D',
-    quarternary: '#2A2A2A',
+    /* quarternary: '#2A2A2A', unused for now */
     text: '#D1D5DA',
-    highlight: 'hsl(0, 0%, 100%, 0.2)',
     taskbar: {
       color: '#323232',
       hover: 'hsl(0, 0%, 100%, 0.2)',
@@ -26,9 +25,8 @@ const initialState = {
     main: '#FAFAFA',
     secondary: '#E4E5F1',
     tertiary: '#9394A5',
-    quarternary: '#EDF1F5',
+    /* quarternary: '#EDF1F5', unused for now */
     text: '#040406',
-    highlight: 'hsl(0, 0%, 0%, 0.2)',
     taskbar: {
       color: '#E4E5F1',
       hover: 'hsl(0, 0%, 0%, 0.2)',

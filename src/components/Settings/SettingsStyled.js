@@ -85,7 +85,11 @@ const SettingsStyled = styled.div`
   }
 
   .categorie:hover {
-    background-color: ${props => props.theme[props.theme.themeStyle].highlight};
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hover};
+  }
+
+  .categorie:active {
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus};
   }
 
   .categorie > * {
@@ -134,6 +138,16 @@ const SettingsStyled = styled.div`
 
   .settings-images-container >*:hover {
     background-color: ${props => props.theme.accent}
+  }
+
+  .settings-images-container >*:active {
+    background-color: rgba(${props => {
+    const hex = props.theme.accent.replace('#', ''); // Remove the '#' symbol
+    const r = parseInt(hex.substring(0, 2), 16); // Convert the first two characters to red value
+    const g = parseInt(hex.substring(2, 4), 16); // Convert the next two characters to green value
+    const b = parseInt(hex.substring(4, 6), 16); // Convert the last two characters to blue value
+    return `${r}, ${g}, ${b}, 0.5`; // Adjust opacity to 0.5
+  }});
   }
 `;
 

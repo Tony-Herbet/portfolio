@@ -75,17 +75,17 @@ const PdfStyled = styled.div`
 
   /* visited link */
   a:visited {
-    color: ${props => props.theme[props.theme.themeStyle].highlight};
+    color: ${props => props.theme[props.theme.themeStyle].taskbar.hover};
   }
 
   /* mouse over link */
   a:hover {
-    color: ${props => props.theme[props.theme.themeStyle].highlight};
+    color: ${props => props.theme[props.theme.themeStyle].taskbar.hover};
   }
 
   /* selected link */
   a:active {
-    color: ${props => props.theme[props.theme.themeStyle].highlight};
+    color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus};
   }
 
   .overlay {

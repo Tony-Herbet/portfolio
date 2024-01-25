@@ -71,6 +71,10 @@ const BrowserAndFolderNavStyled = styled.div`
   .arrow-left:hover {
     background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hover}
   }
+
+  .arrow-left:active {
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus}
+  }
 `;
 
 export default BrowserAndFolderNavStyled;

@@ -130,7 +130,11 @@ const MailStyled = styled.div`
     cursor: pointer;
     background-color: #1b61d1;
     border: 1px solid #1b61d1;
-    box-shadow: 0 1px 2px 0 rgba(26,115,232,0.451), 0 1px 3px 1px rgba(26,115,232,0.302);
+  }
+
+  .submit:active {
+    background-color: #1857bc;
+    border: 1px solid #1857bc;
   }
 
   .form-end {

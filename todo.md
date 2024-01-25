@@ -4,6 +4,9 @@
 -Browser iframe usable (or modify hover)
 -pre load background image
 -change bg color of buttons on click
+-fix txtreader initialState when opening presentation.txt
+-add cleaning of success/error message for mail
+-css landing (tac)
 
 ## Ideas
 

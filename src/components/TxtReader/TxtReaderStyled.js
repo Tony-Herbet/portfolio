@@ -98,7 +98,11 @@ const TxtReaderStyled = styled.div`
   }
 
   .txtReader-tab:hover {
-    background-color: ${props => props.theme[props.theme.themeStyle].quarternary};
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hover};
+  }
+
+  .txtReader-tab:active {
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus};
   }
 
   .txtReader-tab_focused {

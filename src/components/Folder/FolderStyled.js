@@ -73,6 +73,9 @@ const FolderStyled = styled.div`
     background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hover}
   }
 
+  .arrow-left:active {
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus}
+  }
 
   .folders-container {
     display: flex;

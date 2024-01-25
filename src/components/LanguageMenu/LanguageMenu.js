@@ -19,6 +19,11 @@ const LanguageMenuStyled = styled.div`
     border-radius: 5px;
   }
 
+  .languageMenu-language:active {
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus};
+    border-radius: 5px;
+  }
+
   .languageMenu-select {
     position: absolute;
     top: 55px;

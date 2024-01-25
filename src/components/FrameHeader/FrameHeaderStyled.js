@@ -37,7 +37,11 @@ const FrameHeaderStyled = styled.div`
   }
 
   .icon-border:hover {
-    background-color: ${props => props.theme[props.theme.themeStyle].highlight};
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hover};
+  }
+
+  .icon-border:active {
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus};
   }
 
   .icon-container {

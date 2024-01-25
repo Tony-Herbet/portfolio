@@ -280,6 +280,8 @@ const Terminal = ({
                 ref={inputRef}
                 value={inputValue}
                 onChange={handleChange}
+                id="terminal-input"
+                name="terminal-input"
               />
             </form>
           </div>

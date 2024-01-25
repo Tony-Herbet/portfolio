@@ -3,7 +3,6 @@
 -Settings css
 -Browser iframe usable (or modify hover)
 -pre load background image
--fix console issues
 
 ## Ideas
 

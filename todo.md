@@ -2,8 +2,9 @@
 
 -Settings css
 -Browser iframe usable (or modify hover)
--animation when maximize
 -pre load background image
+-fix console issues
+-revert pdf tu object instead of iframe?
 
 ## Ideas
 

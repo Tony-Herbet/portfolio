@@ -69,24 +69,24 @@ const FrameHeader = ({
   return (
     <FrameHeaderStyled className="frameHeader-container" onDoubleClickCapture={doubleClickMaximize}>
       <div className="frameHeader-header">
-        <img src={defineIcon()} alt="" className="header-icon" />
+        <img src={defineIcon()} alt="" className="header-icon"/>
 
         { name }
       </div>
       <div className="icons">
-        <div className='icon-border'>
-          <div className="icon-container" onClick={minimizeApp}>
-            <VscChromeMinimize className="icon" />
+        <div className='icon-border' onClick={minimizeApp}>
+          <div className="icon-container" >
+            <VscChromeMinimize className="icon"/>
           </div>
         </div>
-        <div className='icon-border'>
-          <div className="icon-container" onClick={maximizeApp}>
-            <FaRegSquare className="icon" />
+        <div className='icon-border' onClick={maximizeApp}>
+          <div className="icon-container">
+            <FaRegSquare className="icon"/>
           </div>
         </div>
-        <div className='icon-border icon-border-x'>
-          <div className="icon-container icon-x" onClick={closeApp}>
-            <IoClose className="icon" />
+        <div className='icon-border icon-border-x' onClick={closeApp}>
+          <div className="icon-container icon-x">
+            <IoClose className="icon"/>
           </div>
         </div>
       </div>

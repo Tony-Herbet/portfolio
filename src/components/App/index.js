@@ -31,6 +31,11 @@ const AppStyled = styled.div`
 
   .frame-container {
     background-color: ${props => props.theme[props.theme.themeStyle].main};
+    /*
+      Transition is use to mimic the effect of maximizing a window.
+      Can do a transition with display and if it's always display to use opacity there is an overlap issue that prevent clicks
+    */
+    transition: all 0.15s ease-in-out;
   }
 
   .frame-inside {

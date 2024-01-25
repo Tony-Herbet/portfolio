@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const TxtReaderStyled = styled.div`
 
   display: ${(props) => {
-    if (props.txtreader.running && !props.txtreader.minimize) {
+    if (props.txtreader.running) {
       return 'flex';
     }
     return 'none';
@@ -11,11 +11,51 @@ const TxtReaderStyled = styled.div`
 
   z-index: ${(props) => props.txtreader.zIndex};
 
-  /* Position when maximize */
-  top: ${props => props.txtreader.maximize ? '50px' : 'calc(15vh - 52px)' };
-  left: ${props => props.txtreader.maximize ? '0' : '6vw' }; /* width should be vw - (right + left )*/
-  right: ${props => props.txtreader.maximize ? '0' : '15vw' };
+  /* Mimic resize visual effects */
+  top: ${(props) => {
+    // Maximize
+    if (props.txtreader.maximize) {
+      return '50px';
+    }
+    // Minimize
+    else if (props.txtreader.running && props.txtreader.minimize) {
+      return '-100vh';
+    }
+    // Default
+    else {
+      return 'calc(15vh - 52px)';
+    }
+  }};
+  left: ${(props) => { /* width is: vw - (left + right )*/
+    // Maximize
+    if (props.txtreader.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.txtreader.running && props.txtreader.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '6vw';
+    }
+  }};  
+  right: ${(props) => {
+    // Maximize
+    if (props.txtreader.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.txtreader.running && props.txtreader.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '15vw';
+    }
+  }};
   height: ${props => props.txtreader.maximize ? 'calc(100vh - 52px)' : '80vh' }; /* Screen size - taskbar + frames borders */
+  opacity: ${props => props.txtreader.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.txtreader.maximize ? 'transparent': props.theme.accent};

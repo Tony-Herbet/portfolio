@@ -29,20 +29,21 @@ const Taskbar = ({
   pdf,
   mail
 }) => {
-  const handleClick = (app) => (event) => {
+  const handleClick = (event, app) => {
+    console.log('taskbar click on:', event.currentTarget.id)
     if (app.running === false) {
-      focusOn(event.target.id);
-      runningOn(event.target.id);
-      minimizeOff(event.target.id);
+      focusOn(event.currentTarget.id);
+      runningOn(event.currentTarget.id);
+      minimizeOff(event.currentTarget.id);
     }
     if (app.running === true) {
       if (app.focus === true) {
-        focusOff(event.target.id);
-        minimizeOn(event.target.id);
+        focusOff(event.currentTarget.id);
+        minimizeOn(event.currentTarget.id);
       }
       if (app.focus === false) {
-        focusOn(event.target.id);
-        minimizeOff(event.target.id);
+        focusOn(event.currentTarget.id);
+        minimizeOff(event.currentTarget.id);
       }
     }
   };
@@ -59,33 +60,33 @@ const Taskbar = ({
       mail={mail}
     >
       <div className='taskbar-icons'>
-        <div className="task task-terminal">
-          <span className="task-indicator terminal-indicator" />
-          <img src={TerminalImage} alt="" className="task-icon" id="terminal" onClick={handleClick(terminal)} />
+        <div className="task task-terminal" id="terminal" onClick={(event) => handleClick(event, terminal)}>
+          <span className="task-indicator terminal-indicator"/>
+          <img src={TerminalImage} alt="" className="task-icon"/>
         </div>
-        <div className="task task-folder">
-          <span className="task-indicator folder-indicator" />
-          <img src={FolderImage} alt="" className="task-icon" id="folder" onClick={handleClick(folder)} />
+        <div className="task task-folder"  id="folder" onClick={(event) => handleClick(event, folder)}>
+          <span className="task-indicator folder-indicator"/>
+          <img src={FolderImage} alt="" className="task-icon"/>
         </div>
-        <div className="task task-browser">
-          <span className="task-indicator browser-indicator" />
-          <img src={BrowserImage} alt="" className="task-icon" id="browser" onClick={handleClick(browser)} />
+        <div className="task task-browser" id="browser" onClick={(event) => handleClick(event, browser)}>
+          <span className="task-indicator browser-indicator"/>
+          <img src={BrowserImage} alt="" className="task-icon"/>
         </div>
-        <div className="task task-txtReader">
-          <span className="task-indicator txtReader-indicator" />
-          <img src={TxtReaderImage} alt="" className="task-icon" id="txtReader" onClick={handleClick(txtReader)} />
+        <div className="task task-txtReader" id="txtReader" onClick={(event) => handleClick(event, txtReader)}>
+          <span className="task-indicator txtReader-indicator"/>
+          <img src={TxtReaderImage} alt="" className="task-icon"/>
         </div>
-        <div className="task task-settings">
+        <div className="task task-settings" id="settings" onClick={(event) => handleClick(event, settings)}>
           <span className="task-indicator settings-indicator" />
-          <img src={SettingsImage} alt="" className="task-icon" id="settings" onClick={handleClick(settings)} />
+          <img src={SettingsImage} alt="" className="task-icon"/>
         </div>
-        <div className="task task-pdf">
+        <div className="task task-pdf" id="pdf" onClick={(event) => handleClick(event, pdf)}>
           <span className="task-indicator pdf-indicator" />
-          <img src={PdfImage} alt="" className="task-icon" id="pdf" onClick={handleClick(pdf)} />
+          <img src={PdfImage} alt="" className="task-icon"/>
         </div>
-        <div className="task task-mail">
+        <div className="task task-mail" id="mail" onClick={(event) => handleClick(event, mail)}>
           <span className="task-indicator mail-indicator" />
-          <img src={MailImage} alt="" className="task-icon" id="mail" onClick={handleClick(mail)} />
+          <img src={MailImage} alt="" className="task-icon"/>
         </div>
       </div>
       <LanguageMenu />

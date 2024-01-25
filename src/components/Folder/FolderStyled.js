@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const FolderStyled = styled.div`
 
   display: ${(props) => {
-    if (props.folder.running && !props.folder.minimize) {
+    if (props.folder.running) {
       return 'flex';
     }
     return 'none';
@@ -11,11 +11,51 @@ const FolderStyled = styled.div`
 
   z-index: ${(props) => props.folder.zIndex};
 
-  /* Position when maximize */
-  top: ${props => props.folder.maximize ? '50px' : 'calc(40vh - 52px)' };
-  left: ${props => props.folder.maximize ? '0' : '45vw' }; /* width should be vw - (right + left )*/
-  right: ${props => props.folder.maximize ? '0' : '5vw' };
+  /* Mimic resize visual effects */
+  top: ${(props) => {
+    // Maximize
+    if (props.folder.maximize) {
+      return '50px';
+    }
+    // Minimize
+    else if (props.folder.running && props.folder.minimize) {
+      return '-100vh';
+    }
+    // Default
+    else {
+      return 'calc(40vh - 52px)';
+    }
+  }};
+  left: ${(props) => { /* width is: vw - (left + right )*/
+    // Maximize
+    if (props.folder.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.folder.running && props.folder.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '45vw';
+    }
+  }};  
+  right: ${(props) => {
+    // Maximize
+    if (props.folder.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.folder.running && props.folder.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '5vw';
+    }
+  }};
   height: ${props => props.folder.maximize ? 'calc(100vh - 52px)' : '60vh' }; /* Screen size - taskbar + frames borders */
+  opacity: ${props => props.folder.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.folder.maximize ? 'transparent': props.theme.accent};

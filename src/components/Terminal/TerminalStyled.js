@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const TerminalStyled = styled.div`
 
   display: ${(props) => {
-    if (props.terminal.running && !props.terminal.minimize) {
+    if (props.terminal.running) {
       return 'flex';
     }
     return 'none';
@@ -11,11 +11,51 @@ const TerminalStyled = styled.div`
 
   z-index: ${(props) => props.terminal.zIndex};
 
-  /* Position when maximize */
-  top: ${props => props.terminal.maximize ? '50px' : '80px' };
-  left: ${props => props.terminal.maximize ? '0' : '0.8rem' }; /* width should be vw - (right + left )*/
-  right: ${props => props.terminal.maximize ? '0' : '50vw' };
-  height: ${props => props.terminal.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */ /* */
+  /* Mimic resize visual effects */
+  top: ${(props) => {
+    // Maximize
+    if (props.terminal.maximize) {
+      return '50px';
+    }
+    // Minimize
+    else if (props.terminal.running && props.terminal.minimize) {
+      return '-100vh';
+    }
+    // Default
+    else {
+      return '80px';
+    }
+  }};
+  left: ${(props) => { /* width is: vw - (left + right )*/
+    // Maximize
+    if (props.terminal.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.terminal.running && props.terminal.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '0.8rem';
+    }
+  }};  
+  right: ${(props) => {
+    // Maximize
+    if (props.terminal.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.terminal.running && props.terminal.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '50vw';
+    }
+  }};
+  height: ${props => props.terminal.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
+  opacity: ${props => props.terminal.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.terminal.maximize ? 'transparent': props.theme.accent};

@@ -11,6 +11,7 @@ const TaskbarStyled = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 2147483647;
 
   .taskbar-icons {
     display: flex;
@@ -25,61 +26,61 @@ const TaskbarStyled = styled.div`
   }
 
   .task-terminal {
-    background-color: ${props => props.terminal.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
+    background-color: ${props => props.terminal.running && props.terminal.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
   }
 
   .task-terminal:hover {
-    background-color: ${props => props.terminal.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${props => props.terminal.running && props.terminal.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
   }
 
 
   .task-browser {
-    background-color: ${props => props.browser.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
+    background-color: ${props => props.browser.running && props.browser.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
   }
 
   .task-browser:hover {
-    background-color: ${props => props.browser.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${props => props.browser.running && props.browser.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
   }
 
 
   .task-folder {
-    background-color: ${props => props.folder.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
+    background-color: ${props => props.folder.running && props.folder.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
   }
 
   .task-folder:hover {
-    background-color: ${props => props.folder.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${props => props.folder.running && props.folder.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
   }
   
   .task-txtReader {
-    background-color: ${props => props.txtreader.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
+    background-color: ${props => props.txtreader.running && props.txtreader.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
   }
 
   .task-txtReader:hover {
-    background-color: ${props => props.txtreader.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${props => props.txtreader.running && props.txtreader.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
   }
 
   .task-settings {
-    background-color: ${props => props.settings.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
+    background-color: ${props => props.settings.running && props.settings.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
   }
 
   .task-settings:hover {
-    background-color: ${props => props.settings.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${props => props.settings.running && props.settings.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
   }
 
   .task-pdf {
-    background-color: ${props => props.pdf.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
+    background-color: ${props => props.pdf.running && props.pdf.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
   }
 
   .task-pdf:hover {
-    background-color: ${props => props.pdf.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${props => props.pdf.running && props.pdf.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
   }
 
   .task-mail {
-    background-color: ${props => props.mail.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
+    background-color: ${props => props.mail.running && props.mail.focus ? props.theme[props.theme.themeStyle].taskbar.focus : 'transparent'}
   }
 
   .task-mail:hover {
-    background-color: ${props => props.mail.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${props => props.mail.running && props.mail.focus ? props.theme[props.theme.themeStyle].taskbar.hoverFocus : props.theme[props.theme.themeStyle].taskbar.hover}
   }
 
 

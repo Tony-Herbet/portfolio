@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const PdfStyled = styled.div`
 
   display: ${(props) => {
-    if (props.pdf.running && !props.pdf.minimize) {
+    if (props.pdf.running) {
       return 'flex';
     }
     return 'none';
@@ -11,29 +11,69 @@ const PdfStyled = styled.div`
 
   z-index: ${(props) => props.pdf.zIndex};
 
-  /* Position when maximize */
-  top: ${props => props.pdf.maximize ? '50px' : '110px' };
-  left: ${props => props.pdf.maximize ? '0' : '35vw' }; /* width should be vw - (right + left )*/
-  right: ${props => props.pdf.maximize ? '0' : '0.8rem' };
+  /* Mimic resize visual effects */
+  top: ${(props) => {
+    // Maximize
+    if (props.pdf.maximize) {
+      return '50px';
+    }
+    // Minimize
+    else if (props.pdf.running && props.pdf.minimize) {
+      return '-100vh';
+    }
+    // Default
+    else {
+      return '110px';
+    }
+  }};
+  left: ${(props) => { /* width is: vw - (left + right )*/
+    // Maximize
+    if (props.pdf.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.pdf.running && props.pdf.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '35vw';
+    }
+  }};  
+  right: ${(props) => {
+    // Maximize
+    if (props.pdf.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.pdf.running && props.pdf.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '0.8rem';
+    }
+  }};
   height: ${props => props.pdf.maximize ? 'calc(100vh - 52px)' : 'calc(90vh - 150px)' }; /* Screen size - taskbar + frames borders */
+  opacity: ${props => props.pdf.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.pdf.maximize ? 'transparent': props.theme.accent};
   border-top-left-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
   border-top-right-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
 
-  .overlay {
-    display: ${props =>  props.pdf.focus ? 'none': 'block'}; /* enable/disable the onClick on the iframe */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-  }
-
   .iframe {
     height: 100%;
     width: 100%
+  }
+
+  .overlay {
+    display: ${props =>  props.pdf.focus ? 'none': 'block'}; /* enable/disable the onClick on the iframe */
+    position: absolute;
+    top: 30px /* frameHeader size, this is important to be able to hover/click on the "-ox" buttons */;
+    left: 0;
+    right: 0;
+    height: 100%;
   }
 `;
 

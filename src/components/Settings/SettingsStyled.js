@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const SettingsStyled = styled.div`
 
   display: ${(props) => {
-    if (props.settings.running && !props.settings.minimize) {
+    if (props.settings.running) {
       return 'flex';
     }
     return 'none';
@@ -16,6 +16,52 @@ const SettingsStyled = styled.div`
   left: ${props => props.settings.maximize ? '0' : '25vw' }; /* width should be vw - (right + left )*/
   right: ${props => props.settings.maximize ? '0' : '25vw' };
   height: ${props => props.settings.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
+  
+  /* Mimic resize visual effects */
+  top: ${(props) => {
+    // Maximize
+    if (props.settings.maximize) {
+      return '50px';
+    }
+    // Minimize
+    else if (props.settings.running && props.settings.minimize) {
+      return '-100vh';
+    }
+    // Default
+    else {
+      return '30vh';
+    }
+  }};
+  left: ${(props) => { /* width is: vw - (left + right )*/
+    // Maximize
+    if (props.settings.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.settings.running && props.settings.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '25vw';
+    }
+  }};  
+  right: ${(props) => {
+    // Maximize
+    if (props.settings.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.settings.running && props.settings.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '25vw';
+    }
+  }};
+  height: ${props => props.settings.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
+  opacity: ${props => props.settings.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.settings.maximize ? 'transparent': props.theme.accent};

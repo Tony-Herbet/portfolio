@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const MailStyled = styled.div`
 
   display: ${(props) => {
-    if (props.mail.running && !props.mail.minimize) {
+    if (props.mail.running) {
       return 'flex';
     }
     return 'none';
@@ -11,11 +11,51 @@ const MailStyled = styled.div`
 
   z-index: ${(props) => props.mail.zIndex};
 
-  /* Position when maximize */
-  top: ${props => props.mail.maximize ? '50px' : '25vh' };
-  left: ${props => props.mail.maximize ? '0' : '17vw' }; /* width should be vw - (right + left )*/
-  right: ${props => props.mail.maximize ? '0' : '40vw' };
+  /* Mimic resize visual effects */
+  top: ${(props) => {
+    // Maximize
+    if (props.mail.maximize) {
+      return '50px';
+    }
+    // Minimize
+    else if (props.mail.running && props.mail.minimize) {
+      return '-100vh';
+    }
+    // Default
+    else {
+      return '25vh';
+    }
+  }};
+  left: ${(props) => { /* width is: vw - (left + right )*/
+    // Maximize
+    if (props.mail.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.mail.running && props.mail.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '17vw';
+    }
+  }};  
+  right: ${(props) => {
+    // Maximize
+    if (props.mail.maximize) {
+      return '0';
+    }
+    // Minimize
+    else if (props.mail.running && props.mail.minimize) {
+      return '50vw';
+    }
+    // Default
+    else {
+      return '40vw';
+    }
+  }};
   height: ${props => props.mail.maximize ? 'calc(100vh - 52px)' : '60vh' }; /* Screen size - taskbar + frames borders */
+  opacity: ${props => props.mail.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
   border: solid 1px ${props =>  props.mail.maximize ? 'transparent': props.theme.accent};

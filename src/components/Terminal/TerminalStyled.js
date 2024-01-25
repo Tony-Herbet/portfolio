@@ -58,7 +58,7 @@ const TerminalStyled = styled.div`
   opacity: ${props => props.terminal.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
-  border: solid 1px ${props =>  props.terminal.maximize ? 'transparent': props.theme.accent};
+  border: solid 2px ${props =>  props.terminal.maximize ? 'transparent': props.theme.accent};
   border-top-left-radius: ${props =>  props.terminal.maximize ? 0 : '0.5rem'};
   border-top-right-radius: ${props =>  props.terminal.maximize ? 0 : '0.5rem'};
 

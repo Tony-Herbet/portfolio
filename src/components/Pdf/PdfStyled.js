@@ -58,7 +58,7 @@ const PdfStyled = styled.div`
   opacity: ${props => props.pdf.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
-  border: solid 1px ${props =>  props.pdf.maximize ? 'transparent': props.theme.accent};
+  border: solid 2px ${props =>  props.pdf.maximize ? 'transparent': props.theme.accent};
   border-top-left-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
   border-top-right-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
 

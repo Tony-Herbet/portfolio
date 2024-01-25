@@ -3,6 +3,7 @@
 -Settings css
 -Browser iframe usable (or modify hover)
 -pre load background image
+-change bg color of buttons on click
 
 ## Ideas
 
@@ -12,8 +13,6 @@
 -countries flag for i18n
 -movable software windows
 -custom color picker in settings
--change bg color on click on buttons
--Redirect everything to /
 -TxtReader usable
 -konami code/secret
 -top right time

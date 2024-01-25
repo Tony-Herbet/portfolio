@@ -24,7 +24,7 @@ const LanguageMenuStyled = styled.div`
     top: 55px;
     right: 0.5rem;
     background-color: ${props => props.theme[props.theme.themeStyle].taskbar.color};
-    border: solid 1px ${props => props.theme.accent};
+    border: solid 2px ${props => props.theme.accent};
     border-radius: 0.5rem;
     padding: 0.5rem;
     display: flex;

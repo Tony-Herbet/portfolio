@@ -58,7 +58,7 @@ const BrowserStyled = styled.div`
   opacity: ${props => props.browser.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
-  border: solid 1px ${props =>  props.browser.maximize ? 'transparent': props.theme.accent};
+  border: solid 2px ${props =>  props.browser.maximize ? 'transparent': props.theme.accent};
   border-top-left-radius: ${props =>  props.browser.maximize ? 0 : '0.5rem'};
   border-top-right-radius: ${props =>  props.browser.maximize ? 0 : '0.5rem'};
 

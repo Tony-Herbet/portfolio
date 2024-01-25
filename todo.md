@@ -4,10 +4,10 @@
 -Browser iframe usable (or modify hover)
 -pre load background image
 -fix console issues
--revert pdf tu object instead of iframe?
 
 ## Ideas
 
+-better colors for pdf text link
 -iframe language?
 -cv language?
 -countries flag for i18n

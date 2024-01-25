@@ -62,9 +62,30 @@ const PdfStyled = styled.div`
   border-top-left-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
   border-top-right-radius: ${props =>  props.pdf.maximize ? 0 : '0.5rem'};
 
-  .iframe {
+  .pdf-object {
     height: 100%;
-    width: 100%
+    display: flex;
+    padding: 1rem;
+  }
+
+  /* unvisited link */
+  a:link {
+    color: ${props => props.theme.accent};
+  }
+
+  /* visited link */
+  a:visited {
+    color: ${props => props.theme[props.theme.themeStyle].highlight};
+  }
+
+  /* mouse over link */
+  a:hover {
+    color: ${props => props.theme[props.theme.themeStyle].highlight};
+  }
+
+  /* selected link */
+  a:active {
+    color: ${props => props.theme[props.theme.themeStyle].highlight};
   }
 
   .overlay {

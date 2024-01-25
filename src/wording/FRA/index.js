@@ -38,4 +38,7 @@ export const WORDING_FR = {
   'TxtReader_edit': 'Edition',
   'TxtReader_view': 'Affichage',
   'TxtReader_settings': 'Paramètres',
+  // PDF
+  'pdf_error_text_1': 'Il semble que vous ne puissiez pas voir le fichier PDF, ',
+  'pdf_error_text_2': ' cliquez ici pour le voir ou le télécharger.',
 }

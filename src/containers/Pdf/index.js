@@ -7,6 +7,7 @@ import { focusOn } from 'actions/utils';
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   pdf: state.utils.pdf,
+  language: state.utils.language,
 });
 
 // === mapDispatchToProps

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { FaPalette, FaImage  } from "react-icons/fa";
@@ -26,6 +26,14 @@ const Settings = ({
   focusOn,
   language,
 }) => {
+  // Pre load the images
+  useEffect(() => {
+    const backgrounds = [background1, background2, background3, background4];
+    backgrounds.forEach((background) => {
+      new Image().src = background;
+    });
+  }, []);
+
   const handleThemeSelect = (event) => {
     const themeSelected = event.target.value
     if(themeSelected === 'dark' || themeSelected === 'light') {
@@ -71,18 +79,18 @@ const Settings = ({
           )}
 
           {categoryfocused  === 'background' && (
-            <div className="option option-background">
-              <div>{t('settings_theme_background_current', language)}</div>
+            <>
+              <div className='option-background-text'>{t('settings_theme_background_current', language)}</div>
               <img className='settings-images' src={handleCurrentBackground(background)} />
               
-              <p>{t('settings_theme_background_choice', language)}</p>
+              <p className='option-background-text'>{t('settings_theme_background_choice', language)}</p>
               <div className='settings-images-container'>
                 <img className='settings-images' src={background1} name="background1" onClick={handleBackgroundClick} />
                 <img className='settings-images' src={background2} name="background2" onClick={handleBackgroundClick} />
                 <img className='settings-images' src={background3} name="background3" onClick={handleBackgroundClick} />
                 <img className='settings-images' src={background4} name="background4" onClick={handleBackgroundClick} />
               </div>
-            </div>
+            </>
           )}
         </div>
       </div>

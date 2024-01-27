@@ -60,7 +60,7 @@ const SettingsStyled = styled.div`
       return '25vw';
     }
   }};
-  height: ${props => props.settings.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
+  height: ${props => props.settings.maximize ? 'calc(100vh - 52px)' : '550px' }; /* Screen size - taskbar + frames borders */
   opacity: ${props => props.settings.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
@@ -82,6 +82,7 @@ const SettingsStyled = styled.div`
     padding: 0.5rem 0.5rem 0.5rem 0;
     display: flex;
     align-items: center;
+    height: 50px;
   }
 
   .categorie:hover {
@@ -111,6 +112,7 @@ const SettingsStyled = styled.div`
     flex-direction: column;
     background-color: ${props => props.theme[props.theme.themeStyle].secondary};
     width: 100%;
+    max-height: 100%;
   }
 
   .options > * {
@@ -119,6 +121,15 @@ const SettingsStyled = styled.div`
 
   .theme-select {
     width: 100px;
+    color: ${props => props.theme[props.theme.themeStyle].text};
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.color};
+    border: solid 2px ${props => props.theme[props.theme.themeStyle].text};
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .theme-select:focus {
+    border: solid 2px ${props => props.theme.accent};
   }
 
   .accent-square-display {

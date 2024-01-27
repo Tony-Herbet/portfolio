@@ -3,7 +3,6 @@
 -Browser iframe usable (or modify hover)
 -fix txtreader initialState when opening presentation.txt
 -add cleaning of success/error message for mail
--css landing (tac)
 
 ## Ideas
 

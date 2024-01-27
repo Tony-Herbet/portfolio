@@ -11,6 +11,7 @@ const LandingStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   .landing-title {
     font-size: 2em;

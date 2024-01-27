@@ -1,5 +1,5 @@
 import {
-  OPEN_TXT_WITH_FILE,
+  OPEN_TXT_WITH_FILE, // Same action type use in utils reducer
 } from 'actions/utils';
 
 import {
@@ -8,14 +8,9 @@ import {
 } from 'actions/txtReader';
 
 const initialState = {
-  // Initial filesOpen and tabFocus come from data.js, take the new version if there is a change
-  filesOpen: [  
-    {
-      name: 'Presentation.txt',
-      text: 'Présentation Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
-    }
-  ],
-  tabFocused: 'Presentation.txt',
+  // Initial data is Presentation.txt and it's filled when Folder mount
+  filesOpen: [],
+  tabFocused: '',
 };
 
 const txtReader = (state = initialState, action = {}) => {

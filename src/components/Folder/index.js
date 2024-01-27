@@ -26,8 +26,10 @@ const Folder = ({
   language,
 }) => {
   useEffect(() => {
-    // Initial data
-    updateFolderOpenedData(data.Folders.Root)
+    // Initial datas
+    updateFolderOpenedData(data.Folders.Root);
+    openTxtWithFile(data['Presentation.txt']);
+    focusFileTab('Presentation.txt');
   }, [data]);
 
   const handleClick = (name) => {

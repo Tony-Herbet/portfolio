@@ -1,11 +1,12 @@
 # Todo
 
 -Browser iframe usable (or modify hover)
--fix txtreader initialState when opening presentation.txt
 -add cleaning of success/error message for mail
+-add favicon / edit manifest
 
 ## Ideas
 
+-Currently txtReader initialData is fill at "boot" and i might want to change that. To do so i'll need to create a need action type just for that.
 -better colors for pdf text link
 -iframe language?
 -cv language?

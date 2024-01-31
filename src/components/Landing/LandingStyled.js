@@ -53,6 +53,16 @@ const LandingStyled = styled.div`
     border: 1px solid ${props => props.theme[props.theme.themeStyle].text};
     color: ${props => props.theme[props.theme.themeStyle].text}
   }
+
+  .language-container {
+    height: 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
 `;
 
 export default LandingStyled;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import LandingStyled from './LandingStyled';
+import LanguageMenu from 'containers/LanguageMenu';
 
 import { t } from '../../helpers'
 
@@ -16,9 +17,6 @@ const Landing = ({closeLanding, switchLoading, language}) => {
       <div className='landing-content'>
         <h1 className='landing-title'>{t('landing_title', language)}</h1>
         <div className='landing-text'>
-          <p>
-            {t('landing_title', language)}  
-          </p>
           <p>
             {t('landing_text_1', language)}  
           </p>
@@ -41,6 +39,9 @@ const Landing = ({closeLanding, switchLoading, language}) => {
         <button onClick={handleClick} >
           {t('landing_start_button', language)}  
         </button>
+      </div>
+      <div className='language-container'>
+        <LanguageMenu test=''/>
       </div>
     </LandingStyled>
   );

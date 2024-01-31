@@ -31,7 +31,12 @@ const LanguageMenu = ({
   }, [languageMenuOpen]);
 
   const handleLanguageSelection = () => {
-    handleLanguageMenuState(true);
+    if(languageMenuOpen) {
+      handleLanguageMenuState(false);
+    } 
+    else if(!languageMenuOpen) {
+      handleLanguageMenuState(true);
+    }
   };
 
   const handleLanguageOption = (e) => {

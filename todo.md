@@ -2,6 +2,7 @@
 
 -Browser iframe usable (or modify hover)
 -add favicon / edit manifest
+-handle phone/tablet
 
 ## Ideas
 

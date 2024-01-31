@@ -29,19 +29,11 @@ const Mail = ({
     const {name, email, message } = form;
 
     if(email === '' || name === '' || message === '') {
-      updateError('All fields must be filled')
+      updateError('mail_fields_error')
       updateSuccess(false)
     } 
-    else {
-      sendEmail()
-      updateError('')
-      updateSuccess(true)
-      updateForm('name', '')
-      updateForm('email', '')
-      updateForm('message', '')
-      setTimeout(() => {
-        updateSuccess(false);
-      }, 10000);
+    else if (event.target['email'].checkValidity()) {
+      sendEmail();
     }
   };
 
@@ -66,7 +58,7 @@ const Mail = ({
             <input type="submit" value={t('mail_send_button', language)} className='submit' />
             {error && (
               <div className='error'>
-                {error}
+                {t(error, language)}
               </div>
             )}
             {success && (

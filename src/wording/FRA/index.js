@@ -19,6 +19,8 @@ export const WORDING_FR = {
   'mail_email': 'Votre adresse e-mail',
   'mail_message': 'Votre message',
   'mail_success': 'Merci, votre e-mail à bien été envoyé',
+  'mail_error': 'Un problème est survenu, veuillez essayer de nouveau dans quelques instants',
+  'mail_fields_error': 'Tous les champs doivent être remplis',
   'mail_send_button': 'Envoyer',
   // Settings
   'settings_frameHeader_name': 'Paramètres',

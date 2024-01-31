@@ -1,19 +1,32 @@
 import emailjs from '@emailjs/browser';
 
 import {
-  SEND_EMAIL,
+  SEND_EMAIL,  
+  updateError,
+  updateSuccess,
+  updateForm
 } from '../actions/mail';
 
-
-const mailMiddleware = () => (next) => (action) => {
+const mailMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SEND_EMAIL: {
       // '#form' is the id of the html => https://www.emailjs.com/docs/sdk/send-form/
       emailjs.sendForm(process.env.REACT_APP_YOUR_SERVICE_ID, process.env.REACT_APP_YOUR_TEMPLATE_ID, '#form', process.env.REACT_APP_YOUR_PUBLIC_KEY)
+      // eslint-disable-next-line no-unused-vars
       .then((result) => {
-        console.log(result.text);
+        store.dispatch(updateForm('name', ''));
+        store.dispatch(updateForm('email', ''));
+        store.dispatch(updateForm('message', ''));
+        store.dispatch(updateSuccess(true));
+        setTimeout(() => {
+          store.dispatch(updateSuccess(false));
+        }, 10000);
+      // eslint-disable-next-line no-unused-vars
       }, (error) => {
-        console.warn(error.text);
+        store.dispatch(updateError('mail_error'));
+        setTimeout(() => {
+          store.dispatch(updateError(''));
+        }, 10000);
       });
 
       next(action);
@@ -21,7 +34,7 @@ const mailMiddleware = () => (next) => (action) => {
     }
 
     default:
-      // on passe l'action au suivant (middleware suivant ou reducer)
+      // we pass the action to the next one (next middleware or reducer)
       next(action);
   }
 };

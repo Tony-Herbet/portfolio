@@ -19,6 +19,8 @@ export const WORDING_EN = {
   'mail_email': 'Your email adress',
   'mail_message': 'Your message',
   'mail_success': 'Thank you, your email has been sent',
+  'mail_error': 'Something went wrong, please try again in a few moments',
+  'mail_fields_error': 'All fields must be filled',
   'mail_send_button': 'Send',
   // Settings
   'settings_frameHeader_name': 'Settings',

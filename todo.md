@@ -1,8 +1,8 @@
 # Todo
 
 -Browser iframe usable (or modify hover)
--add cleaning of success/error message for mail
 -add favicon / edit manifest
+-button skip loading
 
 ## Ideas
 
@@ -22,3 +22,5 @@
 -Taskbar can be change to top/left/right/bottom
 
 ## Bugs
+
+-Presentation sometimes gets duplicated

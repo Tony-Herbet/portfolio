@@ -11,8 +11,8 @@ const mapStateToProps = (state) => ({
 
 // === mapDispatchToProps
 const mapDispatchToProps = (dispatch) => ({
-  switchLoading: () => {
-    dispatch(switchLoading())
+  switchLoading: (value) => {
+    dispatch(switchLoading(value))
   }
 });
 

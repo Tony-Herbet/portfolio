@@ -13,6 +13,7 @@ export const WORDING_EN = {
   'landing_start_button': 'Start',
   // Loader
   'loader_text': 'The operating system is booting...',
+  'loader_button_skip': 'Skip',
   // Mail
   'mail_title': 'Contact me',
   'mail_name': 'Your name',

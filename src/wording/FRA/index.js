@@ -13,6 +13,7 @@ export const WORDING_FR = {
   'landing_start_button': 'Démarrer',
   // Loader
   'loader_text': 'Le système d\'exploitation est en cours de démarrage...',
+  'loader_button_skip': 'Passer',
   // Mail
   'mail_title': 'Me contacter',
   'mail_name': 'Votre nom',

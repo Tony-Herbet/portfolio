@@ -63,8 +63,9 @@ export const closeLanding = () => ({
   type: CLOSE_LANDING,
 });
 
-export const switchLoading = () => ({
+export const switchLoading = (value) => ({
   type: SWITCH_LOADING,
+  value
 });
 
 export const handleLanguageMenuState = (value) => ({

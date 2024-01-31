@@ -18,7 +18,7 @@ const LoaderStyled = styled.div`
   }
 
   .loader {
-    color: #fff;
+    color: ${props => props.theme[props.theme.themeStyle].text};
     font-size: 10px;
     width: 1em;
     height: 1em;
@@ -27,6 +27,26 @@ const LoaderStyled = styled.div`
     text-indent: -9999em;
     animation: spinning 1.3s infinite linear;
     transform: translateZ(0);
+  }
+
+  .button-skip {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    width: 75px;
+    height: 30px;
+    border-radius: 18px !important;
+    border: 1px solid ${props => props.theme[props.theme.themeStyle].taskbar.color};
+    background-color: ${props => props.theme[props.theme.themeStyle].text};
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+
+  .button-skip:hover {
+    cursor: pointer;
+    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.color};
+    border: 1px solid ${props => props.theme[props.theme.themeStyle].text};
+    color: ${props => props.theme[props.theme.themeStyle].text}
   }
 
   @keyframes spinning {

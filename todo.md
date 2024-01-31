@@ -2,7 +2,6 @@
 
 -Browser iframe usable (or modify hover)
 -add favicon / edit manifest
--button skip loading
 
 ## Ideas
 
@@ -23,4 +22,4 @@
 
 ## Bugs
 
--Presentation sometimes gets duplicated
+-Presentation sometimes gets duplicated (only on dev? when i change something in the code and it refresh)

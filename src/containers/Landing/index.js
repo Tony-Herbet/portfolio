@@ -14,8 +14,8 @@ const mapDispatchToProps = (dispatch) => ({
   closeLanding: () => {
     dispatch(closeLanding());
   },
-  switchLoading: () => {
-    dispatch(switchLoading())
+  switchLoading: (value) => {
+    dispatch(switchLoading(value))
   }
 });
 

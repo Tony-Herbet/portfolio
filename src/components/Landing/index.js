@@ -7,7 +7,7 @@ import { t } from '../../helpers'
 
 const Landing = ({closeLanding, switchLoading, language}) => {
   const handleClick = () => {
-    switchLoading();
+    switchLoading(true);
     closeLanding();
   }
 

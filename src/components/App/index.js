@@ -28,6 +28,7 @@ const AppStyled = styled.div`
   background-size: cover;
   min-height: 100%;
   min-width: 100%;
+  cursor: default;
 
   .frame-container {
     background-color: ${props => props.theme[props.theme.themeStyle].main};

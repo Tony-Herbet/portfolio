@@ -133,12 +133,17 @@ const SettingsStyled = styled.div`
     border: rgb(255, 255, 255) solid 2px;
   }
 
+  .settings-images-current {
+    cursor: default;
+  }
+
   .settings-images {
     width: 100px;
     height: 100px;
     object-fit: cover; /* Keep aspect ratio */
     margin-right: 0.5rem;
-    border: solid transparent 2px
+    border: solid transparent 2px;
+    cursor: pointer;
   }
 
   .settings-images-container >*:hover {

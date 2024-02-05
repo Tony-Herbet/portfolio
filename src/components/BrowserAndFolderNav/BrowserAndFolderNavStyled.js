@@ -42,7 +42,6 @@ const BrowserAndFolderNavStyled = styled.div`
     margin: 0;
     padding-left: 0.5rem;
     flex-grow: 2;
-    cursor: default;
   }
 
   .browser-url-inside {

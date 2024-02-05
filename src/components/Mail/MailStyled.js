@@ -127,7 +127,6 @@ const MailStyled = styled.div`
   }
 
   .submit:hover {
-    cursor: pointer;
     background-color: #1b61d1;
     border: 1px solid #1b61d1;
   }

@@ -43,7 +43,6 @@ const LoaderStyled = styled.div`
   }
 
   .button-skip:hover {
-    cursor: pointer;
     background-color: ${props => props.theme[props.theme.themeStyle].taskbar.color};
     border: 1px solid ${props => props.theme[props.theme.themeStyle].text};
     color: ${props => props.theme[props.theme.themeStyle].text}

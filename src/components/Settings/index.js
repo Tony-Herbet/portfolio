@@ -81,7 +81,7 @@ const Settings = ({
           {categoryfocused  === 'background' && (
             <>
               <div className='option-background-text'>{t('settings_theme_background_current', language)}</div>
-              <img className='settings-images' src={handleCurrentBackground(background)} />
+              <img className='settings-images settings-images-current' src={handleCurrentBackground(background)} />
               
               <p className='option-background-text'>{t('settings_theme_background_choice', language)}</p>
               <div className='settings-images-container'>

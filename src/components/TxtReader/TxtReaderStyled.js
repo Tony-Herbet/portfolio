@@ -73,7 +73,6 @@ const TxtReaderStyled = styled.div`
 
   .menu-options {
     padding: 0.5rem;
-    cursor: default;
   }
 
   .txtReader-content {
@@ -94,7 +93,6 @@ const TxtReaderStyled = styled.div`
     padding: 0.2rem;
     margin: 0.2rem 0.2rem 0;
     background-color: ${props => props.theme[props.theme.themeStyle].tertiary};
-    cursor: default;
   }
 
   .txtReader-tab:hover {
@@ -128,7 +126,6 @@ const TxtReaderStyled = styled.div`
   .txtReader-content {
     overflow-y: scroll;
     overflow-x: hidden; 
-    cursor: default;
   }
 
 

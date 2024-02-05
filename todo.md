@@ -1,6 +1,5 @@
 # Todo
 
--Browser iframe usable (or modify hover)
 -handle phone/tablet
 -add keys and text for data
 

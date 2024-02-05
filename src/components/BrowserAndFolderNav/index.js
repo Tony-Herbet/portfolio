@@ -22,7 +22,7 @@ const BrowserAndFolderNav = ({
     <BrowserAndFolderNavStyled>
       <div className="nav">
         <div className="nav-icons">
-          <div className='arrow-left'>
+          <div className={where === 'browser' ? '' : 'arrow-left' /* disable hover on browser */}>
             <FaArrowLeft className="icon" onClick={handleClick}/>
           </div>
           <div>

@@ -54,7 +54,7 @@ const MailStyled = styled.div`
       return '40vw';
     }
   }};
-  height: ${props => props.mail.maximize ? 'calc(100vh - 52px)' : '60vh' }; /* Screen size - taskbar + frames borders */
+  bottom: ${props => props.mail.maximize ? '0' : '20vh' };
   opacity: ${props => props.mail.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
@@ -152,6 +152,13 @@ const MailStyled = styled.div`
     align-self: center;
     margin-left: 15px;
     color: ${props => props.theme.success};
+  }
+
+  @media (width < 1024px) {
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 `;
 

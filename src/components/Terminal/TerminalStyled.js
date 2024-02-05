@@ -23,7 +23,7 @@ const TerminalStyled = styled.div`
     }
     // Default
     else {
-      return '80px';
+      return '100px';
     }
   }};
   left: ${(props) => { /* width is: vw - (left + right )*/
@@ -54,7 +54,7 @@ const TerminalStyled = styled.div`
       return '50vw';
     }
   }};
-  height: ${props => props.terminal.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
+  height: ${props => props.terminal.maximize ? '0' : '60vh' };
   opacity: ${props => props.terminal.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
@@ -134,6 +134,10 @@ const TerminalStyled = styled.div`
 
   .folder {
     color: ${props => props.theme.terminal.prefixPathAndFolder};
+  }
+
+  @media (width < 1024px) {
+    display: none;
   }
 `;
 

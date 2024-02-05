@@ -1,7 +1,8 @@
 # Todo
 
--handle phone/tablet
 -add keys and text for data
+-add keys for terminal reducers
+-cursor change on settings, frameheader name, ....
 
 ## Ideas
 

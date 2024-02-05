@@ -142,6 +142,28 @@ const TaskbarStyled = styled.div`
     height: 35px;
     padding-right: 0.5rem;
   }
+
+  @media (width < 1024px) {
+    .task-terminal {
+      display: none;
+    }
+
+    .task-folder {
+      display: none;
+    }
+
+    .task-browser {
+      display: none;
+    }
+
+    .task-txtReader {
+      display: none;
+    }
+
+    .task-settings {
+      display: none;
+    }
+  }
 `;
 
 export default TaskbarStyled;

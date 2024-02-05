@@ -23,7 +23,7 @@ const TxtReaderStyled = styled.div`
     }
     // Default
     else {
-      return 'calc(15vh - 52px)';
+      return '75px';
     }
   }};
   left: ${(props) => { /* width is: vw - (left + right )*/
@@ -54,7 +54,7 @@ const TxtReaderStyled = styled.div`
       return '15vw';
     }
   }};
-  height: ${props => props.txtreader.maximize ? 'calc(100vh - 52px)' : '80vh' }; /* Screen size - taskbar + frames borders */
+  bottom: ${props => props.txtreader.maximize ? '0' : '17vh' };
   opacity: ${props => props.txtreader.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
@@ -131,6 +131,10 @@ const TxtReaderStyled = styled.div`
     cursor: default;
   }
 
+
+  @media (width < 1024px) {
+    display: none;
+  }
 `;
 
 export default TxtReaderStyled;

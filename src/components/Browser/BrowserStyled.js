@@ -37,7 +37,7 @@ const BrowserStyled = styled.div`
     }
     // Default
     else {
-      return '10vw';
+      return '20vw';
     }
   }};  
   right: ${(props) => {
@@ -51,10 +51,10 @@ const BrowserStyled = styled.div`
     }
     // Default
     else {
-      return '10vw';
+      return '30vw';
     }
   }};
-  height: ${props => props.browser.maximize ? 'calc(100vh - 52px)' : '70vh' }; /* Screen size - taskbar + frames borders */
+  bottom: ${props => props.browser.maximize ? '0' : '15vh' };
   opacity: ${props => props.browser.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */

@@ -54,7 +54,7 @@ const PdfStyled = styled.div`
       return '0.8rem';
     }
   }};
-  height: ${props => props.pdf.maximize ? 'calc(100vh - 52px)' : 'calc(90vh - 150px)' }; /* Screen size - taskbar + frames borders */
+  bottom: ${props => props.pdf.maximize ? '0' : '10vh' };
   opacity: ${props => props.pdf.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
@@ -65,6 +65,9 @@ const PdfStyled = styled.div`
   .pdf-object {
     height: 100%;
     display: flex;
+  }
+
+  .pdf-object > p {
     padding: 1rem;
   }
 
@@ -95,6 +98,13 @@ const PdfStyled = styled.div`
     left: 0;
     right: 0;
     height: 100%;
+  }
+
+  @media (width < 1024px) {
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 `;
 

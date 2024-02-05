@@ -10,12 +10,6 @@ const SettingsStyled = styled.div`
   }};
 
   z-index: ${(props) => props.settings.zIndex};
-
-  /* Position when maximize */
-  top: ${props => props.settings.maximize ? '50px' : '30vh' };
-  left: ${props => props.settings.maximize ? '0' : '25vw' }; /* width should be vw - (right + left )*/
-  right: ${props => props.settings.maximize ? '0' : '25vw' };
-  height: ${props => props.settings.maximize ? 'calc(100vh - 52px)' : '450px' }; /* Screen size - taskbar + frames borders */
   
   /* Mimic resize visual effects */
   top: ${(props) => {
@@ -60,7 +54,7 @@ const SettingsStyled = styled.div`
       return '25vw';
     }
   }};
-  height: ${props => props.settings.maximize ? 'calc(100vh - 52px)' : '550px' }; /* Screen size - taskbar + frames borders */
+  bottom: ${props => props.settings.maximize ? '0' : '5vh' };
   opacity: ${props => props.settings.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
@@ -158,7 +152,10 @@ const SettingsStyled = styled.div`
     const g = parseInt(hex.substring(2, 4), 16); // Convert the next two characters to green value
     const b = parseInt(hex.substring(4, 6), 16); // Convert the last two characters to blue value
     return `${r}, ${g}, ${b}, 0.5`; // Adjust opacity to 0.5
-  }});
+  }})}
+
+  @media (width < 1024px) {
+    display: none;
   }
 `;
 

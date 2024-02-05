@@ -54,7 +54,7 @@ const FolderStyled = styled.div`
       return '5vw';
     }
   }};
-  height: ${props => props.folder.maximize ? 'calc(100vh - 52px)' : '60vh' }; /* Screen size - taskbar + frames borders */
+  bottom: ${props => props.folder.maximize ? '0' : '2vh' };
   opacity: ${props => props.folder.minimize ? '0' : '1' }; /* Mimic fade in-out */
 
   /* Border when maximize */
@@ -105,6 +105,10 @@ const FolderStyled = styled.div`
 
   .folder-idem-focused:hover {
     background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus}
+  }
+
+  @media (width < 1024px) {
+    display: none;
   }
 `;
 

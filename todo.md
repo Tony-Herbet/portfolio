@@ -2,7 +2,7 @@
 
 -add keys and text for data
 -add keys for terminal reducers
--cursor change on settings, frameheader name, ....
+-fix css phone/tablet that broke
 
 ## Ideas
 

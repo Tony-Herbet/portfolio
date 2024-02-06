@@ -7,7 +7,7 @@ import FrameHeader from 'containers/FrameHeader';
 
 import { t } from '../../helpers';
 
-const Folder = ({
+const TxtReader = ({
   txtReader,
   filesOpen,
   closeFileTab,
@@ -91,7 +91,7 @@ const Folder = ({
   );
 };
 
-Folder.propTypes = {
+TxtReader.propTypes = {
   txtReader: PropTypes.object.isRequired,
   filesOpen: PropTypes.array.isRequired,
   closeFileTab: PropTypes.func.isRequired,
@@ -101,4 +101,4 @@ Folder.propTypes = {
   language: PropTypes.string.isRequired,
 };
 
-export default Folder;
+export default TxtReader;

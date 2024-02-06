@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TerminalStyled from './TerminalStyled';
 import FrameHeader from 'containers/FrameHeader';
 
-import { handleTypeOfFile } from '../../helpers';
+import { handleTypeOfFile, t, findKeyString } from '../../helpers';
 
 const Terminal = ({
   terminal,
@@ -27,6 +27,7 @@ const Terminal = ({
   cmdHistory,
   arrowCounter,
   updateArrowCounter,
+  language,
 }) => {
   const inputRef = useRef();
 
@@ -62,8 +63,8 @@ const Terminal = ({
   const handleLsCmd = () => {
     pushTerminalHistory(
       data.Folders[path].content.map((elm) => (
-        <div className={handleTypeOfFile(elm)} key={elm}>
-          {elm}
+        <div className={handleTypeOfFile(elm, language)} key={elm}>
+          {t(elm, language)}
         </div>
       ))
     )
@@ -74,13 +75,13 @@ const Terminal = ({
     // This is use if the directory exist and need to be check to avoid an undefined error
     let folderNameExist, folderNameWithReplaceExist;
     if(cmdOption) {
-      folderNameExist = data.Folders[cmdOption]?.name;
-      folderNameWithReplaceExist = data.Folders[cmdOption.replace('../', '')]?.name;
+      folderNameExist = data.Folders[findKeyString(cmdOption, language)]?.name;
+      folderNameWithReplaceExist = data.Folders[findKeyString(cmdOption, language)?.replace('../', '')]?.name;
     }
 
     // cd .. && in root directory
     if (cmdOption === '..' && path === 'Root') {
-      pushTerminalHistory("already in the root directory you can't move up");
+      pushTerminalHistory(t('terminal_cd_root_error', language));
     }
     // cd .. && not in root directory
     else if (cmdOption === '..') {
@@ -89,9 +90,7 @@ const Terminal = ({
     }
     // No option given OR trying to cd into a .txt or .pdf
     else if (cmdOption === undefined || cmdOption.endsWith('.txt') || cmdOption.endsWith('.pdf')) {
-      pushTerminalHistory(
-        "cd command need a directory name, type 'ls' to see all the directories or 'help' to see all the commands"
-      );
+      pushTerminalHistory(t('terminal_cd_path_error', language));
     }
     // Directory exist
     else if (
@@ -99,12 +98,12 @@ const Terminal = ({
       folderNameExist || folderNameWithReplaceExist
     ) {
       pushTerminalHistory();
-      pathUpdate(cmdOption.replace('../', ''));
+      pathUpdate(findKeyString(cmdOption, language).replace('../', ''));
     }
     // Doesn't exist
     else {
       pushTerminalHistory(
-        `directory '${cmdOption}' not found, type 'ls' to see all the directories or 'help' to see all the commands`
+        t('terminal_cd_directory_error', language).replace('$CMDOPTION', cmdOption)
       );
     }
   };
@@ -115,20 +114,19 @@ const Terminal = ({
 
     // Find the object in data file with the right name
     // "open" accept the name with or without an extension therefore we need to search if it exist with or without an extension
-    const findObj = data[cmdOption] ? data[cmdOption] : data[cmdOption+extensions[0]] ? data[cmdOption+extensions[0]] : data[cmdOption+extensions[1]] ? data[cmdOption+extensions[1]] : undefined
+    // We also need to find the key string matching the cmdOption (since user typed the value and not the key)
+    const findObj = data[findKeyString(cmdOption, language)] ? data[findKeyString(cmdOption, language)] : data[findKeyString(cmdOption+extensions[0], language)] ? data[findKeyString(cmdOption+extensions[0], language)] : data[findKeyString(cmdOption+extensions[1], language)] ? data[findKeyString(cmdOption+extensions[1], language)] : undefined
 
     // No option given
     if (cmdOption === undefined) {
-      pushTerminalHistory(
-        `open command need a file name, type 'ls' to see all the files in current directory or 'help' to see all the commands`
-      );
+      pushTerminalHistory(t('terminal_open_name_error', language));
     }
     // File exist
     else if (findObj !== undefined) {
       pushTerminalHistory();
 
       // We open the pdf reader
-      if(findObj.name === 'CV.pdf') {
+      if(findObj.name === 'cv_name') {
         openPdfWithFile()
       } 
       // We open txt reader
@@ -148,8 +146,7 @@ const Terminal = ({
     }
     // File doesn't exist
     else {
-      pushTerminalHistory(`file '${cmdOption}' not found, type 'ls' to see all
-    the files in current directory or 'help' to see all the commands`);
+      pushTerminalHistory(t('terminal_open_not_found_error', language).replace('$CMDOPTION', cmdOption));
     }
   };
 
@@ -209,9 +206,7 @@ const Terminal = ({
     }
     // Command doesn't exist
     else {
-      pushTerminalHistory(
-        `command '${inputValue}' not found, type 'help' to see all the commands`
-      );
+      pushTerminalHistory(t('terminal_cmd_not_fount_error', language).replace('$INPUTVALUE', inputValue));
     }
     // Clear input in state & arrowCounter
     updateArrowCounter(0);
@@ -236,7 +231,7 @@ const Terminal = ({
   };
 
   const handlePath = (path) => {
-    return path === 'Root' ? '' : `/${path}`
+    return path === 'Root' ? '' : `/${t(path, language)}`
   }
 
   return (
@@ -250,8 +245,7 @@ const Terminal = ({
       <FrameHeader identifier="terminal" name="Terminal" icon="terminal" />
       <div className="frame-inside terminal-inside">
         <div className="terminal-header">
-          PowerBash, version -8000.0.0 alpha You can run commands. Type 'help'
-          to see the list.
+          {t('terminal_header_text', language)}
         </div>
         {terminalHistory.length > 0 && (
           <>
@@ -312,6 +306,7 @@ Terminal.propTypes = {
   cmdHistory: PropTypes.array.isRequired,
   arrowCounter: PropTypes.number.isRequired,
   updateArrowCounter: PropTypes.func.isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 export default Terminal;

@@ -30,7 +30,8 @@ const mapStateToProps = (state) => ({
   filesOpen: state.txtReader.filesOpen,
   cmdHistory: state.terminal.cmdHistory,
   arrowCounter: state.terminal.arrowCounter,
-  data: state.data
+  data: state.data,
+  language: state.utils.language,
 });
 
 // === mapDispatchToProps

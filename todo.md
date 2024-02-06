@@ -1,8 +1,6 @@
 # Todo
 
--add keys and text for data
--add keys for terminal reducers
--fix css phone/tablet that broke
+-Add all the real datas
 
 ## Ideas
 
@@ -24,3 +22,4 @@
 ## Bugs
 
 -Presentation sometimes gets duplicated (only on dev? when i change something in the code and it refresh)
+-The real Browser sometimes broke the css, might need to restart when this happens

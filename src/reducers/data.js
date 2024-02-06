@@ -3,59 +3,59 @@ const initialState = {
     'Root': {
       name: 'Root',
       content: [
-        'Presentation.txt',
-        'Competences.txt',
-        'CV.pdf',
-        'Diplomes',
-        'Projets',
+        'presentation_name',
+        'competences_name',
+        'cv_name',
+        'diplomas_name',
+        'projects_name',
       ]
     },
-    'Diplomes': {
-      name: 'Diplomes',
+    'diplomas_name': {
+      name: 'diplomas_name',
       content: [
-        'Formation_dwwm.txt',
-        'Opquast.txt',
-        'DWWM.txt',
+        'formation_dwwm_name',
+        'opquast_name',
+        'dwwm_name',
       ]
     },
-    'Projets': {
-      name: 'Projets',
+    'projects_name': {
+      name: 'projects_name',
       content: [
-        'P3FC.txt',
-        'Old_The_Door.txt',
+        'p3fc_name',
+        'otd_name',
       ]
     }
   },
-  'Presentation.txt': {
-    name: 'Presentation.txt',
-    text: 'Présentation Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
+  'presentation_name': {
+    name: 'presentation_name',
+    text: 'presentation_text'
   },
-  'Competences.txt': {
-    name: 'Competences.txt',
-    text: 'Competences Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
+  'competences_name': {
+    name: 'competences_name',
+    text: 'competences_text'
   },
-  'Formation_dwwm.txt': {
-    name: 'Formation_dwwm.txt',
-    text: 'Formation_dwwm Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
+  'formation_dwwm_name': {
+    name: 'formation_dwwm_name',
+    text: 'formation_dwwm_text'
   },
-  'Opquast.txt': {
-    name: 'Opquast.txt',
-    text: 'Opquast Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
+  'opquast_name': {
+    name: 'opquast_name',
+    text: 'opquast_text'
   },
-  'DWWM.txt': {
-    name: 'DWWM.txt',
-    text: 'DWWM Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
+  'dwwm_name': {
+    name: 'dwwm_name',
+    text: 'dwwm_text'
   },
-  'P3FC.txt': {
-    name: 'P3FC.txt',
-    text: 'P3FC Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
+  'p3fc_name': {
+    name: 'p3fc_name',
+    text: 'p3fc_text'
   },
-  'Old_The_Door.txt': {
-    name: 'Old_The_Door.txt',
-    text: 'Old_The_Door Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!'
+  'otd_name': {
+    name: 'otd_name',
+    text: 'otd_text'
   },
-  'CV.pdf': {
-    name: 'CV.pdf',
+  'cv_name': {
+    name: 'cv_name',
     text: null,
   }
 };
@@ -67,105 +67,3 @@ const data = (state = initialState, action = {}) => {
 };
 
 export default data;
-
-  //   {
-  //     name: 'Presentation.txt',
-  //     type: 'txt',
-  //     content: [
-  //       {
-  //         name: 'Presentation.txt',
-  //         type: 'txt',
-  //         text: 'Présentation Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: 'Competences.txt',
-  //     type: 'txt',
-  //     content: [
-  //       {
-  //         name: 'Competences.txt',
-  //         type: 'txt',
-  //         text: 'Competences Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: 'CV.pdf',
-  //     type: 'pdf',
-  //     content: [
-  //       {
-  //         name: 'CV.pdf',
-  //         type: 'pdf',
-  //         text: undefined,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: 'Diplomes',
-  //     type: 'folder',
-  //     content: [
-  //       {
-  //         name: 'Formation_dwwm.txt',
-  //         type: 'txt',
-  //         content: [
-  //           {
-  //             name: 'Formation_dwwm.txt',
-  //             type: 'txt',
-  //             text: 'Formation O\'clock DWWM Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         name: 'Opquast.txt',
-  //         type: 'txt',
-  //         content: [
-  //           {
-  //             name: 'Opquast.txt',
-  //             type: 'txt',
-  //             text: 'Certification Opquast Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         name: 'DWWM.txt',
-  //         type: 'txt',
-  //         content: [
-  //           {
-  //             name: 'DWWM.txt',
-  //             type: 'txt',
-  //             text: 'Titre pro DWWM ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
-  //           }
-  //         ]
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: 'Projets',
-  //     type: 'folder',
-  //     content: [
-  //       {
-  //         name: 'P3FC.txt',
-  //         type: 'txt',
-  //         content: [
-  //           {
-  //             name: 'P3FC.txt',
-  //             type: 'txt',
-  //             text: 'P3FC Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         name: 'Old_The_Door.txt',
-  //         type: 'txt',
-  //         content: [
-  //           {
-  //             name: 'Old_The_Door.txt',
-  //             type: 'txt',
-  //             text: 'O\'ld The Door Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolorum pariatur porro modi, quod quisquam doloremque nulla repellat inventore repellendus. Omnis possimus harum voluptatibus officia illum repellat enim vel deleniti!',
-  //           }
-  //         ]
-  //       },
-  //     ],
-  //   },
-  // ]

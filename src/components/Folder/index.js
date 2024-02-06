@@ -28,16 +28,17 @@ const Folder = ({
   useEffect(() => {
     // Initial datas
     updateFolderOpenedData(data.Folders.Root);
-    openTxtWithFile(data['Presentation.txt']);
-    focusFileTab('Presentation.txt');
+    openTxtWithFile(data['presentation_name']);
+    focusFileTab('presentation_name');
   }, [data]);
 
-  const handleClick = (name) => {
-    folderElementFocused(name)
+  const handleClick = (elmName) => {
+    folderElementFocused(elmName)
   };
 
   const handleDoubleClick = (elm) => {
-    if(elm.endsWith('.txt')) {
+    if(t(elm, language).endsWith('.txt')) {
+      console.log(elm)
       // TODO could be mutualize with Terminal
       // Send obj to TxtReader
       // if file already open just focus on TxtReader and tab
@@ -51,18 +52,19 @@ const Folder = ({
         focusFileTab(data[elm].name);
       }
     }
-    else if(elm.endsWith('.pdf')) {
+    else if(t(elm, language).endsWith('.pdf')) {
+      // We open the pdf reader
       openPdfWithFile()
     }  
     // It's a folder
     else {
-      // We open the pdf reader
       updateFolderOpenedData(data.Folders[elm])
     }
   };
 
   const handleBack = () => {
-    if(folderOpenedData.name === 'Projets' || folderOpenedData.name === 'Diplomes') {
+    console.log('fdsf')
+    if(folderOpenedData.name === 'projects_name' || folderOpenedData.name === 'diplomas_name') {
       updateFolderOpenedData(data.Folders['Root']);
       folderElementFocused('')
     }
@@ -78,7 +80,7 @@ const Folder = ({
         <div className="frame-inside">
           <BrowserAndFolderNav where='folder' handleBack={handleBack} folderOpenedData={folderOpenedData} />
           <div className='folders-container'>
-            {folderOpenedData.content && folderOpenedData.content.map(elm => 
+            {folderOpenedData.content && folderOpenedData.content.map(elm =>
               <div 
                 key={elm}
                 className={elementFocused === elm ? 'folder-idem-focused folder-item' : 'folder-item'}
@@ -88,11 +90,11 @@ const Folder = ({
                 <img 
                   className='type-icon'
                   src={
-                    elm.endsWith('.txt') ? TxtReaderImage :
-                    elm.endsWith('.pdf') ? PdfImage : FolderImage
+                    t(elm, language).endsWith('.txt') ? TxtReaderImage :
+                    t(elm, language).endsWith('.pdf') ? PdfImage : FolderImage
                   }
                 />
-                <p>{elm}</p>
+                <p>{t(elm, language)}</p>
               </div>
             )}
           </div>

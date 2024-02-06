@@ -13,11 +13,12 @@ const handleCurrentBackground = (background) => {
     : background1
 }
 
-const handleTypeOfFile = (file) => {
-  if(file.endsWith('.txt')) {
+// Use to handle className and therefore the css
+const handleTypeOfFile = (file, language) => {
+  if(t(file, language).endsWith('.txt')) {
     return 'txt';
   }
-  else if (file.endsWith('.pdf')) {
+  else if (t(file, language).endsWith('.pdf')) {
     return 'pdf';
   }
   else {
@@ -30,4 +31,12 @@ const t = (key, language) => {
   return WORDING[language][key];
 }
 
-export { handleCurrentBackground, handleTypeOfFile, t }
+// Find the traduction key string from it's value, it's use in terminal to find the cmdOption associated key
+const findKeyString = (value, language) => {
+  const object = WORDING[language]
+  const wordingSelected = Object.keys(object);
+  const keyString = wordingSelected.find(key => object[key] === value);
+  return keyString;
+}
+
+export { handleCurrentBackground, handleTypeOfFile, t, findKeyString }

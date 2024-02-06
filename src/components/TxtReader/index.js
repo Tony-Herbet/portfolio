@@ -53,10 +53,10 @@ const TxtReader = ({
       <FrameHeader identifier="txtReader" name="TxtReader--" icon="txtreader" />
       <div className="frame-inside">
         <div className="txtReader-header">
-          <span className="menu-options">{t('TxtReader_file', language)}</span>
-          <span className="menu-options">{t('TxtReader_edit', language)}</span>
-          <span className="menu-options">{t('TxtReader_view', language)}</span>
-          <span className="menu-options">{t('TxtReader_settings', language)}</span>
+          <span className="menu-options">{t('txtReader_file', language)}</span>
+          <span className="menu-options">{t('txtReader_edit', language)}</span>
+          <span className="menu-options">{t('txtReader_view', language)}</span>
+          <span className="menu-options">{t('txtReader_settings', language)}</span>
         </div>
         <div className="txtReader-tabs">
           {filesOpen && filesOpen.map((file, i) => (
@@ -69,7 +69,7 @@ const TxtReader = ({
               key={file.name}
               onClick={() => handleTabFocus(file.name)}
             >
-              {file.name}
+              {t(file.name, language)}
               <div className="tab-icon-container">
                 <IoClose className="tab-icon" onClick={(e) => handleTabClosing(e, i)} />
               </div>
@@ -80,7 +80,7 @@ const TxtReader = ({
           file.name === tabFocused ? (
             // Only show focused file text
             <div className="txtReader-content" key={file.name}>
-              {file.text}
+              {t(file.text, language)}
             </div>
           ) : (
             ''

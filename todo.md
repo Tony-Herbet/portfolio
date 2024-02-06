@@ -6,7 +6,7 @@
 
 ## Ideas
 
--Currently txtReader initialData is fill at "boot" and i might want to change that. To do so i'll need to create a need action type just for that.
+-Currently txtReader initialData is fill at "boot" from Folder and i might want to change that. To do so i'll need to create a need action type just for that.
 -better colors for pdf text link
 -iframe language?
 -cv language?

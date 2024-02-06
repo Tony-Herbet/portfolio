@@ -30,7 +30,6 @@ const Taskbar = ({
   mail
 }) => {
   const handleClick = (event, app) => {
-    console.log('taskbar click on:', event.currentTarget.id)
     if (app.running === false) {
       focusOn(event.currentTarget.id);
       runningOn(event.currentTarget.id);

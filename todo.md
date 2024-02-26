@@ -1,7 +1,5 @@
 # Todo
 
--Add transition to buttons for css hover
--Landing start button margin
 -Opening a file in txtreader when it's full screen make it minimize
 
 ## Ideas

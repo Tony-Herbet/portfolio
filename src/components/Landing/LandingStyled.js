@@ -1,20 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const LandingStyled = styled.div`
-
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: ${props => props.theme[props.theme.themeStyle].taskbar.color};
+  background-color: ${(props) =>
+    props.theme[props.theme.themeStyle].taskbar.color};
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 
   .landing-title {
-    font-size: 2em;
+    font-size: 2rem;
     margin-top: 0.67em;
     margin-bottom: 0.67em;
     font-weight: bold;
@@ -25,6 +25,7 @@ const LandingStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0.67em;
   }
 
   .landing-text {
@@ -35,22 +36,26 @@ const LandingStyled = styled.div`
   }
 
   .landing-text > p {
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
   }
 
   .landing-content > button {
     width: 100px;
     height: 30px;
     border-radius: 18px;
-    border: 1px solid ${props => props.theme[props.theme.themeStyle].taskbar.color};
-    background-color: ${props => props.theme[props.theme.themeStyle].text};
+    border: 1px solid
+      ${(props) => props.theme[props.theme.themeStyle].taskbar.color};
+    background-color: ${(props) => props.theme[props.theme.themeStyle].text};
+    margin-top: 1rem;
+    transition: all 0.2s ease-in-out;
   }
 
   .landing-content > button:hover {
-    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.color};
-    border: 1px solid ${props => props.theme[props.theme.themeStyle].text};
-    color: ${props => props.theme[props.theme.themeStyle].text}
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].taskbar.color};
+    border: 1px solid ${(props) => props.theme[props.theme.themeStyle].text};
+    color: ${(props) => props.theme[props.theme.themeStyle].text};
   }
 
   .language-container {
@@ -61,6 +66,10 @@ const LandingStyled = styled.div`
     top: 0;
     display: flex;
     justify-content: flex-end;
+  }
+
+  @media (width < 1024px) {
+    font-size: 14px;
   }
 `;
 

@@ -71,16 +71,6 @@ const FolderStyled = styled.div`
     height: 35px;
   }
 
-  .arrow-left:hover {
-    background-color: ${(props) =>
-      props.theme[props.theme.themeStyle].taskbar.hover};
-  }
-
-  .arrow-left:active {
-    background-color: ${(props) =>
-      props.theme[props.theme.themeStyle].taskbar.hoverFocus};
-  }
-
   .folders-container {
     display: flex;
     padding: 1rem 0.3rem;

@@ -1,12 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const MailStyled = styled.div`
-
   display: ${(props) => {
     if (props.mail.running) {
-      return 'flex';
+      return "flex";
     }
-    return 'none';
+    return "none";
   }};
 
   z-index: ${(props) => props.mail.zIndex};
@@ -15,52 +14,55 @@ const MailStyled = styled.div`
   top: ${(props) => {
     // Maximize
     if (props.mail.maximize) {
-      return '50px';
+      return "50px";
     }
     // Minimize
     else if (props.mail.running && props.mail.minimize) {
-      return '-100vh';
+      return "-100vh";
     }
     // Default
     else {
-      return '25vh';
+      return "25vh";
     }
   }};
-  left: ${(props) => { /* width is: vw - (left + right )*/
+  left: ${(props) => {
+    /* width is: vw - (left + right )*/
     // Maximize
     if (props.mail.maximize) {
-      return '0';
+      return "0";
     }
     // Minimize
     else if (props.mail.running && props.mail.minimize) {
-      return '50vw';
+      return "50vw";
     }
     // Default
     else {
-      return '17vw';
+      return "17vw";
     }
-  }};  
+  }};
   right: ${(props) => {
     // Maximize
     if (props.mail.maximize) {
-      return '0';
+      return "0";
     }
     // Minimize
     else if (props.mail.running && props.mail.minimize) {
-      return '50vw';
+      return "50vw";
     }
     // Default
     else {
-      return '40vw';
+      return "40vw";
     }
   }};
-  bottom: ${props => props.mail.maximize ? '0' : '20vh' };
-  opacity: ${props => props.mail.minimize ? '0' : '1' }; /* Mimic fade in-out */
+  bottom: ${(props) => (props.mail.maximize ? "0" : "20vh")};
+  opacity: ${(props) =>
+    props.mail.minimize ? "0" : "1"}; /* Mimic fade in-out */
 
   /* Border when maximize */
-  border: solid 2px ${props =>  props.mail.maximize ? 'transparent': props.theme.accent};
-  border-top-left-radius: ${props =>  props.mail.maximize ? 0 : '0.5rem'};
-  border-top-right-radius: ${props =>  props.mail.maximize ? 0 : '0.5rem'};
+  border: solid 2px
+    ${(props) => (props.mail.maximize ? "transparent" : props.theme.accent)};
+  border-top-left-radius: ${(props) => (props.mail.maximize ? 0 : "0.5rem")};
+  border-top-right-radius: ${(props) => (props.mail.maximize ? 0 : "0.5rem")};
 
   #form {
     display: flex;
@@ -75,12 +77,14 @@ const MailStyled = styled.div`
   }
 
   .name {
-    background-color: ${props => props.theme[props.theme.themeStyle].secondary};
-    color: ${props => props.theme[props.theme.themeStyle].text};
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].secondary};
+    color: ${(props) => props.theme[props.theme.themeStyle].text};
     outline: none;
     border: none;
     box-shadow: none;
-    border-bottom: solid 2px ${props => props.theme[props.theme.themeStyle].tertiary};
+    border-bottom: solid 2px
+      ${(props) => props.theme[props.theme.themeStyle].tertiary};
   }
 
   .name:focus {
@@ -89,11 +93,13 @@ const MailStyled = styled.div`
   }
 
   .email {
-    background-color: ${props => props.theme[props.theme.themeStyle].secondary};
-    color: ${props => props.theme[props.theme.themeStyle].text};
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].secondary};
+    color: ${(props) => props.theme[props.theme.themeStyle].text};
     outline: none;
     border: none;
-    border-bottom: solid 2px ${props => props.theme[props.theme.themeStyle].tertiary};
+    border-bottom: solid 2px
+      ${(props) => props.theme[props.theme.themeStyle].tertiary};
     box-shadow: none;
   }
 
@@ -105,9 +111,10 @@ const MailStyled = styled.div`
   .message {
     resize: none;
     flex-grow: 1;
-    background-color: ${props => props.theme[props.theme.themeStyle].secondary};
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].secondary};
     border: none;
-    color: ${props => props.theme[props.theme.themeStyle].text};
+    color: ${(props) => props.theme[props.theme.themeStyle].text};
   }
 
   .message:focus {
@@ -123,7 +130,8 @@ const MailStyled = styled.div`
     border: 1px solid #0b57d0;
     color: #fff;
     border-radius: 18px;
-    text-align:center;
+    text-align: center;
+    transition: all 0.15s ease-in;
   }
 
   .submit:hover {
@@ -144,13 +152,13 @@ const MailStyled = styled.div`
   .error {
     align-self: center;
     margin-left: 15px;
-    color: ${props => props.theme.error};
+    color: ${(props) => props.theme.error};
   }
 
   .success {
     align-self: center;
     margin-left: 15px;
-    color: ${props => props.theme.success};
+    color: ${(props) => props.theme.success};
   }
 
   @media (width < 1024px) {

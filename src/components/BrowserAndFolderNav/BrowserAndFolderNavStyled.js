@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const BrowserAndFolderNavStyled = styled.div`
-
-.nav {
+  .nav {
     display: flex;
-    background-color: ${props => props.theme[props.theme.themeStyle].tertiary};
-    border-bottom: ${props => props.theme.frameInsideHeader.borderBottom};
-    padding: ${props => props.theme.frameInsideHeader.padding};
-    height: ${props => props.theme.frameInsideHeader.height};
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].tertiary};
+    border-bottom: ${(props) => props.theme.frameInsideHeader.borderBottom};
+    padding: ${(props) => props.theme.frameInsideHeader.padding};
+    height: ${(props) => props.theme.frameInsideHeader.height};
   }
 
   .nav-icons {
@@ -17,9 +17,9 @@ const BrowserAndFolderNavStyled = styled.div`
     width: 120px;
   }
 
-  .nav-icons > *  {
+  .nav-icons > * {
     height: 100%;
-    aspect-ratio : 1 / 1;
+    aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
     border-radius: 50%;
@@ -68,11 +68,13 @@ const BrowserAndFolderNavStyled = styled.div`
   }
 
   .arrow-left:hover {
-    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].taskbar.hover};
   }
 
   .arrow-left:active {
-    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus}
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].taskbar.hoverFocus};
   }
 `;
 

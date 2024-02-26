@@ -1,11 +1,18 @@
-# CRA Template
+# Portfolio
 
-CRA Template including:
-- Redux set-up with exemple files (Reducer, action, middleware, container)
-- Eslint configuration using AirBnB config
-- Scss with reset file
-- PropTypes, react-router-dom, axios
+## Bienvenue / Welcome
 
-This template can be used on a new project using the command:
+Voici mon portfolio.
+Il s'agissait d'un site Web conçu pour mettre en valeur mes compétences techniques et mes compétences en conception de sites Web.
 
-`npx create-react-app [your-project-name] --template redux-eslint-clean`
+---
+
+Here is my portfolio.
+This was a website designed to showcase my technical skills and web design skills.
+
+## Technologies principales utilisées / Main technologies used
+
+- react
+- react-redux
+- style-components
+- emailjs/browser

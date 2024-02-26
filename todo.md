@@ -1,7 +1,5 @@
 # Todo
 
--Opening a file in txtreader when it's full screen make it minimize
-
 ## Ideas
 
 -Currently txtReader initialData is fill at "boot" from Folder and i might want to change that. To do so i'll need to create a need action type just for that.

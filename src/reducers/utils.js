@@ -12,7 +12,7 @@ import {
   SWITCH_LOADING,
   HANDLE_LANGUAGE_MENU_STATE,
   CHANGE_LANGUAGE,
-} from 'actions/utils';
+} from "actions/utils";
 
 const initialState = {
   terminal: {
@@ -68,7 +68,7 @@ const initialState = {
   landingIsOpen: true,
   loading: false,
   languageMenuOpen: false,
-  language: 'FRA',
+  language: "FRA",
 };
 
 const utils = (state = initialState, action = {}) => {
@@ -183,6 +183,7 @@ const utils = (state = initialState, action = {}) => {
           focus: false,
         },
         txtReader: {
+          ...state.txtReader,
           running: true,
           minimize: false,
           focus: true,
@@ -262,7 +263,8 @@ const utils = (state = initialState, action = {}) => {
         language: action.language,
       };
 
-    default: return state;
+    default:
+      return state;
   }
 };
 export default utils;

@@ -1,0 +1,60 @@
+export const WORDING_SHARED = {
+  // Data
+  p3fc_name: "P3FC.txt",
+  p3fc_text: {
+    name: "P3FC",
+    github: "https://github.com/Tony-Herbet/p3fc",
+    link: "https://tony-herbet.github.io/p3fc/",
+  },
+  otd_name: "Old_The_Door.txt",
+  otd_text: {
+    name: "O'ld The Door",
+    tech: "React / Redux / Symfony / Doctrine",
+    github: "https://github.com/Tony-Herbet/O-ld-the-door",
+    link: null,
+  },
+  gradient_name: "Linear_Gradient.txt",
+  gradient_text: {
+    name: "Linear Gradient",
+    tech: "React native",
+    github: "https://github.com/Tony-Herbet/gradient",
+    link: null,
+  },
+  dnd_name: "D&D_5e_Damage_Calculator.txt",
+  dnd_text: {
+    name: "D&D 5e Damage Calculator",
+    tech: "Vue.js",
+    github: "https://github.com/Tony-Herbet/DnD-5e-Damage-Calculator",
+    link: null,
+  },
+  canvas_name: "Canvas.txt",
+  canvas_text: {
+    name: "Canvas",
+    tech: "Canvas",
+    github: "https://github.com/Tony-Herbet/canvas-invaders",
+    link: null,
+  },
+  lorenzo_name: "LorenzO_tickets.txt",
+  lorenzo_text: {
+    name: "LorenzO'Tickets",
+    tech: "React / TypeScript / Apollo / Knex.js / GraphQL / PostgreSQL / Jest / Joi",
+    github: "https://github.com/Tony-Herbet/LorenzO-Tickets",
+    link: null,
+  },
+  canal_name: "Alternance_Canal+.txt",
+  canal_text: {
+    name: "Alternance Canal+",
+    tech: "React / Redux / TypeScript / RxJS / Jest",
+    github: null,
+    link: null,
+  },
+  kidiparc_name: "Kidiparc.txt",
+  kidiparc_text: {
+    name: "Kidiparc",
+    github: null,
+    link: null,
+  },
+  experiences_date: "Date : ",
+  experiences_type: "Type : ",
+  experiences_github: "Github : ",
+};

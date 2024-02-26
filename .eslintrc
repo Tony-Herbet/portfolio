@@ -1,18 +1,15 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ], 
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "parser": "@babel/eslint-parser",
-    "requireConfigFile":false,
+    "requireConfigFile": false,
     "sourceType": "module",
     "ecmaVersion": "latest"
   },
   "env": {
     "node": true,
     "browser": true
-  }, 
+  },
   "settings": {
     "import/resolver": {
       "node": {
@@ -23,7 +20,6 @@
     }
   },
   "rules": {
-    "brace-style": ["error", "stroustrup"],
     "no-param-reassign": [
       "error",
       {

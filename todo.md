@@ -1,6 +1,8 @@
 # Todo
 
--Add all the real datas
+-Add transition to buttons for css hover
+-Landing start button margin
+-Opening a file in txtreader when it's full screen make it minimize
 
 ## Ideas
 
@@ -21,5 +23,4 @@
 
 ## Bugs
 
--Presentation sometimes gets duplicated (only on dev? when i change something in the code and it refresh)
 -The real Browser sometimes broke the css, might need to restart when this happens

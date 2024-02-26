@@ -1,12 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const TerminalStyled = styled.div`
-
   display: ${(props) => {
     if (props.terminal.running) {
-      return 'flex';
+      return "flex";
     }
-    return 'none';
+    return "none";
   }};
 
   z-index: ${(props) => props.terminal.zIndex};
@@ -15,58 +14,63 @@ const TerminalStyled = styled.div`
   top: ${(props) => {
     // Maximize
     if (props.terminal.maximize) {
-      return '50px';
+      return "50px";
     }
     // Minimize
     else if (props.terminal.running && props.terminal.minimize) {
-      return '-100vh';
+      return "-100vh";
     }
     // Default
     else {
-      return '100px';
+      return "100px";
     }
   }};
-  left: ${(props) => { /* width is: vw - (left + right )*/
+  left: ${(props) => {
+    /* width is: vw - (left + right )*/
     // Maximize
     if (props.terminal.maximize) {
-      return '0';
+      return "0";
     }
     // Minimize
     else if (props.terminal.running && props.terminal.minimize) {
-      return '50vw';
+      return "50vw";
     }
     // Default
     else {
-      return '0.8rem';
+      return "0.8rem";
     }
-  }};  
+  }};
   right: ${(props) => {
     // Maximize
     if (props.terminal.maximize) {
-      return '0';
+      return "0";
     }
     // Minimize
     else if (props.terminal.running && props.terminal.minimize) {
-      return '50vw';
+      return "50vw";
     }
     // Default
     else {
-      return '50vw';
+      return "50vw";
     }
   }};
-  height: ${props => props.terminal.maximize ? '0' : '60vh' };
-  opacity: ${props => props.terminal.minimize ? '0' : '1' }; /* Mimic fade in-out */
+  bottom: ${(props) => (props.terminal.maximize ? "0" : "40vh")};
+  opacity: ${(props) =>
+    props.terminal.minimize ? "0" : "1"}; /* Mimic fade in-out */
 
   /* Border when maximize */
-  border: solid 2px ${props =>  props.terminal.maximize ? 'transparent': props.theme.accent};
-  border-top-left-radius: ${props =>  props.terminal.maximize ? 0 : '0.5rem'};
-  border-top-right-radius: ${props =>  props.terminal.maximize ? 0 : '0.5rem'};
+  border: solid 2px
+    ${(props) => (props.terminal.maximize ? "transparent" : props.theme.accent)};
+  border-top-left-radius: ${(props) =>
+    props.terminal.maximize ? 0 : "0.5rem"};
+  border-top-right-radius: ${(props) =>
+    props.terminal.maximize ? 0 : "0.5rem"};
 
   .terminal-inside {
-    background-color: ${props => props.theme.terminal.background} !important;
-    color: ${props => props.theme.terminal.text};
+    background-color: ${(props) => props.theme.terminal.background} !important;
+    color: ${(props) => props.theme.terminal.text};
     padding: 2px;
-    font-family: 'UbuntuFont';
+    font-family: "UbuntuFont";
     overflow-y: scroll;
     overflow-x: hidden;
   }
@@ -82,30 +86,30 @@ const TerminalStyled = styled.div`
   }
 
   .prefix-name {
-    color: ${props => props.theme.terminal.prefixName};
+    color: ${(props) => props.theme.terminal.prefixName};
   }
 
   .prefix-path {
-    color: ${props => props.theme.terminal.prefixPathAndFolder};
+    color: ${(props) => props.theme.terminal.prefixPathAndFolder};
     margin-right: 1px;
   }
 
   .terminal-spacer {
     margin-right: 5px;
-    color: ${props => props.theme.terminal.prefixSpacer};
+    color: ${(props) => props.theme.terminal.prefixSpacer};
   }
 
   .terminal-form {
-    width: 100%
+    width: 100%;
   }
 
   .terminal-input {
     border: none;
-    color: ${props => props.theme.terminal.text};
-    background-color: ${props => props.theme.terminal.background};
+    color: ${(props) => props.theme.terminal.text};
+    background-color: ${(props) => props.theme.terminal.background};
     padding: 0;
     outline: none;
-    font-family: 'UbuntuFont';
+    font-family: "UbuntuFont";
     font-size: 1rem;
     width: 100%;
     cursor: default;
@@ -133,7 +137,7 @@ const TerminalStyled = styled.div`
   }
 
   .folder {
-    color: ${props => props.theme.terminal.prefixPathAndFolder};
+    color: ${(props) => props.theme.terminal.prefixPathAndFolder};
   }
 
   @media (width < 1024px) {

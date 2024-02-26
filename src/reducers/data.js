@@ -1,69 +1,87 @@
 const initialState = {
   Folders: {
-    'Root': {
-      name: 'Root',
+    Root: {
+      name: "Root",
+      // Add files and folders present in the root folder
       content: [
-        'presentation_name',
-        'competences_name',
-        'cv_name',
-        'diplomas_name',
-        'projects_name',
-      ]
+        "presentation_name",
+        "competences_name",
+        "cv_name",
+        "diplomas_name",
+        "experiences_name",
+      ],
     },
-    'diplomas_name': {
-      name: 'diplomas_name',
+    experiences_name: {
+      name: "experiences_name",
+      // Add the files present in the folder
       content: [
-        'formation_dwwm_name',
-        'opquast_name',
-        'dwwm_name',
-      ]
+        "otd_name",
+        "p3fc_name",
+        "gradient_name",
+        "dnd_name",
+        "canvas_name",
+        "lorenzo_name",
+        "canal_name",
+        "kidiparc_name",
+      ],
     },
-    'projects_name': {
-      name: 'projects_name',
-      content: [
-        'p3fc_name',
-        'otd_name',
-      ]
-    }
   },
-  'presentation_name': {
-    name: 'presentation_name',
-    text: 'presentation_text'
+  // List all the files available (don't forget to add them in wording too)
+  presentation_name: {
+    name: "presentation_name",
+    text: "presentation_text",
   },
-  'competences_name': {
-    name: 'competences_name',
-    text: 'competences_text'
+  diplomas_name: {
+    name: "diplomas_name",
+    text: "diplomas_text",
   },
-  'formation_dwwm_name': {
-    name: 'formation_dwwm_name',
-    text: 'formation_dwwm_text'
+  competences_name: {
+    name: "competences_name",
+    text: "competences_text",
   },
-  'opquast_name': {
-    name: 'opquast_name',
-    text: 'opquast_text'
+  p3fc_name: {
+    name: "p3fc_name",
+    text: "p3fc_text",
   },
-  'dwwm_name': {
-    name: 'dwwm_name',
-    text: 'dwwm_text'
+  otd_name: {
+    name: "otd_name",
+    text: "otd_text",
   },
-  'p3fc_name': {
-    name: 'p3fc_name',
-    text: 'p3fc_text'
+  gradient_name: {
+    name: "gradient_name",
+    text: "gradient_text",
   },
-  'otd_name': {
-    name: 'otd_name',
-    text: 'otd_text'
+  dnd_name: {
+    name: "dnd_name",
+    text: "dnd_text",
   },
-  'cv_name': {
-    name: 'cv_name',
+  canvas_name: {
+    name: "canvas_name",
+    text: "canvas_text",
+  },
+  lorenzo_name: {
+    name: "lorenzo_name",
+    text: "lorenzo_text",
+  },
+  canal_name: {
+    name: "canal_name",
+    text: "canal_text",
+  },
+  kidiparc_name: {
+    name: "kidiparc_name",
+    text: "kidiparc_text",
+  },
+  cv_name: {
+    name: "cv_name",
     text: null,
-  }
+  },
 };
 
 const data = (state = initialState, action = {}) => {
   switch (action.type) {
-    default: return state;
-} 
+    default:
+      return state;
+  }
 };
 
 export default data;

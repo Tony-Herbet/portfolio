@@ -1,20 +1,38 @@
 @font-face {
-  font-family: 'UbuntuFont';
-  src: local('UbuntuFont'),
-  url('../assets/fonts/ubuntuMono.woff2') format('woff2');
+  font-family: "UbuntuFont";
+  src: local("UbuntuFont"),
+    url("../assets/fonts/ubuntuMono.woff2") format("woff2");
 }
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   height: 100%;
   overflow: hidden;
+  line-height: 1.2;
 }
 
 iframe {
   border: none;
 }
 
-.frame-container {
-  flex-direction: column;
-  position: absolute;
+/* unvisited link */
+a:link {
+  color: #007bff;
+}
+
+/* visited link */
+a:visited {
+  color: #13d039;
+}
+
+/* mouse over link */
+a:hover {
+  color: #f249d0;
+}
+
+/* selected link */
+a:active {
+  color: #f58bdf;
 }

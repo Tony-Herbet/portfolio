@@ -1,12 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const FolderStyled = styled.div`
-
   display: ${(props) => {
     if (props.folder.running) {
-      return 'flex';
+      return "flex";
     }
-    return 'none';
+    return "none";
   }};
 
   z-index: ${(props) => props.folder.zIndex};
@@ -15,52 +14,55 @@ const FolderStyled = styled.div`
   top: ${(props) => {
     // Maximize
     if (props.folder.maximize) {
-      return '50px';
+      return "50px";
     }
     // Minimize
     else if (props.folder.running && props.folder.minimize) {
-      return '-100vh';
+      return "-100vh";
     }
     // Default
     else {
-      return 'calc(40vh - 52px)';
+      return "calc(40vh - 52px)";
     }
   }};
-  left: ${(props) => { /* width is: vw - (left + right )*/
+  left: ${(props) => {
+    /* width is: vw - (left + right )*/
     // Maximize
     if (props.folder.maximize) {
-      return '0';
+      return "0";
     }
     // Minimize
     else if (props.folder.running && props.folder.minimize) {
-      return '50vw';
+      return "50vw";
     }
     // Default
     else {
-      return '45vw';
+      return "45vw";
     }
-  }};  
+  }};
   right: ${(props) => {
     // Maximize
     if (props.folder.maximize) {
-      return '0';
+      return "0";
     }
     // Minimize
     else if (props.folder.running && props.folder.minimize) {
-      return '50vw';
+      return "50vw";
     }
     // Default
     else {
-      return '5vw';
+      return "5vw";
     }
   }};
-  bottom: ${props => props.folder.maximize ? '0' : '2vh' };
-  opacity: ${props => props.folder.minimize ? '0' : '1' }; /* Mimic fade in-out */
+  bottom: ${(props) => (props.folder.maximize ? "0" : "2vh")};
+  opacity: ${(props) =>
+    props.folder.minimize ? "0" : "1"}; /* Mimic fade in-out */
 
   /* Border when maximize */
-  border: solid 2px ${props =>  props.folder.maximize ? 'transparent': props.theme.accent};
-  border-top-left-radius: ${props =>  props.folder.maximize ? 0 : '0.5rem'};
-  border-top-right-radius: ${props =>  props.folder.maximize ? 0 : '0.5rem'};
+  border: solid 2px
+    ${(props) => (props.folder.maximize ? "transparent" : props.theme.accent)};
+  border-top-left-radius: ${(props) => (props.folder.maximize ? 0 : "0.5rem")};
+  border-top-right-radius: ${(props) => (props.folder.maximize ? 0 : "0.5rem")};
 
   .type-icon {
     display: flex;
@@ -70,11 +72,13 @@ const FolderStyled = styled.div`
   }
 
   .arrow-left:hover {
-    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].taskbar.hover};
   }
 
   .arrow-left:active {
-    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus}
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].taskbar.hoverFocus};
   }
 
   .folders-container {
@@ -83,6 +87,7 @@ const FolderStyled = styled.div`
     height: 100%;
     flex-wrap: wrap;
     align-content: flex-start;
+    overflow-y: scroll;
   }
 
   .folder-item {
@@ -96,15 +101,26 @@ const FolderStyled = styled.div`
   }
 
   .folder-item:hover {
-    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hover}
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].taskbar.hover};
   }
 
   .folder-idem-focused {
-    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.focus}
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].taskbar.focus};
   }
 
   .folder-idem-focused:hover {
-    background-color: ${props => props.theme[props.theme.themeStyle].taskbar.hoverFocus}
+    background-color: ${(props) =>
+      props.theme[props.theme.themeStyle].taskbar.hoverFocus};
+  }
+
+  .file-name {
+    word-break: break-word;
+    text-align: center;
+    height: 30px;
+    display: flex;
+    align-items: center;
   }
 
   @media (width < 1024px) {

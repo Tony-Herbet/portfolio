@@ -54,6 +54,7 @@ export const WORDING_SHARED = {
     github: null,
     link: null,
   },
+  experiences_description: "Description : ",
   experiences_date: "Date : ",
   experiences_type: "Type : ",
   experiences_github: "Github : ",

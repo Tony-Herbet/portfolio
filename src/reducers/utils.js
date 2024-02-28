@@ -13,6 +13,7 @@ import {
   HANDLE_LANGUAGE_MENU_STATE,
   CHANGE_LANGUAGE,
 } from "actions/utils";
+import { FOCUS_FILE_TAB } from "actions/txtReader";
 
 const initialState = {
   terminal: {
@@ -153,6 +154,7 @@ const utils = (state = initialState, action = {}) => {
         [action.identifier]: {
           ...state[action.identifier],
           focus: true,
+          running: true,
           zIndex: state.zIndexCounter + 1,
         },
       };
@@ -166,7 +168,8 @@ const utils = (state = initialState, action = {}) => {
         },
       };
 
-    case OPEN_TXT_WITH_FILE:
+    case OPEN_TXT_WITH_FILE: // Used when txtReader was not open yet (it also add files for txtReader)
+    case FOCUS_FILE_TAB: // Used when txtReader is already open (it doesn't add files to txtReader)
       return {
         ...state,
         zIndexCounter: state.zIndexCounter + 1,

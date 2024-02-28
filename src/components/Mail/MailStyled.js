@@ -124,7 +124,8 @@ const MailStyled = styled.div`
 
   .submit {
     height: 36px;
-    width: 72px;
+    min-width: 72px;
+    max-width: 72px;
     box-shadow: none;
     background-color: #0b57d0;
     border: 1px solid #0b57d0;
@@ -147,18 +148,25 @@ const MailStyled = styled.div`
   .form-end {
     display: flex;
     margin-bottom: 0 !important;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+
+  .form-end-messages {
+    margin-left: 15px;
   }
 
   .error {
-    align-self: center;
-    margin-left: 15px;
     color: ${(props) => props.theme.error};
   }
 
   .success {
-    align-self: center;
-    margin-left: 15px;
     color: ${(props) => props.theme.success};
+  }
+
+  .mailto {
+    font-size: small;
   }
 
   @media (width < 1024px) {

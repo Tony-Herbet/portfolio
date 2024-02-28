@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import MailStyled from './MailStyled';
-import FrameHeader from 'containers/FrameHeader';
+import MailStyled from "./MailStyled";
+import FrameHeader from "containers/FrameHeader";
 
-import { t } from '../../helpers';
+import { t } from "../../helpers";
 
 const Mail = ({
   mail,
@@ -16,61 +16,99 @@ const Mail = ({
   updateError,
   updateSuccess,
   focusOn,
-  language
+  language,
 }) => {
   const handleChange = (event) => {
     const { value, name } = event.target;
-    updateForm(name, value)
+    updateForm(name, value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const {name, email, message } = form;
+    const { name, email, message } = form;
 
-    if(email === '' || name === '' || message === '') {
-      updateError('mail_fields_error')
-      updateSuccess(false)
-    } 
-    else if (event.target['email'].checkValidity()) {
+    if (email === "" || name === "" || message === "") {
+      updateError("mail_fields_error");
+      updateSuccess(false);
+    } else if (event.target["email"].checkValidity()) {
       sendEmail();
     }
   };
 
   const handleFocus = () => {
-    focusOn('mail');
-  }
+    focusOn("mail");
+  };
 
   return (
     <MailStyled className="frame-container" mail={mail} onClick={handleFocus}>
       <FrameHeader identifier="mail" name="Fmail" icon="mail" />
-      <div className="frame-inside" >
+      <div className="frame-inside">
         <form onSubmit={handleSubmit} id="form">
-          <h1>{t('mail_title', language)}</h1>
+          <h1>{t("mail_title", language)}</h1>
           <label htmlFor="name">
-            <input type="text" id='name' name="name" autoComplete="name" value={form.name} onChange={handleChange} placeholder={t('mail_name', language)} className='name' autoFocus />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autoComplete="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder={t("mail_name", language)}
+              className="name"
+              autoFocus
+            />
           </label>
-          <label htmlFor='email'>
-            <input type="email" id='email' name="email" autoComplete="email" value={form.email} onChange={handleChange} placeholder={t('mail_email', language)} className='email' autoFocus />
+          <label htmlFor="email">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder={t("mail_email", language)}
+              className="email"
+              autoFocus
+            />
           </label>
-          <textarea name="message" value={form.message} onChange={handleChange} className='message' placeholder={t('mail_message', language)} autoFocus />
-          <div className='form-end'>
-            <input type="submit" value={t('mail_send_button', language)} className='submit' />
+          <textarea
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            className="message"
+            placeholder={t("mail_message", language)}
+            autoFocus
+          />
+          <div className="form-end">
+            <input
+              type="submit"
+              value={t("mail_send_button", language)}
+              className="submit"
+            />
             {error && (
-              <div className='error'>
-                {t(error, language)}
+              <div className="error form-end-messages">
+                {t("mail_error", language)}
               </div>
             )}
             {success && (
-              <div className='success'>
-                {t('mail_success', language)}
+              <div className="success form-end-messages">
+                {t("mail_success", language)}
               </div>
+            )}
+            {!error && !success && (
+              <a
+                className="form-end-messages mailto"
+                href="mailto:herbet.le.faucheur.tony@gmail.com"
+              >
+                {t("mail_mailto_text", language)}
+              </a>
             )}
           </div>
         </form>
       </div>
     </MailStyled>
-  )
+  );
 };
 
 Mail.propTypes = {

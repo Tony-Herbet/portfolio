@@ -151,7 +151,17 @@ export const WORDING_EN = {
     team: "2 Full-Stack developers",
     tech: "React native, the rest is still to be defined",
     description:
-      "Kidiparc is a project for an association created with a friend whose aim is to help organize outings for children in parks and playgrounds.<br>This project will be a mobile application. We have currently finalized the design and in order to define the technologies that we will use for the realization we would first like to create another small application.",
+      'Kidiparc is a project for an association created with a friend whose aim is to help organize outings for children in parks and playgrounds.<br>This project will be a mobile application. We have currently finalized the design and in order to define the technologies that we will use for the realization we would first like to create another small application : "SOS : Save Our Storage".',
+  },
+  sos_text: {
+    ...WORDING_SHARED.sos_text,
+    role: "Full-Stack Developer",
+    date: "Depuis January 2024",
+    type: "Personal project",
+    team: "2 Full-Stack developers",
+    tech: "React native, NestJS",
+    description:
+      "For the Kidiparc project that I am carrying out with a friend, we decided to train on NestJS in order to define if it corresponded to our needs. We both prefer to work on projects with a real goal, which is why I suggested creating SOS: Save Our Storage.<br><br>Indeed, this project aims to replace sheets of paper and other sticky notes that my mother uses to take inventory of what is in the fridge, freezer, cupboards, etc.<br><br>The application will allow you to create a home and invite others users in it. They will be able to create storage spaces and write down what is in it. It will be possible to add expiration dates to products and display a list of products that will soon expire.<br>The application will also allow you to create shopping lists as well as suggest products already registered which are under the limit of quantity predefined by the user.",
   },
   cv_name: "Résumé.pdf",
 };

@@ -164,7 +164,17 @@ export const WORDING_FR = {
     team: "2 développeurs Full-Stack",
     tech: "React native, le reste est toujours à définir",
     description:
-      "Kidiparc est un projet pour une association créée avec une amie dont le but est d'aider à organiser des sorties pour les enfants dans des parcs et aires de jeux.<br>Ce projet sera une application mobile. Nous avons pour le moment finalisé la conception et afin de définir les technologies que nous allons utiliser pour la réalisation nous souhaitons d'abord réaliser une autre petite application.",
+      "Kidiparc est un projet pour une association créée avec une amie dont le but est d'aider à organiser des sorties pour les enfants dans des parcs et aires de jeux.<br>Ce projet sera une application mobile. Nous avons pour le moment finalisé la conception et afin de définir les technologies que nous allons utiliser pour la réalisation nous souhaitons d'abord réaliser une autre petite application : \"SOS : Save Our Storage\".",
+  },
+  sos_text: {
+    ...WORDING_SHARED.sos_text,
+    role: "Développeur Full-Stack",
+    date: "Depuis Janvier 2024",
+    type: "Projet personnel",
+    team: "2 développeurs Full-Stack",
+    tech: "React native, NestJS",
+    description:
+      "Pour le projet Kidiparc que je réalise avec une amie, nous avons décidé de nous former sur NestJS afin de définir si cela correspondait bien à nos besoins. Nous préférons tous les deux travailler sur des projets ayant un réel but c'est pourquoi j'ai suggéré de réaliser SOS : Save Our Storage.<br><br>En effet, ce projet a pour but de remplacer les feuilles de papiers et autres post-it que ma mère utilise pour faire l'inventaire de ce qui se trouve dans le frigo, congélateur, placards, etc.<br><br>L'application permettra de créer un foyer et d'y inviter d'autres utilisateurs. Ils pourront créer des rangements et y noter ce qui s'y trouve. Il sera possible d'ajouter les dates de péremptions aux produits et d'afficher une liste des produits bientôt périmés.<br>L'application permettra également de créer des listes de courses ainsi que proposer les produits déjà enregistrés qui sont sous la limite de quantité prédéfinie par l'utilisateur.",
   },
   cv_name: "CV.pdf",
 };

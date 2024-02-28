@@ -23,6 +23,7 @@ const initialState = {
         "lorenzo_name",
         "canal_name",
         "kidiparc_name",
+        "sos_name",
       ],
     },
   },
@@ -70,6 +71,10 @@ const initialState = {
   kidiparc_name: {
     name: "kidiparc_name",
     text: "kidiparc_text",
+  },
+  sos_name: {
+    name: "sos_name",
+    text: "sos_text",
   },
   cv_name: {
     name: "cv_name",

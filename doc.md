@@ -7,7 +7,3 @@
 - Add new_experience_text in WORDING files
 - Add new_experience_name in reducers/data in Folders.experiences_name.content or Folders.Root.content (name here is the key string use for the traduction function)
 - Add new_experience_name in reducers/data and add :{name :'', text: ''}
-
-## Build
-
-- Add the index.html by hand because react remove html comment on build (to have the troll face visible)

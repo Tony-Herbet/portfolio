@@ -1,12 +1,5 @@
 # Todo
 
-- url /fdsfsd give: Not Found
-  The requested URL was not found on this server.
-
-Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.
-
-- make the troll face visible
-
 ## Ideas
 
 - Currently txtReader initialData is fill at "boot" from Folder and i might want to change that. To do so i'll need to create a need action type just for that.

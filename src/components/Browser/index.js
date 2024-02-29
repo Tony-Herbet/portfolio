@@ -16,7 +16,7 @@ const Browser = ({ browser, focusOn }) => {
       browser={browser}
       onClick={handleFocus}
     >
-      <FrameHeader identifier="browser" name="Bronze" icon="browser" />
+      <FrameHeader identifier="browser" name="Bronze" />
       <div className="frame-inside">
         <BrowserAndFolderNav where="browser" />
         <iframe

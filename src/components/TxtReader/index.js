@@ -53,7 +53,7 @@ const TxtReader = ({
       txtreader={txtReader}
       onClick={handleFocus}
     >
-      <FrameHeader identifier="txtReader" name="TxtReader--" icon="txtreader" />
+      <FrameHeader identifier="txtReader" name="TxtReader--" />
       <div className="frame-inside">
         <div className="txtReader-header">
           <span className="menu-options">{t("txtReader_file", language)}</span>

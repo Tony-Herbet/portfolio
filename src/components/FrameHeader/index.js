@@ -20,7 +20,6 @@ const FrameHeader = ({
   runningOff,
   identifier,
   name,
-  icon,
 }) => {
   const minimizeApp = (e) => {
     // This is to prevent the click event to also trigger the focusOn on the parent which result in a display bug
@@ -45,26 +44,23 @@ const FrameHeader = ({
   };
 
   const defineIcon = () => {
-    if (icon === "terminal") {
-      return TerminalImage;
-    }
-    if (icon === "browser") {
-      return BrowserImage;
-    }
-    if (icon === "folder") {
-      return FolderImage;
-    }
-    if (icon === "txtreader") {
-      return TxtReaderImage;
-    }
-    if (icon === "settings") {
-      return SettingsImage;
-    }
-    if (icon === "pdf") {
-      return PdfImage;
-    }
-    if (icon === "mail") {
-      return MailImage;
+    switch (identifier) {
+      case "terminal":
+        return TerminalImage;
+      case "browser":
+        return BrowserImage;
+      case "folder":
+        return FolderImage;
+      case "txtReader":
+        return TxtReaderImage;
+      case "settings":
+        return SettingsImage;
+      case "pdf":
+        return PdfImage;
+      case "mail":
+        return MailImage;
+      default:
+        break;
     }
   };
 
@@ -75,7 +71,6 @@ const FrameHeader = ({
     >
       <div className="frameHeader-header">
         <img src={defineIcon()} alt="" className="header-icon" />
-
         {name}
       </div>
       <div className="icons">
@@ -105,7 +100,6 @@ FrameHeader.propTypes = {
   runningOff: PropTypes.func.isRequired,
   identifier: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  icon: PropTypes.any.isRequired,
 };
 
 export default FrameHeader;

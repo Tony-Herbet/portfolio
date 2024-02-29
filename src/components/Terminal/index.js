@@ -258,7 +258,7 @@ const Terminal = ({
       onKeyUp={handleKeyUp}
       onBlurCapture={handleBlur}
     >
-      <FrameHeader identifier="terminal" name="Terminal" icon="terminal" />
+      <FrameHeader identifier="terminal" name="Terminal" />
       <div className="frame-inside terminal-inside">
         <div className="terminal-header">
           {t("terminal_header_text", language)}

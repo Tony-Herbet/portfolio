@@ -1,24 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import PdfStyled from './PdfStyled';
-import FrameHeader from 'containers/FrameHeader';
-import CV from '../../assets/CV_2023-09-11_Tony_Herbet_Le_Faucheur.pdf';
+import PdfStyled from "./PdfStyled";
+import FrameHeader from "containers/FrameHeader";
+import CV from "../../assets/CV_2023-09-11_Tony_Herbet_Le_Faucheur.pdf";
 
-import { t } from '../../helpers';
+import { t } from "../../helpers";
 
-const Pdf = ({
-  pdf,
-  focusOn,
-  language,
-}) => {
+const Pdf = ({ pdf, focusOn, language }) => {
   const handleFocus = () => {
-    focusOn('pdf')
+    focusOn("pdf");
   };
 
   return (
     <PdfStyled className="frame-container" pdf={pdf} onClick={handleFocus}>
-      <FrameHeader identifier="pdf" name="Clay Gymnast Reader" icon="pdf" />
+      <FrameHeader identifier="pdf" name="Clay Gymnast Reader" />
       <div className="frame-inside" onClick={handleFocus}>
         <object
           className="pdf-object"
@@ -26,7 +22,10 @@ const Pdf = ({
           type="application/pdf"
           aria-label="PDF Viewer"
         >
-          <p>{t('pdf_error_text_1', language)}<a href={CV}>{t('pdf_error_text_2', language)}</a></p>
+          <p>
+            {t("pdf_error_text_1", language)}
+            <a href={CV}>{t("pdf_error_text_2", language)}</a>
+          </p>
         </object>
         <div className="overlay">
           {/* 
@@ -37,7 +36,7 @@ const Pdf = ({
       </div>
     </PdfStyled>
   );
-}
+};
 
 Pdf.propTypes = {
   pdf: PropTypes.object.isRequired,

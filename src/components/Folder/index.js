@@ -72,7 +72,6 @@ const Folder = ({
       <FrameHeader
         identifier="folder"
         name={t("folder_frameHeader_name", language)}
-        icon="folder"
       />
       <div className="frame-inside">
         <BrowserAndFolderNav

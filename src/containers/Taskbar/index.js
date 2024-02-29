@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import Taskbar from "components/Taskbar";
 
-import { runningOn, minimizeOn, focusOn, minimizeOff } from "actions/utils";
+import { runningOn, minimizeOn, focusOn, minimizeOff, focusOff } from "actions/utils";
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({
@@ -28,6 +28,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   minimizeOff: (identifier) => {
     dispatch(minimizeOff(identifier));
+  },
+  focusOff: (identifier) => {
+    dispatch(focusOff(identifier));
   },
 });
 

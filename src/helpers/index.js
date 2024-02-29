@@ -65,10 +65,26 @@ const txtReaderTextComponent = (name, text, language) => {
   }
 };
 
+// Use in Terminal and Folder to open file in txtReader
+const openFile = (files, file, focusFileTab, openTxtWithFile) => {
+  // Send obj to TxtReader
+  // if file is already open just focus on TxtReader and tab
+  if (files.find((fileObj) => fileObj === file)) {
+    // focusOn("txtReader");
+    focusFileTab(file.name);
+  }
+  // else send file to txtReader and focus tab
+  else {
+    openTxtWithFile(file);
+    focusFileTab(file.name);
+  }
+};
+
 export {
   handleCurrentBackground,
   handleTypeOfFile,
   t,
   findKeyString,
   txtReaderTextComponent,
+  openFile,
 };

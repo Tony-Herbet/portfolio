@@ -80,24 +80,85 @@ const utils = (state = initialState, action = {}) => {
         [action.identifier]: {
           ...state[action.identifier],
           running: true,
+          focus: true,
+          minimize: false,
         },
       };
 
     case RUNNING_OFF:
       return {
         ...state,
+        terminal: {
+          ...state.terminal,
+          focus: false,
+        },
+        folder: {
+          ...state.folder,
+          focus: false,
+        },
+        browser: {
+          ...state.browser,
+          focus: false,
+        },
+        txtReader: {
+          ...state.txtReader,
+          focus: false,
+        },
+        settings: {
+          ...state.settings,
+          focus: false,
+        },
+        pdf: {
+          ...state.pdf,
+          focus: false,
+        },
+        mail: {
+          ...state.mail,
+          focus: false,
+        },
         [action.identifier]: {
           ...state[action.identifier],
+          minimize: false,
           running: false,
+          focus: false,
         },
       };
 
     case MINIMIZE_ON:
       return {
         ...state,
+        terminal: {
+          ...state.terminal,
+          focus: false,
+        },
+        folder: {
+          ...state.folder,
+          focus: false,
+        },
+        browser: {
+          ...state.browser,
+          focus: false,
+        },
+        txtReader: {
+          ...state.txtReader,
+          focus: false,
+        },
+        settings: {
+          ...state.settings,
+          focus: false,
+        },
+        pdf: {
+          ...state.pdf,
+          focus: false,
+        },
+        mail: {
+          ...state.mail,
+          focus: false,
+        },
         [action.identifier]: {
           ...state[action.identifier],
           minimize: true,
+          focus: false,
         },
       };
 
@@ -113,9 +174,38 @@ const utils = (state = initialState, action = {}) => {
     case MAXIMIZE_CLICKED:
       return {
         ...state,
+        terminal: {
+          ...state.terminal,
+          focus: false,
+        },
+        folder: {
+          ...state.folder,
+          focus: false,
+        },
+        browser: {
+          ...state.browser,
+          focus: false,
+        },
+        txtReader: {
+          ...state.txtReader,
+          focus: false,
+        },
+        settings: {
+          ...state.settings,
+          focus: false,
+        },
+        pdf: {
+          ...state.pdf,
+          focus: false,
+        },
+        mail: {
+          ...state.mail,
+          focus: false,
+        },
         [action.identifier]: {
           ...state[action.identifier],
           maximize: !state[action.identifier].maximize,
+          focus: true,
         },
       };
 

@@ -1,21 +1,20 @@
 /* eslint-disable no-useless-concat */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { IoClose  } from "react-icons/io5";
+import React from "react";
+import PropTypes from "prop-types";
+import { IoClose } from "react-icons/io5";
 import { FaRegSquare } from "react-icons/fa6";
 import { VscChromeMinimize } from "react-icons/vsc";
 
-import FrameHeaderStyled from './FrameHeaderStyled';
-import TerminalImage from '../../assets/images/icons/terminal.svg';
-import BrowserImage from '../../assets/images/icons/browser.svg';
-import FolderImage from '../../assets/images/icons/folder.svg';
-import TxtReaderImage from '../../assets/images/icons/txt.svg';
-import SettingsImage from '../../assets/images/icons/settings.svg';
-import PdfImage from '../../assets/images/icons/pdf.svg'
-import MailImage from '../../assets/images/icons/mail.svg'
+import FrameHeaderStyled from "./FrameHeaderStyled";
+import TerminalImage from "../../assets/images/icons/terminal.svg";
+import BrowserImage from "../../assets/images/icons/browser.svg";
+import FolderImage from "../../assets/images/icons/folder.svg";
+import TxtReaderImage from "../../assets/images/icons/txt.svg";
+import SettingsImage from "../../assets/images/icons/settings.svg";
+import PdfImage from "../../assets/images/icons/pdf.svg";
+import MailImage from "../../assets/images/icons/mail.svg";
 
 const FrameHeader = ({
-  focusOff,
   minimizeOn,
   maximizeClicked,
   runningOff,
@@ -23,70 +22,76 @@ const FrameHeader = ({
   name,
   icon,
 }) => {
-  const minimizeApp = () => {
+  const minimizeApp = (e) => {
+    // This is to prevent the click event to also trigger the focusOn on the parent which result in a display bug
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
     minimizeOn(identifier);
-    focusOff(identifier);
   };
 
   const maximizeApp = () => {
-    maximizeClicked(identifier)
+    maximizeClicked(identifier);
   };
 
-  const closeApp = () => {
-    focusOff(identifier);
-    minimizeOn(identifier);
+  const closeApp = (e) => {
+    // This is to prevent the click event to also trigger the focusOn on the parent which result in a display bug
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
     runningOff(identifier);
   };
 
   const doubleClickMaximize = () => {
-    maximizeClicked(identifier)
+    maximizeClicked(identifier);
   };
 
   const defineIcon = () => {
-    if(icon === "terminal") {
-      return TerminalImage
+    if (icon === "terminal") {
+      return TerminalImage;
     }
-    if(icon === "browser") {
-      return BrowserImage
+    if (icon === "browser") {
+      return BrowserImage;
     }
-    if(icon === "folder") {
-      return FolderImage
+    if (icon === "folder") {
+      return FolderImage;
     }
-    if(icon === "txtreader") {
-      return TxtReaderImage
+    if (icon === "txtreader") {
+      return TxtReaderImage;
     }
-    if(icon === "settings") {
-      return SettingsImage
-    }   
-    if(icon === "pdf") {
-      return PdfImage
+    if (icon === "settings") {
+      return SettingsImage;
     }
-    if(icon === "mail") {
-      return MailImage
+    if (icon === "pdf") {
+      return PdfImage;
     }
-  }
+    if (icon === "mail") {
+      return MailImage;
+    }
+  };
 
   return (
-    <FrameHeaderStyled className="frameHeader-container" onDoubleClickCapture={doubleClickMaximize}>
+    <FrameHeaderStyled
+      className="frameHeader-container"
+      onDoubleClickCapture={doubleClickMaximize}
+    >
       <div className="frameHeader-header">
-        <img src={defineIcon()} alt="" className="header-icon"/>
+        <img src={defineIcon()} alt="" className="header-icon" />
 
-        { name }
+        {name}
       </div>
       <div className="icons">
-        <div className='icon-border' onClick={minimizeApp}>
-          <div className="icon-container" >
-            <VscChromeMinimize className="icon"/>
-          </div>
-        </div>
-        <div className='icon-border' onClick={maximizeApp}>
+        <div className="icon-border" onClick={minimizeApp}>
           <div className="icon-container">
-            <FaRegSquare className="icon"/>
+            <VscChromeMinimize className="icon" />
           </div>
         </div>
-        <div className='icon-border icon-border-x' onClick={closeApp}>
+        <div className="icon-border" onClick={maximizeApp}>
+          <div className="icon-container">
+            <FaRegSquare className="icon" />
+          </div>
+        </div>
+        <div className="icon-border icon-border-x" onClick={closeApp}>
           <div className="icon-container icon-x">
-            <IoClose className="icon"/>
+            <IoClose className="icon" />
           </div>
         </div>
       </div>
@@ -98,7 +103,6 @@ FrameHeader.propTypes = {
   minimizeOn: PropTypes.func.isRequired,
   maximizeClicked: PropTypes.func.isRequired,
   runningOff: PropTypes.func.isRequired,
-  focusOff: PropTypes.func.isRequired,
   identifier: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   icon: PropTypes.any.isRequired,

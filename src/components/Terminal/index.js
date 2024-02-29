@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import TerminalStyled from "./TerminalStyled";
 import FrameHeader from "containers/FrameHeader";
 
-import { handleTypeOfFile, t, findKeyString } from "../../helpers";
+import { handleTypeOfFile, t, findKeyString, openFile } from "../../helpers";
 
 const Terminal = ({
   terminal,
@@ -147,17 +147,7 @@ const Terminal = ({
       }
       // We open txt reader
       else {
-        // Send obj to TxtReader
-        // if file already open just focus on TxtReader and tab
-        if (filesOpen.find((file) => file === findObj)) {
-          focusOn("txtReader");
-          focusFileTab(findObj.name);
-        }
-        // else send file to txtReader and focus tab
-        else {
-          openTxtWithFile(findObj);
-          focusFileTab(findObj.name);
-        }
+        openFile(filesOpen, findObj, focusFileTab, openTxtWithFile);
       }
     }
     // File doesn't exist

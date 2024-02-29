@@ -9,7 +9,7 @@ import FolderStyled from "./FolderStyled";
 import FrameHeader from "containers/FrameHeader";
 import BrowserAndFolderNav from "../BrowserAndFolderNav";
 
-import { t, openFile } from "helpers";
+import { t, openFile, handleFocusMutualize } from "helpers";
 
 const Folder = ({
   folder,
@@ -60,7 +60,7 @@ const Folder = ({
   };
 
   const handleFocus = () => {
-    focusOn("folder");
+    handleFocusMutualize(folder.minimize, focusOn, "folder");
   };
 
   return (

@@ -5,11 +5,11 @@ import PdfStyled from "./PdfStyled";
 import FrameHeader from "containers/FrameHeader";
 import CV from "../../assets/CV_2023-09-11_Tony_Herbet_Le_Faucheur.pdf";
 
-import { t } from "../../helpers";
+import { t, handleFocusMutualize } from "../../helpers";
 
 const Pdf = ({ pdf, focusOn, language }) => {
   const handleFocus = () => {
-    focusOn("pdf");
+    handleFocusMutualize(pdf.minimize, focusOn, "pdf");
   };
 
   return (

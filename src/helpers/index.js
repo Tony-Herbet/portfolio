@@ -80,6 +80,14 @@ const openFile = (files, file, focusFileTab, openTxtWithFile) => {
   }
 };
 
+//
+const handleFocusMutualize = (minimize, focusOn, identifier) => {
+  // This condition is necessary because when an app is minimize, it still exist but the css render it invisible but still clickable
+  if (!minimize) {
+    focusOn(identifier);
+  }
+};
+
 export {
   handleCurrentBackground,
   handleTypeOfFile,
@@ -87,4 +95,5 @@ export {
   findKeyString,
   txtReaderTextComponent,
   openFile,
+  handleFocusMutualize,
 };

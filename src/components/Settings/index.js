@@ -12,7 +12,7 @@ import background2 from "assets/images/backgrounds/2.jpg";
 import background3 from "assets/images/backgrounds/3.jpg";
 import background4 from "assets/images/backgrounds/4.jpg";
 
-import { handleCurrentBackground, t } from "helpers";
+import { handleCurrentBackground, t, handleFocusMutualize } from "helpers";
 
 const Settings = ({
   settings,
@@ -46,7 +46,7 @@ const Settings = ({
   };
 
   const handleFocus = () => {
-    focusOn("settings");
+    handleFocusMutualize(settings.minimize, focusOn, "settings");
   };
 
   return (

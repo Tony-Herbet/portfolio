@@ -4,7 +4,13 @@ import PropTypes from "prop-types";
 import TerminalStyled from "./TerminalStyled";
 import FrameHeader from "containers/FrameHeader";
 
-import { handleTypeOfFile, t, findKeyString, openFile } from "../../helpers";
+import {
+  handleTypeOfFile,
+  t,
+  findKeyString,
+  openFile,
+  handleFocusMutualize,
+} from "../../helpers";
 
 const Terminal = ({
   terminal,
@@ -45,7 +51,7 @@ const Terminal = ({
 
   // Focus on terminal input
   const handleFocus = () => {
-    focusOn("terminal");
+    handleFocusMutualize(terminal.minimize, focusOn, "terminal");
     inputRef.current.focus();
   };
 

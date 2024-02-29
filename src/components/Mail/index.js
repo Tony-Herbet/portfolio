@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import MailStyled from "./MailStyled";
 import FrameHeader from "containers/FrameHeader";
 
-import { t } from "../../helpers";
+import { t, handleFocusMutualize } from "../../helpers";
 
 const Mail = ({
   mail,
@@ -37,7 +37,7 @@ const Mail = ({
   };
 
   const handleFocus = () => {
-    focusOn("mail");
+    handleFocusMutualize(mail.minimize, focusOn, "mail");
   };
 
   return (

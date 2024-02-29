@@ -4,7 +4,7 @@ import { IoClose } from "react-icons/io5";
 
 import TxtReaderStyled from "./TxtReaderStyled";
 import FrameHeader from "containers/FrameHeader";
-import { t, txtReaderTextComponent } from "../../helpers";
+import { t, txtReaderTextComponent, handleFocusMutualize } from "../../helpers";
 
 const TxtReader = ({
   txtReader,
@@ -44,7 +44,7 @@ const TxtReader = ({
   };
 
   const handleFocus = () => {
-    focusOn("txtReader");
+    handleFocusMutualize(txtReader.minimize, focusOn, "txtReader");
   };
 
   return (

@@ -5,9 +5,11 @@ import BrowserStyled from "./BrowserStyled";
 import FrameHeader from "containers/FrameHeader";
 import BrowserAndFolderNav from "../BrowserAndFolderNav";
 
+import { handleFocusMutualize } from "helpers";
+
 const Browser = ({ browser, focusOn }) => {
   const handleFocus = () => {
-    focusOn("browser");
+    handleFocusMutualize(browser.minimize, focusOn, "browser");
   };
 
   return (

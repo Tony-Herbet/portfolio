@@ -54,6 +54,13 @@ export const WORDING_SHARED = {
     github: null,
     link: null,
   },
+  sos_name: "SOS_Save_Our_Storage.txt",
+  sos_text: {
+    name: "SOS : Save Our Storage",
+    github: "https://github.com/Tony-Herbet/SOS-Save-Our-Storage",
+    link: null,
+  },
+  experiences_description: "Description : ",
   experiences_date: "Date : ",
   experiences_type: "Type : ",
   experiences_github: "Github : ",

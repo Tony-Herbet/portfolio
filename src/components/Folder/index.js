@@ -9,7 +9,7 @@ import FolderStyled from "./FolderStyled";
 import FrameHeader from "containers/FrameHeader";
 import BrowserAndFolderNav from "../BrowserAndFolderNav";
 
-import { t } from "helpers";
+import { t, openFile } from "helpers";
 
 const Folder = ({
   folder,
@@ -41,19 +41,7 @@ const Folder = ({
 
   const handleDoubleClick = (elm) => {
     if (t(elm, language).endsWith(".txt")) {
-      console.log(elm);
-      // TODO could be mutualize with Terminal
-      // Send obj to TxtReader
-      // if file already open just focus on TxtReader and tab
-      if (filesOpen.find((file) => file === data[elm])) {
-        focusOn("txtReader");
-        focusFileTab(data[elm].name);
-      }
-      // else send file to txtReader and focus tab
-      else {
-        openTxtWithFile(data[elm]);
-        focusFileTab(data[elm].name);
-      }
+      openFile(filesOpen, data[elm], focusFileTab, openTxtWithFile);
     } else if (t(elm, language).endsWith(".pdf")) {
       // We open the pdf reader
       openPdfWithFile();

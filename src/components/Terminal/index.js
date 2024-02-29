@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 
-import TerminalStyled from './TerminalStyled';
-import FrameHeader from 'containers/FrameHeader';
+import TerminalStyled from "./TerminalStyled";
+import FrameHeader from "containers/FrameHeader";
 
-import { handleTypeOfFile, t, findKeyString } from '../../helpers';
+import { handleTypeOfFile, t, findKeyString, openFile } from "../../helpers";
 
 const Terminal = ({
   terminal,
@@ -33,19 +33,19 @@ const Terminal = ({
 
   // Focus on terminal & auto scroll
   useEffect(() => {
-    if(terminal.focus === true && terminal.running === true)
-    inputRef.current.focus();
-    inputRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (terminal.focus === true && terminal.running === true)
+      inputRef.current.focus();
+    inputRef.current.scrollIntoView({ behavior: "smooth" });
   });
 
   // Initial path
   useEffect(() => {
-    pathUpdate('Root')
+    pathUpdate("Root");
   }, [data]);
 
   // Focus on terminal input
   const handleFocus = () => {
-    focusOn("terminal")
+    focusOn("terminal");
     inputRef.current.focus();
   };
 
@@ -67,86 +67,97 @@ const Terminal = ({
           {t(elm, language)}
         </div>
       ))
-    )
+    );
   };
 
   // handle CD
   const handleCdCmd = (cmdOption) => {
     // This is use if the directory exist and need to be check to avoid an undefined error
     let folderNameExist, folderNameWithReplaceExist;
-    if(cmdOption) {
+    if (cmdOption) {
       folderNameExist = data.Folders[findKeyString(cmdOption, language)]?.name;
-      folderNameWithReplaceExist = data.Folders[findKeyString(cmdOption, language)?.replace('../', '')]?.name;
+      folderNameWithReplaceExist =
+        data.Folders[findKeyString(cmdOption, language)?.replace("../", "")]
+          ?.name;
     }
 
     // cd .. && in root directory
-    if (cmdOption === '..' && path === 'Root') {
-      pushTerminalHistory(t('terminal_cd_root_error', language));
+    if (cmdOption === ".." && path === "Root") {
+      pushTerminalHistory(t("terminal_cd_root_error", language));
     }
     // cd .. && not in root directory
-    else if (cmdOption === '..') {
+    else if (cmdOption === "..") {
       pushTerminalHistory();
-      pathUpdate('Root');
+      pathUpdate("Root");
     }
     // No option given OR trying to cd into a .txt or .pdf
-    else if (cmdOption === undefined || cmdOption.endsWith('.txt') || cmdOption.endsWith('.pdf')) {
-      pushTerminalHistory(t('terminal_cd_path_error', language));
+    else if (
+      cmdOption === undefined ||
+      cmdOption.endsWith(".txt") ||
+      cmdOption.endsWith(".pdf")
+    ) {
+      pushTerminalHistory(t("terminal_cd_path_error", language));
     }
     // Directory exist
     else if (
       // TODO more realistic "cd ../" behavior
-      folderNameExist || folderNameWithReplaceExist
+      folderNameExist ||
+      folderNameWithReplaceExist
     ) {
       pushTerminalHistory();
-      pathUpdate(findKeyString(cmdOption, language).replace('../', ''));
+      pathUpdate(findKeyString(cmdOption, language).replace("../", ""));
     }
     // Doesn't exist
     else {
       pushTerminalHistory(
-        t('terminal_cd_directory_error', language).replace('$CMDOPTION', cmdOption)
+        t("terminal_cd_directory_error", language).replace(
+          "$CMDOPTION",
+          cmdOption
+        )
       );
     }
   };
 
   // Handle Open
   const handleOpenCmd = (cmdOption) => {
-    const extensions = ['.txt', '.pdf'];
+    const extensions = [".txt", ".pdf"];
 
     // Find the object in data file with the right name
     // "open" accept the name with or without an extension therefore we need to search if it exist with or without an extension
     // We also need to find the key string matching the cmdOption (since user typed the value and not the key)
-    const findObj = data[findKeyString(cmdOption, language)] ? data[findKeyString(cmdOption, language)] : data[findKeyString(cmdOption+extensions[0], language)] ? data[findKeyString(cmdOption+extensions[0], language)] : data[findKeyString(cmdOption+extensions[1], language)] ? data[findKeyString(cmdOption+extensions[1], language)] : undefined
+    const findObj = data[findKeyString(cmdOption, language)]
+      ? data[findKeyString(cmdOption, language)]
+      : data[findKeyString(cmdOption + extensions[0], language)]
+      ? data[findKeyString(cmdOption + extensions[0], language)]
+      : data[findKeyString(cmdOption + extensions[1], language)]
+      ? data[findKeyString(cmdOption + extensions[1], language)]
+      : undefined;
 
     // No option given
     if (cmdOption === undefined) {
-      pushTerminalHistory(t('terminal_open_name_error', language));
+      pushTerminalHistory(t("terminal_open_name_error", language));
     }
     // File exist
     else if (findObj !== undefined) {
       pushTerminalHistory();
 
       // We open the pdf reader
-      if(findObj.name === 'cv_name') {
-        openPdfWithFile()
-      } 
+      if (findObj.name === "cv_name") {
+        openPdfWithFile();
+      }
       // We open txt reader
       else {
-        // Send obj to TxtReader
-        // if file already open just focus on TxtReader and tab
-        if (filesOpen.find((file) => file === findObj)) {
-          focusOn('txtReader');
-          focusFileTab(findObj.name);
-        }
-        // else send file to txtReader and focus tab
-        else {
-          openTxtWithFile(findObj);
-          focusFileTab(findObj.name);
-        }
+        openFile(filesOpen, findObj, focusFileTab, openTxtWithFile);
       }
     }
     // File doesn't exist
     else {
-      pushTerminalHistory(t('terminal_open_not_found_error', language).replace('$CMDOPTION', cmdOption));
+      pushTerminalHistory(
+        t("terminal_open_not_found_error", language).replace(
+          "$CMDOPTION",
+          cmdOption
+        )
+      );
     }
   };
 
@@ -156,7 +167,7 @@ const Terminal = ({
     // Push cmd typed
     pushCmdHistory(inputValue);
     // Input Trim & Split
-    const cmdInput = inputValue.trim().split(' ');
+    const cmdInput = inputValue.trim().split(" ");
     const cmdName = cmdInput[0];
     const cmdOption = cmdInput[1];
 
@@ -164,11 +175,11 @@ const Terminal = ({
     const userCommand = commands.find((cmd) => cmd.name === inputValue);
     // Command exist (not undefined therefore in the cmd list
     // or 'cd' or 'open' because find wouldn't find the cmd in the list)
-    if (userCommand !== undefined || cmdName === 'cd' || cmdName === 'open') {
+    if (userCommand !== undefined || cmdName === "cd" || cmdName === "open") {
       // All the commands
       switch (cmdName !== undefined) {
         // Help
-        case cmdName === 'help':
+        case cmdName === "help":
           pushTerminalHistory(
             commands.map((cmd) => (
               <div className="help-container" key={cmd.name}>
@@ -180,23 +191,23 @@ const Terminal = ({
           break;
 
         // LS
-        case cmdName === 'ls':
+        case cmdName === "ls":
           handleLsCmd();
           break;
 
         // CD
-        case cmdName === 'cd':
+        case cmdName === "cd":
           handleCdCmd(cmdOption);
           break;
 
         // OPEN
-        case cmdName === 'open': {
+        case cmdName === "open": {
           handleOpenCmd(cmdOption);
           break;
         }
 
         // Clear History
-        case cmdName === 'clear':
+        case cmdName === "clear":
           clearTerminalHistory();
           break;
 
@@ -206,7 +217,12 @@ const Terminal = ({
     }
     // Command doesn't exist
     else {
-      pushTerminalHistory(t('terminal_cmd_not_fount_error', language).replace('$INPUTVALUE', inputValue));
+      pushTerminalHistory(
+        t("terminal_cmd_not_fount_error", language).replace(
+          "$INPUTVALUE",
+          inputValue
+        )
+      );
     }
     // Clear input in state & arrowCounter
     updateArrowCounter(0);
@@ -216,13 +232,13 @@ const Terminal = ({
   // When a key is pressed
   const handleKeyUp = (event) => {
     event.preventDefault();
-    if (event.code === 'ArrowUp') {
+    if (event.code === "ArrowUp") {
       if (cmdHistory.length - arrowCounter > 0) {
         updateArrowCounter(arrowCounter + 1);
         terminalInputUpdate(cmdHistory[cmdHistory.length - arrowCounter - 1]);
       }
     }
-    if (event.code === 'ArrowDown') {
+    if (event.code === "ArrowDown") {
       if (arrowCounter > 0) {
         updateArrowCounter(arrowCounter - 1);
         terminalInputUpdate(cmdHistory[cmdHistory.length - arrowCounter]);
@@ -231,8 +247,8 @@ const Terminal = ({
   };
 
   const handlePath = (path) => {
-    return path === 'Root' ? '' : `/${t(path, language)}`
-  }
+    return path === "Root" ? "" : `/${t(path, language)}`;
+  };
 
   return (
     <TerminalStyled
@@ -245,7 +261,7 @@ const Terminal = ({
       <FrameHeader identifier="terminal" name="Terminal" icon="terminal" />
       <div className="frame-inside terminal-inside">
         <div className="terminal-header">
-          {t('terminal_header_text', language)}
+          {t("terminal_header_text", language)}
         </div>
         {terminalHistory.length > 0 && (
           <>

@@ -1,14 +1,8 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import Taskbar from 'components/Taskbar';
+import Taskbar from "components/Taskbar";
 
-import {
-  runningOn,
-  minimizeOn,
-  focusOn,
-  minimizeOff,
-  focusOff,
-} from 'actions/utils';
+import { runningOn, minimizeOn, focusOn, minimizeOff } from "actions/utils";
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({
@@ -18,7 +12,7 @@ const mapStateToProps = (state) => ({
   txtReader: state.utils.txtReader,
   settings: state.utils.settings,
   pdf: state.utils.pdf,
-  mail: state.utils.mail
+  mail: state.utils.mail,
 });
 
 // === mapDispatchToProps
@@ -34,9 +28,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   minimizeOff: (identifier) => {
     dispatch(minimizeOff(identifier));
-  },
-  focusOff: (identifier) => {
-    dispatch(focusOff(identifier));
   },
 });
 

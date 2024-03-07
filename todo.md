@@ -1,15 +1,14 @@
 # Todo
 
 - Find a way to display the troll face
+- pre load images
 
 ## Ideas
 
 - Currently txtReader initialData is fill at "boot" from Folder and i might want to change that. To do so i'll need to create a need action type just for that.
-- better colors for pdf text link
 - iframe language?
 - cv language?
 - countries flag for i18n
-- movable software windows (html draggable?)
 - custom color picker in settings
 - TxtReader usable
 - konami code/secret

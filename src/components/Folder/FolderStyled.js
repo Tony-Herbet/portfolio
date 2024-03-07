@@ -22,11 +22,10 @@ const FolderStyled = styled.div`
     }
     // Default
     else {
-      return "calc(40vh - 52px)";
+      return `${props.folder.y}px`;
     }
   }};
   left: ${(props) => {
-    /* width is: vw - (left + right )*/
     // Maximize
     if (props.folder.maximize) {
       return "0";
@@ -37,24 +36,26 @@ const FolderStyled = styled.div`
     }
     // Default
     else {
-      return "45vw";
+      return `${props.folder.x}px`;
     }
   }};
-  right: ${(props) => {
+  width: ${(props) => {
     // Maximize
     if (props.folder.maximize) {
-      return "0";
+      return "100vw";
     }
     // Minimize
     else if (props.folder.running && props.folder.minimize) {
-      return "50vw";
+      return "0%";
     }
     // Default
     else {
-      return "5vw";
+      return `${props.folder.width}vw`;
     }
   }};
-  bottom: ${(props) => (props.folder.maximize ? "0" : "2vh")};
+  height: ${(props) =>
+    props.folder.maximize ? "calc(100vh - 50px)" : `${props.folder.height}vh`};
+
   opacity: ${(props) =>
     props.folder.minimize ? "0" : "1"}; /* Mimic fade in-out */
 

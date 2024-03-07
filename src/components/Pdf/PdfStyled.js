@@ -22,11 +22,10 @@ const PdfStyled = styled.div`
     }
     // Default
     else {
-      return "110px";
+      return `${props.pdf.y}px`;
     }
   }};
   left: ${(props) => {
-    /* width is: vw - (left + right )*/
     // Maximize
     if (props.pdf.maximize) {
       return "0";
@@ -37,24 +36,26 @@ const PdfStyled = styled.div`
     }
     // Default
     else {
-      return "35vw";
+      return `${props.pdf.x}px`;
     }
   }};
-  right: ${(props) => {
+  width: ${(props) => {
     // Maximize
     if (props.pdf.maximize) {
-      return "0";
+      return "100vw";
     }
     // Minimize
     else if (props.pdf.running && props.pdf.minimize) {
-      return "50vw";
+      return "0%";
     }
     // Default
     else {
-      return "0.8rem";
+      return `${props.pdf.width}vw`;
     }
   }};
-  bottom: ${(props) => (props.pdf.maximize ? "0" : "10vh")};
+  height: ${(props) =>
+    props.pdf.maximize ? "calc(100vh - 50px)" : `${props.pdf.height}vh`};
+
   opacity: ${(props) =>
     props.pdf.minimize ? "0" : "1"}; /* Mimic fade in-out */
 

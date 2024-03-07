@@ -12,6 +12,9 @@ import {
   SWITCH_LOADING,
   HANDLE_LANGUAGE_MENU_STATE,
   CHANGE_LANGUAGE,
+  CHANGE_DRAG_START_VALUES,
+  CHANGE_APP_AXIS_VALUES,
+  TOGGLE_TRANSITION,
 } from "actions/utils";
 import { FOCUS_FILE_TAB } from "actions/txtReader";
 
@@ -22,6 +25,10 @@ const initialState = {
     maximize: false,
     focus: false,
     zIndex: 0,
+    x: 15,
+    y: 100,
+    width: 49,
+    height: 40,
   },
   browser: {
     running: false,
@@ -29,6 +36,10 @@ const initialState = {
     maximize: false,
     focus: false,
     zIndex: 0,
+    x: 275,
+    y: 150,
+    width: 70,
+    height: 70,
   },
   folder: {
     running: false,
@@ -36,6 +47,10 @@ const initialState = {
     maximize: false,
     focus: false,
     zIndex: 0,
+    x: 600,
+    y: 300,
+    width: 50,
+    height: 60,
   },
   txtReader: {
     running: false,
@@ -43,6 +58,10 @@ const initialState = {
     maximize: false,
     focus: false,
     zIndex: 0,
+    x: 200,
+    y: 100,
+    width: 80,
+    height: 75,
   },
   settings: {
     running: false,
@@ -50,6 +69,10 @@ const initialState = {
     maximize: false,
     focus: false,
     zIndex: 0,
+    x: 810,
+    y: 65,
+    width: 50,
+    height: 50,
   },
   pdf: {
     running: false,
@@ -57,6 +80,10 @@ const initialState = {
     maximize: false,
     focus: false,
     zIndex: 0,
+    x: 100,
+    y: 80,
+    width: 40,
+    height: 80,
   },
   mail: {
     running: false,
@@ -64,12 +91,21 @@ const initialState = {
     maximize: false,
     focus: false,
     zIndex: 0,
+    x: 300,
+    y: 270,
+    width: 30,
+    height: 55,
   },
   zIndexCounter: 0,
   landingIsOpen: true,
   loading: false,
   languageMenuOpen: false,
   language: "FRA",
+  dragStart: {
+    x: 0,
+    y: 0,
+  },
+  transition: false,
 };
 
 const utils = (state = initialState, action = {}) => {
@@ -230,6 +266,31 @@ const utils = (state = initialState, action = {}) => {
       return {
         ...state,
         language: action.language,
+      };
+
+    case CHANGE_DRAG_START_VALUES:
+      return {
+        ...state,
+        dragStart: {
+          x: action.values.x,
+          y: action.values.y,
+        },
+      };
+
+    case CHANGE_APP_AXIS_VALUES:
+      return {
+        ...state,
+        [action.identifier]: {
+          ...state[action.identifier],
+          x: action.values.x,
+          y: action.values.y,
+        },
+      };
+
+    case TOGGLE_TRANSITION:
+      return {
+        ...state,
+        transition: action.value,
       };
 
     default:

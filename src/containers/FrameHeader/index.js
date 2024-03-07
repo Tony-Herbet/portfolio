@@ -1,16 +1,20 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import FrameHeader from 'components/FrameHeader';
+import FrameHeader from "components/FrameHeader";
 
 import {
   minimizeOn,
   maximizeClicked,
   runningOff,
-  focusOff,
-} from 'actions/utils';
+  changeDragStartValues,
+  changeAppAxisValues,
+  focusOn,
+  toggleTransition,
+} from "actions/utils";
 
 // === mapStateToProps
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
+  utils: state.utils,
 });
 
 // === mapDispatchToProps
@@ -19,13 +23,22 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(minimizeOn(identifier));
   },
   maximizeClicked: (identifier) => {
-    dispatch(maximizeClicked(identifier))
+    dispatch(maximizeClicked(identifier));
   },
   runningOff: (identifier) => {
     dispatch(runningOff(identifier));
   },
-  focusOff: (identifier) => {
-    dispatch(focusOff(identifier));
+  changeDragStartValues: (values) => {
+    dispatch(changeDragStartValues(values));
+  },
+  changeAppAxisValues: (identifier, values) => {
+    dispatch(changeAppAxisValues(identifier, values));
+  },
+  focusOn: (identifier) => {
+    dispatch(focusOn(identifier));
+  },
+  toggleTransition: (value) => {
+    dispatch(toggleTransition(value));
   },
 });
 

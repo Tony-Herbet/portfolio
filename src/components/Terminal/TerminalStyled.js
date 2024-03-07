@@ -22,11 +22,10 @@ const TerminalStyled = styled.div`
     }
     // Default
     else {
-      return "100px";
+      return `${props.terminal.y}px`;
     }
   }};
   left: ${(props) => {
-    /* width is: vw - (left + right )*/
     // Maximize
     if (props.terminal.maximize) {
       return "0";
@@ -37,24 +36,28 @@ const TerminalStyled = styled.div`
     }
     // Default
     else {
-      return "0.8rem";
+      return `${props.terminal.x}px`;
     }
   }};
-  right: ${(props) => {
+  width: ${(props) => {
     // Maximize
     if (props.terminal.maximize) {
-      return "0";
+      return "100vw";
     }
     // Minimize
     else if (props.terminal.running && props.terminal.minimize) {
-      return "50vw";
+      return "0%";
     }
     // Default
     else {
-      return "50vw";
+      return `${props.terminal.width}vw`;
     }
   }};
-  bottom: ${(props) => (props.terminal.maximize ? "0" : "40vh")};
+  height: ${(props) =>
+    props.terminal.maximize
+      ? "calc(100vh - 50px)"
+      : `${props.terminal.height}vh`};
+
   opacity: ${(props) =>
     props.terminal.minimize ? "0" : "1"}; /* Mimic fade in-out */
 

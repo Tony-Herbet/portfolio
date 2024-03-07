@@ -22,11 +22,10 @@ const TxtReaderStyled = styled.div`
     }
     // Default
     else {
-      return "75px";
+      return `${props.txtreader.y}px`;
     }
   }};
   left: ${(props) => {
-    /* width is: vw - (left + right )*/
     // Maximize
     if (props.txtreader.maximize) {
       return "0";
@@ -37,24 +36,28 @@ const TxtReaderStyled = styled.div`
     }
     // Default
     else {
-      return "6vw";
+      return `${props.txtreader.x}px`;
     }
   }};
-  right: ${(props) => {
+  width: ${(props) => {
     // Maximize
     if (props.txtreader.maximize) {
-      return "0";
+      return "100vw";
     }
     // Minimize
     else if (props.txtreader.running && props.txtreader.minimize) {
-      return "50vw";
+      return "0%";
     }
     // Default
     else {
-      return "15vw";
+      return `${props.txtreader.width}vw`;
     }
   }};
-  bottom: ${(props) => (props.txtreader.maximize ? "0" : "17vh")};
+  height: ${(props) =>
+    props.txtreader.maximize
+      ? "calc(100vh - 50px)"
+      : `${props.txtreader.height}vh`};
+
   opacity: ${(props) =>
     props.txtreader.minimize ? "0" : "1"}; /* Mimic fade in-out */
 

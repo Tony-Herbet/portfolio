@@ -22,11 +22,10 @@ const MailStyled = styled.div`
     }
     // Default
     else {
-      return "25vh";
+      return `${props.mail.y}px`;
     }
   }};
   left: ${(props) => {
-    /* width is: vw - (left + right )*/
     // Maximize
     if (props.mail.maximize) {
       return "0";
@@ -37,24 +36,26 @@ const MailStyled = styled.div`
     }
     // Default
     else {
-      return "17vw";
+      return `${props.mail.x}px`;
     }
   }};
-  right: ${(props) => {
+  width: ${(props) => {
     // Maximize
     if (props.mail.maximize) {
-      return "0";
+      return "100vw";
     }
     // Minimize
     else if (props.mail.running && props.mail.minimize) {
-      return "50vw";
+      return "0%";
     }
     // Default
     else {
-      return "40vw";
+      return `${props.mail.width}vw`;
     }
   }};
-  bottom: ${(props) => (props.mail.maximize ? "0" : "20vh")};
+  height: ${(props) =>
+    props.mail.maximize ? "calc(100vh - 50px)" : `${props.mail.height}vh`};
+
   opacity: ${(props) =>
     props.mail.minimize ? "0" : "1"}; /* Mimic fade in-out */
 

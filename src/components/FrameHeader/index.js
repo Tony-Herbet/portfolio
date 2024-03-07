@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-concat */
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { IoClose } from "react-icons/io5";
 import { FaRegSquare } from "react-icons/fa6";
@@ -20,7 +20,34 @@ const FrameHeader = ({
   runningOff,
   identifier,
   name,
+  utils,
+  changeDragStartValues,
+  changeAppAxisValues,
+  focusOn,
+  toggleTransition,
 }) => {
+  // On mount we need to check the size of the screen and move the windows if necessary so they're not out of bound
+  useEffect(() => {
+    // App initial values
+    const appX = utils[identifier].x;
+    const appY = utils[identifier].y;
+    // Values in pixel
+    const appWidthValueInPixel =
+      (window.innerWidth * utils[identifier].width) / 100;
+    const appHeightValueInPixel =
+      (window.innerHeight * utils[identifier].height) / 100;
+
+    if (appWidthValueInPixel + appX >= window.innerWidth) {
+      changeAppAxisValues(identifier, { x: 0, y: utils[identifier].y });
+    }
+    if (appHeightValueInPixel + appY + 50 >= window.innerHeight) {
+      changeAppAxisValues(identifier, {
+        x: utils[identifier].x,
+        y: 50 /* Taskbar size */,
+      });
+    }
+  }, []);
+
   const minimizeApp = (e) => {
     // This is to prevent the click event to also trigger the focusOn on the parent which result in a display bug
     e.stopPropagation();
@@ -64,10 +91,66 @@ const FrameHeader = ({
     }
   };
 
+  const handleDragStart = (e) => {
+    changeDragStartValues({ x: e.clientX, y: e.clientY });
+    focusOn(identifier);
+    toggleTransition(false);
+  };
+
+  const handleDragEnd = (e) => {
+    // App initial values
+    const appX = utils[identifier].x;
+    const appY = utils[identifier].y;
+
+    // Moved values, offset from end to start
+    const xMoved = e.clientX - utils.dragStart.x;
+    const yMoved = e.clientY - utils.dragStart.y;
+
+    // What it should be at the end
+    let xEnd = appX + xMoved;
+    let yEnd = appY + yMoved;
+
+    // Values in pixel
+    const appWidthValueInPixel =
+      (window.innerWidth * utils[identifier].width) / 100;
+    const appHeightValueInPixel =
+      (window.innerHeight * utils[identifier].height) / 100;
+
+    // Check if the window goes beyond the left boundary
+    if (xEnd <= 0) {
+      xEnd = 0;
+    }
+    // Check if the window goes beyond the right boundary
+    else if (xEnd + appWidthValueInPixel >= window.innerWidth) {
+      console.log("dans le if");
+      xEnd = window.innerWidth - appWidthValueInPixel - 4 /* border */;
+    }
+
+    // Check if the window goes beyond the top boundary
+    if (yEnd <= 50 /* Taskbar size */) {
+      yEnd = 50;
+    }
+    // Check if the window goes beyond the bottom boundary
+    else if (yEnd + appHeightValueInPixel >= window.innerHeight) {
+      yEnd = window.innerHeight - appHeightValueInPixel - 4 /* border */;
+    }
+
+    // Update the window position
+    changeAppAxisValues(identifier, { x: xEnd, y: yEnd });
+
+    const transitionTimeout = setTimeout(() => {
+      toggleTransition(true);
+      clearTimeout(transitionTimeout);
+    }, 500);
+  };
+
   return (
     <FrameHeaderStyled
       className="frameHeader-container"
       onDoubleClickCapture={doubleClickMaximize}
+      draggable
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
     >
       <div className="frameHeader-header">
         <img src={defineIcon()} alt="" className="header-icon" />
@@ -100,6 +183,11 @@ FrameHeader.propTypes = {
   runningOff: PropTypes.func.isRequired,
   identifier: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  utils: PropTypes.object.isRequired,
+  changeDragStartValues: PropTypes.func.isRequired,
+  changeAppAxisValues: PropTypes.func.isRequired,
+  focusOn: PropTypes.func.isRequired,
+  toggleTransition: PropTypes.func.isRequired,
 };
 
 export default FrameHeader;

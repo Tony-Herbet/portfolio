@@ -1,11 +1,12 @@
 # Todo
 
 - Find a way to display the troll face
-- pre load images
+- Fix bug when maximize (might be because of the draggable and it occurs more with terminal) the app go above 100vw
+- Fix bug when maximize then minimize you can't focus on already open apps
 
 ## Ideas
 
-- Currently txtReader initialData is fill at "boot" from Folder and i might want to change that. To do so i'll need to create a need action type just for that.
+- Currently txtReader initialData is fill at "boot" from Folder and i might want to change that. To do so i'll need to create an action type just for that.
 - iframe language?
 - cv language?
 - countries flag for i18n

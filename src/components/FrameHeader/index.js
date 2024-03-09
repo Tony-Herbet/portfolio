@@ -122,7 +122,6 @@ const FrameHeader = ({
     }
     // Check if the window goes beyond the right boundary
     else if (xEnd + appWidthValueInPixel >= window.innerWidth) {
-      console.log("dans le if");
       xEnd = window.innerWidth - appWidthValueInPixel - 4 /* border */;
     }
 

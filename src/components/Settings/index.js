@@ -30,7 +30,8 @@ const Settings = ({
   useEffect(() => {
     const backgrounds = [background1, background2, background3, background4];
     backgrounds.forEach((background) => {
-      new Image().src = background;
+      const img = new Image();
+      img.src = background;
     });
   }, []);
 

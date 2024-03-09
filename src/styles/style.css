@@ -2,6 +2,7 @@
   font-family: "UbuntuFont";
   src: local("UbuntuFont"),
     url("../assets/fonts/ubuntuMono.woff2") format("woff2");
+  font-display: swap;
 }
 
 html,

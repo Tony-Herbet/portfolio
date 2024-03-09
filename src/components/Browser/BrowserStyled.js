@@ -55,7 +55,7 @@ const BrowserStyled = styled.div`
   }};
   height: ${(props) =>
     props.browser.maximize
-      ? "calc(100vh - 50px)"
+      ? "calc(100vh - 52px)"
       : `${props.browser.height}vh`};
 
   opacity: ${(props) =>

@@ -55,7 +55,7 @@ const TerminalStyled = styled.div`
   }};
   height: ${(props) =>
     props.terminal.maximize
-      ? "calc(100vh - 50px)"
+      ? "calc(100vh - 52px)"
       : `${props.terminal.height}vh`};
 
   opacity: ${(props) =>

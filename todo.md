@@ -1,8 +1,6 @@
 # Todo
 
 - Find a way to display the troll face
-- Fix bug when maximize (might be because of the draggable and it occurs more with terminal) the app go above 100vw
-- Fix bug when maximize then minimize you can't focus on already open apps
 
 ## Ideas
 

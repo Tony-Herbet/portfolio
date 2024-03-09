@@ -171,6 +171,9 @@ const utils = (state = initialState, action = {}) => {
         ...allAppsFocusOff,
         [action.identifier]: {
           ...state[action.identifier],
+          /* This is a fix so it doesn't break the css when minimizing a maximize app.
+          It also prevent the minimize app to block the interaction with already opened apps */
+          maximize: false,
           minimize: true,
         },
       };

@@ -8,10 +8,10 @@ const AppStyled = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  min-height: 100%;
-  max-height: 100%;
-  min-width: 100%;
-  max-width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
   cursor: default;
 
   .frame-container {

@@ -55,7 +55,7 @@ const TxtReaderStyled = styled.div`
   }};
   height: ${(props) =>
     props.txtreader.maximize
-      ? "calc(100vh - 50px)"
+      ? "calc(100vh - 52px)"
       : `${props.txtreader.height}vh`};
 
   opacity: ${(props) =>

@@ -55,7 +55,7 @@ const SettingsStyled = styled.div`
   }};
   height: ${(props) =>
     props.settings.maximize
-      ? "calc(100vh - 50px)"
+      ? "calc(100vh - 52px)"
       : `${props.settings.height}vh`};
 
   opacity: ${(props) =>

@@ -54,7 +54,7 @@ const FolderStyled = styled.div`
     }
   }};
   height: ${(props) =>
-    props.folder.maximize ? "calc(100vh - 50px)" : `${props.folder.height}vh`};
+    props.folder.maximize ? "calc(100vh - 52px)" : `${props.folder.height}vh`};
 
   opacity: ${(props) =>
     props.folder.minimize ? "0" : "1"}; /* Mimic fade in-out */

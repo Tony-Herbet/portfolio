@@ -54,7 +54,7 @@ const PdfStyled = styled.div`
     }
   }};
   height: ${(props) =>
-    props.pdf.maximize ? "calc(100vh - 50px)" : `${props.pdf.height}vh`};
+    props.pdf.maximize ? "calc(100vh - 52px)" : `${props.pdf.height}vh`};
 
   opacity: ${(props) =>
     props.pdf.minimize ? "0" : "1"}; /* Mimic fade in-out */

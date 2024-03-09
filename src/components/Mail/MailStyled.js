@@ -54,7 +54,7 @@ const MailStyled = styled.div`
     }
   }};
   height: ${(props) =>
-    props.mail.maximize ? "calc(100vh - 50px)" : `${props.mail.height}vh`};
+    props.mail.maximize ? "calc(100vh - 52px)" : `${props.mail.height}vh`};
 
   opacity: ${(props) =>
     props.mail.minimize ? "0" : "1"}; /* Mimic fade in-out */

@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 import PdfStyled from "./PdfStyled";
 import FrameHeader from "containers/FrameHeader";
-import CV from "../../assets/CV_2023-09-11_Tony_Herbet_Le_Faucheur.pdf";
+import CVFRA from "../../assets/cv/CV_2024-03-12_Tony_Herbet Le Faucheur_FRA.pdf";
+import CVENG from "../../assets/cv/CV_2024-03-12_Tony_Herbet Le Faucheur_ENG.pdf";
 
 import { t, handleFocusMutualize } from "../../helpers";
 
@@ -12,19 +13,32 @@ const Pdf = ({ pdf, focusOn, language }) => {
     handleFocusMutualize(pdf.minimize, focusOn, "pdf");
   };
 
+  const handleCV = () => {
+    switch (language) {
+      case "FRA":
+        return CVFRA;
+
+      case "ENG":
+        return CVENG;
+
+      default:
+        return CVFRA;
+    }
+  };
+
   return (
     <PdfStyled className="frame-container" pdf={pdf} onClick={handleFocus}>
       <FrameHeader identifier="pdf" name="Clay Gymnast Reader" />
       <div className="frame-inside" onClick={handleFocus}>
         <object
           className="pdf-object"
-          data={CV}
+          data={handleCV()}
           type="application/pdf"
           aria-label="PDF Viewer"
         >
           <p>
             {t("pdf_error_text_1", language)}
-            <a href={CV}>{t("pdf_error_text_2", language)}</a>
+            <a href={handleCV()}>{t("pdf_error_text_2", language)}</a>
           </p>
         </object>
         <div className="overlay">

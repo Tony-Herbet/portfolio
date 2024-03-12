@@ -1,12 +1,12 @@
 # Todo
 
 - Find a way to display the troll face
+- Fix mobile/tablet css (apps size and link colors)
 
 ## Ideas
 
 - Currently txtReader initialData is fill at "boot" from Folder and i might want to change that. To do so i'll need to create an action type just for that.
 - iframe language?
-- cv language?
 - countries flag for i18n
 - custom color picker in settings
 - TxtReader usable

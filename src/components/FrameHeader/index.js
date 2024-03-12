@@ -56,7 +56,11 @@ const FrameHeader = ({
   };
 
   const maximizeApp = () => {
-    maximizeClicked(identifier);
+    // This is supposed to prevent maximize on mobile/tablet but it's not perfect, it can be bypass when spamming
+    // TODO find a better solution
+    if (window.innerWidth > 1024) {
+      maximizeClicked(identifier);
+    }
   };
 
   const closeApp = (e) => {

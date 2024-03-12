@@ -30,11 +30,16 @@ const App = ({ theme, landingIsOpen, loading, transition }) => (
           {!landingIsOpen && !loading && (
             <>
               <Taskbar />
-              <Browser />
-              <Terminal />
-              <Folder />
-              <TxtReader />
-              <Settings />
+              {window.innerWidth >= 1024 && (
+                // This makes the DOM cleaner
+                <>
+                  <Browser />
+                  <Terminal />
+                  <Folder />
+                  <TxtReader />
+                  <Settings />
+                </>
+              )}
               <Pdf />
               <Mail />
             </>

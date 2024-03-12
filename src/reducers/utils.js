@@ -175,6 +175,8 @@ const utils = (state = initialState, action = {}) => {
           It also prevent the minimize app to block the interaction with already opened apps */
           maximize: false,
           minimize: true,
+          focus: false,
+          zIndex: 0,
         },
       };
 

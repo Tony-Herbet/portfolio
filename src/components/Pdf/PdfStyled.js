@@ -80,18 +80,18 @@ const PdfStyled = styled.div`
         ? "none"
         : "block"}; /* enable/disable the onClick on the iframe */
     position: absolute;
-    top: 30px
-      /* frameHeader size, this is important to be able to hover/click on the "-ox" buttons */;
+    top: calc(30px + 0.2rem);
+    /* frameHeader size, this is important to be able to hover/click on the "-ox" buttons */
+    width: calc(100vw - 4px);
+    height: calc(100vh - 54px);
     left: 0;
-    right: 0;
-    height: 100%;
   }
 
   @media (width < 1024px) {
+    width: calc(100vw - 4px);
+    height: calc(100vh - 54px);
     top: 50px;
-    bottom: 0;
     left: 0;
-    right: 0;
   }
 `;
 

@@ -171,10 +171,10 @@ const MailStyled = styled.div`
   }
 
   @media (width < 1024px) {
+    width: calc(100vw - 4px);
+    height: calc(100vh - 54px);
     top: 50px;
-    bottom: 0;
     left: 0;
-    right: 0;
   }
 `;
 

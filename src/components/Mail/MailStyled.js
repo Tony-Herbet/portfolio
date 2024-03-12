@@ -171,9 +171,9 @@ const MailStyled = styled.div`
   }
 
   @media (width < 1024px) {
-    width: calc(100vw - 4px);
-    height: calc(100vh - 54px);
-    top: 50px;
+    width: calc(100vw - 4px); /* minus borders */
+    height: calc(100vh - 54px); /* minus borders + taskbar */
+    top: 50px; /* taskbar */
     left: 0;
   }
 `;

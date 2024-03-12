@@ -1,7 +1,6 @@
 # Todo
 
 - Find a way to display the troll face
-- Fix mobile/tablet css (apps size and link colors)
 
 ## Ideas
 
@@ -21,4 +20,3 @@
 
 - The real Browser sometimes broke the css, might need to restart when this happens
 - Pdf sometimes doesn't open and it's just a gray brackground (the background color of the actual pdf reader)
-- Css broke sometimes, a white space is create at the bottom and the all app is offset (The problem most likely comes from PDF)

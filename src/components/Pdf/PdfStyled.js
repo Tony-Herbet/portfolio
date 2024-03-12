@@ -82,15 +82,15 @@ const PdfStyled = styled.div`
     position: absolute;
     top: calc(30px + 0.2rem);
     /* frameHeader size, this is important to be able to hover/click on the "-ox" buttons */
-    width: calc(100vw - 4px);
-    height: calc(100vh - 54px);
+    width: 100%;
+    height: calc(100% - 30px); /* Parent size minus the frameHeader */
     left: 0;
   }
 
   @media (width < 1024px) {
-    width: calc(100vw - 4px);
-    height: calc(100vh - 54px);
-    top: 50px;
+    width: calc(100vw - 4px); /* minus borders */
+    height: calc(100vh - 54px); /* minus borders + taskbar */
+    top: 50px; /* taskbar */
     left: 0;
   }
 `;

@@ -1,7 +1,5 @@
 # Todo
 
-- Find a way to display the troll face
-
 ## Ideas
 
 - Currently txtReader initialData is fill at "boot" from Folder and i might want to change that. To do so i'll need to create an action type just for that.

@@ -55,7 +55,7 @@ const Mail = ({
               value={form.name}
               onChange={handleChange}
               placeholder={t("mail_name", language)}
-              className="name"
+              className="form-input name"
               autoFocus
             />
           </label>
@@ -68,7 +68,7 @@ const Mail = ({
               value={form.email}
               onChange={handleChange}
               placeholder={t("mail_email", language)}
-              className="email"
+              className="form-input email"
               autoFocus
             />
           </label>

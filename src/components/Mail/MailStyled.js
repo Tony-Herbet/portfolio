@@ -77,6 +77,10 @@ const MailStyled = styled.div`
     margin-bottom: 1rem;
   }
 
+  .form-input {
+    width: 100%;
+  }
+
   .name {
     background-color: ${(props) =>
       props.theme[props.theme.themeStyle].secondary};

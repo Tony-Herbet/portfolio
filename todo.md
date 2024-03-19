@@ -1,6 +1,5 @@
 # Todo
 
-- longer length for Mail input
 - Save settings in localStorage
 
 ## Ideas

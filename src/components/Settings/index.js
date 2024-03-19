@@ -13,6 +13,7 @@ import background3 from "assets/images/backgrounds/3.jpg";
 import background4 from "assets/images/backgrounds/4.jpg";
 
 import { handleCurrentBackground, t, handleFocusMutualize } from "helpers";
+import { backgroundNames } from "constants";
 
 const Settings = ({
   settings,
@@ -125,25 +126,25 @@ const Settings = ({
                 <img
                   className="settings-images"
                   src={background1}
-                  name="background1"
+                  name={backgroundNames[0]}
                   onClick={handleBackgroundClick}
                 />
                 <img
                   className="settings-images"
                   src={background2}
-                  name="background2"
+                  name={backgroundNames[1]}
                   onClick={handleBackgroundClick}
                 />
                 <img
                   className="settings-images"
                   src={background3}
-                  name="background3"
+                  name={backgroundNames[2]}
                   onClick={handleBackgroundClick}
                 />
                 <img
                   className="settings-images"
                   src={background4}
-                  name="background4"
+                  name={backgroundNames[3]}
                   onClick={handleBackgroundClick}
                 />
               </div>

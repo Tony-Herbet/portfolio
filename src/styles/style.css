@@ -21,6 +21,10 @@ iframe {
   border: none;
 }
 
+a {
+  transition: color 0.2s ease-in-out;
+}
+
 /* unvisited link */
 a:link {
   color: #007bff;

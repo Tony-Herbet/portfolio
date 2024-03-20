@@ -89,7 +89,8 @@ const PdfStyled = styled.div`
 
   @media (width < 1024px) {
     width: calc(100vw - 4px); /* minus borders */
-    height: calc(100vh - 54px); /* minus borders + taskbar */
+    /* https://stackoverflow.com/a/72245072/4773272 */
+    height: calc(100dvh - 54px); /* minus borders + taskbar */
     top: 50px; /* taskbar */
     left: 0;
   }

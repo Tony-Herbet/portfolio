@@ -70,6 +70,12 @@ const LandingStyled = styled.div`
 
   @media (width < 1024px) {
     font-size: 14px;
+    /* https://stackoverflow.com/a/72245072/4773272 */
+    height: 100dvh;
+
+    .landing-title {
+      font-size: 1.5rem;
+    }
   }
 `;
 

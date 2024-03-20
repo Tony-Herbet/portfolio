@@ -147,7 +147,14 @@ const SettingsStyled = styled.div`
     background-color: ${(props) => props.theme.accent};
     height: 25px;
     width: 25px;
-    border: rgb(255, 255, 255) solid 2px;
+    border: transparent solid 2px;
+  }
+
+  .colors-picker {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 250px;
   }
 
   .settings-images-current {

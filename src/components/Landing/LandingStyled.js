@@ -73,7 +73,13 @@ const LandingStyled = styled.div`
     height: 100dvh;
 
     .landing-title {
+      margin-top: 50px;
       font-size: 1.5rem;
+      margin-bottom: 0.3em;
+    }
+
+    .landing-content {
+      padding: 0.25em 0.5em;
     }
   }
 `;

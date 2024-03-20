@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { FaPalette, FaImage } from "react-icons/fa";
-import { GithubPicker } from "react-color";
 
 import SettingsStyled from "./SettingsStyled";
 import FrameHeader from "containers/FrameHeader";
+import ColorChoice from "./ColorChoice";
 
 import background1 from "assets/images/backgrounds/1.png";
 import background2 from "assets/images/backgrounds/2.jpg";
@@ -13,7 +13,7 @@ import background3 from "assets/images/backgrounds/3.jpg";
 import background4 from "assets/images/backgrounds/4.jpg";
 
 import { handleCurrentBackground, t, handleFocusMutualize } from "helpers";
-import { backgroundNames } from "constants";
+import { backgroundNames, validColors } from "constants";
 
 const Settings = ({
   settings,
@@ -101,9 +101,16 @@ const Settings = ({
                 </option>
               </select>
               <p>{t("settings_theme_accent_choice", language)}</p>
-              <GithubPicker
-                onChangeComplete={(color) => changeAccentColor(color.hex)}
-              />
+              <div className="colors-picker">
+                {validColors.map((color) => (
+                  <ColorChoice
+                    key={color}
+                    color={color}
+                    className="color-choice"
+                    changeAccentColor={changeAccentColor}
+                  />
+                ))}
+              </div>
               <div>{t("settings_theme_accent_current", language)}</div>
               <div className="accent-square-display" />
             </>

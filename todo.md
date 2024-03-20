@@ -5,7 +5,6 @@
 - Currently txtReader initialData is fill at "boot" from Folder and i might want to change that. To do so i'll need to create an action type just for that.
 - iframe language?
 - countries flag for i18n
-- custom color picker in settings
 - TxtReader usable
 - konami code/secret
 - top right time

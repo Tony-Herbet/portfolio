@@ -15,8 +15,7 @@ const LandingStyled = styled.div`
 
   .landing-title {
     font-size: 2rem;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
+    margin-bottom: 0.5em;
     font-weight: bold;
   }
 
@@ -25,7 +24,7 @@ const LandingStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0.67em;
+    padding: 0.5em;
   }
 
   .landing-text {

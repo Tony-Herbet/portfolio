@@ -3,12 +3,14 @@
 ## Bienvenue / Welcome
 
 Voici mon portfolio.
-Il s'agissait d'un site Web conçu pour mettre en valeur mes compétences techniques et mes compétences en conception de sites Web.
+Il s'agit d'un site Web conçu pour mettre en valeur mes compétences techniques et mes compétences en conception de sites Web.
+[Lien](https://thlf.dev) pour le voir en ligne.
 
 ---
 
 Here is my portfolio.
-This was a website designed to showcase my technical skills and web design skills.
+This is a website designed to showcase my technical skills and web design skills.
+[Link](https://thlf.dev) to view it online.
 
 ## Technologies principales utilisées / Main technologies used
 

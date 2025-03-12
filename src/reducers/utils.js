@@ -15,8 +15,8 @@ import {
   CHANGE_DRAG_START_VALUES,
   CHANGE_APP_AXIS_VALUES,
   TOGGLE_TRANSITION,
-} from "actions/utils";
-import { FOCUS_FILE_TAB } from "actions/txtReader";
+} from 'actions/utils';
+import { FOCUS_FILE_TAB } from 'actions/txtReader';
 
 const initialState = {
   terminal: {
@@ -100,7 +100,7 @@ const initialState = {
   landingIsOpen: true,
   loading: false,
   languageMenuOpen: false,
-  language: "FRA",
+  language: 'FRA',
   dragStart: {
     x: 0,
     y: 0,
@@ -242,6 +242,7 @@ const utils = (state = initialState, action = {}) => {
         ...allAppsFocusOff,
         zIndexCounter: state.zIndexCounter + 1,
         pdf: {
+          ...state.pdf,
           running: true,
           minimize: false,
           focus: true,

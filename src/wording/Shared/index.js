@@ -25,7 +25,7 @@ export const WORDING_SHARED = {
     name: 'D&D 5e Damage Calculator',
     tech: 'Vue.js',
     github: 'https://github.com/Tony-Herbet/DnD-5e-Damage-Calculator',
-    link: null,
+    link: 'https://dnd-5e-damage-calculator.sangyn.fr/',
   },
   canvas_name: 'Canvas.txt',
   canvas_text: {
